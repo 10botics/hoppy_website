@@ -1,0 +1,372 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="tagline">Hop into Learning with</div>
+          <h1 class="logo-text">
+            H<span class="bunny-o">o</span>ppy
+          </h1>
+          <p class="hero-description">
+            Join Hoppy the bunny on an exciting learning adventure! Fun, interactive, and designed specifically for curious young minds.
+          </p>
+          <div class="cta-buttons">
+            <button class="btn btn-primary">Get Started</button>
+            <button class="btn btn-secondary">Learn More</button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="/hoppy-mascot-full.jpeg" alt="Hoppy the bunny mascot" class="mascot-image animate-bounce" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <h2>Why Choose Hoppy?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Interactive Learning</h3>
+          <p>Engaging activities that make learning fun and memorable</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Creative Play</h3>
+          <p>Colorful, playful design that sparks curiosity and imagination</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Progress Tracking</h3>
+          <p>Watch your child grow and celebrate their achievements</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ruler Section -->
+    <section class="ruler-section">
+      <div class="ruler-content">
+        <img src="/hoppy-ruler.jpeg" alt="Hoppy with ruler" class="ruler-image" />
+        <div class="ruler-text">
+          <h2>Measure Your Learning Journey</h2>
+          <p>Hoppy helps you track progress with every hop! Together, we'll measure achievements and celebrate milestones in your educational adventure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+      <div class="cta-content">
+        <img src="/hoppy-logo.jpeg" alt="Hoppy logo" class="footer-logo" />
+        <h2>Ready to Start Hopping?</h2>
+        <p>Join thousands of kids already learning with Hoppy</p>
+        <button class="btn btn-primary btn-large">Start Your Journey</button>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items HISTORIQUE center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--hoppy-gray) 0%, #E5E5E5 100%);
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-text {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    color: var(--hoppy-navy);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .logo-text {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .bunny-o {
+    color: var(--hoppy-blue);
+    font-style: italic;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    color: var(--hoppy-navy);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--hoppy-blue);
+    color: var(--hoppy-white);
+  }
+
+  .btn-primary:hover {
+    background-color: #35a3c9;
+    box-shadow: 0 8px 20px rgba(63, 181, 219, 0.4);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--hoppy-blue);
+    border: 2px solid var(--hoppy-blue);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--hoppy-blue);
+    color: var(--hoppy-white);
+  }
+
+  .btn-large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.25rem;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1s ease-out 0.2s both;
+  }
+
+  .mascot-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Features Section */
+  .features {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .features h2 {
+    margin-bottom: 3rem;
+    color: var(--hoppy-navy);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .feature-card {
+    background: var(--hoppy-white);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    margin-bottom: 1rem;
+    color: var(--hoppy-navy);
+  }
+
+  .feature-card p {
+    color: var(--hoppy-gray-dark);
+    line-height: 1.8;
+  }
+
+  /* Ruler Section */
+  .ruler-section {
+    padding: 5rem 2rem;
+    background-color: var(--hoppy-white);
+    margin: 2rem auto;
+    max-width: 1400px;
+    border-radius: 30px;
+  }
+
+  .ruler-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .ruler-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .ruler-text h2 {
+    margin-bottom: 1.5rem;
+    color: var(--hoppy-navy);
+  }
+
+  .ruler-text p {
+    color: var(--hoppy-gray-dark);
+    line-height: 1.9;
+  }
+
+  /* Footer CTA */
+  .footer-cta {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--hoppy-blue) 0%, #35a3c9 100%);
+    text-align: center;
+    color: var(--hoppy-white);
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  }
+
+  .footer-cta h2 {
+    color: var(--hoppy-white);
+    margin-bottom: 1rem;
+  }
+
+  .footer-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .footer-cta .btn-primary {
+    background-color: var(--hoppy-white);
+    color: var(--hoppy-blue);
+  }
+
+  .footer-cta .btn-primary:hover {
+    background-color: var(--hoppy-gray);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .hero-text {
+      order: 2;
+    }
+
+    .hero-image {
+      order: 1;
+    }
+
+    .ruler-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .ruler-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      min-height: auto;
+      padding: 2rem 0.5rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .btn {
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-large {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .features, .ruler-section, .footer-cta {
+      padding: 3rem 1rem;
+    }
+  }
+</style>
