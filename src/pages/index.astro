@@ -68,6 +68,14 @@ import Layout from '../layouts/Layout.astro';
         <button class="btn btn-primary btn-large">Start Your Journey</button>
       </div>
     </section>
+
+    <!-- Contact Footer -->
+    <footer class="contact-footer">
+      <div class="contact-info">
+        <p>Email: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
+        <p>Phone: 60844867</p>
+      </div>
+    </footer>
   </main>
 </Layout>
 
@@ -304,6 +312,35 @@ import Layout from '../layouts/Layout.astro';
   .footer-cta .btn-primary:hover {
     background-color: var(--hoppy-gray);
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Contact Footer */
+  .contact-footer {
+    background-color: var(--hoppy-navy);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--hoppy-white);
+  }
+
+  .contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .contact-info a {
+    color: var(--hoppy-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .contact-info a:hover {
+    color: var(--hoppy-white);
+    text-decoration: underline;
   }
 
   /* Responsive Design */
