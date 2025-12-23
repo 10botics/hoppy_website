@@ -18,6 +18,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="cta-buttons">
             <button class="btn btn-primary">Get Started</button>
             <button class="btn btn-secondary">Learn More</button>
+            <a href="/supported-question-images" class="btn btn-tertiary">Supported Widgets</a>
           </div>
         </div>
         <div class="hero-image">
@@ -167,6 +168,20 @@ import Layout from '../layouts/Layout.astro';
   .btn-secondary:hover {
     background-color: var(--hoppy-blue);
     color: var(--hoppy-white);
+  }
+
+  .btn-tertiary {
+    background-color: var(--hoppy-navy);
+    color: var(--hoppy-white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-tertiary:hover {
+    background-color: #1e3a5f;
+    box-shadow: 0 8px 20px rgba(30, 58, 95, 0.4);
   }
 
   .btn-large {

@@ -37,10 +37,6 @@ import Layout from '../layouts/Layout.astro';
             <span class="widget-label">With Second Hand</span>
           </div>
         </div>
-        <div class="widget-code">
-          <code>&lt;analogclock hour="10" minute="10"&gt;&lt;/analogclock&gt;</code>
-          <code>&lt;analogclock hour="10" minute="10" second="30"&gt;&lt;/analogclock&gt;</code>
-        </div>
       </div>
 
       <!-- Digital Clock -->
@@ -62,10 +58,6 @@ import Layout from '../layouts/Layout.astro';
             <span class="widget-label">24-Hour Format</span>
           </div>
         </div>
-        <div class="widget-code">
-          <code>&lt;digitalclock hour="12" minute="45"&gt;&lt;/digitalclock&gt;</code>
-          <code>&lt;digitalclock hour="15" minute="08" is24hour="true"&gt;&lt;/digitalclock&gt;</code>
-        </div>
       </div>
 
       <!-- Bar Chart -->
@@ -83,9 +75,6 @@ import Layout from '../layouts/Layout.astro';
             <span class="widget-label">Quarterly Sales Example</span>
           </div>
         </div>
-        <div class="widget-code">
-          <code>&lt;barchart title="Quarterly Sales" valuelabels="Q1,Q2,Q3,Q4" values="100,150,120,180" min="0" max="200" interval="50"&gt;&lt;/barchart&gt;</code>
-        </div>
       </div>
 
       <!-- Box Whisker Plot -->
@@ -102,9 +91,6 @@ import Layout from '../layouts/Layout.astro';
             <img src="/widgets/widget_boxwhisker.svg" alt="Box Whisker Plot Widget" />
             <span class="widget-label">Score Distribution Example</span>
           </div>
-        </div>
-        <div class="widget-code">
-          <code>&lt;boxwhisker s="45" q1="55" q2="70" q3="82" l="95" min="0" max="100" interval="20" labelx="Score"&gt;&lt;/boxwhisker&gt;</code>
         </div>
       </div>
 
@@ -130,11 +116,6 @@ import Layout from '../layouts/Layout.astro';
             <img src="/widgets/widget_equationgraph_parabola.svg" alt="Parabola Graph" />
             <span class="widget-label">x²</span>
           </div>
-        </div>
-        <div class="widget-code">
-          <code>&lt;equationgraph equations="\sin{'{'}x{'}'}" names="\sin{'{'}x{'}'}" xmin="-6.28" xmax="6.28"&gt;&lt;/equationgraph&gt;</code>
-          <code>&lt;equationgraph equations="\sin{'{'}x{'}'},\cos{'{'}x{'}'}" colors="blue,red" xmin="-6.28" xmax="6.28"&gt;&lt;/equationgraph&gt;</code>
-          <code>&lt;equationgraph equations="x^{'{'}2{'}'}" names="x^{'{'}2{'}'}" xmin="-5" xmax="5"&gt;&lt;/equationgraph&gt;</code>
         </div>
       </div>
 
@@ -353,26 +334,6 @@ import Layout from '../layouts/Layout.astro';
     color: #64748b;
     font-weight: 500;
     text-align: center;
-  }
-
-  /* Widget Code */
-  .widget-code {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .widget-code code {
-    display: block;
-    background: #0f172a;
-    color: #38bdf8;
-    padding: 1rem 1.25rem;
-    border-radius: 10px;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-    font-size: 0.85rem;
-    overflow-x: auto;
-    white-space: nowrap;
-    border: 1px solid #1e293b;
   }
 
   /* Features Section */
