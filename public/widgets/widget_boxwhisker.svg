@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400.0" height="180.0" viewBox="0 0 400.0 180.0">
+  <style>
+    .axis-value { font-family: sans-serif; font-size: 11px; fill: #000000B3; text-anchor: middle; }
+    .axis-label { font-family: sans-serif; font-size: 12px; fill: #000000B3; text-anchor: end; }
+  </style>
+  <rect width="400.0" height="180.0" fill="white"/>
+  <line x1="20.00" y1="15.0" x2="20.00" y2="125.0" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="20.00" y="140.0" class="axis-value">0</text>
+  <line x1="92.00" y1="15.0" x2="92.00" y2="125.0" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="92.00" y="140.0" class="axis-value">20</text>
+  <line x1="164.00" y1="15.0" x2="164.00" y2="125.0" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="164.00" y="140.0" class="axis-value">40</text>
+  <line x1="236.00" y1="15.0" x2="236.00" y2="125.0" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="236.00" y="140.0" class="axis-value">60</text>
+  <line x1="308.00" y1="15.0" x2="308.00" y2="125.0" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="308.00" y="140.0" class="axis-value">80</text>
+  <line x1="380.00" y1="15.0" x2="380.00" y2="125.0" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="380.00" y="140.0" class="axis-value">100</text>
+  <line x1="20.0" y1="125.0" x2="380.0" y2="125.0" stroke="#000000" stroke-opacity="0.5"/>
+  <line x1="182.00" y1="70.00" x2="218.00" y2="70.00" stroke="#2196F3" stroke-width="2"/>
+  <line x1="315.20" y1="70.00" x2="362.00" y2="70.00" stroke="#2196F3" stroke-width="2"/>
+  <line x1="182.00" y1="62.00" x2="182.00" y2="78.00" stroke="#2196F3" stroke-width="2"/>
+  <line x1="362.00" y1="62.00" x2="362.00" y2="78.00" stroke="#2196F3" stroke-width="2"/>
+  <rect x="220.00" y="52.00" width="97.20" height="40.0" rx="4" fill="#2196F3" fill-opacity="0.3" filter="blur(4px)"/>
+  <rect x="218.00" y="50.00" width="97.20" height="40.0" rx="4" fill="#2196F3" fill-opacity="0.3" stroke="#2196F3" stroke-width="2"/>
+  <line x1="272.00" y1="52.00" x2="272.00" y2="88.00" stroke="#2196F3" stroke-width="3"/>
+  <text x="380.0" y="175.0" class="axis-label">Score</text>
+</svg>

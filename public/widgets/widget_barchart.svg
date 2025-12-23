@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400.0" height="280.0" viewBox="0 0 400.0 280.0">
+  <style>
+    .title { font-family: sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; }
+    .axis-label { font-family: sans-serif; font-size: 12px; fill: #00000099; }
+    .axis-value { font-family: sans-serif; font-size: 10px; fill: #000000B3; }
+    .bar-label { font-family: sans-serif; font-size: 11px; fill: #000000CC; text-anchor: middle; }
+  </style>
+  <rect width="400.0" height="280.0" fill="white"/>
+  <text x="200.0" y="20" class="title" fill="#000000">Quarterly Sales</text>
+  <text x="14" y="135.0" class="axis-label" transform="rotate(-90, 14, 135.0)" text-anchor="middle">Sales (K)</text>
+  <line x1="65.0" y1="230.00" x2="380.0" y2="230.00" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="60.0" y="230.00" class="axis-value" text-anchor="end" dominant-baseline="middle">0</text>
+  <line x1="65.0" y1="182.50" x2="380.0" y2="182.50" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="60.0" y="182.50" class="axis-value" text-anchor="end" dominant-baseline="middle">50</text>
+  <line x1="65.0" y1="135.00" x2="380.0" y2="135.00" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="60.0" y="135.00" class="axis-value" text-anchor="end" dominant-baseline="middle">100</text>
+  <line x1="65.0" y1="87.50" x2="380.0" y2="87.50" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="60.0" y="87.50" class="axis-value" text-anchor="end" dominant-baseline="middle">150</text>
+  <line x1="65.0" y1="40.00" x2="380.0" y2="40.00" stroke="#808080" stroke-opacity="0.3"/>
+  <text x="60.0" y="40.00" class="axis-value" text-anchor="end" dominant-baseline="middle">200</text>
+  <rect x="82.75" y="137.00" width="47.25" height="95.00" rx="4" fill="#2196F3" fill-opacity="0.3"/>
+  <rect x="80.75" y="135.00" width="47.25" height="95.00" rx="4" fill="#2196F3"/>
+  <text x="104.38" y="245.00" class="bar-label">Q1</text>
+  <rect x="161.50" y="89.50" width="47.25" height="142.50" rx="4" fill="#2196F3" fill-opacity="0.3"/>
+  <rect x="159.50" y="87.50" width="47.25" height="142.50" rx="4" fill="#2196F3"/>
+  <text x="183.13" y="245.00" class="bar-label">Q2</text>
+  <rect x="240.25" y="118.00" width="47.25" height="114.00" rx="4" fill="#2196F3" fill-opacity="0.3"/>
+  <rect x="238.25" y="116.00" width="47.25" height="114.00" rx="4" fill="#2196F3"/>
+  <text x="261.88" y="245.00" class="bar-label">Q3</text>
+  <rect x="319.00" y="61.00" width="47.25" height="171.00" rx="4" fill="#2196F3" fill-opacity="0.3"/>
+  <rect x="317.00" y="59.00" width="47.25" height="171.00" rx="4" fill="#2196F3"/>
+  <text x="340.63" y="245.00" class="bar-label">Q4</text>
+  <text x="222.5" y="275.0" class="axis-label" text-anchor="middle">Quarter</text>
+</svg>

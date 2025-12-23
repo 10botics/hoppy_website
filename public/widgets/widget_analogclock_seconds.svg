@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="280.0" height="280.0" viewBox="0 0 280.0 280.0">
+  <style>
+    .clock-number { font-family: sans-serif; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+  </style>
+  <circle cx="140.0" cy="140.0" r="120.0" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+  <line x1="140.00" y1="36.00" x2="140.00" y2="24.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="151.50" y1="30.60" x2="152.13" y2="24.64" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="162.87" y1="32.40" x2="164.12" y2="26.53" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="173.99" y1="35.38" x2="175.85" y2="29.68" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="184.74" y1="39.51" x2="187.18" y2="34.03" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="192.00" y1="49.93" x2="198.00" y2="39.54" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="204.66" y1="51.01" x2="208.18" y2="46.15" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="213.60" y1="58.25" x2="217.62" y2="53.80" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="221.75" y1="66.40" x2="226.20" y2="62.38" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="228.99" y1="75.34" x2="233.85" y2="71.82" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="230.07" y1="88.00" x2="240.46" y2="82.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="240.49" y1="95.26" x2="245.97" y2="92.82" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="244.62" y1="106.01" x2="250.32" y2="104.15" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="247.60" y1="117.13" x2="253.47" y2="115.88" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="249.40" y1="128.50" x2="255.36" y2="127.87" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="244.00" y1="140.00" x2="256.00" y2="140.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="249.40" y1="151.50" x2="255.36" y2="152.13" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="247.60" y1="162.87" x2="253.47" y2="164.12" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="244.62" y1="173.99" x2="250.32" y2="175.85" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="240.49" y1="184.74" x2="245.97" y2="187.18" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="230.07" y1="192.00" x2="240.46" y2="198.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="228.99" y1="204.66" x2="233.85" y2="208.18" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="221.75" y1="213.60" x2="226.20" y2="217.62" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="213.60" y1="221.75" x2="217.62" y2="226.20" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="204.66" y1="228.99" x2="208.18" y2="233.85" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="192.00" y1="230.07" x2="198.00" y2="240.46" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="184.74" y1="240.49" x2="187.18" y2="245.97" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="173.99" y1="244.62" x2="175.85" y2="250.32" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="162.87" y1="247.60" x2="164.12" y2="253.47" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="151.50" y1="249.40" x2="152.13" y2="255.36" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="140.00" y1="244.00" x2="140.00" y2="256.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="128.50" y1="249.40" x2="127.87" y2="255.36" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="117.13" y1="247.60" x2="115.88" y2="253.47" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="106.01" y1="244.62" x2="104.15" y2="250.32" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="95.26" y1="240.49" x2="92.82" y2="245.97" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="88.00" y1="230.07" x2="82.00" y2="240.46" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="75.34" y1="228.99" x2="71.82" y2="233.85" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="66.40" y1="221.75" x2="62.38" y2="226.20" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="58.25" y1="213.60" x2="53.80" y2="217.62" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="51.01" y1="204.66" x2="46.15" y2="208.18" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="49.93" y1="192.00" x2="39.54" y2="198.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="39.51" y1="184.74" x2="34.03" y2="187.18" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="35.38" y1="173.99" x2="29.68" y2="175.85" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="32.40" y1="162.87" x2="26.53" y2="164.12" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="30.60" y1="151.50" x2="24.64" y2="152.13" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="36.00" y1="140.00" x2="24.00" y2="140.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="30.60" y1="128.50" x2="24.64" y2="127.87" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="32.40" y1="117.13" x2="26.53" y2="115.88" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="35.38" y1="106.01" x2="29.68" y2="104.15" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="39.51" y1="95.26" x2="34.03" y2="92.82" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="49.93" y1="88.00" x2="39.54" y2="82.00" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="51.01" y1="75.34" x2="46.15" y2="71.82" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="58.25" y1="66.40" x2="53.80" y2="62.38" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="66.40" y1="58.25" x2="62.38" y2="53.80" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="75.34" y1="51.01" x2="71.82" y2="46.15" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="88.00" y1="49.93" x2="82.00" y2="39.54" stroke="#808080" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="95.26" y1="39.51" x2="92.82" y2="34.03" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="106.01" y1="35.38" x2="104.15" y2="29.68" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="117.13" y1="32.40" x2="115.88" y2="26.53" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <line x1="128.50" y1="30.60" x2="127.87" y2="24.64" stroke="#808080" stroke-width="1" stroke-linecap="round"/>
+  <text x="186.00" y="60.33" class="clock-number" fill="#000000" font-size="16.8">1</text>
+  <text x="219.67" y="94.00" class="clock-number" fill="#000000" font-size="16.8">2</text>
+  <text x="232.00" y="140.00" class="clock-number" fill="#000000" font-size="16.8">3</text>
+  <text x="219.67" y="186.00" class="clock-number" fill="#000000" font-size="16.8">4</text>
+  <text x="186.00" y="219.67" class="clock-number" fill="#000000" font-size="16.8">5</text>
+  <text x="140.00" y="232.00" class="clock-number" fill="#000000" font-size="16.8">6</text>
+  <text x="94.00" y="219.67" class="clock-number" fill="#000000" font-size="16.8">7</text>
+  <text x="60.33" y="186.00" class="clock-number" fill="#000000" font-size="16.8">8</text>
+  <text x="48.00" y="140.00" class="clock-number" fill="#000000" font-size="16.8">9</text>
+  <text x="60.33" y="94.00" class="clock-number" fill="#000000" font-size="16.8">10</text>
+  <text x="94.00" y="60.33" class="clock-number" fill="#000000" font-size="16.8">11</text>
+  <text x="140.00" y="48.00" class="clock-number" fill="#000000" font-size="16.8">12</text>
+  <line x1="140.0" y1="140.0" x2="95.77" y2="109.03" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
+  <line x1="140.0" y1="140.0" x2="207.55" y2="101.00" stroke="#000000" stroke-width="4" stroke-linecap="round"/>
+  <line x1="140.0" y1="140.0" x2="140.00" y2="230.00" stroke="#FF0000" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140.0" cy="140.0" r="8" fill="#000000"/>
+  <circle cx="140.0" cy="140.0" r="4" fill="#FFFFFF"/>
+</svg>

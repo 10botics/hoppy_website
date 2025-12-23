@@ -1,0 +1,515 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Supported Question Widgets</h1>
+        <p class="hero-description">
+          Hoppy supports a variety of interactive widgets for creating engaging educational questions. 
+          Explore the different visualization types available for quiz content.
+        </p>
+      </div>
+    </section>
+
+    <!-- Widgets Gallery -->
+    <section class="widgets-gallery">
+      
+      <!-- Analog Clock -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">🕐</div>
+          <div class="widget-info">
+            <h2>Analog Clock</h2>
+            <p>Interactive analog clock display with hour and minute hands. Optional second hand for precise time questions.</p>
+          </div>
+        </div>
+        <div class="widget-examples two-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_analogclock.svg" alt="Analog Clock without seconds" />
+            <span class="widget-label">Without Second Hand</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_analogclock_seconds.svg" alt="Analog Clock with seconds" />
+            <span class="widget-label">With Second Hand</span>
+          </div>
+        </div>
+        <div class="widget-code">
+          <code>&lt;analogclock hour="10" minute="10"&gt;&lt;/analogclock&gt;</code>
+          <code>&lt;analogclock hour="10" minute="10" second="30"&gt;&lt;/analogclock&gt;</code>
+        </div>
+      </div>
+
+      <!-- Digital Clock -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">⏰</div>
+          <div class="widget-info">
+            <h2>Digital Clock</h2>
+            <p>7-segment digital clock display supporting both 12-hour (AM/PM) and 24-hour formats.</p>
+          </div>
+        </div>
+        <div class="widget-examples two-column">
+          <div class="widget-card dark-bg">
+            <img src="/widgets/widget_digitalclock_12h.svg" alt="Digital Clock 12-hour format" />
+            <span class="widget-label">12-Hour Format (AM/PM)</span>
+          </div>
+          <div class="widget-card dark-bg">
+            <img src="/widgets/widget_digitalclock_24h.svg" alt="Digital Clock 24-hour format" />
+            <span class="widget-label">24-Hour Format</span>
+          </div>
+        </div>
+        <div class="widget-code">
+          <code>&lt;digitalclock hour="12" minute="45"&gt;&lt;/digitalclock&gt;</code>
+          <code>&lt;digitalclock hour="15" minute="08" is24hour="true"&gt;&lt;/digitalclock&gt;</code>
+        </div>
+      </div>
+
+      <!-- Bar Chart -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📊</div>
+          <div class="widget-info">
+            <h2>Bar Chart</h2>
+            <p>Vertical bar chart with configurable axes, labels, and values. Perfect for data interpretation questions.</p>
+          </div>
+        </div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_barchart.svg" alt="Bar Chart Widget" />
+            <span class="widget-label">Quarterly Sales Example</span>
+          </div>
+        </div>
+        <div class="widget-code">
+          <code>&lt;barchart title="Quarterly Sales" valuelabels="Q1,Q2,Q3,Q4" values="100,150,120,180" min="0" max="200" interval="50"&gt;&lt;/barchart&gt;</code>
+        </div>
+      </div>
+
+      <!-- Box Whisker Plot -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📈</div>
+          <div class="widget-info">
+            <h2>Box Whisker Plot</h2>
+            <p>Statistical box-and-whisker plot showing five-number summary: smallest, Q1, median, Q3, and largest values.</p>
+          </div>
+        </div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_boxwhisker.svg" alt="Box Whisker Plot Widget" />
+            <span class="widget-label">Score Distribution Example</span>
+          </div>
+        </div>
+        <div class="widget-code">
+          <code>&lt;boxwhisker s="45" q1="55" q2="70" q3="82" l="95" min="0" max="100" interval="20" labelx="Score"&gt;&lt;/boxwhisker&gt;</code>
+        </div>
+      </div>
+
+      <!-- Equation Graph -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📐</div>
+          <div class="widget-info">
+            <h2>Equation Graph</h2>
+            <p>Mathematical function plotter supporting LaTeX notation. Display single or multiple equations with customizable colors and axes.</p>
+          </div>
+        </div>
+        <div class="widget-examples three-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_equationgraph_sin.svg" alt="Sine Graph" />
+            <span class="widget-label">sin(x)</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_equationgraph_sincos.svg" alt="Sine and Cosine Graph" />
+            <span class="widget-label">sin(x) & cos(x)</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_equationgraph_parabola.svg" alt="Parabola Graph" />
+            <span class="widget-label">x²</span>
+          </div>
+        </div>
+        <div class="widget-code">
+          <code>&lt;equationgraph equations="\sin{'{'}x{'}'}" names="\sin{'{'}x{'}'}" xmin="-6.28" xmax="6.28"&gt;&lt;/equationgraph&gt;</code>
+          <code>&lt;equationgraph equations="\sin{'{'}x{'}'},\cos{'{'}x{'}'}" colors="blue,red" xmin="-6.28" xmax="6.28"&gt;&lt;/equationgraph&gt;</code>
+          <code>&lt;equationgraph equations="x^{'{'}2{'}'}" names="x^{'{'}2{'}'}" xmin="-5" xmax="5"&gt;&lt;/equationgraph&gt;</code>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Supported Features -->
+    <section class="features-section">
+      <h2>Additional Supported Content</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">📝</div>
+          <h3>LaTeX Math</h3>
+          <p>Render mathematical expressions using &lt;tex&gt; tags</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎨</div>
+          <h3>SVG Graphics</h3>
+          <p>Custom SVG drawings with full attribute support</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📋</div>
+          <h3>Tables</h3>
+          <p>HTML tables with colspan, rowspan, and LaTeX content</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back Link -->
+    <section class="back-section">
+      <a href="/" class="back-link">← Back to Home</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="contact-footer">
+      <div class="contact-info">
+        <p>Email: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
+        <p>Phone: 60844867</p>
+      </div>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(63, 181, 219, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Widgets Gallery */
+  .widgets-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .widget-section {
+    margin-bottom: 4rem;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .widget-section:hover {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .widget-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .widget-icon {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+    padding: 1rem;
+    border-radius: 16px;
+    flex-shrink: 0;
+  }
+
+  .widget-info h2 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .widget-info p {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Widget Examples */
+  .widget-examples {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .widget-examples.two-column {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .widget-examples.three-column {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .widget-examples.single-column {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .widget-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .widget-card:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  }
+
+  .widget-card.dark-bg {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-color: #334155;
+  }
+
+  .widget-card.dark-bg:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  }
+
+  .widget-card.dark-bg .widget-label {
+    color: #94a3b8;
+  }
+
+  .widget-card.large img {
+    max-width: 100%;
+  }
+
+  .widget-card img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+  }
+
+  .widget-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* Widget Code */
+  .widget-code {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .widget-code code {
+    display: block;
+    background: #0f172a;
+    color: #38bdf8;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    border: 1px solid #1e293b;
+  }
+
+  /* Features Section */
+  .features-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .features-section h2 {
+    text-align: center;
+    color: #0f172a;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #3FB5DB;
+  }
+
+  .feature-item .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item h3 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .feature-item p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* Back Section */
+  .back-section {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #3FB5DB;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #3FB5DB;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: #3FB5DB;
+    color: #ffffff;
+    transform: translateX(-5px);
+  }
+
+  /* Contact Footer */
+  .contact-footer {
+    background-color: #0f172a;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #ffffff;
+  }
+
+  .contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .contact-info a {
+    color: #3FB5DB;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .contact-info a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .widget-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .widget-section {
+      padding: 1.5rem;
+    }
+
+    .widget-card {
+      padding: 1.5rem;
+    }
+
+    .widget-code code {
+      font-size: 0.75rem;
+      padding: 0.75rem;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .widgets-gallery {
+      padding: 2rem 1rem;
+    }
+  }
+</style>
+
