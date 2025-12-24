@@ -121,6 +121,86 @@ import Layout from '../layouts/Layout.astro';
 
     </section>
 
+    <!-- App Screenshots Section -->
+    <section class="screenshots-section">
+      <h2>Live App Screenshots</h2>
+      <p class="section-description">See how these widgets appear in actual quiz questions within the Hoppy app.</p>
+      
+      <div class="screenshot-category">
+        <h3>🕐 Clock Widgets</h3>
+        <div class="screenshots-grid four-column">
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-digital-clock-options.jpeg" alt="Digital clock multiple choice question" />
+            <span class="screenshot-label">Digital Clock Options</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-analog-clock-selection.jpeg" alt="Analog clock selection question" />
+            <span class="screenshot-label">Analog Clock Selection</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-analog-digital-conversion.jpeg" alt="Analog to digital clock conversion" />
+            <span class="screenshot-label">Clock Conversion</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-analog-clock-reading.jpeg" alt="Analog clock time reading" />
+            <span class="screenshot-label">Time Reading</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="screenshot-category">
+        <h3>📊 Chart Widgets</h3>
+        <div class="screenshots-grid four-column">
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-bar-chart-temperature.jpeg" alt="Bar chart temperature question" />
+            <span class="screenshot-label">Temperature Bar Chart</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-bar-chart-books.jpeg" alt="Bar chart books borrowed question" />
+            <span class="screenshot-label">Books Bar Chart</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-box-whisker-iqr.jpeg" alt="Box whisker IQR question" />
+            <span class="screenshot-label">Box Plot (IQR)</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-box-whisker-salary.jpeg" alt="Box whisker salary comparison" />
+            <span class="screenshot-label">Box Plot Comparison</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="screenshot-category">
+        <h3>📐 Equation Graphs</h3>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-linear-inequality-graph.jpeg" alt="Linear inequality graph" />
+            <span class="screenshot-label">Linear Inequality</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-feasible-region.jpeg" alt="Feasible region graph" />
+            <span class="screenshot-label">Feasible Region</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-simultaneous-equations.jpeg" alt="Simultaneous equations" />
+            <span class="screenshot-label">Simultaneous Equations</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-line-intersection.jpeg" alt="Line intersection" />
+            <span class="screenshot-label">Line Intersection</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-logarithmic-functions.jpeg" alt="Logarithmic functions" />
+            <span class="screenshot-label">Logarithmic Functions</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-exponential-function.jpeg" alt="Exponential function" />
+            <span class="screenshot-label">Exponential Function</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Supported Features -->
     <section class="features-section">
       <h2>Additional Supported Content</h2>
@@ -443,6 +523,89 @@ import Layout from '../layouts/Layout.astro';
     text-decoration: underline;
   }
 
+  /* Screenshots Section */
+  .screenshots-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #fafafa 0%, #f0f4f8 100%);
+  }
+
+  .screenshots-section h2 {
+    text-align: center;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .section-description {
+    text-align: center;
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .screenshot-category {
+    margin-bottom: 3rem;
+  }
+
+  .screenshot-category h3 {
+    color: #0f172a;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .screenshots-grid.four-column {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .screenshot-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .screenshot-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-color: #3FB5DB;
+  }
+
+  .screenshot-card img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #f1f5f9;
+  }
+
+  .screenshot-label {
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 600;
+    text-align: center;
+  }
+
   /* Responsive Design */
   @media (max-width: 768px) {
     .widget-header {
@@ -470,6 +633,38 @@ import Layout from '../layouts/Layout.astro';
 
     .widgets-gallery {
       padding: 2rem 1rem;
+    }
+
+    .screenshots-section {
+      padding: 2rem 1rem;
+    }
+
+    .screenshots-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .screenshots-grid.four-column {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .screenshot-card {
+      padding: 0.75rem;
+    }
+
+    .screenshot-card img {
+      max-width: 100%;
+    }
+
+    .screenshot-label {
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .screenshots-grid,
+    .screenshots-grid.four-column {
+      grid-template-columns: 1fr;
     }
   }
 </style>
