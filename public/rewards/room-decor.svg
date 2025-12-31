@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="320" viewBox="0 0 400 320">
+  <defs>
+    <linearGradient id="nightBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A237E"/>
+      <stop offset="50%" style="stop-color:#283593"/>
+      <stop offset="100%" style="stop-color:#3949AB"/>
+    </linearGradient>
+    <linearGradient id="ledStrip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF1744"/>
+      <stop offset="16%" style="stop-color:#FF9100"/>
+      <stop offset="33%" style="stop-color:#FFEA00"/>
+      <stop offset="50%" style="stop-color:#00E676"/>
+      <stop offset="66%" style="stop-color:#00B0FF"/>
+      <stop offset="83%" style="stop-color:#651FFF"/>
+      <stop offset="100%" style="stop-color:#D500F9"/>
+    </linearGradient>
+    <linearGradient id="glowStar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B2FF59"/>
+      <stop offset="100%" style="stop-color:#76FF03"/>
+    </linearGradient>
+    <linearGradient id="neonSign" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F48FB1"/>
+      <stop offset="50%" style="stop-color:#FF80AB"/>
+      <stop offset="100%" style="stop-color:#F48FB1"/>
+    </linearGradient>
+    <filter id="ledGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="starGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="roomShadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <style>
+    .title { font-family: 'Orbitron', 'Audiowide', sans-serif; font-size: 22px; font-weight: bold; }
+    .subtitle { font-family: 'Noto Sans TC', sans-serif; font-size: 14px; fill: #B388FF; }
+    .item { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 10px; fill: #E8EAF6; }
+    .item-zh { font-family: 'Noto Sans TC', sans-serif; font-size: 9px; fill: #C5CAE9; }
+    .name-text { font-family: 'Pacifico', cursive; }
+  </style>
+  
+  <!-- Dark background -->
+  <rect width="400" height="320" fill="url(#nightBg)" rx="16"/>
+  
+  <!-- Subtle stars in background -->
+  <g fill="white" opacity="0.3">
+    <circle cx="50" cy="30" r="1"/>
+    <circle cx="120" cy="50" r="0.8"/>
+    <circle cx="200" cy="25" r="1.2"/>
+    <circle cx="280" cy="45" r="0.7"/>
+    <circle cx="350" cy="35" r="1"/>
+    <circle cx="380" cy="70" r="0.6"/>
+    <circle cx="30" cy="80" r="0.8"/>
+    <circle cx="170" cy="65" r="0.5"/>
+    <circle cx="320" cy="20" r="0.9"/>
+  </g>
+  
+  <!-- LED Strip Lights -->
+  <g filter="url(#ledGlow)" transform="translate(20, 40)">
+    <!-- LED strip base -->
+    <rect x="0" y="0" width="360" height="12" rx="6" fill="#424242"/>
+    <!-- Glowing LEDs -->
+    <rect x="3" y="2" width="354" height="8" rx="4" fill="url(#ledStrip)"/>
+    <!-- Individual LED dots for texture -->
+    <g fill="white" opacity="0.6">
+      <circle cx="20" cy="6" r="2"/>
+      <circle cx="45" cy="6" r="2"/>
+      <circle cx="70" cy="6" r="2"/>
+      <circle cx="95" cy="6" r="2"/>
+      <circle cx="120" cy="6" r="2"/>
+      <circle cx="145" cy="6" r="2"/>
+      <circle cx="170" cy="6" r="2"/>
+      <circle cx="195" cy="6" r="2"/>
+      <circle cx="220" cy="6" r="2"/>
+      <circle cx="245" cy="6" r="2"/>
+      <circle cx="270" cy="6" r="2"/>
+      <circle cx="295" cy="6" r="2"/>
+      <circle cx="320" cy="6" r="2"/>
+      <circle cx="345" cy="6" r="2"/>
+    </g>
+  </g>
+  
+  <!-- Glow-in-the-dark Stars scattered -->
+  <g filter="url(#starGlow)">
+    <!-- Large stars -->
+    <polygon points="80,80 83,90 93,90 85,96 88,106 80,100 72,106 75,96 67,90 77,90" fill="url(#glowStar)"/>
+    <polygon points="320,75 323,84 332,84 325,89 328,98 320,93 312,98 315,89 308,84 317,84" fill="url(#glowStar)"/>
+    <polygon points="200,65 203,74 212,74 205,79 208,88 200,83 192,88 195,79 188,74 197,74" fill="url(#glowStar)"/>
+    
+    <!-- Medium stars -->
+    <polygon points="50,110 52,116 58,116 53,120 55,126 50,122 45,126 47,120 42,116 48,116" fill="url(#glowStar)" opacity="0.8"/>
+    <polygon points="150,95 152,100 157,100 153,103 155,108 150,105 145,108 147,103 143,100 148,100" fill="url(#glowStar)" opacity="0.9"/>
+    <polygon points="260,100 262,105 267,105 263,108 265,113 260,110 255,113 257,108 253,105 258,105" fill="url(#glowStar)" opacity="0.85"/>
+    <polygon points="350,110 352,115 357,115 353,118 355,123 350,120 345,123 347,118 343,115 348,115" fill="url(#glowStar)" opacity="0.75"/>
+    
+    <!-- Small stars -->
+    <polygon points="110,90 111,93 114,93 112,95 113,98 110,96 107,98 108,95 106,93 109,93" fill="url(#glowStar)" opacity="0.7" transform="scale(0.7)"/>
+    <polygon points="380,130 381,133 384,133 382,135 383,138 380,136 377,138 378,135 376,133 379,133" fill="url(#glowStar)" opacity="0.6" transform="scale(0.8)"/>
+    <polygon points="30,140 31,142 33,142 31.5,143.5 32,145 30,144 28,145 28.5,143.5 27,142 29,142" fill="url(#glowStar)" opacity="0.7"/>
+  </g>
+  
+  <!-- Moon decoration -->
+  <g transform="translate(340, 60)" opacity="0.4">
+    <circle cx="0" cy="0" r="20" fill="#FFF59D"/>
+    <circle cx="8" cy="-5" r="18" fill="url(#nightBg)"/>
+  </g>
+  
+  <!-- Personalized Name Sign -->
+  <g filter="url(#neonGlow)" transform="translate(100, 120)">
+    <!-- Sign backing -->
+    <rect x="0" y="0" width="200" height="60" rx="8" fill="#1A1A2E" stroke="#3D3D5C" stroke-width="2"/>
+    
+    <!-- Neon text effect -->
+    <text x="100" y="42" class="name-text" font-size="28" fill="url(#neonSign)" text-anchor="middle">Emma</text>
+    
+    <!-- Decorative elements -->
+    <circle cx="20" cy="30" r="4" fill="#FF80AB" opacity="0.8"/>
+    <circle cx="180" cy="30" r="4" fill="#FF80AB" opacity="0.8"/>
+    
+    <!-- Hearts -->
+    <g fill="#FF80AB" transform="translate(35, 25) scale(0.5)">
+      <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/>
+    </g>
+    <g fill="#FF80AB" transform="translate(160, 25) scale(0.5)">
+      <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z"/>
+    </g>
+    
+    <!-- Mounting holes -->
+    <circle cx="15" cy="10" r="3" fill="#0D0D1A"/>
+    <circle cx="185" cy="10" r="3" fill="#0D0D1A"/>
+  </g>
+  
+  <!-- Title -->
+  <g transform="translate(200, 215)">
+    <text x="0" y="0" class="title" fill="#B388FF" text-anchor="middle">🌙 Room Decor</text>
+    <text x="0" y="24" class="subtitle" text-anchor="middle">房間裝飾</text>
+  </g>
+  
+  <!-- Items list -->
+  <g transform="translate(30, 258)">
+    <rect x="-4" y="-6" width="8" height="8" rx="1" fill="url(#ledStrip)"/>
+    <text x="12" y="3" class="item">LED strip lights</text>
+    <text x="12" y="15" class="item-zh">LED 燈條</text>
+  </g>
+  
+  <g transform="translate(145, 258)">
+    <polygon points="0,-4 2,2 6,2 3,5 4,10 0,7 -4,10 -3,5 -6,2 -2,2" fill="url(#glowStar)" filter="url(#starGlow)" transform="scale(0.6)"/>
+    <text x="12" y="3" class="item">Glow-in-dark stars</text>
+    <text x="12" y="15" class="item-zh">夜光星星貼紙</text>
+  </g>
+  
+  <g transform="translate(290, 258)">
+    <rect x="-4" y="-4" width="12" height="8" rx="2" fill="#FF80AB" filter="url(#neonGlow)"/>
+    <text x="16" y="3" class="item">Name signs</text>
+    <text x="16" y="15" class="item-zh">個人化名字標牌</text>
+  </g>
+  
+  <!-- Additional ambient glow effects -->
+  <g opacity="0.15">
+    <ellipse cx="200" cy="100" rx="150" ry="80" fill="#B388FF"/>
+  </g>
+  
+  <!-- Twinkling effect animation hint -->
+  <g fill="white" opacity="0.8">
+    <circle cx="95" cy="75" r="1">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="305" cy="85" r="1">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="185" cy="70" r="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
+
