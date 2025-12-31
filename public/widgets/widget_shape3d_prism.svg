@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="280.0" height="280.0" viewBox="0 0 280.0 280.0">
+  <style>
+    .vertex-label { font-family: sans-serif; font-size: 14px; font-weight: 600; }
+  </style>
+  <rect width="280.0" height="280.0" fill="#FFFFFF"/>
+  <line x1="70.11" y1="165.49" x2="161.52" y2="155.03" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,4" stroke-opacity="0.5"/>
+  <line x1="161.52" y1="155.03" x2="118.32" y2="73.60" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,4" stroke-opacity="0.5"/>
+  <line x1="161.52" y1="155.03" x2="228.33" y2="183.37" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,4" stroke-opacity="0.5"/>
+  <line x1="70.11" y1="165.49" x2="118.32" y2="73.60" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="98.22" y1="209.04" x2="175.05" y2="58.75" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="228.33" y1="183.37" x2="175.05" y2="58.75" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="98.22" y1="209.04" x2="228.33" y2="183.37" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="70.11" y1="165.49" x2="98.22" y2="209.04" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <line x1="118.32" y1="73.60" x2="175.05" y2="58.75" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="70.11" cy="165.49" r="4" fill="#000000"/>
+  <text x="58.11" y="181.49" class="vertex-label" fill="#000000" text-anchor="end">A</text>
+  <circle cx="161.52" cy="155.03" r="4" fill="#000000"/>
+  <text x="169.52" y="171.03" class="vertex-label" fill="#000000" text-anchor="start">B</text>
+  <circle cx="118.32" cy="73.60" r="4" fill="#000000"/>
+  <text x="106.32" y="65.60" class="vertex-label" fill="#000000" text-anchor="end">C</text>
+  <circle cx="98.22" cy="209.04" r="4" fill="#000000"/>
+  <text x="86.22" y="225.04" class="vertex-label" fill="#000000" text-anchor="end">D</text>
+  <circle cx="228.33" cy="183.37" r="4" fill="#000000"/>
+  <text x="236.33" y="199.37" class="vertex-label" fill="#000000" text-anchor="start">E</text>
+  <circle cx="175.05" cy="58.75" r="4" fill="#000000"/>
+  <text x="183.05" y="50.75" class="vertex-label" fill="#000000" text-anchor="start">F</text>
+</svg>
