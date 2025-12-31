@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400.0" height="280.0" viewBox="0 0 400.0 280.0">
+  <style>
+    .title { font-family: sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; }
+    .axis-label { font-family: sans-serif; font-size: 12px; fill: #00000099; }
+    .axis-value { font-family: sans-serif; font-size: 10px; fill: #000000B3; }
+    .point-label { font-family: sans-serif; font-size: 10px; fill: #000000CC; text-anchor: middle; }
+    .legend-text { font-family: sans-serif; font-size: 11px; fill: #000000; }
+  </style>
+  <rect width="400.0" height="280.0" fill="white"/>
+  <text x="200.0" y="20" class="title" fill="#000000">Sales Comparison</text>
+  <text x="14" y="120.0" class="axis-label" transform="rotate(-90, 14, 120.0)" text-anchor="middle">Sales (K)</text>
+  <line x1="65.0" y1="205.00" x2="380.0" y2="205.00" stroke="#808080" stroke-opacity="0.2"/>
+  <text x="60.0" y="205.00" class="axis-value" text-anchor="end" dominant-baseline="middle">0</text>
+  <line x1="65.0" y1="171.00" x2="380.0" y2="171.00" stroke="#808080" stroke-opacity="0.2"/>
+  <text x="60.0" y="171.00" class="axis-value" text-anchor="end" dominant-baseline="middle">50</text>
+  <line x1="65.0" y1="137.00" x2="380.0" y2="137.00" stroke="#808080" stroke-opacity="0.2"/>
+  <text x="60.0" y="137.00" class="axis-value" text-anchor="end" dominant-baseline="middle">100</text>
+  <line x1="65.0" y1="103.00" x2="380.0" y2="103.00" stroke="#808080" stroke-opacity="0.2"/>
+  <text x="60.0" y="103.00" class="axis-value" text-anchor="end" dominant-baseline="middle">150</text>
+  <line x1="65.0" y1="69.00" x2="380.0" y2="69.00" stroke="#808080" stroke-opacity="0.2"/>
+  <text x="60.0" y="69.00" class="axis-value" text-anchor="end" dominant-baseline="middle">200</text>
+  <line x1="65.0" y1="35.00" x2="380.0" y2="35.00" stroke="#808080" stroke-opacity="0.2"/>
+  <text x="60.0" y="35.00" class="axis-value" text-anchor="end" dominant-baseline="middle">250</text>
+  <path d="M65.00,137.00 L170.00,103.00 L275.00,123.40 L380.00,82.60" fill="none" stroke="#2196F3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="65.00" cy="137.00" r="4" fill="white" stroke="#2196F3" stroke-width="2"/>
+  <circle cx="170.00" cy="103.00" r="4" fill="white" stroke="#2196F3" stroke-width="2"/>
+  <circle cx="275.00" cy="123.40" r="4" fill="white" stroke="#2196F3" stroke-width="2"/>
+  <circle cx="380.00" cy="82.60" r="4" fill="white" stroke="#2196F3" stroke-width="2"/>
+  <path d="M65.00,130.20 L170.00,109.80 L275.00,96.20 L380.00,69.00" fill="none" stroke="#F44336" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="65.00" cy="130.20" r="4" fill="white" stroke="#F44336" stroke-width="2"/>
+  <circle cx="170.00" cy="109.80" r="4" fill="white" stroke="#F44336" stroke-width="2"/>
+  <circle cx="275.00" cy="96.20" r="4" fill="white" stroke="#F44336" stroke-width="2"/>
+  <circle cx="380.00" cy="69.00" r="4" fill="white" stroke="#F44336" stroke-width="2"/>
+  <text x="65.00" y="220.00" class="point-label">Q1</text>
+  <text x="170.00" y="220.00" class="point-label">Q2</text>
+  <text x="275.00" y="220.00" class="point-label">Q3</text>
+  <text x="380.00" y="220.00" class="point-label">Q4</text>
+  <text x="222.5" y="237.0" class="axis-label" text-anchor="middle">Quarter</text>
+  <line x1="65.00" y1="268.0" x2="83.00" y2="268.0" stroke="#2196F3" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="89.00" y="268.0" class="legend-text" dominant-baseline="middle">2023</text>
+  <line x1="155.00" y1="268.0" x2="173.00" y2="268.0" stroke="#F44336" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="179.00" y="268.0" class="legend-text" dominant-baseline="middle">2024</text>
+</svg>
