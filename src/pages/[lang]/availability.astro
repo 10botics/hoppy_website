@@ -1,21 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { languages, useTranslations, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout lang={lang}>
   <main class="availability-page">
     <!-- Header Section -->
     <header class="availability-header">
       <div class="header-content">
-        <a href="/" class="back-link">
+        <a href={`/${lang}`} class="back-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
-          Back to Home
+          {t('availability.backToHome')}
         </a>
         <img src="/hoppy-logo.jpeg" alt="Hoppy logo" class="header-logo" />
-        <h1>Available Regions</h1>
-        <p class="header-subtitle">See where Hoppy is hopping around the world!</p>
+        <h1>{t('availability.title')}</h1>
+        <p class="header-subtitle">{t('availability.subtitle')}</p>
       </div>
     </header>
 
@@ -24,8 +34,8 @@ import Layout from '../layouts/Layout.astro';
       <div class="content-wrapper">
         <div class="regions-intro">
           <div class="globe-icon">🌏</div>
-          <h2>Where Can You Find Hoppy?</h2>
-          <p>Hoppy is currently available in the following regions. We're working hard to bring our learning adventures to more places soon!</p>
+          <h2>{t('availability.whereFind')}</h2>
+          <p>{t('availability.intro')}</p>
         </div>
 
         <div class="regions-grid">
@@ -33,29 +43,29 @@ import Layout from '../layouts/Layout.astro';
           <div class="region-card available">
             <div class="region-flag">🇭🇰</div>
             <div class="region-info">
-              <h3>Hong Kong</h3>
+              <h3>{t('availability.hongKong')}</h3>
               <span class="region-status">
                 <span class="status-dot"></span>
-                Available Now
+                {t('availability.availableNow')}
               </span>
             </div>
             <div class="region-features">
-              <span class="feature-tag">Full Access</span>
-              <span class="feature-tag">Local Support</span>
+              <span class="feature-tag">{t('availability.fullAccess')}</span>
+              <span class="feature-tag">{t('availability.localSupport')}</span>
             </div>
           </div>
         </div>
 
         <!-- Coming Soon Section -->
         <div class="coming-soon-section">
-          <h2>Coming Soon</h2>
-          <p>We're expanding! More regions will be added in the future. Stay tuned for updates.</p>
+          <h2>{t('availability.comingSoon')}</h2>
+          <p>{t('availability.comingSoonText')}</p>
           
           <div class="notify-box">
             <div class="notify-icon">🔔</div>
             <div class="notify-text">
-              <h4>Want to know when Hoppy arrives in your region?</h4>
-              <p>Contact us at <a href="mailto:dev@10botics.com">dev@10botics.com</a> to get notified!</p>
+              <h4>{t('availability.notifyTitle')}</h4>
+              <p>{t('availability.notifyText')} <a href="mailto:dev@10botics.com">dev@10botics.com</a> {t('availability.notifyTextEnd')}</p>
             </div>
           </div>
         </div>
@@ -64,13 +74,13 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Footer -->
     <footer class="availability-footer">
-      <a href="/" class="footer-link">
+      <a href={`/${lang}`} class="footer-link">
         <img src="/hoppy-logo.jpeg" alt="Hoppy logo" class="footer-logo" />
-        <span>Return to Hoppy Home</span>
+        <span>{t('availability.returnHome')}</span>
       </a>
       <div class="contact-info">
-        <p>Email: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
-        <p>Phone: 60844867</p>
+        <p>{t('common.email')}: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
+        <p>{t('common.phone')}: 60844867</p>
       </div>
     </footer>
   </main>
@@ -449,4 +459,5 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 </style>
+
 

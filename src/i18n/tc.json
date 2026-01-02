@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "title": "Hoppy - 跳入學習之旅",
+    "description": "與 Hoppy 一起跳入學習之旅 - 專為孩子設計的教育應用程式"
+  },
+  "nav": {
+    "home": "首頁",
+    "widgets": "題目類型",
+    "availability": "服務地區",
+    "download": "下載",
+    "privacy": "私隱政策"
+  },
+  "langSwitcher": {
+    "label": "語言"
+  },
+  "home": {
+    "tagline": "讓學習變得令人上癮",
+    "heroDescription": "與小兔 Hoppy 一起踏上刺激的學習冒險！有趣、互動，專為好奇的小朋友設計。",
+    "appStore": {
+      "downloadOn": "下載於",
+      "appStore": "App Store"
+    },
+    "googlePlay": {
+      "getItOn": "立即下載",
+      "googlePlay": "Google Play"
+    },
+    "supportedWidgets": "支援的題目類型",
+    "whyChoose": "為什麼選擇 Hoppy？",
+    "features": {
+      "interactive": {
+        "title": "互動學習",
+        "description": "引人入勝的活動，讓學習變得有趣且難忘"
+      },
+      "creative": {
+        "title": "創意玩樂",
+        "description": "色彩繽紛、充滿童趣的設計，激發好奇心和想像力"
+      },
+      "progress": {
+        "title": "進度追蹤",
+        "description": "見證孩子的成長，慶祝每一個成就"
+      }
+    },
+    "ruler": {
+      "title": "量度你的學習旅程",
+      "description": "Hoppy 幫助你追蹤每一步的進度！我們將一起量度成就，慶祝學習旅程中的每個里程碑。"
+    },
+    "cta": {
+      "title": "準備好開始跳躍了嗎？",
+      "subtitle": "加入數以千計正在與 Hoppy 一起學習的小朋友"
+    },
+    "footer": {
+      "email": "電郵",
+      "phone": "電話"
+    }
+  },
+  "availability": {
+    "title": "服務地區",
+    "subtitle": "看看 Hoppy 在世界各地的蹤影！",
+    "backToHome": "返回首頁",
+    "whereFind": "在哪裡可以找到 Hoppy？",
+    "intro": "Hoppy 目前在以下地區提供服務。我們正努力將學習冒險帶到更多地方！",
+    "hongKong": "香港",
+    "availableNow": "現已開放",
+    "fullAccess": "完整存取",
+    "localSupport": "本地支援",
+    "comingSoon": "即將推出",
+    "comingSoonText": "我們正在擴展！未來將會加入更多地區。敬請期待更新。",
+    "notifyTitle": "想知道 Hoppy 何時來到你的地區？",
+    "notifyText": "聯絡我們",
+    "notifyTextEnd": "以獲取通知！",
+    "returnHome": "返回 Hoppy 首頁"
+  },
+  "download": {
+    "title": "下載 Hoppy",
+    "subtitle": "立即在你的裝置上下載 Hoppy！",
+    "backToHome": "返回首頁",
+    "apple": "Apple",
+    "android": "Android",
+    "ios": {
+      "title": "下載 iOS 版本",
+      "description": "從 App Store 在你的 iPhone 或 iPad 上下載 Hoppy，今天就開始你的學習冒險！",
+      "instructions": "要在你的 Apple 裝置上下載 Hoppy：",
+      "step1": "點擊下方的 App Store 按鈕",
+      "step2": "點擊「取得」免費下載 Hoppy",
+      "step3": "打開 Hoppy 開始學習！"
+    },
+    "androidSection": {
+      "title": "下載 Android 版本",
+      "description": "從 Google Play 在你的 Android 裝置上下載 Hoppy，今天就開始你的學習冒險！",
+      "instructions": "要在你的 Android 裝置上下載 Hoppy：",
+      "step1": "點擊下方的 Google Play 按鈕",
+      "step2": "點擊「安裝」免費下載 Hoppy",
+      "step3": "打開 Hoppy 開始學習！"
+    },
+    "returnHome": "返回 Hoppy 首頁"
+  },
+  "widgets": {
+    "title": "支援的題目類型",
+    "description": "Hoppy 支援多種互動題目類型，用於創建引人入勝的教育問題。探索測驗內容可用的不同視覺化類型。",
+    "liveExamples": "實際範例",
+    "widgetVariations": "類型變化",
+    "analogClock": {
+      "title": "模擬時鐘",
+      "description": "互動式模擬時鐘顯示，具有時針和分針。可選配秒針以進行精確的時間問題。",
+      "clockSelection": "時鐘選擇",
+      "timeReading": "時間讀取",
+      "clockConversion": "時鐘轉換",
+      "withoutSecondHand": "無秒針",
+      "withSecondHand": "有秒針"
+    },
+    "digitalClock": {
+      "title": "數字時鐘",
+      "description": "7段式數字時鐘顯示，支援12小時制（AM/PM）和24小時制格式。",
+      "multipleChoice": "多項選擇",
+      "format12": "12小時制（AM/PM）",
+      "format24": "24小時制"
+    },
+    "barChart": {
+      "title": "棒形圖",
+      "description": "可配置坐標軸、標籤和數值的垂直棒形圖。非常適合數據解讀問題。",
+      "temperatureChart": "溫度圖表",
+      "booksBorrowed": "借閱書籍",
+      "quarterlySales": "季度銷售範例"
+    },
+    "stackedBarChart": {
+      "title": "堆疊棒形圖",
+      "description": "具有多個數據系列的垂直堆疊棒形圖。支援最多4個系列，自動配色和圖例。",
+      "householdExpenses": "家庭開支",
+      "activityParticipation": "活動參與",
+      "cinemaSnackSales": "電影院零食銷售",
+      "bakerySales": "麵包店銷售",
+      "quarterlyRevenue": "按產品劃分的季度收入"
+    },
+    "brokenLineGraph": {
+      "title": "折線圖",
+      "description": "數據點由直線段連接的折線圖。支援多個系列，使用不同顏色進行趨勢比較。",
+      "dailySteps": "每日步數",
+      "weeklyTemperature": "每週溫度",
+      "booksRead": "閱讀書籍",
+      "monthlyTemperature": "每月溫度",
+      "singleSeries": "單一系列（溫度）",
+      "multipleSeries": "多系列（比較）"
+    },
+    "boxWhisker": {
+      "title": "箱形圖",
+      "description": "統計箱形圖，顯示五數概括：最小值、Q1、中位數、Q3 和最大值。",
+      "iqrQuestion": "四分位距問題",
+      "salaryComparison": "薪資比較",
+      "scoreDistribution": "分數分佈範例"
+    },
+    "equationGraph": {
+      "title": "方程式圖",
+      "description": "支援 LaTeX 表示法的數學函數繪圖器。顯示單個或多個方程式，可自定義顏色和坐標軸。",
+      "linearInequality": "線性不等式",
+      "feasibleRegion": "可行區域",
+      "simultaneousEquations": "聯立方程",
+      "lineIntersection": "直線相交",
+      "logarithmic": "對數函數",
+      "exponential": "指數函數"
+    },
+    "shape3d": {
+      "title": "3D 形狀",
+      "description": "具有透視投影的互動式3D幾何形狀。支援各種多面體，包括四面體、立方體、棱柱、棱錐和八面體，具有標記頂點和自動隱藏邊緣檢測。",
+      "tetrahedronFaces": "四面體面",
+      "tetrahedronProperties": "四面體屬性",
+      "rectangularPrism": "長方體",
+      "hexagonalPrism": "六角棱柱",
+      "tetrahedron": "四面體",
+      "cube": "立方體",
+      "squarePyramid": "正方錐",
+      "triangularPrism": "三角棱柱",
+      "octahedron": "八面體",
+      "withReferencePoints": "帶參考點"
+    },
+    "additionalContent": "其他支援內容",
+    "latex": {
+      "title": "LaTeX 數學",
+      "description": "使用 <tex> 標籤渲染數學表達式"
+    },
+    "svg": {
+      "title": "SVG 圖形",
+      "description": "自定義 SVG 繪圖，完整屬性支援"
+    },
+    "tables": {
+      "title": "表格",
+      "description": "具有 colspan、rowspan 和 LaTeX 內容的 HTML 表格"
+    },
+    "geometry": {
+      "title": "3D 幾何",
+      "description": "具有透視投影和標記頂點的互動式3D形狀"
+    },
+    "backToHome": "← 返回首頁"
+  },
+  "privacy": {
+    "title": "Hoppy 私隱政策",
+    "lastUpdated": "最後更新：2025年10月28日",
+    "backToHome": "返回首頁",
+    "returnHome": "返回 Hoppy 首頁"
+  },
+  "common": {
+    "email": "電郵",
+    "phone": "電話"
+  }
+}
+
+

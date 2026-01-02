@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "title": "Hoppy - Hop into Learning",
+    "description": "Hop into Learning with Hoppy - An educational app for kids"
+  },
+  "nav": {
+    "home": "Home",
+    "widgets": "Widgets",
+    "availability": "Availability",
+    "download": "Download",
+    "privacy": "Privacy"
+  },
+  "langSwitcher": {
+    "label": "Language"
+  },
+  "home": {
+    "tagline": "Learning becomes addictive",
+    "heroDescription": "Join Hoppy the bunny on an exciting learning adventure! Fun, interactive, and designed specifically for curious young minds.",
+    "appStore": {
+      "downloadOn": "Download on the",
+      "appStore": "App Store"
+    },
+    "googlePlay": {
+      "getItOn": "GET IT ON",
+      "googlePlay": "Google Play"
+    },
+    "supportedWidgets": "Supported Widgets",
+    "whyChoose": "Why Choose Hoppy?",
+    "features": {
+      "interactive": {
+        "title": "Interactive Learning",
+        "description": "Engaging activities that make learning fun and memorable"
+      },
+      "creative": {
+        "title": "Creative Play",
+        "description": "Colorful, playful design that sparks curiosity and imagination"
+      },
+      "progress": {
+        "title": "Progress Tracking",
+        "description": "Watch your child grow and celebrate their achievements"
+      }
+    },
+    "ruler": {
+      "title": "Measure Your Learning Journey",
+      "description": "Hoppy helps you track progress with every hop! Together, we'll measure achievements and celebrate milestones in your educational adventure."
+    },
+    "cta": {
+      "title": "Ready to Start Hopping?",
+      "subtitle": "Join thousands of kids already learning with Hoppy"
+    },
+    "footer": {
+      "email": "Email",
+      "phone": "Phone"
+    }
+  },
+  "availability": {
+    "title": "Available Regions",
+    "subtitle": "See where Hoppy is hopping around the world!",
+    "backToHome": "Back to Home",
+    "whereFind": "Where Can You Find Hoppy?",
+    "intro": "Hoppy is currently available in the following regions. We're working hard to bring our learning adventures to more places soon!",
+    "hongKong": "Hong Kong",
+    "availableNow": "Available Now",
+    "fullAccess": "Full Access",
+    "localSupport": "Local Support",
+    "comingSoon": "Coming Soon",
+    "comingSoonText": "We're expanding! More regions will be added in the future. Stay tuned for updates.",
+    "notifyTitle": "Want to know when Hoppy arrives in your region?",
+    "notifyText": "Contact us at",
+    "notifyTextEnd": "to get notified!",
+    "returnHome": "Return to Hoppy Home"
+  },
+  "download": {
+    "title": "Download Hoppy",
+    "subtitle": "Get Hoppy on your device today!",
+    "backToHome": "Back to Home",
+    "apple": "Apple",
+    "android": "Android",
+    "ios": {
+      "title": "Download for iOS",
+      "description": "Get Hoppy on your iPhone or iPad from the App Store and start your learning adventure today!",
+      "instructions": "To download Hoppy on your Apple device:",
+      "step1": "Click the App Store button below",
+      "step2": "Tap \"Get\" to download Hoppy for free",
+      "step3": "Open Hoppy and start learning!"
+    },
+    "androidSection": {
+      "title": "Download for Android",
+      "description": "Get Hoppy on your Android device from Google Play and start your learning adventure today!",
+      "instructions": "To download Hoppy on your Android device:",
+      "step1": "Click the Google Play button below",
+      "step2": "Tap \"Install\" to download Hoppy for free",
+      "step3": "Open Hoppy and start learning!"
+    },
+    "returnHome": "Return to Hoppy Home"
+  },
+  "widgets": {
+    "title": "Supported Question Widgets",
+    "description": "Hoppy supports a variety of interactive widgets for creating engaging educational questions. Explore the different visualization types available for quiz content.",
+    "liveExamples": "Live Examples",
+    "widgetVariations": "Widget Variations",
+    "analogClock": {
+      "title": "Analog Clock",
+      "description": "Interactive analog clock display with hour and minute hands. Optional second hand for precise time questions.",
+      "clockSelection": "Clock Selection",
+      "timeReading": "Time Reading",
+      "clockConversion": "Clock Conversion",
+      "withoutSecondHand": "Without Second Hand",
+      "withSecondHand": "With Second Hand"
+    },
+    "digitalClock": {
+      "title": "Digital Clock",
+      "description": "7-segment digital clock display supporting both 12-hour (AM/PM) and 24-hour formats.",
+      "multipleChoice": "Multiple Choice",
+      "format12": "12-Hour Format (AM/PM)",
+      "format24": "24-Hour Format"
+    },
+    "barChart": {
+      "title": "Bar Chart",
+      "description": "Vertical bar chart with configurable axes, labels, and values. Perfect for data interpretation questions.",
+      "temperatureChart": "Temperature Chart",
+      "booksBorrowed": "Books Borrowed",
+      "quarterlySales": "Quarterly Sales Example"
+    },
+    "stackedBarChart": {
+      "title": "Stacked Bar Chart",
+      "description": "Vertical stacked bar chart with multiple data series. Supports up to 4 series with automatic color assignment and legend.",
+      "householdExpenses": "Household Expenses",
+      "activityParticipation": "Activity Participation",
+      "cinemaSnackSales": "Cinema Snack Sales",
+      "bakerySales": "Bakery Sales",
+      "quarterlyRevenue": "Quarterly Revenue by Product"
+    },
+    "brokenLineGraph": {
+      "title": "Broken Line Graph",
+      "description": "Line chart where data points are connected by straight line segments. Supports multiple series with different colors for trend comparison.",
+      "dailySteps": "Daily Steps",
+      "weeklyTemperature": "Weekly Temperature",
+      "booksRead": "Books Read",
+      "monthlyTemperature": "Monthly Temperature",
+      "singleSeries": "Single Series (Temperature)",
+      "multipleSeries": "Multiple Series (Comparison)"
+    },
+    "boxWhisker": {
+      "title": "Box Whisker Plot",
+      "description": "Statistical box-and-whisker plot showing five-number summary: smallest, Q1, median, Q3, and largest values.",
+      "iqrQuestion": "IQR Question",
+      "salaryComparison": "Salary Comparison",
+      "scoreDistribution": "Score Distribution Example"
+    },
+    "equationGraph": {
+      "title": "Equation Graph",
+      "description": "Mathematical function plotter supporting LaTeX notation. Display single or multiple equations with customizable colors and axes.",
+      "linearInequality": "Linear Inequality",
+      "feasibleRegion": "Feasible Region",
+      "simultaneousEquations": "Simultaneous Equations",
+      "lineIntersection": "Line Intersection",
+      "logarithmic": "Logarithmic Functions",
+      "exponential": "Exponential Function"
+    },
+    "shape3d": {
+      "title": "3D Shapes",
+      "description": "Interactive 3D geometric shapes with perspective projection. Supports various polyhedra including tetrahedra, cubes, prisms, pyramids, and octahedra with labeled vertices and automatic hidden-edge detection.",
+      "tetrahedronFaces": "Tetrahedron Faces",
+      "tetrahedronProperties": "Tetrahedron Properties",
+      "rectangularPrism": "Rectangular Prism",
+      "hexagonalPrism": "Hexagonal Prism",
+      "tetrahedron": "Tetrahedron",
+      "cube": "Cube",
+      "squarePyramid": "Square Pyramid",
+      "triangularPrism": "Triangular Prism",
+      "octahedron": "Octahedron",
+      "withReferencePoints": "With Reference Points"
+    },
+    "additionalContent": "Additional Supported Content",
+    "latex": {
+      "title": "LaTeX Math",
+      "description": "Render mathematical expressions using <tex> tags"
+    },
+    "svg": {
+      "title": "SVG Graphics",
+      "description": "Custom SVG drawings with full attribute support"
+    },
+    "tables": {
+      "title": "Tables",
+      "description": "HTML tables with colspan, rowspan, and LaTeX content"
+    },
+    "geometry": {
+      "title": "3D Geometry",
+      "description": "Interactive 3D shapes with perspective projection and labeled vertices"
+    },
+    "backToHome": "← Back to Home"
+  },
+  "privacy": {
+    "title": "Privacy Policy for Hoppy",
+    "lastUpdated": "Last updated: October 28, 2025",
+    "backToHome": "Back to Home",
+    "returnHome": "Return to Hoppy Home"
+  },
+  "common": {
+    "email": "Email",
+    "phone": "Phone"
+  }
+}
+
+

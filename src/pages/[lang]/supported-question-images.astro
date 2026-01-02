@@ -1,16 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { languages, useTranslations, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout lang={lang}>
   <main>
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Supported Question Widgets</h1>
+        <h1>{t('widgets.title')}</h1>
         <p class="hero-description">
-          Hoppy supports a variety of interactive widgets for creating engaging educational questions. 
-          Explore the different visualization types available for quiz content.
+          {t('widgets.description')}
         </p>
       </div>
     </section>
@@ -23,38 +32,38 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">🕐</div>
           <div class="widget-info">
-            <h2>Analog Clock</h2>
-            <p>Interactive analog clock display with hour and minute hands. Optional second hand for precise time questions.</p>
+            <h2>{t('widgets.analogClock.title')}</h2>
+            <p>{t('widgets.analogClock.description')}</p>
           </div>
         </div>
         
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-analog-clock-selection.jpeg" alt="Analog clock selection question" />
-            <span class="screenshot-label">Clock Selection</span>
+            <span class="screenshot-label">{t('widgets.analogClock.clockSelection')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-analog-clock-reading.jpeg" alt="Analog clock time reading" />
-            <span class="screenshot-label">Time Reading</span>
+            <span class="screenshot-label">{t('widgets.analogClock.timeReading')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-analog-digital-conversion.jpeg" alt="Analog to digital clock conversion" />
-            <span class="screenshot-label">Clock Conversion</span>
+            <span class="screenshot-label">{t('widgets.analogClock.clockConversion')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples two-column">
           <div class="widget-card">
             <img src="/widgets/widget_analogclock.svg" alt="Analog Clock without seconds" />
-            <span class="widget-label">Without Second Hand</span>
+            <span class="widget-label">{t('widgets.analogClock.withoutSecondHand')}</span>
           </div>
           <div class="widget-card">
             <img src="/widgets/widget_analogclock_seconds.svg" alt="Analog Clock with seconds" />
-            <span class="widget-label">With Second Hand</span>
+            <span class="widget-label">{t('widgets.analogClock.withSecondHand')}</span>
           </div>
         </div>
       </div>
@@ -64,30 +73,30 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">⏰</div>
           <div class="widget-info">
-            <h2>Digital Clock</h2>
-            <p>7-segment digital clock display supporting both 12-hour (AM/PM) and 24-hour formats.</p>
+            <h2>{t('widgets.digitalClock.title')}</h2>
+            <p>{t('widgets.digitalClock.description')}</p>
           </div>
         </div>
 
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-digital-clock-options.jpeg" alt="Digital clock multiple choice question" />
-            <span class="screenshot-label">Multiple Choice</span>
+            <span class="screenshot-label">{t('widgets.digitalClock.multipleChoice')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples two-column">
           <div class="widget-card dark-bg">
             <img src="/widgets/widget_digitalclock_12h.svg" alt="Digital Clock 12-hour format" />
-            <span class="widget-label">12-Hour Format (AM/PM)</span>
+            <span class="widget-label">{t('widgets.digitalClock.format12')}</span>
           </div>
           <div class="widget-card dark-bg">
             <img src="/widgets/widget_digitalclock_24h.svg" alt="Digital Clock 24-hour format" />
-            <span class="widget-label">24-Hour Format</span>
+            <span class="widget-label">{t('widgets.digitalClock.format24')}</span>
           </div>
         </div>
       </div>
@@ -97,30 +106,30 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">📊</div>
           <div class="widget-info">
-            <h2>Bar Chart</h2>
-            <p>Vertical bar chart with configurable axes, labels, and values. Perfect for data interpretation questions.</p>
+            <h2>{t('widgets.barChart.title')}</h2>
+            <p>{t('widgets.barChart.description')}</p>
           </div>
         </div>
 
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-bar-chart-temperature.jpeg" alt="Bar chart temperature question" />
-            <span class="screenshot-label">Temperature Chart</span>
+            <span class="screenshot-label">{t('widgets.barChart.temperatureChart')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-bar-chart-books.jpeg" alt="Bar chart books borrowed question" />
-            <span class="screenshot-label">Books Borrowed</span>
+            <span class="screenshot-label">{t('widgets.barChart.booksBorrowed')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples single-column">
           <div class="widget-card large">
             <img src="/widgets/widget_barchart.svg" alt="Bar Chart Widget" />
-            <span class="widget-label">Quarterly Sales Example</span>
+            <span class="widget-label">{t('widgets.barChart.quarterlySales')}</span>
           </div>
         </div>
       </div>
@@ -130,38 +139,38 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">📊</div>
           <div class="widget-info">
-            <h2>Stacked Bar Chart</h2>
-            <p>Vertical stacked bar chart with multiple data series. Supports up to 4 series with automatic color assignment and legend.</p>
+            <h2>{t('widgets.stackedBarChart.title')}</h2>
+            <p>{t('widgets.stackedBarChart.description')}</p>
           </div>
         </div>
 
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-stacked-bar-chart-expenses.jpeg" alt="Stacked bar chart household expenses question" />
-            <span class="screenshot-label">Household Expenses</span>
+            <span class="screenshot-label">{t('widgets.stackedBarChart.householdExpenses')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-stacked-bar-chart-activity.jpeg" alt="Stacked bar chart activity participation" />
-            <span class="screenshot-label">Activity Participation</span>
+            <span class="screenshot-label">{t('widgets.stackedBarChart.activityParticipation')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-stacked-bar-chart-cinema-snacks.jpeg" alt="Stacked bar chart cinema snack sales" />
-            <span class="screenshot-label">Cinema Snack Sales</span>
+            <span class="screenshot-label">{t('widgets.stackedBarChart.cinemaSnackSales')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-stacked-bar-chart-bakery.jpeg" alt="Stacked bar chart bakery sales" />
-            <span class="screenshot-label">Bakery Sales</span>
+            <span class="screenshot-label">{t('widgets.stackedBarChart.bakerySales')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples single-column">
           <div class="widget-card large">
             <img src="/widgets/widget_stackedbarchart.svg" alt="Stacked Bar Chart Widget" />
-            <span class="widget-label">Quarterly Revenue by Product</span>
+            <span class="widget-label">{t('widgets.stackedBarChart.quarterlyRevenue')}</span>
           </div>
         </div>
       </div>
@@ -171,42 +180,42 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">📉</div>
           <div class="widget-info">
-            <h2>Broken Line Graph</h2>
-            <p>Line chart where data points are connected by straight line segments. Supports multiple series with different colors for trend comparison.</p>
+            <h2>{t('widgets.brokenLineGraph.title')}</h2>
+            <p>{t('widgets.brokenLineGraph.description')}</p>
           </div>
         </div>
 
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-broken-line-graph-steps.jpeg" alt="Broken line graph daily steps question" />
-            <span class="screenshot-label">Daily Steps</span>
+            <span class="screenshot-label">{t('widgets.brokenLineGraph.dailySteps')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-broken-line-graph-temperature-week.jpeg" alt="Broken line graph weekly temperature" />
-            <span class="screenshot-label">Weekly Temperature</span>
+            <span class="screenshot-label">{t('widgets.brokenLineGraph.weeklyTemperature')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-broken-line-graph-books.jpeg" alt="Broken line graph books read" />
-            <span class="screenshot-label">Books Read</span>
+            <span class="screenshot-label">{t('widgets.brokenLineGraph.booksRead')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-broken-line-graph-temperature-months.jpeg" alt="Broken line graph monthly temperature" />
-            <span class="screenshot-label">Monthly Temperature</span>
+            <span class="screenshot-label">{t('widgets.brokenLineGraph.monthlyTemperature')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples two-column">
           <div class="widget-card">
             <img src="/widgets/widget_brokenlinegraph.svg" alt="Broken Line Graph - Single Series" />
-            <span class="widget-label">Single Series (Temperature)</span>
+            <span class="widget-label">{t('widgets.brokenLineGraph.singleSeries')}</span>
           </div>
           <div class="widget-card">
             <img src="/widgets/widget_brokenlinegraph_multi.svg" alt="Broken Line Graph - Multiple Series" />
-            <span class="widget-label">Multiple Series (Comparison)</span>
+            <span class="widget-label">{t('widgets.brokenLineGraph.multipleSeries')}</span>
           </div>
         </div>
       </div>
@@ -216,30 +225,30 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">📈</div>
           <div class="widget-info">
-            <h2>Box Whisker Plot</h2>
-            <p>Statistical box-and-whisker plot showing five-number summary: smallest, Q1, median, Q3, and largest values.</p>
+            <h2>{t('widgets.boxWhisker.title')}</h2>
+            <p>{t('widgets.boxWhisker.description')}</p>
           </div>
         </div>
 
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-box-whisker-iqr.jpeg" alt="Box whisker IQR question" />
-            <span class="screenshot-label">IQR Question</span>
+            <span class="screenshot-label">{t('widgets.boxWhisker.iqrQuestion')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-box-whisker-salary.jpeg" alt="Box whisker salary comparison" />
-            <span class="screenshot-label">Salary Comparison</span>
+            <span class="screenshot-label">{t('widgets.boxWhisker.salaryComparison')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples single-column">
           <div class="widget-card large">
             <img src="/widgets/widget_boxwhisker.svg" alt="Box Whisker Plot Widget" />
-            <span class="widget-label">Score Distribution Example</span>
+            <span class="widget-label">{t('widgets.boxWhisker.scoreDistribution')}</span>
           </div>
         </div>
       </div>
@@ -249,42 +258,42 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">📐</div>
           <div class="widget-info">
-            <h2>Equation Graph</h2>
-            <p>Mathematical function plotter supporting LaTeX notation. Display single or multiple equations with customizable colors and axes.</p>
+            <h2>{t('widgets.equationGraph.title')}</h2>
+            <p>{t('widgets.equationGraph.description')}</p>
           </div>
         </div>
 
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-linear-inequality-graph.jpeg" alt="Linear inequality graph" />
-            <span class="screenshot-label">Linear Inequality</span>
+            <span class="screenshot-label">{t('widgets.equationGraph.linearInequality')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-feasible-region.jpeg" alt="Feasible region graph" />
-            <span class="screenshot-label">Feasible Region</span>
+            <span class="screenshot-label">{t('widgets.equationGraph.feasibleRegion')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-simultaneous-equations.jpeg" alt="Simultaneous equations" />
-            <span class="screenshot-label">Simultaneous Equations</span>
+            <span class="screenshot-label">{t('widgets.equationGraph.simultaneousEquations')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-line-intersection.jpeg" alt="Line intersection" />
-            <span class="screenshot-label">Line Intersection</span>
+            <span class="screenshot-label">{t('widgets.equationGraph.lineIntersection')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-logarithmic-functions.jpeg" alt="Logarithmic functions" />
-            <span class="screenshot-label">Logarithmic Functions</span>
+            <span class="screenshot-label">{t('widgets.equationGraph.logarithmic')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-exponential-function.jpeg" alt="Exponential function" />
-            <span class="screenshot-label">Exponential Function</span>
+            <span class="screenshot-label">{t('widgets.equationGraph.exponential')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples three-column">
           <div class="widget-card">
             <img src="/widgets/widget_equationgraph_sin.svg" alt="Sine Graph" />
@@ -306,60 +315,60 @@ import Layout from '../layouts/Layout.astro';
         <div class="widget-header">
           <div class="widget-icon">🔷</div>
           <div class="widget-info">
-            <h2>3D Shapes</h2>
-            <p>Interactive 3D geometric shapes with perspective projection. Supports various polyhedra including tetrahedra, cubes, prisms, pyramids, and octahedra with labeled vertices and automatic hidden-edge detection.</p>
+            <h2>{t('widgets.shape3d.title')}</h2>
+            <p>{t('widgets.shape3d.description')}</p>
           </div>
         </div>
 
         <!-- Live Screenshots -->
-        <div class="subsection-label">Live Examples</div>
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-shape3d-tetrahedron-faces.jpeg" alt="Tetrahedron faces question" />
-            <span class="screenshot-label">Tetrahedron Faces</span>
+            <span class="screenshot-label">{t('widgets.shape3d.tetrahedronFaces')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-shape3d-tetrahedron-properties.jpeg" alt="Tetrahedron properties question" />
-            <span class="screenshot-label">Tetrahedron Properties</span>
+            <span class="screenshot-label">{t('widgets.shape3d.tetrahedronProperties')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-shape3d-rectangular-prism.jpeg" alt="Rectangular prism vertices question" />
-            <span class="screenshot-label">Rectangular Prism</span>
+            <span class="screenshot-label">{t('widgets.shape3d.rectangularPrism')}</span>
           </div>
           <div class="screenshot-card">
             <img src="/screenshots/screenshot-shape3d-hexagonal-prism.jpeg" alt="Hexagonal prism vertices question" />
-            <span class="screenshot-label">Hexagonal Prism</span>
+            <span class="screenshot-label">{t('widgets.shape3d.hexagonalPrism')}</span>
           </div>
         </div>
 
         <!-- Widget Examples -->
-        <div class="subsection-label">Widget Variations</div>
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples three-column">
           <div class="widget-card">
             <img src="/widgets/widget_shape3d_tetrahedron.svg" alt="Tetrahedron" />
-            <span class="widget-label">Tetrahedron</span>
+            <span class="widget-label">{t('widgets.shape3d.tetrahedron')}</span>
           </div>
           <div class="widget-card">
             <img src="/widgets/widget_shape3d_cube.svg" alt="Cube" />
-            <span class="widget-label">Cube</span>
+            <span class="widget-label">{t('widgets.shape3d.cube')}</span>
           </div>
           <div class="widget-card">
             <img src="/widgets/widget_shape3d_pyramid.svg" alt="Square Pyramid" />
-            <span class="widget-label">Square Pyramid</span>
+            <span class="widget-label">{t('widgets.shape3d.squarePyramid')}</span>
           </div>
         </div>
         <div class="widget-examples three-column" style="margin-top: 1.5rem;">
           <div class="widget-card">
             <img src="/widgets/widget_shape3d_prism.svg" alt="Triangular Prism" />
-            <span class="widget-label">Triangular Prism</span>
+            <span class="widget-label">{t('widgets.shape3d.triangularPrism')}</span>
           </div>
           <div class="widget-card">
             <img src="/widgets/widget_shape3d_octahedron.svg" alt="Octahedron" />
-            <span class="widget-label">Octahedron</span>
+            <span class="widget-label">{t('widgets.shape3d.octahedron')}</span>
           </div>
           <div class="widget-card">
             <img src="/widgets/widget_shape3d_tetrahedron_refs.svg" alt="Tetrahedron with Reference Points" />
-            <span class="widget-label">With Reference Points</span>
+            <span class="widget-label">{t('widgets.shape3d.withReferencePoints')}</span>
           </div>
         </div>
       </div>
@@ -368,41 +377,41 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Supported Features -->
     <section class="features-section">
-      <h2>Additional Supported Content</h2>
+      <h2>{t('widgets.additionalContent')}</h2>
       <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon">📝</div>
-          <h3>LaTeX Math</h3>
-          <p>Render mathematical expressions using &lt;tex&gt; tags</p>
+          <h3>{t('widgets.latex.title')}</h3>
+          <p>{t('widgets.latex.description')}</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🎨</div>
-          <h3>SVG Graphics</h3>
-          <p>Custom SVG drawings with full attribute support</p>
+          <h3>{t('widgets.svg.title')}</h3>
+          <p>{t('widgets.svg.description')}</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">📋</div>
-          <h3>Tables</h3>
-          <p>HTML tables with colspan, rowspan, and LaTeX content</p>
+          <h3>{t('widgets.tables.title')}</h3>
+          <p>{t('widgets.tables.description')}</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">🔷</div>
-          <h3>3D Geometry</h3>
-          <p>Interactive 3D shapes with perspective projection and labeled vertices</p>
+          <h3>{t('widgets.geometry.title')}</h3>
+          <p>{t('widgets.geometry.description')}</p>
         </div>
       </div>
     </section>
 
     <!-- Back Link -->
     <section class="back-section">
-      <a href="/" class="back-link">← Back to Home</a>
+      <a href={`/${lang}`} class="back-link">{t('widgets.backToHome')}</a>
     </section>
 
     <!-- Footer -->
     <footer class="contact-footer">
       <div class="contact-info">
-        <p>Email: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
-        <p>Phone: 60844867</p>
+        <p>{t('common.email')}: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
+        <p>{t('common.phone')}: 60844867</p>
       </div>
     </footer>
   </main>
@@ -796,3 +805,5 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 </style>
+
+

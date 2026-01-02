@@ -1,17 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import { languages, useTranslations, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
 ---
 
-<Layout>
+<Layout lang={lang}>
   <main class="privacy-page">
     <!-- Header Section -->
     <header class="privacy-header">
       <div class="header-content">
-        <a href="/" class="back-link">
+        <a href={`/${lang}`} class="back-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
-          Back to Home
+          {t('privacy.backToHome')}
         </a>
         <img src="/hoppy-logo.jpeg" alt="Hoppy logo" class="header-logo" />
       </div>
@@ -20,10 +30,10 @@ import Layout from '../layouts/Layout.astro';
     <!-- Privacy Policy Content -->
     <section class="privacy-content">
       <div class="content-wrapper">
-        <h1>Privacy Policy for Hoppy</h1>
+        <h1>{t('privacy.title')}</h1>
         
         <p class="intro">
-          <strong>Last updated: October 28, 2025</strong>
+          <strong>{t('privacy.lastUpdated')}</strong>
         </p>
 
         <p class="intro">
@@ -434,13 +444,13 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Footer -->
     <footer class="privacy-footer">
-      <a href="/" class="footer-link">
+      <a href={`/${lang}`} class="footer-link">
         <img src="/hoppy-logo.jpeg" alt="Hoppy logo" class="footer-logo" />
-        <span>Return to Hoppy Home</span>
+        <span>{t('privacy.returnHome')}</span>
       </a>
       <div class="contact-info">
-        <p>Email: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
-        <p>Phone: 60844867</p>
+        <p>{t('common.email')}: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
+        <p>{t('common.phone')}: 60844867</p>
       </div>
     </footer>
   </main>
@@ -716,4 +726,5 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 </style>
+
 
