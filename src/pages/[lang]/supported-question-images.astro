@@ -373,6 +373,58 @@ const t = useTranslations(lang);
         </div>
       </div>
 
+      <!-- Electric Circuit -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">⚡</div>
+          <div class="widget-info">
+            <h2>{t('widgets.circuit.title')}</h2>
+            <p>{t('widgets.circuit.description')}</p>
+          </div>
+        </div>
+
+        <!-- Component Types -->
+        <div class="subsection-label">{t('widgets.circuit.supportedComponents')}</div>
+        <div class="component-list">
+          <div class="component-item">
+            <span class="component-icon">🔋</span>
+            <span class="component-name">{t('widgets.circuit.battery')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">▭</span>
+            <span class="component-name">{t('widgets.circuit.resistor')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">💡</span>
+            <span class="component-name">{t('widgets.circuit.bulb')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">⏻</span>
+            <span class="component-name">{t('widgets.circuit.switch')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">Ⓐ</span>
+            <span class="component-name">{t('widgets.circuit.ammeter')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">Ⓥ</span>
+            <span class="component-name">{t('widgets.circuit.voltmeter')}</span>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="subsection-label">{t('widgets.circuit.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.circuit.featureNodes')}</li>
+            <li>{t('widgets.circuit.featurePolarity')}</li>
+            <li>{t('widgets.circuit.featureOrientation')}</li>
+            <li>{t('widgets.circuit.featureTerminals')}</li>
+            <li>{t('widgets.circuit.featureJunctions')}</li>
+          </ul>
+        </div>
+      </div>
+
     </section>
 
     <!-- Supported Features -->
@@ -755,6 +807,61 @@ const t = useTranslations(lang);
   .contact-info a:hover {
     color: #ffffff;
     text-decoration: underline;
+  }
+
+  /* Component List (for Circuit widget) */
+  .component-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .component-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .component-item:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    transform: translateY(-2px);
+  }
+
+  .component-icon {
+    font-size: 1.25rem;
+  }
+
+  .component-name {
+    font-size: 0.95rem;
+    color: #334155;
+    font-weight: 500;
+  }
+
+  /* Features List */
+  .features-list {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .features-list ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style-type: disc;
+  }
+
+  .features-list li {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.8;
   }
 
   /* Responsive Design */

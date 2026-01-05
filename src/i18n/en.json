@@ -172,6 +172,23 @@
       "octahedron": "Octahedron",
       "withReferencePoints": "With Reference Points"
     },
+    "circuit": {
+      "title": "Electric Circuit",
+      "description": "Interactive electric circuit diagrams with batteries, resistors, bulbs, switches, ammeters, voltmeters, and wire connections. Supports series and parallel circuits with automatic junction detection.",
+      "supportedComponents": "Supported Components",
+      "battery": "Battery",
+      "resistor": "Resistor",
+      "bulb": "Bulb",
+      "switch": "Switch",
+      "ammeter": "Ammeter",
+      "voltmeter": "Voltmeter",
+      "features": "Features",
+      "featureNodes": "Grid-based node positioning for flexible circuit layouts",
+      "featurePolarity": "Polarity markers for batteries and switches",
+      "featureOrientation": "Automatic orientation calculation (horizontal, vertical, diagonal)",
+      "featureTerminals": "External terminals for open/incomplete circuits",
+      "featureJunctions": "Automatic junction dots where more than 2 wires connect"
+    },
     "additionalContent": "Additional Supported Content",
     "latex": {
       "title": "LaTeX Math",
