@@ -120,8 +120,8 @@ const t = useTranslations(lang);
     <!-- Contact Footer -->
     <footer class="contact-footer">
       <div class="contact-info">
-        <p>{t('home.footer.email')}: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
-        <p>{t('home.footer.phone')}: 60844867</p>
+        <p>{t('home.footer.email')}: <a href="mailto:hi@hoppy.day">hi@hoppy.day</a></p>
+        <p><a href={`/${lang}/privacy`} class="footer-link">{t('nav.privacy')}</a></p>
       </div>
     </footer>
   </main>
@@ -479,6 +479,17 @@ const t = useTranslations(lang);
   }
 
   .contact-info a:hover {
+    color: var(--hoppy-white);
+    text-decoration: underline;
+  }
+
+  .footer-link {
+    color: var(--hoppy-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .footer-link:hover {
     color: var(--hoppy-white);
     text-decoration: underline;
   }
