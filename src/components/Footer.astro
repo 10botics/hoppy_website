@@ -1,0 +1,57 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<footer class="global-footer">
+	<div class="footer-container">
+		<div class="footer-content">
+			<p>{t('home.footer.email')}: <a href="mailto:hi@hoppy.day">hi@hoppy.day</a></p>
+			<p><a href={`/${lang}/privacy`} class="footer-privacy-link">{t('nav.privacy')}</a></p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.global-footer {
+		background-color: var(--hoppy-navy);
+		padding: 2rem;
+		text-align: center;
+	}
+
+	.footer-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.footer-content {
+		color: var(--hoppy-white);
+	}
+
+	.footer-content p {
+		margin: 0.5rem 0;
+		font-size: 1rem;
+	}
+
+	.footer-content a {
+		color: var(--hoppy-blue);
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.footer-content a:hover {
+		color: var(--hoppy-white);
+		text-decoration: underline;
+	}
+
+	.footer-privacy-link {
+		font-weight: 500;
+	}
+</style>
+

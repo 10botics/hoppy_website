@@ -65,7 +65,7 @@ const t = useTranslations(lang);
             <div class="notify-icon">🔔</div>
             <div class="notify-text">
               <h4>{t('availability.notifyTitle')}</h4>
-              <p>{t('availability.notifyText')} <a href="mailto:dev@10botics.com">dev@10botics.com</a> {t('availability.notifyTextEnd')}</p>
+              <p>{t('availability.notifyText')} <a href="mailto:hi@hoppy.day">hi@hoppy.day</a> {t('availability.notifyTextEnd')}</p>
             </div>
           </div>
         </div>
@@ -78,10 +78,6 @@ const t = useTranslations(lang);
         <img src="/hoppy-logo.jpeg" alt="Hoppy logo" class="footer-logo" />
         <span>{t('availability.returnHome')}</span>
       </a>
-      <div class="contact-info">
-        <p>{t('common.email')}: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
-        <p>{t('common.phone')}: 60844867</p>
-      </div>
     </footer>
   </main>
 </Layout>
@@ -384,29 +380,6 @@ const t = useTranslations(lang);
 
   .footer-link span {
     color: var(--hoppy-white);
-  }
-
-  .contact-info {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--hoppy-white);
-  }
-
-  .contact-info p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-  }
-
-  .contact-info a {
-    color: var(--hoppy-blue);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .contact-info a:hover {
-    color: var(--hoppy-white);
-    text-decoration: underline;
   }
 
   /* Responsive Design */

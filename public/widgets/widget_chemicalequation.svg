@@ -1,45 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200">
-  <!-- Background -->
-  <rect width="600" height="200" fill="#f8fafc" rx="8"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <style>
+    .chemical { font-family: "Latin Modern Math", "Computer Modern", "Times New Roman", serif; font-size: 32px; fill: #000000; font-style: italic; }
+    .subscript { font-size: 22px; baseline-shift: sub; }
+    .coefficient { font-size: 32px; font-style: normal; }
+    .operator { font-size: 32px; fill: #000000; font-style: normal; }
+    .arrow-text { font-family: "Latin Modern Math", "Computer Modern", "Times New Roman", serif; font-size: 20px; fill: #000000; font-style: italic; }
+    .state { font-family: "Latin Modern Math", "Computer Modern", "Times New Roman", serif; font-size: 28px; fill: #000000; font-style: normal; }
+  </style>
+
+  <rect width="600" height="200" fill="#ffffff" rx="0"/>
+
+  <!-- N₂(g) -->
+  <text x="80" y="110" class="chemical">N</text>
+  <text x="103" y="110" class="chemical subscript">2</text>
+  <text x="120" y="110" class="state">(</text>
+  <text x="130" y="110" class="chemical">g</text>
+  <text x="144" y="110" class="state">)</text>
   
-  <!-- Chemical Equation: CH₄ + 2O₂ → CO₂ + 2H₂O -->
+  <!-- + -->
+  <text x="170" y="110" class="operator">+</text>
   
-  <!-- CH₄ -->
-  <text x="80" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">C</text>
-  <text x="105" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">H</text>
-  <text x="130" y="115" font-family="Arial, sans-serif" font-size="20" fill="#1e293b">4</text>
+  <!-- 3H₂(g) -->
+  <text x="200" y="110" class="coefficient">3</text>
+  <text x="220" y="110" class="chemical">H</text>
+  <text x="243" y="110" class="chemical subscript">2</text>
+  <text x="260" y="110" class="state">(</text>
+  <text x="270" y="110" class="chemical">g</text>
+  <text x="284" y="110" class="state">)</text>
   
-  <!-- Plus sign -->
-  <text x="160" y="105" font-family="Arial, sans-serif" font-size="32" fill="#3FB5DB">+</text>
-  
-  <!-- 2O₂ -->
-  <text x="200" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">2</text>
-  <text x="220" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">O</text>
-  <text x="245" y="115" font-family="Arial, sans-serif" font-size="20" fill="#1e293b">2</text>
-  
-  <!-- Arrow -->
-  <line x1="280" y1="95" x2="330" y2="95" stroke="#9333ea" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <!-- → with Y/X -->
+  <line x1="320" y1="100" x2="385" y2="100" stroke="#000000" stroke-width="2" marker-end="url(#arrow)"/>
   <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#9333ea"/>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#000000"/>
     </marker>
   </defs>
+  <text x="352.5" y="88" class="arrow-text" text-anchor="middle">Y</text>
+  <line x1="340" y1="91" x2="365" y2="91" stroke="#000000" stroke-width="0.8"/>
+  <text x="352.5" y="122" class="arrow-text" text-anchor="middle">X</text>
   
-  <!-- CO₂ -->
-  <text x="350" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">C</text>
-  <text x="375" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">O</text>
-  <text x="400" y="115" font-family="Arial, sans-serif" font-size="20" fill="#1e293b">2</text>
-  
-  <!-- Plus sign -->
-  <text x="430" y="105" font-family="Arial, sans-serif" font-size="32" fill="#3FB5DB">+</text>
-  
-  <!-- 2H₂O -->
-  <text x="470" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">2</text>
-  <text x="490" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">H</text>
-  <text x="515" y="115" font-family="Arial, sans-serif" font-size="20" fill="#1e293b">2</text>
-  <text x="530" y="105" font-family="Arial, sans-serif" font-size="32" fill="#1e293b">O</text>
-  
-  <!-- Condition label above arrow -->
-  <text x="305" y="75" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">heat</text>
+  <!-- 2NH₃(g) -->
+  <text x="400" y="110" class="coefficient">2</text>
+  <text x="420" y="110" class="chemical">N</text>
+  <text x="443" y="110" class="chemical">H</text>
+  <text x="466" y="110" class="chemical subscript">3</text>
+  <text x="483" y="110" class="state">(</text>
+  <text x="493" y="110" class="chemical">g</text>
+  <text x="507" y="110" class="state">)</text>
 </svg>
-

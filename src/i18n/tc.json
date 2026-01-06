@@ -176,6 +176,7 @@
       "title": "電路圖",
       "description": "互動式電路圖，包含電池、電阻、燈泡、開關、電流錶、電壓錶和導線連接。支援串聯和並聯電路，自動檢測接點。",
       "circuitCalculation": "電路計算",
+      "simpleCircuit": "簡單串聯電路",
       "supportedComponents": "支援的元件",
       "battery": "電池",
       "resistor": "電阻",

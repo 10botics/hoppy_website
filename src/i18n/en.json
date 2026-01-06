@@ -176,6 +176,7 @@
       "title": "Electric Circuit",
       "description": "Interactive electric circuit diagrams with batteries, resistors, bulbs, switches, ammeters, voltmeters, and wire connections. Supports series and parallel circuits with automatic junction detection.",
       "circuitCalculation": "Circuit Calculation",
+      "simpleCircuit": "Simple Series Circuit",
       "supportedComponents": "Supported Components",
       "battery": "Battery",
       "resistor": "Resistor",

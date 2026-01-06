@@ -421,6 +421,15 @@ const t = useTranslations(lang);
           </div>
         </div>
 
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_circuit.svg" alt="Electric Circuit Widget" />
+            <span class="widget-label">{t('widgets.circuit.simpleCircuit')}</span>
+          </div>
+        </div>
+
         <!-- Features -->
         <div class="subsection-label">{t('widgets.circuit.features')}</div>
         <div class="features-list">
@@ -513,13 +522,6 @@ const t = useTranslations(lang);
       <a href={`/${lang}`} class="back-link">{t('widgets.backToHome')}</a>
     </section>
 
-    <!-- Footer -->
-    <footer class="contact-footer">
-      <div class="contact-info">
-        <p>{t('common.email')}: <a href="mailto:dev@10botics.com">dev@10botics.com</a></p>
-        <p>{t('common.phone')}: 60844867</p>
-      </div>
-    </footer>
   </main>
 </Layout>
 
@@ -832,35 +834,6 @@ const t = useTranslations(lang);
     background: #3FB5DB;
     color: #ffffff;
     transform: translateX(-5px);
-  }
-
-  /* Contact Footer */
-  .contact-footer {
-    background-color: #0f172a;
-    padding: 2rem;
-    text-align: center;
-  }
-
-  .contact-info {
-    max-width: 600px;
-    margin: 0 auto;
-    color: #ffffff;
-  }
-
-  .contact-info p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-  }
-
-  .contact-info a {
-    color: #3FB5DB;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .contact-info a:hover {
-    color: #ffffff;
-    text-decoration: underline;
   }
 
   /* Component List (for Circuit widget) */
