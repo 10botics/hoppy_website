@@ -175,6 +175,7 @@
     "circuit": {
       "title": "Electric Circuit",
       "description": "Interactive electric circuit diagrams with batteries, resistors, bulbs, switches, ammeters, voltmeters, and wire connections. Supports series and parallel circuits with automatic junction detection.",
+      "circuitCalculation": "Circuit Calculation",
       "supportedComponents": "Supported Components",
       "battery": "Battery",
       "resistor": "Resistor",
@@ -188,6 +189,19 @@
       "featureOrientation": "Automatic orientation calculation (horizontal, vertical, diagonal)",
       "featureTerminals": "External terminals for open/incomplete circuits",
       "featureJunctions": "Automatic junction dots where more than 2 wires connect"
+    },
+    "chemicalEquation": {
+      "title": "Chemical Equation",
+      "description": "Render chemical equations with proper subscripts, superscripts, and reaction arrows. Perfect for chemistry questions involving reactions, balancing equations, and stoichiometry.",
+      "haberProcess": "Haber Process Equation",
+      "reactionConditions": "Reaction Conditions",
+      "combustion": "Combustion Reaction Example",
+      "features": "Features",
+      "featureSubscripts": "Chemical formulas with subscripts (H₂O, CO₂)",
+      "featureSuperscripts": "Ion charges with superscripts (Fe³⁺, SO₄²⁻)",
+      "featureStates": "State symbols for matter phases (s, l, g, aq)",
+      "featureArrows": "Various reaction arrows (→, ⇌, ⇋) with conditions",
+      "featureCoefficients": "Stoichiometric coefficients for balanced equations"
     },
     "additionalContent": "Additional Supported Content",
     "latex": {

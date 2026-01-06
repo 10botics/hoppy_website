@@ -383,6 +383,15 @@ const t = useTranslations(lang);
           </div>
         </div>
 
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-circuit-diagram.jpeg" alt="Electric circuit diagram question" />
+            <span class="screenshot-label">{t('widgets.circuit.circuitCalculation')}</span>
+          </div>
+        </div>
+
         <!-- Component Types -->
         <div class="subsection-label">{t('widgets.circuit.supportedComponents')}</div>
         <div class="component-list">
@@ -421,6 +430,51 @@ const t = useTranslations(lang);
             <li>{t('widgets.circuit.featureOrientation')}</li>
             <li>{t('widgets.circuit.featureTerminals')}</li>
             <li>{t('widgets.circuit.featureJunctions')}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Chemical Equation -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">🧪</div>
+          <div class="widget-info">
+            <h2>{t('widgets.chemicalEquation.title')}</h2>
+            <p>{t('widgets.chemicalEquation.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-chemical-equation-haber-process.jpeg" alt="Haber Process chemical equation" />
+            <span class="screenshot-label">{t('widgets.chemicalEquation.haberProcess')}</span>
+          </div>
+          <div class="screenshot-card">
+            <img src="/screenshots/screenshot-chemical-equation-haber-conditions.jpeg" alt="Chemical reaction conditions" />
+            <span class="screenshot-label">{t('widgets.chemicalEquation.reactionConditions')}</span>
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_chemicalequation.svg" alt="Chemical Equation Widget" />
+            <span class="widget-label">{t('widgets.chemicalEquation.combustion')}</span>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="subsection-label">{t('widgets.chemicalEquation.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.chemicalEquation.featureSubscripts')}</li>
+            <li>{t('widgets.chemicalEquation.featureSuperscripts')}</li>
+            <li>{t('widgets.chemicalEquation.featureStates')}</li>
+            <li>{t('widgets.chemicalEquation.featureArrows')}</li>
+            <li>{t('widgets.chemicalEquation.featureCoefficients')}</li>
           </ul>
         </div>
       </div>

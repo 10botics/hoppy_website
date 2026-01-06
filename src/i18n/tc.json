@@ -175,6 +175,7 @@
     "circuit": {
       "title": "電路圖",
       "description": "互動式電路圖，包含電池、電阻、燈泡、開關、電流錶、電壓錶和導線連接。支援串聯和並聯電路，自動檢測接點。",
+      "circuitCalculation": "電路計算",
       "supportedComponents": "支援的元件",
       "battery": "電池",
       "resistor": "電阻",
@@ -188,6 +189,19 @@
       "featureOrientation": "自動計算方向（水平、垂直、對角線）",
       "featureTerminals": "用於開放/不完整電路的外部接線端子",
       "featureJunctions": "超過2條導線連接處自動顯示接點"
+    },
+    "chemicalEquation": {
+      "title": "化學方程式",
+      "description": "顯示具有正確下標、上標和反應箭頭的化學方程式。非常適合涉及反應、平衡方程式和化學計量的化學問題。",
+      "haberProcess": "哈柏法方程式",
+      "reactionConditions": "反應條件",
+      "combustion": "燃燒反應範例",
+      "features": "功能特點",
+      "featureSubscripts": "帶下標的化學式（H₂O、CO₂）",
+      "featureSuperscripts": "帶上標的離子電荷（Fe³⁺、SO₄²⁻）",
+      "featureStates": "物質狀態符號（s、l、g、aq）",
+      "featureArrows": "各種反應箭頭（→、⇌、⇋）及條件",
+      "featureCoefficients": "平衡方程式的化學計量係數"
     },
     "additionalContent": "其他支援內容",
     "latex": {
