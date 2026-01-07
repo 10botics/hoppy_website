@@ -1,4 +1,6 @@
 ---
-// This page redirects to the default locale
-return Astro.redirect('/tc/');
+import HomeContent from '../components/HomeContent.astro';
+import { defaultLang } from '../i18n/ui';
 ---
+
+<HomeContent lang={defaultLang} />
