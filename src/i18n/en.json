@@ -234,6 +234,14 @@
     "email": "Email",
     "phone": "Phone"
   },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "oops": "Oops! Hoppy couldn't find this page",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "redirecting": "Redirecting you back home in",
+    "seconds": "seconds",
+    "backToHome": "Back to Home"
+  },
   "qna": {
     "title": "Frequently Asked Questions",
     "subtitle": "Find answers to common questions about Hoppy",

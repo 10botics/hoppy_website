@@ -234,6 +234,14 @@
     "email": "電郵",
     "phone": "電話"
   },
+  "notFound": {
+    "title": "404 - 找不到頁面",
+    "oops": "糟糕！Hoppy 找不到這個頁面",
+    "message": "您尋找的頁面不存在或已被移動。",
+    "redirecting": "將在",
+    "seconds": "秒後返回首頁",
+    "backToHome": "返回首頁"
+  },
   "qna": {
     "title": "常見問題",
     "subtitle": "尋找關於 Hoppy 的常見問題解答",
