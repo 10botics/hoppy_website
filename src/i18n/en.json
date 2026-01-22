@@ -8,6 +8,7 @@
     "widgets": "Widgets",
     "availability": "Availability",
     "download": "Download",
+    "qna": "FAQ",
     "privacy": "Privacy"
   },
   "langSwitcher": {
@@ -232,6 +233,54 @@
   "common": {
     "email": "Email",
     "phone": "Phone"
+  },
+  "qna": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about Hoppy",
+    "backToHome": "Back to Home",
+    "returnHome": "Return to Hoppy Home",
+    "questions": {
+      "q1": {
+        "question": "What is Hoppy?",
+        "answer": "Hoppy is an educational app designed to make learning fun and engaging for children. With our mascot, Hoppy the bunny, kids embark on exciting learning adventures through interactive activities, games, and challenges. The app covers various subjects including mathematics, science, and more, using innovative visualization tools to make complex concepts easy to understand."
+      },
+      "q2": {
+        "question": "Who is Hoppy designed for?",
+        "answer": "Hoppy is specifically designed for curious young minds, typically children in primary and secondary education. The app adapts to different learning levels and provides age-appropriate content that keeps kids engaged while learning at their own pace."
+      },
+      "q3": {
+        "question": "What subjects and topics does Hoppy cover?",
+        "answer": "Hoppy covers a wide range of subjects, primarily HK curriculum subjects, including Mathematics (time-telling, data interpretation, geometry, algebra, statistics), Science (physics circuits, chemistry equations), and more. The app features interactive widgets like analog and digital clocks, various charts and graphs, 3D geometric shapes, electric circuits, chemical equations, and mathematical function plotters."
+      },
+      "q5": {
+        "question": "Is Hoppy free to use?",
+        "answer": "You can download Hoppy for free from the App Store or Google Play. The app offers various content and features. For detailed pricing information, please visit our download page or contact us at hi@hoppy.day."
+      },
+      "q6": {
+        "question": "What devices and platforms support Hoppy?",
+        "answer": "Hoppy is available on both iOS and Android platforms. You can download it from the App Store for iPhone and iPad, or from Google Play for Android devices. The app is optimized for both smartphones and tablets to provide the best learning experience."
+      },
+      "q7": {
+        "question": "Where is Hoppy available?",
+        "answer": "Hoppy is currently available in Hong Kong with full access and local support. We're actively working to expand to more regions around the world. If you'd like to be notified when Hoppy becomes available in your region, please contact us at hi@hoppy.day."
+      },
+      "q8": {
+        "question": "How can I track my child's learning progress?",
+        "answer": "Hoppy includes built-in progress tracking features that help you monitor your child's learning journey. You can watch your child grow, celebrate their achievements, and see which areas they excel in. The app provides insights into their learning patterns and helps identify areas where they might need additional support."
+      },
+      "q10": {
+        "question": "How do I get support or report an issue?",
+        "answer": "We're here to help! If you have any questions, need assistance, or want to report an issue, please contact our support team at hi@hoppy.day. We typically respond within 24-48 hours and are committed to providing the best experience for your family."
+      },
+      "q11": {
+        "question": "Can multiple children use one Hoppy account?",
+        "answer": "Yes! Hoppy supports multiple user profiles, allowing each child in your family to have their own personalized learning experience with individual progress tracking. This ensures that each child can learn at their own pace and have their achievements tracked separately."
+      },
+      "q12": {
+        "question": "What makes Hoppy different from other educational apps?",
+        "answer": "Hoppy stands out with its unique combination of engaging mascot-led learning, innovative interactive widgets, and comprehensive subject coverage. Our focus on making learning addictive (in a good way!) through fun, colorful design and creative play sets us apart. We use professional visualization tools like LaTeX math rendering, interactive 3D geometry, and real-time circuit simulations that make complex concepts accessible and exciting for young learners."
+      }
+    }
   }
 }
 

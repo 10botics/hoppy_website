@@ -13,7 +13,11 @@ const t = useTranslations(lang);
 	<div class="footer-container">
 		<div class="footer-content">
 			<p>{t('home.footer.email')}: <a href="mailto:hi@hoppy.day">hi@hoppy.day</a></p>
-			<p><a href={`/${lang}/privacy`} class="footer-privacy-link">{t('nav.privacy')}</a></p>
+			<p>
+				<a href={`/${lang}/qna`} class="footer-link">{t('nav.qna')}</a>
+				<span class="footer-separator">•</span>
+				<a href={`/${lang}/privacy`} class="footer-link">{t('nav.privacy')}</a>
+			</p>
 		</div>
 	</div>
 </footer>
@@ -50,8 +54,14 @@ const t = useTranslations(lang);
 		text-decoration: underline;
 	}
 
-	.footer-privacy-link {
+	.footer-link {
 		font-weight: 500;
 	}
+
+	.footer-separator {
+		margin: 0 0.75rem;
+		color: rgba(255, 255, 255, 0.5);
+	}
 </style>
+
 

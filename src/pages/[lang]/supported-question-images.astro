@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { languages, useTranslations, type Lang } from '../../i18n/ui';
+import { languages, useTranslations, getLocalizedScreenshot, type Lang } from '../../i18n/ui';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
@@ -10,6 +10,9 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Lang };
 const t = useTranslations(lang);
+
+// Helper function to get localized screenshot path
+const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
 ---
 
 <Layout lang={lang}>
@@ -41,15 +44,15 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-analog-clock-selection.jpeg" alt="Analog clock selection question" />
+            <img src={screenshot("/screenshots/screenshot-analog-clock-1.jpeg")} alt="Analog clock selection question" />
             <span class="screenshot-label">{t('widgets.analogClock.clockSelection')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-analog-clock-reading.jpeg" alt="Analog clock time reading" />
+            <img src={screenshot("/screenshots/screenshot-analog-clock-2.jpeg")} alt="Analog clock time reading" />
             <span class="screenshot-label">{t('widgets.analogClock.timeReading')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-analog-digital-conversion.jpeg" alt="Analog to digital clock conversion" />
+            <img src={screenshot("/screenshots/screenshot-analog-clock-3.jpeg")} alt="Analog to digital clock conversion" />
             <span class="screenshot-label">{t('widgets.analogClock.clockConversion')}</span>
           </div>
         </div>
@@ -82,7 +85,7 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-digital-clock-options.jpeg" alt="Digital clock multiple choice question" />
+            <img src={screenshot("/screenshots/screenshot-digital-clock-1.jpeg")} alt="Digital clock multiple choice question" />
             <span class="screenshot-label">{t('widgets.digitalClock.multipleChoice')}</span>
           </div>
         </div>
@@ -115,11 +118,11 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-bar-chart-temperature.jpeg" alt="Bar chart temperature question" />
+            <img src={screenshot("/screenshots/screenshot-bar-chart-1.jpeg")} alt="Bar chart temperature question" />
             <span class="screenshot-label">{t('widgets.barChart.temperatureChart')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-bar-chart-books.jpeg" alt="Bar chart books borrowed question" />
+            <img src={screenshot("/screenshots/screenshot-bar-chart-2.jpeg")} alt="Bar chart books borrowed question" />
             <span class="screenshot-label">{t('widgets.barChart.booksBorrowed')}</span>
           </div>
         </div>
@@ -148,19 +151,19 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-stacked-bar-chart-expenses.jpeg" alt="Stacked bar chart household expenses question" />
+            <img src={screenshot("/screenshots/screenshot-stacked-bar-chart-1.jpeg")} alt="Stacked bar chart household expenses question" />
             <span class="screenshot-label">{t('widgets.stackedBarChart.householdExpenses')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-stacked-bar-chart-activity.jpeg" alt="Stacked bar chart activity participation" />
+            <img src={screenshot("/screenshots/screenshot-stacked-bar-chart-2.jpeg")} alt="Stacked bar chart activity participation" />
             <span class="screenshot-label">{t('widgets.stackedBarChart.activityParticipation')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-stacked-bar-chart-cinema-snacks.jpeg" alt="Stacked bar chart cinema snack sales" />
+            <img src={screenshot("/screenshots/screenshot-stacked-bar-chart-3.jpeg")} alt="Stacked bar chart cinema snack sales" />
             <span class="screenshot-label">{t('widgets.stackedBarChart.cinemaSnackSales')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-stacked-bar-chart-bakery.jpeg" alt="Stacked bar chart bakery sales" />
+            <img src={screenshot("/screenshots/screenshot-stacked-bar-chart-4.jpeg")} alt="Stacked bar chart bakery sales" />
             <span class="screenshot-label">{t('widgets.stackedBarChart.bakerySales')}</span>
           </div>
         </div>
@@ -189,19 +192,19 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-broken-line-graph-steps.jpeg" alt="Broken line graph daily steps question" />
+            <img src={screenshot("/screenshots/screenshot-broken-line-graph-1.jpeg")} alt="Broken line graph daily steps question" />
             <span class="screenshot-label">{t('widgets.brokenLineGraph.dailySteps')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-broken-line-graph-temperature-week.jpeg" alt="Broken line graph weekly temperature" />
+            <img src={screenshot("/screenshots/screenshot-broken-line-graph-2.jpeg")} alt="Broken line graph weekly temperature" />
             <span class="screenshot-label">{t('widgets.brokenLineGraph.weeklyTemperature')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-broken-line-graph-books.jpeg" alt="Broken line graph books read" />
+            <img src={screenshot("/screenshots/screenshot-broken-line-graph-3.jpeg")} alt="Broken line graph books read" />
             <span class="screenshot-label">{t('widgets.brokenLineGraph.booksRead')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-broken-line-graph-temperature-months.jpeg" alt="Broken line graph monthly temperature" />
+            <img src={screenshot("/screenshots/screenshot-broken-line-graph-4.jpeg")} alt="Broken line graph monthly temperature" />
             <span class="screenshot-label">{t('widgets.brokenLineGraph.monthlyTemperature')}</span>
           </div>
         </div>
@@ -234,11 +237,11 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-box-whisker-iqr.jpeg" alt="Box whisker IQR question" />
+            <img src={screenshot("/screenshots/screenshot-box-whisker-1.jpeg")} alt="Box whisker IQR question" />
             <span class="screenshot-label">{t('widgets.boxWhisker.iqrQuestion')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-box-whisker-salary.jpeg" alt="Box whisker salary comparison" />
+            <img src={screenshot("/screenshots/screenshot-box-whisker-2.jpeg")} alt="Box whisker salary comparison" />
             <span class="screenshot-label">{t('widgets.boxWhisker.salaryComparison')}</span>
           </div>
         </div>
@@ -267,27 +270,27 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-linear-inequality-graph.jpeg" alt="Linear inequality graph" />
+            <img src={screenshot("/screenshots/screenshot-equation-graph-1.jpeg")} alt="Linear inequality graph" />
             <span class="screenshot-label">{t('widgets.equationGraph.linearInequality')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-feasible-region.jpeg" alt="Feasible region graph" />
+            <img src={screenshot("/screenshots/screenshot-equation-graph-2.jpeg")} alt="Feasible region graph" />
             <span class="screenshot-label">{t('widgets.equationGraph.feasibleRegion')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-simultaneous-equations.jpeg" alt="Simultaneous equations" />
+            <img src={screenshot("/screenshots/screenshot-equation-graph-3.jpeg")} alt="Simultaneous equations" />
             <span class="screenshot-label">{t('widgets.equationGraph.simultaneousEquations')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-line-intersection.jpeg" alt="Line intersection" />
+            <img src={screenshot("/screenshots/screenshot-equation-graph-4.jpeg")} alt="Line intersection" />
             <span class="screenshot-label">{t('widgets.equationGraph.lineIntersection')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-logarithmic-functions.jpeg" alt="Logarithmic functions" />
+            <img src={screenshot("/screenshots/screenshot-equation-graph-5.jpeg")} alt="Logarithmic functions" />
             <span class="screenshot-label">{t('widgets.equationGraph.logarithmic')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-exponential-function.jpeg" alt="Exponential function" />
+            <img src={screenshot("/screenshots/screenshot-equation-graph-6.jpeg")} alt="Exponential function" />
             <span class="screenshot-label">{t('widgets.equationGraph.exponential')}</span>
           </div>
         </div>
@@ -324,19 +327,19 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-shape3d-tetrahedron-faces.jpeg" alt="Tetrahedron faces question" />
+            <img src={screenshot("/screenshots/screenshot-shape3d-1.jpeg")} alt="Tetrahedron faces question" />
             <span class="screenshot-label">{t('widgets.shape3d.tetrahedronFaces')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-shape3d-tetrahedron-properties.jpeg" alt="Tetrahedron properties question" />
+            <img src={screenshot("/screenshots/screenshot-shape3d-2.jpeg")} alt="Tetrahedron properties question" />
             <span class="screenshot-label">{t('widgets.shape3d.tetrahedronProperties')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-shape3d-rectangular-prism.jpeg" alt="Rectangular prism vertices question" />
+            <img src={screenshot("/screenshots/screenshot-shape3d-3.jpeg")} alt="Rectangular prism vertices question" />
             <span class="screenshot-label">{t('widgets.shape3d.rectangularPrism')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-shape3d-hexagonal-prism.jpeg" alt="Hexagonal prism vertices question" />
+            <img src={screenshot("/screenshots/screenshot-shape3d-4.jpeg")} alt="Hexagonal prism vertices question" />
             <span class="screenshot-label">{t('widgets.shape3d.hexagonalPrism')}</span>
           </div>
         </div>
@@ -387,7 +390,7 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-circuit-diagram.jpeg" alt="Electric circuit diagram question" />
+            <img src={screenshot("/screenshots/screenshot-circuit-1.jpeg")} alt="Electric circuit diagram question" />
             <span class="screenshot-label">{t('widgets.circuit.circuitCalculation')}</span>
           </div>
         </div>
@@ -457,11 +460,11 @@ const t = useTranslations(lang);
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-chemical-equation-haber-process.jpeg" alt="Haber Process chemical equation" />
+            <img src={screenshot("/screenshots/screenshot-chemical-equation-1.jpeg")} alt="Haber Process chemical equation" />
             <span class="screenshot-label">{t('widgets.chemicalEquation.haberProcess')}</span>
           </div>
           <div class="screenshot-card">
-            <img src="/screenshots/screenshot-chemical-equation-haber-conditions.jpeg" alt="Chemical reaction conditions" />
+            <img src={screenshot("/screenshots/screenshot-chemical-equation-2.jpeg")} alt="Chemical reaction conditions" />
             <span class="screenshot-label">{t('widgets.chemicalEquation.reactionConditions')}</span>
           </div>
         </div>

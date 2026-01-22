@@ -26,6 +26,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 			<li><a href={`/${lang}/supported-question-images`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
 			<li><a href={`/${lang}/availability`} class:list={["nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
 			<li><a href={`/${lang}/downloadproduction`} class:list={["nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
+			<li><a href={`/${lang}/qna`} class:list={["nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			<li class="lang-switcher">
 				<div class="lang-dropdown">
 					<button class="lang-btn" aria-label={t('langSwitcher.label')}>
@@ -83,6 +84,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 				<li><a href={`/${lang}/supported-question-images`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
 				<li><a href={`/${lang}/availability`} class:list={["mobile-nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
 				<li><a href={`/${lang}/downloadproduction`} class:list={["mobile-nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
+				<li><a href={`/${lang}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			</ul>
 
 			<!-- Mobile Language Switcher -->
@@ -633,4 +635,5 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 		}
 	}
 </style>
+
 
