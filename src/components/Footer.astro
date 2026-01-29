@@ -1,5 +1,5 @@
 ---
-import { useTranslations, type Lang, defaultLang } from '../i18n/ui';
+import { useTranslations, getLocalizedPath, type Lang } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -7,9 +7,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-
-// Only add language prefix for non-default locales
-const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 ---
 
 <footer class="global-footer">
@@ -17,11 +14,11 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 		<div class="footer-content">
 			<p>{t('home.footer.email')}: <a href="mailto:hi@hoppy.day">hi@hoppy.day</a></p>
 			<p>
-				<a href={`${langPrefix}/qna`} class="footer-link">{t('nav.qna')}</a>
+				<a href={getLocalizedPath('/qna', lang)} class="footer-link">{t('nav.qna')}</a>
 				<span class="footer-separator">•</span>
-				<a href={`${langPrefix}/privacy`} class="footer-link">{t('nav.privacy')}</a>
+				<a href={getLocalizedPath('/privacy', lang)} class="footer-link">{t('nav.privacy')}</a>
 				<span class="footer-separator">•</span>
-				<a href={`${langPrefix}/terms`} class="footer-link">{t('nav.terms')}</a>
+				<a href={getLocalizedPath('/terms', lang)} class="footer-link">{t('nav.terms')}</a>
 			</p>
 		</div>
 	</div>
