@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { languages, useTranslations, getLocalizedScreenshot, type Lang } from '../../i18n/ui';
+import { languages, useTranslations, getLocalizedScreenshot, type Lang, defaultLang } from '../../i18n/ui';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
@@ -8,8 +8,17 @@ export function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params as { lang: Lang };
+interface Props {
+  lang?: Lang;
+}
+
+const { lang: propLang } = Astro.props as Props;
+const { lang: paramLang } = Astro.params as { lang?: Lang };
+const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
 const t = useTranslations(lang);
+
+// Only add language prefix for non-default locales
+const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 
 // Helper function to get localized screenshot path
 const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
@@ -449,7 +458,7 @@ const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
 
     <!-- Back Link -->
     <section class="back-section">
-      <a href={`/${lang}`} class="back-link">{t('widgets.backToHome')}</a>
+      <a href={`${langPrefix}/`} class="back-link">{t('widgets.backToHome')}</a>
     </section>
 
   </main>

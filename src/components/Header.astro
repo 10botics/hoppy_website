@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations, languages, getLocalizedPath, type Lang } from '../i18n/ui';
+import { useTranslations, languages, getLocalizedPath, type Lang, defaultLang } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -9,24 +9,27 @@ interface Props {
 const { lang, currentPath } = Astro.props;
 const t = useTranslations(lang);
 
+// Only add language prefix for non-default locales
+const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+
 // Get the path without language prefix for switching
 const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 ---
 
 <nav class="main-nav">
 	<div class="nav-container">
-		<a href={`/${lang}`} class="nav-logo">
+		<a href={`${langPrefix}/`} class="nav-logo">
 			<span class="nav-logo-text">H<span class="bunny-o">o</span>ppy</span>
 		</a>
 		<button class="mobile-menu-btn" aria-label="Toggle menu">
 			<span class="hamburger"></span>
 		</button>
 		<ul class="nav-links">
-			<li><a href={`/${lang}`} class:list={["nav-link", { active: currentPath === `/${lang}` || currentPath === `/${lang}/` }]}>{t('nav.home')}</a></li>
-			<li><a href={`/${lang}/supported-question-images`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
-			<li><a href={`/${lang}/availability`} class:list={["nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
-			<li><a href={`/${lang}/downloadproduction`} class:list={["nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
-			<li><a href={`/${lang}/qna`} class:list={["nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
+			<li><a href={`${langPrefix}/`} class:list={["nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
+			<li><a href={`${langPrefix}/supported-question-images`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
+			<li><a href={`${langPrefix}/availability`} class:list={["nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
+			<li><a href={`${langPrefix}/downloadproduction`} class:list={["nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
+			<li><a href={`${langPrefix}/qna`} class:list={["nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			<li class="lang-switcher">
 				<div class="lang-dropdown">
 					<button class="lang-btn" aria-label={t('langSwitcher.label')}>
@@ -62,7 +65,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 	<div class="mobile-menu-sidebar">
 		<!-- Mobile menu header -->
 		<div class="mobile-menu-header">
-			<a href={`/${lang}`} class="mobile-logo">
+			<a href={`${langPrefix}/`} class="mobile-logo">
 				<span class="nav-logo-text">H<span class="bunny-o">o</span>ppy</span>
 			</a>
 			<button
@@ -80,11 +83,11 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 		<!-- Mobile menu content - scrollable -->
 		<div class="mobile-menu-content">
 			<ul class="mobile-nav-links">
-				<li><a href={`/${lang}`} class:list={["mobile-nav-link", { active: currentPath === `/${lang}` || currentPath === `/${lang}/` }]}>{t('nav.home')}</a></li>
-				<li><a href={`/${lang}/supported-question-images`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
-				<li><a href={`/${lang}/availability`} class:list={["mobile-nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
-				<li><a href={`/${lang}/downloadproduction`} class:list={["mobile-nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
-				<li><a href={`/${lang}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
+				<li><a href={`${langPrefix}/`} class:list={["mobile-nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
+				<li><a href={`${langPrefix}/supported-question-images`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
+				<li><a href={`${langPrefix}/availability`} class:list={["mobile-nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
+				<li><a href={`${langPrefix}/downloadproduction`} class:list={["mobile-nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
+				<li><a href={`${langPrefix}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			</ul>
 
 			<!-- Mobile Language Switcher -->

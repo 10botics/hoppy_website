@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { useTranslations, type Lang } from '../i18n/ui';
+import { useTranslations, getLocalizedPath, type Lang } from '../i18n/ui';
 
 interface Props {
   lang: Lang;
@@ -44,7 +44,7 @@ const t = useTranslations(lang);
                 </div>
               </a>
             </div>
-            <a href={`/${lang}/supported-question-images`} class="btn btn-tertiary">{t('home.supportedWidgets')}</a>
+            <a href={getLocalizedPath('/supported-question-images', lang)} class="btn btn-tertiary">{t('home.supportedWidgets')}</a>
           </div>
         </div>
         <div class="hero-image">

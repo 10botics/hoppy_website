@@ -47,7 +47,9 @@ export function useTranslations(lang: Lang) {
 export function getLocalizedPath(path: string, lang: Lang): string {
   // Remove any existing language prefix
   const cleanPath = path.replace(/^\/(tc|en)/, '') || '/';
-  return `/${lang}${cleanPath === '/' ? '' : cleanPath}`;
+  // Only add language prefix for non-default locales (respects prefixDefaultLocale: false)
+  const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+  return `${langPrefix}${cleanPath === '/' ? '' : cleanPath}` || '/';
 }
 
 export function getLocalizedScreenshot(basePath: string, lang: Lang): string {

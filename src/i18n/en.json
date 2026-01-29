@@ -9,7 +9,8 @@
     "availability": "Availability",
     "download": "Download",
     "qna": "FAQ",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "terms": "Terms"
   },
   "langSwitcher": {
     "label": "Language"
@@ -227,6 +228,12 @@
   "privacy": {
     "title": "Privacy Policy for Hoppy",
     "lastUpdated": "Last updated: October 28, 2025",
+    "backToHome": "Back to Home",
+    "returnHome": "Return to Hoppy Home"
+  },
+  "terms": {
+    "title": "Terms and Services for Hoppy",
+    "lastUpdated": "Last updated: January 29, 2026",
     "backToHome": "Back to Home",
     "returnHome": "Return to Hoppy Home"
   },

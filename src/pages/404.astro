@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import { getLangFromUrl, useTranslations, defaultLang } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const homeHref = `${langPrefix}/`;
 ---
 
 <Layout lang={lang}>
@@ -21,14 +23,14 @@ const t = useTranslations(lang);
 				</p>
 			</div>
 			
-			<a href="/" class="home-button">
+			<a href={homeHref} class="home-button">
 				{t('notFound.backToHome')}
 			</a>
 		</div>
 	</main>
 </Layout>
 
-<script>
+<script define:vars={{ homeHref }}>
 	let timeLeft = 3;
 	const countdownElement = document.getElementById('countdown');
 	
@@ -40,7 +42,7 @@ const t = useTranslations(lang);
 		
 		if (timeLeft <= 0) {
 			clearInterval(countdown);
-			window.location.href = '/';
+			window.location.href = homeHref;
 		}
 	}, 1000);
 </script>
