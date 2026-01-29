@@ -12,6 +12,11 @@ export type Lang = keyof typeof languages;
 
 const translations = { en, tc } as const;
 
+function normalizePath(path: string): string {
+  if (!path) return '/';
+  return path.startsWith('/') ? path : `/${path}`;
+}
+
 export function getLangFromUrl(url: URL): Lang {
   const [, lang] = url.pathname.split('/');
   if (lang in languages) return lang as Lang;
@@ -19,7 +24,7 @@ export function getLangFromUrl(url: URL): Lang {
 }
 
 export function useTranslations(lang: Lang) {
-  return function t(key: string): string {
+  return function t(key: string): any {
     const keys = key.split('.');
     let result: any = translations[lang];
     
@@ -40,7 +45,34 @@ export function useTranslations(lang: Lang) {
       }
     }
     
-    return typeof result === 'string' ? result : key;
+    return result ?? key;
+  };
+}
+
+// For legal pages: force fallback to English so English prevails when keys are missing.
+export function useLegalTranslations(lang: Lang) {
+  return function t(key: string): any {
+    const keys = key.split('.');
+    let result: any = translations[lang];
+
+    for (const k of keys) {
+      if (result && typeof result === 'object' && k in result) {
+        result = result[k];
+      } else {
+        // Fallback to English (canonical) for legal pages
+        result = translations.en;
+        for (const fallbackKey of keys) {
+          if (result && typeof result === 'object' && fallbackKey in result) {
+            result = result[fallbackKey];
+          } else {
+            return key;
+          }
+        }
+        break;
+      }
+    }
+
+    return result ?? key;
   };
 }
 
@@ -50,6 +82,18 @@ export function getLocalizedPath(path: string, lang: Lang): string {
   // Only add language prefix for non-default locales (respects prefixDefaultLocale: false)
   const langPrefix = lang === defaultLang ? '' : `/${lang}`;
   return `${langPrefix}${cleanPath === '/' ? '' : cleanPath}` || '/';
+}
+
+// Special-case legal routes so English is canonical/unprefixed even though defaultLang is tc.
+export function getLocalizedLegalPath(path: string, lang: Lang): string {
+  const normalized = normalizePath(path);
+  const cleanPath = normalized.replace(/^\/(tc|en)/, '') || '/';
+
+  if (cleanPath === '/privacy' || cleanPath === '/terms') {
+    return lang === 'tc' ? `/tc${cleanPath}` : cleanPath;
+  }
+
+  return getLocalizedPath(cleanPath, lang);
 }
 
 export function getLocalizedScreenshot(basePath: string, lang: Lang): string {

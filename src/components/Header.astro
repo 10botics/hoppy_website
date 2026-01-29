@@ -1,5 +1,5 @@
 ---
-import { useTranslations, languages, getLocalizedPath, type Lang, defaultLang } from '../i18n/ui';
+import { useTranslations, languages, getLocalizedLegalPath, type Lang, defaultLang } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -46,7 +46,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 					<div class="lang-menu">
 						{Object.entries(languages).map(([code, name]) => (
 							<a 
-								href={getLocalizedPath(pathWithoutLang, code as Lang)}
+								href={getLocalizedLegalPath(pathWithoutLang, code as Lang)}
 								class:list={["lang-option", { active: lang === code }]}
 							>
 								{name}
@@ -107,7 +107,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 					<div class="mobile-lang-menu">
 						{Object.entries(languages).map(([code, name]) => (
 							<a 
-								href={getLocalizedPath(pathWithoutLang, code as Lang)}
+								href={getLocalizedLegalPath(pathWithoutLang, code as Lang)}
 								class:list={["mobile-lang-option", { active: lang === code }]}
 							>
 								{name}

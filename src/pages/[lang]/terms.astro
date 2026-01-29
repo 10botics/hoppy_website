@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { languages, useTranslations, type Lang, defaultLang } from '../../i18n/ui';
+import { languages, useLegalTranslations, type Lang, defaultLang } from '../../i18n/ui';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
@@ -15,10 +15,22 @@ interface Props {
 const { lang: propLang } = Astro.props as Props;
 const { lang: paramLang } = Astro.params as { lang?: Lang };
 const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
-const t = useTranslations(lang);
+const t = useLegalTranslations(lang);
 
 // Only add language prefix for non-default locales
 const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+
+const disclaimer = t('terms.body.disclaimer') as string;
+const intro = t('terms.body.intro') as string[];
+const sections = t('terms.body.sections') as Array<{
+  title: string | null;
+  blocks: Array<
+    | { type: 'heading'; level: 'h3' | 'h4'; text: string }
+    | { type: 'p'; text: string }
+    | { type: 'ul'; items: string[] }
+    | { type: 'ol'; items: string[] }
+  >;
+}>;
 ---
 
 <Layout lang={lang}>
@@ -45,348 +57,47 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
           <strong>{t('terms.lastUpdated')}</strong>
         </p>
 
-        <p class="intro">
-          Please read these Terms and Services ("Terms", "Terms and Services") carefully before using the Hoppy mobile application (the "Service") operated by 10botics LTD ("us", "we", or "our").
-        </p>
-
-        <p class="intro">
-          Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
-        </p>
-
-        <p class="intro">
-          By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.
-        </p>
-
-        <div class="terms-section">
-          <h2>1. Acceptance of Terms</h2>
-          
-          <p>
-            By creating an account, downloading, accessing, or using the Hoppy application, you agree to be bound by these Terms and Services and our Privacy Policy. If you do not agree to these Terms, you must not use our Service.
+        {lang === 'tc' && disclaimer ? (
+          <p class="intro">
+            <strong>{disclaimer}</strong>{' '}
+            <a href="/terms">English</a>
           </p>
+        ) : null}
 
-          <p>
-            We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on this page and updating the "Last updated" date. Your continued use of the Service after any such changes constitutes your acceptance of the new Terms.
-          </p>
-        </div>
+        {Array.isArray(intro) ? intro.map((p: string) => <p class="intro">{p}</p>) : null}
 
-        <div class="terms-section">
-          <h2>2. Description of Service</h2>
-          
-          <p>
-            Hoppy is an educational mobile application designed for children, providing interactive learning experiences across various subjects including mathematics, science, and more. The Service includes:
-          </p>
+        {/** Legal body now comes from structured i18n JSON: `terms.body.sections` */}
 
-          <ul>
-            <li>Interactive educational content and learning activities</li>
-            <li>Progress tracking and performance analytics</li>
-            <li>Multiple user profiles for family accounts</li>
-            <li>Visualization tools and interactive widgets for enhanced learning</li>
-            <li>Premium features available through in-app purchases</li>
-          </ul>
-        </div>
+        {Array.isArray(sections)
+          ? sections.map((section) => (
+              <div class="terms-section">
+                {section?.title ? <h2>{section.title}</h2> : null}
+                {Array.isArray(section?.blocks)
+                  ? section.blocks.map((b) => {
+                      if (b?.type === 'heading') {
+                        return b.level === 'h3' ? <h3>{b.text}</h3> : <h4>{b.text}</h4>;
+                      }
+                      if (b?.type === 'p') return <p>{b.text}</p>;
+                      if (b?.type === 'ul')
+                        return (
+                          <ul>
+                            {Array.isArray(b.items) ? b.items.map((it) => <li>{it}</li>) : null}
+                          </ul>
+                        );
+                      if (b?.type === 'ol')
+                        return (
+                          <ol>
+                            {Array.isArray(b.items) ? b.items.map((it) => <li>{it}</li>) : null}
+                          </ol>
+                        );
+                      return null;
+                    })
+                  : null}
+              </div>
+            ))
+          : null}
 
-        <div class="terms-section">
-          <h2>3. User Accounts and Registration</h2>
-          
-          <h3>Account Creation</h3>
-          <p>
-            To use certain features of the Service, you must create an account. When you create an account, you must provide accurate, complete, and current information. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account.
-          </p>
 
-          <h3>Account Security</h3>
-          <p>
-            You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password. You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.
-          </p>
-
-          <h3>Parental Consent</h3>
-          <p>
-            If you are under the age of 18, you represent that your parent or guardian has reviewed and agreed to these Terms on your behalf. For users under 13 years old, we require verifiable parental consent in compliance with applicable laws, including the Children's Online Privacy Protection Act (COPPA).
-          </p>
-
-          <h3>Account Termination</h3>
-          <p>
-            We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. Upon termination, your right to use the Service will immediately cease.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>4. User Conduct and Prohibited Activities</h2>
-          
-          <p>You agree not to engage in any of the following prohibited activities:</p>
-
-          <ul>
-            <li>Violating any applicable local, state, national, or international law</li>
-            <li>Infringing upon or violating our intellectual property rights or the intellectual property rights of others</li>
-            <li>Uploading or transmitting viruses, malware, or any other type of malicious code</li>
-            <li>Attempting to gain unauthorized access to any portion of the Service or any other systems or networks</li>
-            <li>Interfering with or disrupting the Service or servers or networks connected to the Service</li>
-            <li>Using the Service for any commercial purpose without our express written consent</li>
-            <li>Impersonating another person or entity</li>
-            <li>Harassing, threatening, or intimidating other users</li>
-            <li>Uploading inappropriate content, including but not limited to offensive, obscene, or harmful material</li>
-            <li>Attempting to reverse engineer, decompile, or disassemble any aspect of the Service</li>
-            <li>Using automated systems or software to extract data from the Service (screen scraping, bots, spiders, etc.)</li>
-          </ul>
-        </div>
-
-        <div class="terms-section">
-          <h2>5. Intellectual Property Rights</h2>
-          
-          <h3>Our Content</h3>
-          <p>
-            The Service and its original content (excluding User Content), features, and functionality are and will remain the exclusive property of 10botics LTD and its licensors. The Service is protected by copyright, trademark, and other laws of both Hong Kong SAR China and foreign countries.
-          </p>
-
-          <p>
-            Our trademarks, service marks, logos, and trade dress (including "Hoppy" and the Hoppy logo) may not be used in connection with any product or service without our prior written consent.
-          </p>
-
-          <h3>User Content License</h3>
-          <p>
-            When you upload photos, images, or other content to the Service ("User Content"), you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, and display such User Content solely for the purpose of providing and improving the Service.
-          </p>
-
-          <p>
-            You represent and warrant that you own or have the necessary rights to all User Content you submit and that such content does not violate any third-party rights.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>6. Purchases and Payment</h2>
-          
-          <h3>In-App Purchases</h3>
-          <p>
-            Hoppy offers in-app purchases for premium features, content, and subscriptions. All purchases are processed through the Apple App Store or Google Play Store, and are subject to their respective terms and conditions.
-          </p>
-
-          <h3>Pricing</h3>
-          <p>
-            We reserve the right to modify pricing for our Service at any time. Price changes will not affect existing subscriptions or purchases during their current term.
-          </p>
-
-          <h3>Refunds</h3>
-          <p>
-            Refund policies are governed by the Apple App Store and Google Play Store policies. Please contact Apple or Google directly for refund requests. We do not process refunds directly.
-          </p>
-
-          <h3>No Refund for Breach</h3>
-          <p>
-            If your account is terminated for violation of these Terms, you will not be entitled to any refund of unused subscription time or purchased content.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>7. Privacy and Data Protection</h2>
-          
-          <p>
-            Your use of the Service is also governed by our Privacy Policy, which explains how we collect, use, and protect your personal information. By using the Service, you consent to our collection and use of personal data as outlined in the Privacy Policy.
-          </p>
-
-          <p>
-            We take the privacy of children seriously and comply with the Children's Online Privacy Protection Act (COPPA) and other applicable laws. Please review our Privacy Policy for detailed information about how we handle children's data.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>8. Third-Party Services and Links</h2>
-          
-          <p>
-            Our Service may contain links to third-party websites or services that are not owned or controlled by 10botics LTD. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services.
-          </p>
-
-          <p>
-            We use third-party service providers to facilitate our Service, including but not limited to:
-          </p>
-
-          <ul>
-            <li>Apple App Store and Google Play Store for payment processing</li>
-            <li>Analytics services for improving user experience</li>
-            <li>Cloud storage providers for data storage</li>
-          </ul>
-
-          <p>
-            You acknowledge and agree that we shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such third-party websites or services.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>9. Disclaimer of Warranties</h2>
-          
-          <p>
-            <strong>THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. USE OF THE SERVICE IS AT YOUR OWN RISK.</strong>
-          </p>
-
-          <p>
-            To the maximum extent permitted by applicable law, the Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
-          </p>
-
-          <p>
-            We do not warrant that:
-          </p>
-
-          <ul>
-            <li>The Service will function uninterrupted, secure, or available at any particular time or location</li>
-            <li>Any errors or defects will be corrected</li>
-            <li>The Service is free of viruses or other harmful components</li>
-            <li>The results of using the Service will meet your requirements or expectations</li>
-            <li>The educational content will result in any specific learning outcomes or achievements</li>
-          </ul>
-        </div>
-
-        <div class="terms-section">
-          <h2>10. Limitation of Liability</h2>
-          
-          <p>
-            <strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL 10BOTICS LTD, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</strong>
-          </p>
-
-          <ul>
-            <li>Your access to or use of or inability to access or use the Service</li>
-            <li>Any conduct or content of any third party on the Service</li>
-            <li>Any content obtained from the Service</li>
-            <li>Unauthorized access, use, or alteration of your transmissions or content</li>
-          </ul>
-
-          <p>
-            <strong>WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), OR ANY OTHER LEGAL THEORY, WHETHER OR NOT WE HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE.</strong>
-          </p>
-
-          <p>
-            In jurisdictions that do not allow the exclusion or limitation of liability for consequential or incidental damages, our liability shall be limited to the maximum extent permitted by law.
-          </p>
-
-          <p>
-            Our total liability to you for all claims arising from or related to the Service shall not exceed the amount you paid us in the twelve (12) months prior to the claim, or one hundred dollars ($100), whichever is greater.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>11. Indemnification</h2>
-          
-          <p>
-            You agree to defend, indemnify, and hold harmless 10botics LTD and its licensors, employees, contractors, agents, officers, and directors from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses (including but not limited to attorney's fees) arising from:
-          </p>
-
-          <ul>
-            <li>Your use of and access to the Service</li>
-            <li>Your violation of any term of these Terms</li>
-            <li>Your violation of any third-party right, including without limitation any copyright, property, or privacy right</li>
-            <li>Any claim that your User Content caused damage to a third party</li>
-          </ul>
-
-          <p>
-            This defense and indemnification obligation will survive these Terms and your use of the Service.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>12. Educational Content Disclaimer</h2>
-          
-          <p>
-            While we strive to provide accurate and high-quality educational content, we make no guarantees about:
-          </p>
-
-          <ul>
-            <li>The accuracy, completeness, or currentness of the educational content</li>
-            <li>Specific learning outcomes or academic improvements</li>
-            <li>The content's alignment with any particular educational curriculum or standards</li>
-          </ul>
-
-          <p>
-            The Service is designed to supplement, not replace, traditional education. We recommend that parents and educators remain involved in children's learning and use professional judgment when incorporating Hoppy into educational activities.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>13. Governing Law and Jurisdiction</h2>
-          
-          <p>
-            These Terms shall be governed and construed in accordance with the laws of Hong Kong SAR China, without regard to its conflict of law provisions.
-          </p>
-
-          <p>
-            Any dispute arising from or relating to the subject matter of these Terms shall be subject to the exclusive jurisdiction of the courts of Hong Kong SAR China.
-          </p>
-
-          <p>
-            If you are a consumer residing in the European Union, you may also have the right to bring proceedings in the courts of the country where you reside.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>14. Severability</h2>
-          
-          <p>
-            If any provision of these Terms is held to be invalid or unenforceable by a court of competent jurisdiction, the remaining provisions of these Terms will remain in effect. The invalid or unenforceable provision will be deemed superseded by a valid, enforceable provision that most closely matches the intent of the original provision.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>15. Entire Agreement</h2>
-          
-          <p>
-            These Terms, together with our Privacy Policy and any other legal notices published by us on the Service, constitute the entire agreement between you and 10botics LTD concerning the Service and supersede all prior agreements and understandings, whether written or oral, regarding the subject matter.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>16. Waiver and Severability</h2>
-          
-          <p>
-            No waiver by 10botics LTD of any term or condition set forth in these Terms shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition. Any failure of 10botics LTD to assert a right or provision under these Terms shall not constitute a waiver of such right or provision.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>17. Changes to the Service</h2>
-          
-          <p>
-            We reserve the right to withdraw or amend our Service, and any content or features we provide on the Service, in our sole discretion without notice. We will not be liable if for any reason all or any part of the Service is unavailable at any time or for any period.
-          </p>
-
-          <p>
-            From time to time, we may restrict access to some parts of the Service, or the entire Service, to users, including registered users.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>18. Assignment</h2>
-          
-          <p>
-            You may not assign or transfer these Terms or your rights hereunder, in whole or in part, by operation of law or otherwise, without our prior written consent. We may assign these Terms at any time without notice or consent. Subject to the foregoing, these Terms will bind and inure to the benefit of the parties, their successors, and permitted assigns.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>19. Force Majeure</h2>
-          
-          <p>
-            We shall not be liable for any failure to perform our obligations under these Terms where such failure results from any cause beyond our reasonable control, including but not limited to mechanical, electronic, or communications failure or degradation, natural disasters, war, terrorism, riots, or acts of government.
-          </p>
-        </div>
-
-        <div class="terms-section">
-          <h2>20. Contact Information</h2>
-          
-          <p>
-            If you have any questions about these Terms and Services, please contact us:
-          </p>
-
-          <p>
-            <strong>10botics LTD</strong><br>
-            Units 01 and 02, 12/F, THE 80|20<br>
-            No. 161 Wai Yip Street, Kwun Tong<br>
-            Hong Kong SAR China
-          </p>
-
-          <p>
-            Email: <a href="mailto:hi@hoppy.day">hi@hoppy.day</a>
-          </p>
-
-          <p class="effective-date">
-            By using Hoppy, you acknowledge that you have read, understood, and agree to be bound by these Terms and Services.
-          </p>
-        </div>
       </div>
     </section>
 

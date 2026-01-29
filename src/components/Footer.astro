@@ -1,5 +1,5 @@
 ---
-import { useTranslations, getLocalizedPath, type Lang } from '../i18n/ui';
+import { useTranslations, getLocalizedLegalPath, getLocalizedPath, type Lang } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -16,9 +16,9 @@ const t = useTranslations(lang);
 			<p>
 				<a href={getLocalizedPath('/qna', lang)} class="footer-link">{t('nav.qna')}</a>
 				<span class="footer-separator">•</span>
-				<a href={getLocalizedPath('/privacy', lang)} class="footer-link">{t('nav.privacy')}</a>
+				<a href={getLocalizedLegalPath('/privacy', lang)} class="footer-link">{t('nav.privacy')}</a>
 				<span class="footer-separator">•</span>
-				<a href={getLocalizedPath('/terms', lang)} class="footer-link">{t('nav.terms')}</a>
+				<a href={getLocalizedLegalPath('/terms', lang)} class="footer-link">{t('nav.terms')}</a>
 			</p>
 		</div>
 	</div>
