@@ -65,6 +65,8 @@
     "availableNow": "現已開放",
     "fullAccess": "完整存取",
     "localSupport": "本地支援",
+    "vpnDisclaimerTitle": "地區存取提示",
+    "vpnDisclaimerText": "如果您在存取網站時遇到「地區不允許」錯誤，請關閉您的 VPN 然後重試。",
     "comingSoon": "即將推出",
     "comingSoonText": "我們正在擴展！未來將會加入更多地區。敬請期待更新。",
     "notifyTitle": "想知道 Hoppy 何時來到你的地區？",

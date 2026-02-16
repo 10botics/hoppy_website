@@ -65,6 +65,15 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
           </div>
         </div>
 
+        <!-- VPN Disclaimer -->
+        <div class="vpn-disclaimer">
+          <div class="disclaimer-icon">⚠️</div>
+          <div class="disclaimer-content">
+            <h4>{t('availability.vpnDisclaimerTitle') || 'Region Access Notice'}</h4>
+            <p>{t('availability.vpnDisclaimerText') || 'If you encounter "region not allowed" errors when accessing the website, please turn off your VPN and try again.'}</p>
+          </div>
+        </div>
+
         <!-- Coming Soon Section -->
         <div class="coming-soon-section">
           <h2>{t('availability.comingSoon')}</h2>
@@ -298,6 +307,43 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
     font-weight: 500;
   }
 
+  /* VPN Disclaimer */
+  .vpn-disclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #FEF3C7;
+    border: 2px solid #FCD34D;
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 12px rgba(252, 211, 77, 0.15);
+  }
+
+  .disclaimer-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .disclaimer-content {
+    flex: 1;
+  }
+
+  .disclaimer-content h4 {
+    color: #92400E;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .disclaimer-content p {
+    color: #78350F;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   /* Coming Soon Section */
   .coming-soon-section {
     background-color: var(--hoppy-white);
@@ -419,6 +465,23 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 
     .header-logo {
       width: 100px;
+    }
+
+    .vpn-disclaimer {
+      padding: 1.25rem;
+      gap: 0.75rem;
+    }
+
+    .disclaimer-icon {
+      font-size: 1.5rem;
+    }
+
+    .disclaimer-content h4 {
+      font-size: 0.95rem;
+    }
+
+    .disclaimer-content p {
+      font-size: 0.9rem;
     }
   }
 

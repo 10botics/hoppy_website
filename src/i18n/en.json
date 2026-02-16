@@ -65,6 +65,8 @@
     "availableNow": "Available Now",
     "fullAccess": "Full Access",
     "localSupport": "Local Support",
+    "vpnDisclaimerTitle": "Region Access Notice",
+    "vpnDisclaimerText": "If you encounter \"region not allowed\" errors when accessing the website, please turn off your VPN and try again.",
     "comingSoon": "Coming Soon",
     "comingSoonText": "We're expanding! More regions will be added in the future. Stay tuned for updates.",
     "notifyTitle": "Want to know when Hoppy arrives in your region?",
