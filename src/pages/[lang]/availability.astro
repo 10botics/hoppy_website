@@ -41,6 +41,15 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
     <!-- Availability Content -->
     <section class="availability-content">
       <div class="content-wrapper">
+        <!-- VPN Disclaimer -->
+        <div class="vpn-disclaimer">
+          <div class="disclaimer-icon">⚠️</div>
+          <div class="disclaimer-content">
+            <h4>{t('availability.vpnDisclaimerTitle') || 'Region Access Notice'}</h4>
+            <p>{t('availability.vpnDisclaimerText') || 'If you encounter "region not allowed" errors when accessing the website, please turn off your VPN and try again.'}</p>
+          </div>
+        </div>
+
         <div class="regions-intro">
           <div class="globe-icon">🌏</div>
           <h2>{t('availability.whereFind')}</h2>
@@ -62,15 +71,6 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
               <span class="feature-tag">{t('availability.fullAccess')}</span>
               <span class="feature-tag">{t('availability.localSupport')}</span>
             </div>
-          </div>
-        </div>
-
-        <!-- VPN Disclaimer -->
-        <div class="vpn-disclaimer">
-          <div class="disclaimer-icon">⚠️</div>
-          <div class="disclaimer-content">
-            <h4>{t('availability.vpnDisclaimerTitle') || 'Region Access Notice'}</h4>
-            <p>{t('availability.vpnDisclaimerText') || 'If you encounter "region not allowed" errors when accessing the website, please turn off your VPN and try again.'}</p>
           </div>
         </div>
 
@@ -316,7 +316,7 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
     border: 2px solid #FCD34D;
     padding: 1.5rem;
     border-radius: 16px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     box-shadow: 0 4px 12px rgba(252, 211, 77, 0.15);
   }
 
