@@ -1,0 +1,515 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { languages, useTranslations, type Lang, defaultLang } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({
+    params: { lang },
+  }));
+}
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang: propLang } = Astro.props as Props;
+const { lang: paramLang } = Astro.params as { lang?: Lang };
+const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+
+const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+---
+
+<Layout lang={lang}>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>{t('physicsPage.title')}</h1>
+        <p class="hero-description">
+          {t('physicsPage.description')}
+        </p>
+      </div>
+    </section>
+
+    <section class="widgets-gallery">
+      <!-- Physics Graphs -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📈</div>
+          <div class="widget-info">
+            <h2>{t('physicsPage.graphs.title')}</h2>
+            <p>{t('physicsPage.graphs.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.widgetVariations')}</div>
+        <div class="widget-examples two-column">
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-phygraph-1.jpg" alt="Displacement-time motion graph" />
+            <span class="widget-label">{t('physicsPage.graphs.motion')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-phygraph-3.jpg" alt="Temperature-time cooling graph" />
+            <span class="widget-label">{t('physicsPage.graphs.heating')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-phygraph-4.jpg" alt="Wave displacement-distance graph" />
+            <span class="widget-label">{t('physicsPage.graphs.waves')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-phygraph-2.jpg" alt="Gas-law pressure-volume graph" />
+            <span class="widget-label">{t('physicsPage.graphs.gasLaws')}</span>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.graphs.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('physicsPage.graphs.featureMotion')}</li>
+            <li>{t('physicsPage.graphs.featureThermal')}</li>
+            <li>{t('physicsPage.graphs.featureWaves')}</li>
+            <li>{t('physicsPage.graphs.featureGasLaws')}</li>
+            <li>{t('physicsPage.graphs.featureLabels')}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Electric Circuit -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">⚡</div>
+          <div class="widget-info">
+            <h2>{t('physicsPage.circuit.title')}</h2>
+            <p>{t('physicsPage.circuit.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.circuit.supportedComponents')}</div>
+        <div class="component-list">
+          <div class="component-item">
+            <span class="component-icon">🔋</span>
+            <span class="component-name">{t('physicsPage.circuit.battery')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">▭</span>
+            <span class="component-name">{t('physicsPage.circuit.resistor')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">💡</span>
+            <span class="component-name">{t('physicsPage.circuit.bulb')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">⏻</span>
+            <span class="component-name">{t('physicsPage.circuit.switch')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">Ⓐ</span>
+            <span class="component-name">{t('physicsPage.circuit.ammeter')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">Ⓥ</span>
+            <span class="component-name">{t('physicsPage.circuit.voltmeter')}</span>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.widgetVariations')}</div>
+        <div class="widget-examples two-column">
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-circuit-1.jpg" alt="Series circuit with ammeter" />
+            <span class="widget-label">{t('physicsPage.circuit.seriesCircuit')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-circuit-2.jpg" alt="Circuit with voltmeter" />
+            <span class="widget-label">{t('physicsPage.circuit.parallelCircuit')}</span>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.circuit.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('physicsPage.circuit.featureNodes')}</li>
+            <li>{t('physicsPage.circuit.featurePolarity')}</li>
+            <li>{t('physicsPage.circuit.featureOrientation')}</li>
+            <li>{t('physicsPage.circuit.featureTerminals')}</li>
+            <li>{t('physicsPage.circuit.featureJunctions')}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Field Diagram -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">🧲</div>
+          <div class="widget-info">
+            <h2>{t('physicsPage.fieldDiagram.title')}</h2>
+            <p>{t('physicsPage.fieldDiagram.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.widgetVariations')}</div>
+        <div class="widget-examples three-column">
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-field-2.jpg" alt="Charged particle entering magnetic field region" />
+            <span class="widget-label">{t('physicsPage.fieldDiagram.magnetic')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-field-4.jpg" alt="Electron in magnetic field into the page" />
+            <span class="widget-label">{t('physicsPage.fieldDiagram.magneticInto')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-field-1.jpg" alt="Electron in crossed electric and magnetic fields" />
+            <span class="widget-label">{t('physicsPage.fieldDiagram.combined')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/screenshots/screenshot-field-3.jpg" alt="Hidden magnetic field" />
+            <span class="widget-label">{t('physicsPage.fieldDiagram.velocitySelector')}</span>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.fieldDiagram.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('physicsPage.fieldDiagram.featureElectric')}</li>
+            <li>{t('physicsPage.fieldDiagram.featureMagnetic')}</li>
+            <li>{t('physicsPage.fieldDiagram.featureCombined')}</li>
+            <li>{t('physicsPage.fieldDiagram.featureForces')}</li>
+            <li>{t('physicsPage.fieldDiagram.featureRegion')}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Physics Formulas -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">Σ</div>
+          <div class="widget-info">
+            <h2>{t('physicsPage.formulas.title')}</h2>
+            <p>{t('physicsPage.formulas.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.widgetVariations')}</div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/screenshots/screenshot-phylatex-1.jpg" alt="Physics formula examples" />
+            <span class="widget-label">{t('physicsPage.formulas.example')}</span>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('physicsPage.formulas.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('physicsPage.formulas.featureEquations')}</li>
+            <li>{t('physicsPage.formulas.featureFractions')}</li>
+            <li>{t('physicsPage.formulas.featureVectors')}</li>
+            <li>{t('physicsPage.formulas.featureInline')}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="coming-soon-section">
+      <p>{t('physicsPage.comingSoon')}</p>
+    </section>
+
+    <section class="back-section">
+      <a href={`${langPrefix}/`} class="back-link">{t('physicsPage.backToHome')}</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(63, 181, 219, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .widgets-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .widget-section {
+    margin-bottom: 4rem;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .widget-section:hover {
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .widget-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .widget-icon {
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+    border-radius: 16px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  .widget-info h2 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .widget-info p {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .subsection-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3FB5DB;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .subsection-label:first-of-type {
+    margin-top: 0;
+  }
+
+  .widget-examples {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .widget-examples.two-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .widget-examples.three-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .widget-examples.single-column {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .widget-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .widget-card:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  }
+
+  .widget-card.large img {
+    max-width: 100%;
+  }
+
+  .widget-card img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+  }
+
+  .widget-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .component-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .component-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .component-item:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    transform: translateY(-2px);
+  }
+
+  .component-icon {
+    font-size: 1.25rem;
+  }
+
+  .component-name {
+    font-size: 0.95rem;
+    color: #334155;
+    font-weight: 500;
+  }
+
+  .features-list {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .features-list ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style-type: disc;
+  }
+
+  .features-list li {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .coming-soon-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+    text-align: center;
+  }
+
+  .coming-soon-section p {
+    color: #64748b;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .back-section {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #3FB5DB;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #3FB5DB;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: #3FB5DB;
+    color: #ffffff;
+    transform: translateX(-5px);
+  }
+
+  @media (max-width: 768px) {
+    .widget-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .widget-section {
+      padding: 1.5rem;
+    }
+
+    .widget-card {
+      padding: 1.5rem;
+    }
+
+    .widget-examples.two-column,
+    .widget-examples.three-column {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .widgets-gallery {
+      padding: 2rem 1rem;
+    }
+  }
+</style>

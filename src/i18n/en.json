@@ -178,7 +178,7 @@
     },
     "circuit": {
       "title": "Electric Circuit",
-      "description": "Interactive electric circuit diagrams with batteries, resistors, bulbs, switches, ammeters, voltmeters, and wire connections. Supports series and parallel circuits with automatic junction detection.",
+      "description": "Electric circuit diagrams with batteries, resistors, bulbs, switches, ammeters, voltmeters, and wire connections. Renders series and parallel layouts using explicit nodes and wires.",
       "circuitCalculation": "Circuit Calculation",
       "simpleCircuit": "Simple Series Circuit",
       "supportedComponents": "Supported Components",
@@ -189,11 +189,11 @@
       "ammeter": "Ammeter",
       "voltmeter": "Voltmeter",
       "features": "Features",
-      "featureNodes": "Grid-based node positioning for flexible circuit layouts",
-      "featurePolarity": "Polarity markers for batteries and switches",
-      "featureOrientation": "Automatic orientation calculation (horizontal, vertical, diagonal)",
-      "featureTerminals": "External terminals for open/incomplete circuits",
-      "featureJunctions": "Automatic junction dots where more than 2 wires connect"
+      "featureNodes": "Explicit node coordinates for precise circuit layouts",
+      "featurePolarity": "Battery positive side and switch hinge side can be marked",
+      "featureOrientation": "Components render between two nodes, with orthogonal layouts recommended",
+      "featureTerminals": "Optional labelled external terminals for open connection points",
+      "featureJunctions": "Junction dots appear only where more than two connections meet"
     },
     "chemicalEquation": {
       "title": "Chemical Equation",
@@ -226,6 +226,70 @@
       "description": "Interactive 3D shapes with perspective projection and labeled vertices"
     },
     "backToHome": "← Back to Home"
+  },
+  "physicsPage": {
+    "title": "Physics Question Widgets",
+    "description": "Hoppy supports interactive widgets tailored for the HKDSE Physics Curriculum — graphs, circuits, electric and magnetic field diagrams, and formulas.",
+    "widgetVariations": "Widget Variations",
+    "comingSoon": "More physics setup visuals (force and motion, wave motion) are planned.",
+    "backToHome": "← Back to Home",
+    "graphs": {
+      "title": "Physics Graphs",
+      "description": "Plot force-and-motion, heat-and-gases, and wave graphs for Physics questions — including velocity–time, displacement–time, temperature–time heating/cooling line graphs, I–V characteristics, and wave snapshots.",
+      "motion": "Motion graphs (v–t / s–t)",
+      "heating": "Temperature–time heating/cooling graph",
+      "waves": "Wave snapshot",
+      "gasLaws": "Gas-law relationship graph",
+      "features": "Features",
+      "featureMotion": "Motion graphs such as velocity–time (v–t), displacement–time (s–t), and acceleration–time (a–t)",
+      "featureThermal": "Temperature–time heating/cooling line graphs with melting and vaporization plateaus",
+      "featureWaves": "Wave snapshots, displacement–distance graphs, and displacement–time graphs",
+      "featureGasLaws": "Gas-law relationship graphs (p–T, p–V, V–T) and I–V / V–I graphs",
+      "featureLabels": "Labelled points, legends, axis units, guide lines, and multi-series colors"
+    },
+    "circuit": {
+      "title": "Electric Circuit",
+      "description": "Electric circuit diagrams with batteries, resistors, bulbs, switches, ammeters, voltmeters, and wire connections. Renders series and parallel layouts using explicit nodes and wires.",
+      "seriesCircuit": "Series circuit with ammeter",
+      "parallelCircuit": "Circuit with voltmeter",
+      "supportedComponents": "Supported Components",
+      "battery": "Battery",
+      "resistor": "Resistor",
+      "bulb": "Bulb",
+      "switch": "Switch",
+      "ammeter": "Ammeter",
+      "voltmeter": "Voltmeter",
+      "features": "Features",
+      "featureNodes": "Explicit node coordinates for precise circuit layouts",
+      "featurePolarity": "Battery positive side and switch hinge side can be marked",
+      "featureOrientation": "Components render between two nodes, with orthogonal layouts recommended",
+      "featureTerminals": "Optional labelled external terminals for open connection points",
+      "featureJunctions": "Junction dots appear only where more than two connections meet"
+    },
+    "fieldDiagram": {
+      "title": "Electric and Magnetic Field Diagrams",
+      "description": "Charged-particle diagrams for uniform electric and magnetic fields — including mutually perpendicular E and B fields and velocity selectors.",
+      "magnetic": "Magnetic field region",
+      "magneticInto": "Magnetic field into the page",
+      "combined": "Mutually perpendicular E and B fields",
+      "velocitySelector": "Hidden magnetic field",
+      "features": "Features",
+      "featureElectric": "Uniform electric fields with arrows or parallel plates",
+      "featureMagnetic": "Uniform magnetic fields into or out of the page with velocity and magnetic force",
+      "featureCombined": "Mutually perpendicular uniform E and B fields and velocity selectors",
+      "featureForces": "Optional electric force and magnetic force on charges",
+      "featureRegion": "Charged particles entering a field region"
+    },
+    "formulas": {
+      "title": "Physics Formulas",
+      "description": "Render Physics equations and notation clearly in questions and options.",
+      "example": "Physics equations",
+      "features": "Features",
+      "featureEquations": "Clear rendering of Physics equations in questions and options",
+      "featureFractions": "Fractions, roots, exponents, and Greek letters",
+      "featureVectors": "Vectors, subscripts, and scientific notation",
+      "featureInline": "Inline and display-style formulas for mobile readability"
+    }
   },
   "privacy": {
     "title": "Privacy Policy for Hoppy",

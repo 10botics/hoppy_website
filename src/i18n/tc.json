@@ -178,7 +178,7 @@
     },
     "circuit": {
       "title": "電路圖",
-      "description": "互動式電路圖，包含電池、電阻、燈泡、開關、電流錶、電壓錶和導線連接。支援串聯和並聯電路，自動檢測接點。",
+      "description": "電路圖可顯示電池、電阻、燈泡、開關、電流錶、電壓錶和導線連接。以明確節點和導線繪製串聯及並聯佈局。",
       "circuitCalculation": "電路計算",
       "simpleCircuit": "簡單串聯電路",
       "supportedComponents": "支援的元件",
@@ -189,11 +189,11 @@
       "ammeter": "電流錶",
       "voltmeter": "電壓錶",
       "features": "功能特點",
-      "featureNodes": "基於網格的節點定位，靈活佈局電路",
-      "featurePolarity": "電池和開關的極性標記",
-      "featureOrientation": "自動計算方向（水平、垂直、對角線）",
-      "featureTerminals": "用於開放/不完整電路的外部接線端子",
-      "featureJunctions": "超過2條導線連接處自動顯示接點"
+      "featureNodes": "使用明確節點坐標，精準控制電路佈局",
+      "featurePolarity": "可標記電池正極與開關鉸位",
+      "featureOrientation": "元件繪製於兩個節點之間，建議使用水平或垂直佈局",
+      "featureTerminals": "可加入有標籤的外部端子，表示開放連接點",
+      "featureJunctions": "只有超過兩個連接在同一節點相接時才顯示接點"
     },
     "chemicalEquation": {
       "title": "化學方程式",
@@ -226,6 +226,70 @@
       "description": "具有透視投影和標記頂點的互動式3D形狀"
     },
     "backToHome": "← 返回首頁"
+  },
+  "physicsPage": {
+    "title": "物理題目類型",
+    "description": "Hoppy 為香港中學文憑考試（HKDSE）物理課程提供專用互動題目類型——線圖、電路、電場和磁場圖與公式。",
+    "widgetVariations": "類型變化",
+    "comingSoon": "更多物理實驗裝置圖（力和運動、波動）即將推出。",
+    "backToHome": "← 返回首頁",
+    "graphs": {
+      "title": "物理線圖",
+      "description": "繪製物理題目所需的力和運動、熱和氣體、波動等線圖，包括速度-時間、位移-時間、溫度-時間加熱/冷卻線圖、I-V 特性圖及波形瞬時圖。",
+      "motion": "運動線圖（v-t / s-t）",
+      "heating": "溫度-時間加熱/冷卻線圖",
+      "waves": "波形瞬時圖",
+      "gasLaws": "氣體定律關係圖",
+      "features": "功能特點",
+      "featureMotion": "運動線圖，例如速度-時間 (v-t)、位移-時間 (s-t)、加速度-時間 (a-t)",
+      "featureThermal": "溫度-時間加熱/冷卻線圖，包括熔解與汽化的水平段",
+      "featureWaves": "波形瞬時圖、位移-距離圖及位移-時間圖",
+      "featureGasLaws": "氣體定律關係圖（p-T、p-V、V-T）及 I-V/V-I 圖",
+      "featureLabels": "標記點、圖例、坐標軸單位、輔助線及多系列顏色"
+    },
+    "circuit": {
+      "title": "電路圖",
+      "description": "電路圖可顯示電池、電阻器、燈泡、開關、安培計、伏特計和導線連接。以明確節點和導線繪製串聯及並聯佈局。",
+      "seriesCircuit": "串聯電路（含安培計）",
+      "parallelCircuit": "含伏特計的電路",
+      "supportedComponents": "支援的元件",
+      "battery": "電池",
+      "resistor": "電阻器",
+      "bulb": "燈泡",
+      "switch": "開關",
+      "ammeter": "安培計",
+      "voltmeter": "伏特計",
+      "features": "功能特點",
+      "featureNodes": "使用明確節點坐標，精準控制電路佈局",
+      "featurePolarity": "可標記電池正極與開關鉸位",
+      "featureOrientation": "元件繪製於兩個節點之間，建議使用水平或垂直佈局",
+      "featureTerminals": "可加入有標籤的外部端子，表示開放連接點",
+      "featureJunctions": "只有超過兩個連接在同一節點相接時才顯示接點"
+    },
+    "fieldDiagram": {
+      "title": "電場和磁場圖",
+      "description": "勻強電場與勻強磁場中帶電粒子的圖示，包括相互垂直的電場和磁場及速度選擇器。",
+      "magnetic": "磁場區域",
+      "magneticInto": "指入紙面的磁場",
+      "combined": "相互垂直的電場和磁場",
+      "velocitySelector": "隱藏磁場",
+      "features": "功能特點",
+      "featureElectric": "勻強電場，支援箭頭或平行板表示",
+      "featureMagnetic": "指入或指出紙面的勻強磁場，並顯示速度與磁力",
+      "featureCombined": "相互垂直的勻強電場和勻強磁場及速度選擇器",
+      "featureForces": "可選顯示電荷所受的電場力與磁力",
+      "featureRegion": "帶電粒子進入場區的情況"
+    },
+    "formulas": {
+      "title": "物理公式",
+      "description": "在題目與選項中清晰顯示物理方程式與符號。",
+      "example": "物理方程式",
+      "features": "功能特點",
+      "featureEquations": "在題目與選項中清晰顯示物理方程式",
+      "featureFractions": "分數、根號、指數及希臘字母",
+      "featureVectors": "向量、下標及科學記數法",
+      "featureInline": "行內與獨立顯示公式，適合手機閱讀"
+    }
   },
   "privacy": {
     "title": "Hoppy 私隱政策",
