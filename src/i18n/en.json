@@ -208,6 +208,32 @@
       "featureArrows": "Various reaction arrows (→, ⇌, ⇋) with conditions",
       "featureCoefficients": "Stoichiometric coefficients for balanced equations"
     },
+    "codeBlock": {
+      "title": "ICT Code Block",
+      "description": "Syntax-highlighted code snippets with line numbers for ICT and computer science questions. Supports Python, C++, and HKDSE pseudocode.",
+      "features": "Features",
+      "pythonExample": "Python — 12 lines with line numbers",
+      "cppExample": "C++ — multi-line program",
+      "pseudocodeExample": "HKDSE pseudocode",
+      "compactSnippet": "Compact code snippet",
+      "featureLineNumbers": "Line-number gutter for multi-line code snippets",
+      "featureLanguages": "Language badge for Python, C++, and HKDSE pseudocode",
+      "featureCompactMode": "Compact layout for short code in answer options"
+    },
+    "econGraph": {
+      "title": "Economics Graph",
+      "description": "Interactive supply and demand diagrams for HK economics questions. Shows equilibrium, curve shifts, taxes, and welfare areas.",
+      "features": "Features",
+      "equilibrium": "Market equilibrium",
+      "demandShift": "Demand shift",
+      "supplyShift": "Supply shift",
+      "unitTaxDwl": "Unit tax with revenue and DWL",
+      "priceCeilingWelfare": "Price ceiling welfare areas",
+      "featureShifts": "Demand and supply curve shifts with before/after equilibrium",
+      "featureInterventions": "Price ceiling, floor, quota, and unit tax scenarios",
+      "featureWelfareShading": "Consumer surplus, producer surplus, and deadweight loss shading",
+      "featureAxisLabels": "Custom axis labels for localized economics questions"
+    },
     "additionalContent": "Additional Supported Content",
     "latex": {
       "title": "LaTeX Math",

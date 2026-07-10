@@ -427,6 +427,95 @@ const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
         </div>
       </div>
 
+      <!-- ICT Code Block -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">💻</div>
+          <div class="widget-info">
+            <h2>{t('widgets.codeBlock.title')}</h2>
+            <p>{t('widgets.codeBlock.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples three-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_codeblock_python_12.png" alt="Python code block with line numbers" />
+            <span class="widget-label">{t('widgets.codeBlock.pythonExample')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_codeblock_cpp_12.png" alt="C++ code block with line numbers" />
+            <span class="widget-label">{t('widgets.codeBlock.cppExample')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_codeblock_pseudocode_12.png" alt="HKDSE pseudocode block" />
+            <span class="widget-label">{t('widgets.codeBlock.pseudocodeExample')}</span>
+          </div>
+        </div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_codeblock_compact_cpp.png" alt="Compact C++ code snippet" />
+            <span class="widget-label">{t('widgets.codeBlock.compactSnippet')}</span>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.codeBlock.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.codeBlock.featureLineNumbers')}</li>
+            <li>{t('widgets.codeBlock.featureLanguages')}</li>
+            <li>{t('widgets.codeBlock.featureCompactMode')}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Economics Graph -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">💹</div>
+          <div class="widget-info">
+            <h2>{t('widgets.econGraph.title')}</h2>
+            <p>{t('widgets.econGraph.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples three-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_econgraph_equilibrium.png" alt="Market equilibrium graph" />
+            <span class="widget-label">{t('widgets.econGraph.equilibrium')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_econgraph_demand_shift.png" alt="Demand shift graph" />
+            <span class="widget-label">{t('widgets.econGraph.demandShift')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_econgraph_unit_tax_dwl.png" alt="Unit tax with DWL graph" />
+            <span class="widget-label">{t('widgets.econGraph.unitTaxDwl')}</span>
+          </div>
+        </div>
+        <div class="widget-examples three-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_econgraph_supply_shift.png" alt="Supply shift graph" />
+            <span class="widget-label">{t('widgets.econGraph.supplyShift')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_econgraph_price_ceiling_welfare.png" alt="Price ceiling welfare graph" />
+            <span class="widget-label">{t('widgets.econGraph.priceCeilingWelfare')}</span>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.econGraph.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.econGraph.featureShifts')}</li>
+            <li>{t('widgets.econGraph.featureInterventions')}</li>
+            <li>{t('widgets.econGraph.featureWelfareShading')}</li>
+            <li>{t('widgets.econGraph.featureAxisLabels')}</li>
+          </ul>
+        </div>
+      </div>
+
     </section>
 
     <!-- Supported Features -->
