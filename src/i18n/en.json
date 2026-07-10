@@ -210,14 +210,14 @@
     },
     "codeBlock": {
       "title": "ICT Code Block",
-      "description": "Syntax-highlighted code snippets with line numbers for ICT and computer science questions. Supports Python, C++, and HKDSE pseudocode.",
+      "description": "Syntax-highlighted code snippets with line numbers for ICT and computer science questions. Supports Python, C++, and pseudocode.",
       "features": "Features",
       "pythonExample": "Python — 12 lines with line numbers",
       "cppExample": "C++ — multi-line program",
-      "pseudocodeExample": "HKDSE pseudocode",
+      "pseudocodeExample": "Pseudocode",
       "compactSnippet": "Compact code snippet",
       "featureLineNumbers": "Line-number gutter for multi-line code snippets",
-      "featureLanguages": "Language badge for Python, C++, and HKDSE pseudocode",
+      "featureLanguages": "Language badge for Python, C++, and pseudocode",
       "featureCompactMode": "Compact layout for short code in answer options"
     },
     "econGraph": {

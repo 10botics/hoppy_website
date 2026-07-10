@@ -210,14 +210,14 @@
     },
     "codeBlock": {
       "title": "ICT 程式碼區塊",
-      "description": "為 ICT 及電腦科學題目提供語法高亮及行號的程式碼片段。支援 Python、C++ 及 HKDSE 偽代碼。",
+      "description": "為 ICT 及電腦科學題目提供語法高亮及行號的程式碼片段。支援 Python、C++ 及偽代碼。",
       "features": "功能特點",
       "pythonExample": "Python — 12 行附行號",
       "cppExample": "C++ — 多行程式",
-      "pseudocodeExample": "HKDSE 偽代碼",
+      "pseudocodeExample": "偽代碼",
       "compactSnippet": "精簡程式碼片段",
       "featureLineNumbers": "多行程式碼附行號欄",
-      "featureLanguages": "顯示 Python、C++ 及 HKDSE 偽代碼語言標籤",
+      "featureLanguages": "顯示 Python、C++ 及偽代碼語言標籤",
       "featureCompactMode": "答案選項中的精簡程式碼排版"
     },
     "econGraph": {
