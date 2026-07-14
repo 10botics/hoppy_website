@@ -22,6 +22,176 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 
 // Helper function to get localized screenshot path
 const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
+
+const codeBlockCategories = [
+  {
+    titleKey: 'widgets.codeBlock.categoryExamSnippets',
+    cards: [
+      {
+        src: '/widgets/widget_codeblock_python_12.png',
+        alt: 'Python code block with line numbers',
+        labelKey: 'widgets.codeBlock.pythonExample',
+      },
+      {
+        src: '/widgets/widget_codeblock_cpp_12.png',
+        alt: 'C++ code block with line numbers',
+        labelKey: 'widgets.codeBlock.cppExample',
+      },
+      {
+        src: '/widgets/widget_codeblock_pseudocode_12.png',
+        alt: 'Pseudocode block',
+        labelKey: 'widgets.codeBlock.pseudocodeExample',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.codeBlock.categoryCompactSnippets',
+    cards: [
+      {
+        src: '/widgets/widget_codeblock_compact_cpp.png',
+        alt: 'Compact C++ code snippet',
+        labelKey: 'widgets.codeBlock.compactSnippet',
+      },
+    ],
+  },
+];
+const econGraphCategories = [
+  {
+    titleKey: 'widgets.econGraph.categoryMarketBasics',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_equilibrium.png',
+        srcTc: '/widgets/widget_econgraph_equilibrium_tc.png',
+        alt: 'Market equilibrium graph',
+        labelKey: 'widgets.econGraph.equilibrium',
+      },
+      {
+        src: '/widgets/widget_econgraph_demand_shift.png',
+        srcTc: '/widgets/widget_econgraph_demand_shift_tc.png',
+        alt: 'Demand shift graph',
+        labelKey: 'widgets.econGraph.demandShift',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryElasticity',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_elastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_elastic_demand_tc.png',
+        alt: 'Elastic demand market graph',
+        labelKey: 'widgets.econGraph.elasticDemand',
+      },
+      {
+        src: '/widgets/widget_econgraph_inelastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_inelastic_demand_tc.png',
+        alt: 'Inelastic demand market graph',
+        labelKey: 'widgets.econGraph.inelasticDemand',
+      },
+      {
+        src: '/widgets/widget_econgraph_perfectly_elastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_perfectly_elastic_demand_tc.png',
+        alt: 'Perfectly elastic demand graph',
+        labelKey: 'widgets.econGraph.perfectlyElasticDemand',
+      },
+      {
+        src: '/widgets/widget_econgraph_perfectly_inelastic_supply.png',
+        srcTc: '/widgets/widget_econgraph_perfectly_inelastic_supply_tc.png',
+        alt: 'Perfectly inelastic supply graph',
+        labelKey: 'widgets.econGraph.perfectlyInelasticSupply',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryPolicyIncidence',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_price_floor_tighten.png',
+        srcTc: '/widgets/widget_econgraph_price_floor_tighten_tc.png',
+        alt: 'Tightened price floor graph',
+        labelKey: 'widgets.econGraph.priceFloorTighten',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_tax_dwl.png',
+        srcTc: '/widgets/widget_econgraph_unit_tax_dwl_tc.png',
+        alt: 'Unit tax revenue and deadweight loss graph',
+        labelKey: 'widgets.econGraph.unitTaxDwl',
+      },
+      {
+        src: '/widgets/widget_econgraph_tax_burden_supply_more_elastic.png',
+        srcTc: '/widgets/widget_econgraph_tax_burden_supply_more_elastic_tc.png',
+        alt: 'Tax burden with supply more elastic than demand',
+        labelKey: 'widgets.econGraph.taxBurdenSupplyMoreElastic',
+      },
+      {
+        src: '/widgets/widget_econgraph_tax_burden_perfectly_elastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_tax_burden_perfectly_elastic_demand_tc.png',
+        alt: 'Tax burden with perfectly elastic demand',
+        labelKey: 'widgets.econGraph.taxBurdenPerfectlyElasticDemand',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryWelfareAreas',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_price_ceiling_welfare.png',
+        srcTc: '/widgets/widget_econgraph_price_ceiling_welfare_tc.png',
+        alt: 'Price ceiling welfare graph',
+        labelKey: 'widgets.econGraph.priceCeilingWelfare',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_subsidy_welfare_demand_more_elastic.png',
+        srcTc: '/widgets/widget_econgraph_unit_subsidy_welfare_demand_more_elastic_tc.png',
+        alt: 'Subsidy welfare areas with demand more elastic than supply',
+        labelKey: 'widgets.econGraph.unitSubsidyWelfareDemandMoreElastic',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_tax_perfectly_elastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_unit_tax_perfectly_elastic_demand_tc.png',
+        alt: 'Unit tax with perfectly elastic demand',
+        labelKey: 'widgets.econGraph.unitTaxPerfectlyElasticDemand',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_tax_area_legend.png',
+        srcTc: '/widgets/widget_econgraph_unit_tax_area_legend_tc.png',
+        alt: 'Unit tax welfare areas with semantic legend labels',
+        labelKey: 'widgets.econGraph.unitTaxAreaLegend',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryAreaLabels',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_shift_candidates_four_intersections.png',
+        srcTc: '/widgets/widget_econgraph_shift_candidates_four_intersections_tc.png',
+        alt: 'Four possible market intersections labelled A to D',
+        labelKey: 'widgets.econGraph.shiftCandidatesFourIntersections',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_tax_area_letters.png',
+        srcTc: '/widgets/widget_econgraph_unit_tax_area_letters_tc.png',
+        alt: 'Four welfare areas labelled A to D',
+        labelKey: 'widgets.econGraph.unitTaxAreaLetters',
+      },
+    ],
+  },  {
+    titleKey: 'widgets.econGraph.categoryAdasMacro',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_adas_deflationary_gap.png',
+        alt: 'AD-AS deflationary gap graph',
+        labelKey: 'widgets.econGraph.adasDeflationaryGap',
+      },
+      {
+        src: '/widgets/widget_econgraph_adas_demand_pull_inflation.png',
+        alt: 'AD-AS demand-pull inflation graph',
+        labelKey: 'widgets.econGraph.adasDemandPullInflation',
+      },
+    ],
+  },
+];
 ---
 
 <Layout lang={lang}>
@@ -427,6 +597,83 @@ const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
         </div>
       </div>
 
+      <!-- ICT Code Block -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">💻</div>
+          <div class="widget-info">
+            <h2>{t('widgets.codeBlock.title')}</h2>
+            <p>{t('widgets.codeBlock.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="econ-category-list codeblock-category-list">
+          {codeBlockCategories.map((category) => (
+            <div class="econ-category">
+              <h3 class="econ-category-title">{t(category.titleKey)}</h3>
+              <div class="widget-examples econ-category-grid">
+                {category.cards.map((card) => (
+                  <div class="widget-card econ-card">
+                    <img src={card.src} alt={card.alt} />
+                    <span class="widget-label">{t(card.labelKey)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="subsection-label">{t('widgets.codeBlock.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.codeBlock.featureLineNumbers')}</li>
+            <li>{t('widgets.codeBlock.featureLanguages')}</li>
+            <li>{t('widgets.codeBlock.featureCompactMode')}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Economics Graph -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">💹</div>
+          <div class="widget-info">
+            <h2>{t('widgets.econGraph.title')}</h2>
+            <p>{t('widgets.econGraph.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="econ-category-list">
+          {econGraphCategories.map((category) => (
+            <div class="econ-category">
+              <h3 class="econ-category-title">{t(category.titleKey)}</h3>
+              <div class="widget-examples econ-category-grid">
+                {category.cards.map((card) => (
+                  <div class="widget-card econ-card">
+                    <img src={lang === 'tc' && card.srcTc ? card.srcTc : card.src} alt={card.alt} />
+                    <span class="widget-label">{t(card.labelKey)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="subsection-label">{t('widgets.econGraph.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.econGraph.featureShifts')}</li>
+            <li>{t('widgets.econGraph.featureElasticity')}</li>
+            <li>{t('widgets.econGraph.featureInterventions')}</li>
+            <li>{t('widgets.econGraph.featureWelfareShading')}</li>
+            <li>{t('widgets.econGraph.featureAreaLabels')}</li>
+            <li>{t('widgets.econGraph.featureMacroTrade')}</li>
+            <li>{t('widgets.econGraph.featureAxisLabels')}</li>
+          </ul>
+        </div>
+      </div>
+
     </section>
 
     <!-- Supported Features -->
@@ -649,6 +896,50 @@ const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
     margin-right: auto;
   }
 
+  .econ-category-list {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .econ-category {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .econ-category-title {
+    color: #0f172a;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    padding-left: 0.85rem;
+    border-left: 4px solid #3FB5DB;
+  }
+
+  .widget-examples.econ-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .codeblock-category-list .econ-category:first-child .econ-category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .codeblock-category-list .econ-category:first-child .widget-card {
+    padding: 1rem;
+  }
+
+  .codeblock-category-list .econ-category:last-child .econ-category-grid {
+    grid-template-columns: minmax(260px, 480px);
+  }
+
+  .widget-card.econ-card {
+    padding: 1.25rem;
+  }
+
+  .widget-card.econ-card img {
+    max-width: 100%;
+  }
+
   .widget-card {
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     border-radius: 16px;
@@ -844,6 +1135,16 @@ const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
 
     .widget-card {
       padding: 1.5rem;
+    }
+
+    .widget-examples.econ-category-grid,
+    .codeblock-category-list .econ-category:first-child .econ-category-grid,
+    .codeblock-category-list .econ-category:last-child .econ-category-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .econ-category-title {
+      font-size: 1rem;
     }
 
     .hero {
