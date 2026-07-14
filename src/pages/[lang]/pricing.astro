@@ -1,0 +1,410 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { languages, useTranslations, type Lang, defaultLang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang: propLang } = Astro.props as Props;
+const { lang: paramLang } = Astro.params as { lang?: Lang };
+const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+
+const plans = [
+  {
+    id: 'free',
+    name: t('pricing.plans.free.name'),
+    englishName: 'Free',
+    kicker: t('pricing.plans.free.kicker'),
+    description: t('pricing.plans.free.description'),
+    monthly: '0',
+    dailyGems: '10',
+    dailyQuestions: '10',
+    maximumGems: '50',
+  },
+  {
+    id: 'plus',
+    name: t('pricing.plans.plus.name'),
+    englishName: 'Plus',
+    kicker: t('pricing.plans.plus.kicker'),
+    description: t('pricing.plans.plus.description'),
+    monthly: '40',
+    dailyGems: '40',
+    dailyQuestions: '40',
+    maximumGems: '200',
+    regularAnnual: '480',
+    annual: '440',
+    saving: '40',
+    badge: t('pricing.popular'),
+  },
+  {
+    id: 'pro',
+    name: t('pricing.plans.pro.name'),
+    englishName: 'Pro',
+    kicker: t('pricing.plans.pro.kicker'),
+    description: t('pricing.plans.pro.description'),
+    monthly: '80',
+    dailyGems: '80',
+    dailyQuestions: '80',
+    maximumGems: '400',
+    regularAnnual: '960',
+    annual: '880',
+    saving: '80',
+  },
+  {
+    id: 'ultra',
+    name: t('pricing.plans.ultra.name'),
+    englishName: 'Ultra',
+    kicker: t('pricing.plans.ultra.kicker'),
+    description: t('pricing.plans.ultra.description'),
+    monthly: '160',
+    dailyGems: '160',
+    dailyQuestions: '160',
+    maximumGems: '800',
+    regularAnnual: '1,920',
+    annual: '1,760',
+    saving: '160',
+    badge: t('pricing.highest'),
+  },
+];
+---
+
+<Layout lang={lang}>
+  <main class="pricing-page">
+    <section class="pricing-shell" aria-labelledby="pricing-title">
+      <header class="pricing-intro">
+        <p class="pricing-eyebrow">Hoppy Gem Plans</p>
+        <h1 id="pricing-title">{t('pricing.title')}</h1>
+        <p class="pricing-lead">{t('pricing.subtitle')}</p>
+      </header>
+
+      <div class="plan-grid" aria-label={t('pricing.comparisonLabel')}>
+        {plans.map((plan) => (
+          <article class:list={['plan-card', `plan-card--${plan.id}`]}>
+            {plan.badge && <span class="plan-badge">{plan.badge}</span>}
+
+            <div class="plan-heading">
+              <p class="plan-kicker">{plan.kicker}</p>
+              <h2>
+                {plan.name}
+                {lang === 'tc' && <span>{plan.englishName}</span>}
+              </h2>
+              <p>{plan.description}</p>
+            </div>
+
+            <div class="plan-price">
+              <span class="currency">HK$</span>
+              <strong>{plan.monthly}</strong>
+              <span class="period">{t('pricing.perMonth')}</span>
+            </div>
+
+            <dl class="plan-features">
+              <div><dt>{t('pricing.dailyGems')}</dt><dd>{plan.dailyGems} Gems</dd></div>
+              <div><dt>{t('pricing.dailyQuestions')}</dt><dd>{plan.dailyQuestions} {t('pricing.questionsUnit')}</dd></div>
+              <div><dt>{t('pricing.maximumGems')}</dt><dd>{plan.maximumGems}</dd></div>
+            </dl>
+
+            {plan.annual && (
+              <div class="annual-price">
+                <span class="annual-label">{t('pricing.annualOffer')}</span>
+                <p class="regular-price">{t('pricing.regularPrice')} <del>HK${plan.regularAnnual}</del></p>
+                <strong>HK${plan.annual} <span>{t('pricing.perYear')}</span></strong>
+                <small>{t('pricing.save')} HK${plan.saving}</small>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+
+      <p class="pricing-note">{t('pricing.note')}</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .pricing-page {
+    min-height: calc(100vh - 74px);
+    background: var(--hoppy-gray);
+  }
+
+  .pricing-shell {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 4.5rem 0 5rem;
+  }
+
+  .pricing-intro {
+    max-width: 720px;
+    margin-bottom: 2.25rem;
+  }
+
+  .pricing-eyebrow {
+    margin: 0 0 0.5rem;
+    color: #168bb7;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .pricing-intro h1 {
+    margin: 0;
+    color: var(--hoppy-navy);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: -0.045em;
+  }
+
+  .pricing-lead {
+    margin: 0.9rem 0 0;
+    color: var(--hoppy-gray-dark);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.1rem;
+  }
+
+  .plan-card {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 570px;
+    flex-direction: column;
+    padding: 1.75rem;
+    overflow: hidden;
+    border: 1px solid #dfe7eb;
+    border-radius: 22px;
+    background: var(--hoppy-white);
+    box-shadow: 0 8px 28px rgba(26, 49, 68, 0.07);
+  }
+
+  .plan-card--plus {
+    border: 2px solid var(--hoppy-blue);
+    background: linear-gradient(180deg, #f5fcff 0%, #ffffff 62%);
+    box-shadow: 0 18px 50px rgba(26, 49, 68, 0.11);
+  }
+
+  .plan-card--pro {
+    color: var(--hoppy-white);
+    border-color: var(--hoppy-navy);
+    background: var(--hoppy-navy);
+    box-shadow: 0 18px 50px rgba(26, 49, 68, 0.16);
+  }
+
+  .plan-card--ultra {
+    color: var(--hoppy-white);
+    border-color: transparent;
+    background: linear-gradient(145deg, #168bb7, var(--hoppy-blue) 56%, #58ccef);
+    box-shadow: 0 22px 55px rgba(22, 139, 183, 0.22);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
+    padding: 0.38rem 0.62rem;
+    border-radius: 999px;
+    color: var(--hoppy-navy);
+    background: #eaf8fd;
+    font-size: 0.66rem;
+    font-weight: 900;
+  }
+
+  .plan-card--ultra .plan-badge {
+    color: var(--hoppy-white);
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  .plan-heading { min-height: 128px; }
+
+  .plan-kicker {
+    margin: 0 0 0.5rem;
+    color: #168bb7;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+  }
+
+  .plan-card--pro .plan-kicker,
+  .plan-card--ultra .plan-kicker { color: #8fe3ff; }
+
+  .plan-heading h2 {
+    margin: 0;
+    color: var(--hoppy-navy);
+    font-size: 1.65rem;
+    letter-spacing: -0.035em;
+  }
+
+  .plan-heading h2 span {
+    margin-left: 0.25rem;
+    color: var(--hoppy-gray-dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .plan-card--pro .plan-heading h2,
+  .plan-card--ultra .plan-heading h2 { color: var(--hoppy-white); }
+
+  .plan-card--pro .plan-heading h2 span,
+  .plan-card--ultra .plan-heading h2 span { color: rgba(255, 255, 255, 0.72); }
+
+  .plan-heading > p:last-child {
+    margin: 0.7rem 0 0;
+    color: var(--hoppy-gray-dark);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .plan-card--pro .plan-heading > p:last-child,
+  .plan-card--ultra .plan-heading > p:last-child { color: rgba(255, 255, 255, 0.72); }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    padding: 1.35rem 0;
+    border-top: 1px solid #dfe7eb;
+    border-bottom: 1px solid #dfe7eb;
+  }
+
+  .plan-card--pro .plan-price,
+  .plan-card--ultra .plan-price { border-color: rgba(255, 255, 255, 0.24); }
+
+  .currency {
+    margin-right: 0.25rem;
+    font-size: 0.82rem;
+    font-weight: 850;
+  }
+
+  .plan-price strong {
+    font-size: 2.7rem;
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+
+  .period {
+    margin-left: 0.35rem;
+    color: var(--hoppy-gray-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .plan-card--pro .period,
+  .plan-card--ultra .period { color: rgba(255, 255, 255, 0.72); }
+
+  .plan-features { margin: 1.1rem 0 1.45rem; }
+
+  .plan-features div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.72rem 0;
+    border-bottom: 1px solid #dfe7eb;
+  }
+
+  .plan-card--pro .plan-features div,
+  .plan-card--ultra .plan-features div { border-color: rgba(255, 255, 255, 0.2); }
+
+  .plan-features dt {
+    color: var(--hoppy-gray-dark);
+    font-size: 0.78rem;
+    font-weight: 650;
+  }
+
+  .plan-card--pro .plan-features dt,
+  .plan-card--ultra .plan-features dt { color: rgba(255, 255, 255, 0.74); }
+
+  .plan-features dd {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .annual-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.42rem;
+    margin-top: auto;
+    padding: 1.1rem;
+    border: 1px solid #dfe7eb;
+    border-radius: 15px;
+    background: #f8fafb;
+  }
+
+  .annual-label,
+  .regular-price {
+    color: var(--hoppy-gray-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .regular-price { margin: 0; }
+  .regular-price del { margin-left: 0.2rem; text-decoration-thickness: 1.5px; }
+
+  .annual-price strong {
+    color: var(--hoppy-navy);
+    font-size: 1.45rem;
+    letter-spacing: -0.025em;
+  }
+
+  .annual-price strong span {
+    color: var(--hoppy-gray-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .annual-price small {
+    color: #168bb7;
+    font-size: 0.72rem;
+    font-weight: 850;
+  }
+
+  .plan-card--pro .annual-price,
+  .plan-card--ultra .annual-price {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .plan-card--pro .annual-label,
+  .plan-card--ultra .annual-label,
+  .plan-card--pro .regular-price,
+  .plan-card--ultra .regular-price { color: rgba(255, 255, 255, 0.74); }
+
+  .plan-card--pro .annual-price strong,
+  .plan-card--ultra .annual-price strong,
+  .plan-card--pro .annual-price strong span,
+  .plan-card--ultra .annual-price strong span,
+  .plan-card--pro .annual-price small,
+  .plan-card--ultra .annual-price small { color: var(--hoppy-white); }
+
+  .pricing-note {
+    margin: 1.4rem 0 0;
+    color: var(--hoppy-gray-dark);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  @media (max-width: 980px) {
+    .plan-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 620px) {
+    .pricing-shell { width: min(100% - 24px, 1180px); padding: 3rem 0 3.5rem; }
+    .pricing-intro { margin-bottom: 1.6rem; }
+    .plan-grid { grid-template-columns: 1fr; }
+    .plan-card { min-height: 540px; }
+  }
+</style>
