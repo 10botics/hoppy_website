@@ -29,6 +29,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 			<li><a href={`${langPrefix}/supported-question-images`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
 			<li><a href={`${langPrefix}/availability`} class:list={["nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
 			<li><a href={`${langPrefix}/downloadproduction`} class:list={["nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
+			<li><a href={`${langPrefix}/pricing`} class:list={["nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
 			<li><a href={`${langPrefix}/qna`} class:list={["nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			<li class="lang-switcher">
 				<div class="lang-dropdown">
@@ -87,6 +88,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 				<li><a href={`${langPrefix}/supported-question-images`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
 				<li><a href={`${langPrefix}/availability`} class:list={["mobile-nav-link", { active: currentPath.includes('/availability') }]}>{t('nav.availability')}</a></li>
 				<li><a href={`${langPrefix}/downloadproduction`} class:list={["mobile-nav-link", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
+				<li><a href={`${langPrefix}/pricing`} class:list={["mobile-nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
 				<li><a href={`${langPrefix}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			</ul>
 

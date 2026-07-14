@@ -8,6 +8,7 @@
     "widgets": "Widgets",
     "availability": "Availability",
     "download": "Download",
+    "pricing": "Pricing",
     "qna": "FAQ",
     "privacy": "Privacy",
     "terms": "Terms"
@@ -53,6 +54,45 @@
     "footer": {
       "email": "Email",
       "phone": "Phone"
+    }
+  },
+  "pricing": {
+    "title": "Choose the plan that fits you",
+    "subtitle": "Start free, then choose a daily Gem allowance that matches your learning pace.",
+    "comparisonLabel": "Gem plan pricing comparison",
+    "popular": "Most popular",
+    "highest": "Highest allowance",
+    "perMonth": "/ month",
+    "perYear": "/ year",
+    "dailyGems": "Daily Gems",
+    "dailyQuestions": "Questions generated daily",
+    "questionsUnit": "questions",
+    "maximumGems": "Maximum Gem balance",
+    "annualOffer": "Annual offer",
+    "regularPrice": "Regular price",
+    "save": "Save",
+    "note": "All prices are in Hong Kong dollars. Annual plans are billed once per year.",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "kicker": "Easy start",
+        "description": "A simple way to try Hoppy"
+      },
+      "plus": {
+        "name": "Plus",
+        "kicker": "Everyday learning",
+        "description": "For steady and regular use"
+      },
+      "pro": {
+        "name": "Pro",
+        "kicker": "Step it up",
+        "description": "For high-volume individual learning"
+      },
+      "ultra": {
+        "name": "Ultra",
+        "kicker": "Explore freely",
+        "description": "For very high-volume individual learning"
+      }
     }
   },
   "availability": {
