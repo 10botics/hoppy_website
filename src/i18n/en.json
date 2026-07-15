@@ -58,7 +58,7 @@
   },
   "pricing": {
     "title": "Choose the plan that fits you",
-    "subtitle": "Start free, then choose a daily Gem allowance that matches your learning pace.",
+    "subtitle": "Start with Starter, then choose a daily Gem allowance that matches your learning pace.",
     "comparisonLabel": "Gem plan pricing comparison",
     "popular": "Most popular",
     "highest": "Highest allowance",
@@ -73,8 +73,8 @@
     "save": "Save",
     "note": "All prices are in Hong Kong dollars. Annual plans are billed once per year.",
     "plans": {
-      "free": {
-        "name": "Free",
+      "starter": {
+        "name": "Starter",
         "kicker": "Easy start",
         "description": "A simple way to try Hoppy"
       },

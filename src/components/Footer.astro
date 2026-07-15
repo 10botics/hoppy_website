@@ -16,6 +16,8 @@ const t = useTranslations(lang);
 			<p>
 				<a href={getLocalizedPath('/qna', lang)} class="footer-link">{t('nav.qna')}</a>
 				<span class="footer-separator">•</span>
+				<a href={getLocalizedPath('/availability', lang)} class="footer-link">{t('nav.availability')}</a>
+				<span class="footer-separator">•</span>
 				<a href={getLocalizedLegalPath('/privacy', lang)} class="footer-link">{t('nav.privacy')}</a>
 				<span class="footer-separator">•</span>
 				<a href={getLocalizedLegalPath('/terms', lang)} class="footer-link">{t('nav.terms')}</a>
@@ -65,5 +67,3 @@ const t = useTranslations(lang);
 		color: rgba(255, 255, 255, 0.5);
 	}
 </style>
-
-
