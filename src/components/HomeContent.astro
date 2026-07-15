@@ -25,13 +25,23 @@ const copy = isTc
         ['創意玩樂', '色彩繽紛、充滿童趣的設計，激發好奇心和想像力。', '適'],
         ['進度追蹤', '見證孩子的成長，慶祝每一個成就。', '進'],
       ],
-      reviewTag: '進度追蹤',
-      reviewTitle: '清楚了解孩子答錯的題目',
-      reviewText: '家長和老師可以查看學生答錯的每一道題目，找出需要加強的課題，並陪伴他們逐步進步。',
+      widgetTag: '互動題目',
+      widgetTitle: '把抽象概念變成看得見的題目',
+      widgetText: 'Hoppy 把圖表、方程式、電路、化學反應和立體圖形直接融入練習，幫助學生真正理解概念。',
+      widgetButton: '查看所有支援題型',
+      widgetItems: [
+        ['互動時鐘', '用可視化時鐘練習時間概念', '/widgets/widget_analogclock.svg'],
+        ['圖表與數據', '從圖表中閱讀和理解數據', '/widgets/widget_barchart.svg'],
+        ['函數與方程', '把數學關係轉化為清晰圖像', '/widgets/widget_equationgraph_parabola.svg'],
+        ['電路', '直接在題目中觀察電路結構', '/widgets/widget_circuit.svg'],
+        ['化學方程式', '以清晰格式呈現化學反應', '/widgets/widget_chemicalequation.svg'],
+        ['立體圖形', '從不同角度理解立體幾何', '/widgets/widget_shape3d_cube.svg'],
+      ],
+      reviewTag: '家長及老師功能',
+      reviewTitle: '家長和老師可查看學生答錯的題目',
+      reviewText: '清楚查看學生答錯的每一道題目，了解他們在哪些課題需要更多練習，並給予更合適的幫助。',
       reviewPoints: ['查看每一道答錯的題目', '了解需要加強的課題', '見證進步並慶祝成就'],
-      reviewPanelTitle: '需要溫習的題目',
-      reviewSubjects: [['數學', '聯立方程'], ['物理', '電路'], ['化學', '化學方程式']],
-      reviewAction: '再次練習',
+      reviewImageAlt: 'Hoppy 題目作答畫面，顯示學生的答案、正確答案及解釋',
       adaptiveTag: '自適應學習現已推出',
       adaptiveTitle: '量度你的學習旅程',
       adaptiveText: 'Hoppy 會按照學生的程度調整練習，並幫助你追蹤每一步的進度！我們將一起量度成就，慶祝學習旅程中的每個里程碑。',
@@ -62,13 +72,23 @@ const copy = isTc
         ['Creative Play', 'Colorful, playful design that sparks curiosity and imagination.', 'A'],
         ['Progress Tracking', 'Watch your child grow and celebrate their achievements.', 'P'],
       ],
-      reviewTag: 'Progress Tracking',
-      reviewTitle: 'See which questions need another look',
-      reviewText: 'Parents and teachers can review every question a student answered incorrectly, identify areas that need more support, and celebrate progress along the way.',
+      widgetTag: 'Interactive questions',
+      widgetTitle: 'Turn abstract concepts into questions students can see',
+      widgetText: 'Hoppy brings charts, equations, circuits, chemical reactions and 3D shapes directly into practice so students can truly understand each concept.',
+      widgetButton: 'View all supported question types',
+      widgetItems: [
+        ['Interactive clocks', 'Practise time concepts with visual clocks', '/widgets/widget_analogclock.svg'],
+        ['Charts and data', 'Read and understand data through charts', '/widgets/widget_barchart.svg'],
+        ['Functions and equations', 'Turn mathematical relationships into clear visuals', '/widgets/widget_equationgraph_parabola.svg'],
+        ['Electric circuits', 'See circuit structures directly in each question', '/widgets/widget_circuit.svg'],
+        ['Chemical equations', 'Present chemical reactions in a clear format', '/widgets/widget_chemicalequation.svg'],
+        ['3D shapes', 'Understand solid geometry from different angles', '/widgets/widget_shape3d_cube.svg'],
+      ],
+      reviewTag: 'For parents and teachers',
+      reviewTitle: 'Parents and teachers can see which questions students got wrong',
+      reviewText: 'Review every question a student answered incorrectly, understand which topics need more practice, and provide more suitable support.',
       reviewPoints: ['Review every incorrect question', 'Identify topics that need more practice', 'Watch progress and celebrate achievements'],
-      reviewPanelTitle: 'Questions to revisit',
-      reviewSubjects: [['Mathematics', 'Simultaneous equations'], ['Physics', 'Electric circuits'], ['Chemistry', 'Chemical equations']],
-      reviewAction: 'Practise again',
+      reviewImageAlt: 'Hoppy quiz screen showing a student answer, the correct answer and an explanation',
       adaptiveTag: 'Adaptive learning is live',
       adaptiveTitle: 'Measure Your Learning Journey',
       adaptiveText: 'Hoppy adapts practice to each student’s level and helps track progress with every hop! Together, we’ll measure achievements and celebrate milestones in the learning adventure.',
@@ -98,7 +118,7 @@ const copy = isTc
 
           <div class="store-buttons">
             <a class="store-button" href="https://apps.apple.com/hk/app/hoppy-learn-10x-faster/id6754865277" target="_blank" rel="noopener noreferrer">
-              <span class="store-mark">●</span>
+              <img src="/apple-logo.svg" alt="" class="store-brand-icon" aria-hidden="true" />
               <span><small>{copy.appSmall}</small><strong>{copy.appStore}</strong></span>
             </a>
             <a class="store-button" href="https://play.google.com/store/apps/details?id=day.hoppy.app" target="_blank" rel="noopener noreferrer">
@@ -129,6 +149,31 @@ const copy = isTc
           ))}
         </div>
 
+        <div class="widget-showcase">
+          <div class="widget-heading">
+            <div>
+              <span class="small-tag">{copy.widgetTag}</span>
+              <h3>{copy.widgetTitle}</h3>
+              <p>{copy.widgetText}</p>
+            </div>
+            <a href={path('/supported-question-images')} class="widget-link">{copy.widgetButton} <span aria-hidden="true">→</span></a>
+          </div>
+
+          <div class="widget-gallery">
+            {copy.widgetItems.map((item) => (
+              <a href={path('/supported-question-images')} class="widget-photo-card">
+                <div class="widget-photo-wrap">
+                  <img src={item[2]} alt={item[0]} loading="lazy" />
+                </div>
+                <div class="widget-photo-copy">
+                  <h4>{item[0]}</h4>
+                  <p>{item[1]}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
         <article class="review-highlight">
           <div class="review-copy">
             <span class="small-tag review-tag">{copy.reviewTag}</span>
@@ -139,23 +184,12 @@ const copy = isTc
             </ul>
           </div>
 
-          <div class="review-panel" aria-label={copy.reviewPanelTitle}>
-            <div class="review-panel-header">
-              <span>{copy.reviewPanelTitle}</span>
-              <strong>3</strong>
-            </div>
-            <div class="review-list">
-              {copy.reviewSubjects.map((item, index) => (
-                <div class="review-row">
-                  <span class="wrong-mark">{index + 1}</span>
-                  <div>
-                    <strong>{item[0]}</strong>
-                    <small>{item[1]}</small>
-                  </div>
-                  <span class="review-action">{copy.reviewAction}</span>
-                </div>
-              ))}
-            </div>
+          <div class="review-photo">
+            <img
+              src="/student-wrong-question-review.png"
+              alt={copy.reviewImageAlt}
+              loading="lazy"
+            />
           </div>
         </article>
       </div>
@@ -208,7 +242,7 @@ const copy = isTc
         <p>{copy.ctaText}</p>
         <div class="store-buttons store-buttons-centered">
           <a class="store-button store-button-light" href="https://apps.apple.com/hk/app/hoppy-learn-10x-faster/id6754865277" target="_blank" rel="noopener noreferrer">
-            <span class="store-mark">●</span>
+            <img src="/apple-logo.svg" alt="" class="store-brand-icon" aria-hidden="true" />
             <span><small>{copy.appSmall}</small><strong>{copy.appStore}</strong></span>
           </a>
           <a class="store-button store-button-light" href="https://play.google.com/store/apps/details?id=day.hoppy.app" target="_blank" rel="noopener noreferrer">
@@ -335,6 +369,17 @@ const copy = isTc
     text-align: center;
   }
 
+  .store-brand-icon {
+    width: 25px;
+    height: 30px;
+    flex: 0 0 25px;
+    object-fit: contain;
+  }
+
+  .store-button:not(.store-button-light) .store-brand-icon {
+    filter: invert(1);
+  }
+
   .store-mark.play {
     font-size: 1.1rem;
   }
@@ -403,6 +448,105 @@ const copy = isTc
     line-height: 1.75;
   }
 
+  .widget-showcase {
+    margin-top: 4.5rem;
+    text-align: left;
+  }
+
+  .widget-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .widget-heading h3 {
+    max-width: 760px;
+    margin: 0;
+    font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+    line-height: 1.18;
+  }
+
+  .widget-heading p {
+    max-width: 760px;
+    margin: 0.9rem 0 0;
+    color: #607486;
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .widget-link {
+    flex: 0 0 auto;
+    padding-bottom: 0.25rem;
+    color: #168fb7;
+    font-size: 0.9rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .widget-link:hover {
+    text-decoration: underline;
+  }
+
+  .widget-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .widget-photo-card {
+    overflow: hidden;
+    border: 1px solid #dce6eb;
+    border-radius: 18px;
+    background: white;
+    color: var(--hoppy-navy);
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgba(26, 49, 68, 0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .widget-photo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(26, 49, 68, 0.12);
+  }
+
+  .widget-photo-wrap {
+    height: 320px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e4ebef;
+    background: linear-gradient(145deg, #f7fbfd 0%, #eaf5f9 100%);
+  }
+
+  .widget-photo-wrap img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 88%;
+    max-height: 250px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .widget-photo-copy {
+    padding: 1.3rem 1.4rem 1.4rem;
+  }
+
+  .widget-photo-copy h4 {
+    margin: 0;
+    font-size: 1.22rem;
+  }
+
+  .widget-photo-copy p {
+    margin: 0.45rem 0 0;
+    color: #63798a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   .review-highlight {
     display: grid;
     grid-template-columns: 1fr 0.95fr;
@@ -458,86 +602,22 @@ const copy = isTc
     content: '';
   }
 
-  .review-panel {
-    overflow: hidden;
+  .review-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .review-photo img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 560px;
     border: 1px solid #dce7ec;
-    border-radius: 18px;
+    border-radius: 22px;
     background: white;
-    box-shadow: 0 14px 35px rgba(26, 49, 68, 0.09);
-  }
-
-  .review-panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.15rem;
-    border-bottom: 1px solid #e8eef1;
-    color: var(--hoppy-navy);
-    font-size: 0.88rem;
-    font-weight: 750;
-  }
-
-  .review-panel-header strong {
-    display: grid;
-    place-items: center;
-    width: 27px;
-    height: 27px;
-    border-radius: 50%;
-    background: #fee9e7;
-    color: #bd4a40;
-    font-size: 0.75rem;
-  }
-
-  .review-list {
-    display: grid;
-  }
-
-  .review-row {
-    display: grid;
-    grid-template-columns: 32px 1fr auto;
-    gap: 0.75rem;
-    align-items: center;
-    padding: 0.95rem 1.1rem;
-  }
-
-  .review-row + .review-row {
-    border-top: 1px solid #eef2f4;
-  }
-
-  .wrong-mark {
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 9px;
-    background: #fee9e7;
-    color: #bd4a40;
-    font-size: 0.72rem;
-    font-weight: 800;
-  }
-
-  .review-row > div {
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-  }
-
-  .review-row strong {
-    font-size: 0.86rem;
-  }
-
-  .review-row small {
-    overflow: hidden;
-    color: #718492;
-    font-size: 0.72rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .review-action {
-    color: #168fb7;
-    font-size: 0.72rem;
-    font-weight: 750;
+    box-shadow: 0 18px 42px rgba(26, 49, 68, 0.14);
   }
 
   .adaptive {
@@ -742,6 +822,16 @@ const copy = isTc
       grid-template-columns: 1fr;
     }
 
+    .widget-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .widget-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
     .pricing-content {
       align-items: flex-start;
       flex-direction: column;
@@ -788,12 +878,29 @@ const copy = isTc
       gap: 1.6rem;
     }
 
-    .review-row {
-      grid-template-columns: 30px 1fr;
+    .review-photo {
+      padding: 0;
     }
 
-    .review-action {
-      display: none;
+    .review-photo img {
+      max-height: 520px;
+    }
+
+    .widget-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .widget-showcase {
+      margin-top: 3.2rem;
+    }
+
+    .widget-photo-wrap {
+      height: 250px;
+      padding: 1rem;
+    }
+
+    .widget-photo-wrap img {
+      max-height: 190px;
     }
   }
 </style>
