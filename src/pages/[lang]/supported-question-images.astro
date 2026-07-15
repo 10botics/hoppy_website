@@ -71,17 +71,17 @@ const econGraphCategories = [
         alt: 'Demand shift graph',
         labelKey: 'widgets.econGraph.demandShift',
       },
+      {
+        src: '/widgets/widget_econgraph_demand_supply_shift.png',
+        srcTc: '/widgets/widget_econgraph_demand_supply_shift_tc.png',
+        alt: 'Demand and supply shift graph',
+        labelKey: 'widgets.econGraph.demandSupplyShift',
+      },
     ],
   },
   {
     titleKey: 'widgets.econGraph.categoryElasticity',
     cards: [
-      {
-        src: '/widgets/widget_econgraph_elastic_demand.png',
-        srcTc: '/widgets/widget_econgraph_elastic_demand_tc.png',
-        alt: 'Elastic demand market graph',
-        labelKey: 'widgets.econGraph.elasticDemand',
-      },
       {
         src: '/widgets/widget_econgraph_inelastic_demand.png',
         srcTc: '/widgets/widget_econgraph_inelastic_demand_tc.png',
@@ -112,12 +112,6 @@ const econGraphCategories = [
         labelKey: 'widgets.econGraph.priceFloorTighten',
       },
       {
-        src: '/widgets/widget_econgraph_unit_tax_dwl.png',
-        srcTc: '/widgets/widget_econgraph_unit_tax_dwl_tc.png',
-        alt: 'Unit tax revenue and deadweight loss graph',
-        labelKey: 'widgets.econGraph.unitTaxDwl',
-      },
-      {
         src: '/widgets/widget_econgraph_tax_burden_supply_more_elastic.png',
         srcTc: '/widgets/widget_econgraph_tax_burden_supply_more_elastic_tc.png',
         alt: 'Tax burden with supply more elastic than demand',
@@ -135,10 +129,22 @@ const econGraphCategories = [
     titleKey: 'widgets.econGraph.categoryWelfareAreas',
     cards: [
       {
+        src: '/widgets/widget_econgraph_equilibrium_welfare.png',
+        srcTc: '/widgets/widget_econgraph_equilibrium_welfare_tc.png',
+        alt: 'Consumer and producer surplus at market equilibrium',
+        labelKey: 'widgets.econGraph.equilibriumWelfare',
+      },
+      {
         src: '/widgets/widget_econgraph_price_ceiling_welfare.png',
         srcTc: '/widgets/widget_econgraph_price_ceiling_welfare_tc.png',
         alt: 'Price ceiling welfare graph',
         labelKey: 'widgets.econGraph.priceCeilingWelfare',
+      },
+      {
+        src: '/widgets/widget_econgraph_quota_welfare.png',
+        srcTc: '/widgets/widget_econgraph_quota_welfare_tc.png',
+        alt: 'Effective quota welfare and quota rent graph',
+        labelKey: 'widgets.econGraph.quotaWelfare',
       },
       {
         src: '/widgets/widget_econgraph_unit_subsidy_welfare_demand_more_elastic.png',
@@ -175,19 +181,126 @@ const econGraphCategories = [
         alt: 'Four welfare areas labelled A to D',
         labelKey: 'widgets.econGraph.unitTaxAreaLetters',
       },
+      {
+        src: '/widgets/widget_econgraph_subsidy_benefit_area_letters.png',
+        srcTc: '/widgets/widget_econgraph_subsidy_benefit_area_letters_tc.png',
+        alt: 'Subsidy benefit split with lettered areas',
+        labelKey: 'widgets.econGraph.subsidyBenefitAreaLetters',
+      },
     ],
-  },  {
-    titleKey: 'widgets.econGraph.categoryAdasMacro',
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryMacroAdas',
     cards: [
       {
         src: '/widgets/widget_econgraph_adas_deflationary_gap.png',
+        srcTc: '/widgets/widget_econgraph_adas_deflationary_gap_tc.png',
         alt: 'AD-AS deflationary gap graph',
         labelKey: 'widgets.econGraph.adasDeflationaryGap',
       },
       {
         src: '/widgets/widget_econgraph_adas_demand_pull_inflation.png',
+        srcTc: '/widgets/widget_econgraph_adas_demand_pull_inflation_tc.png',
         alt: 'AD-AS demand-pull inflation graph',
         labelKey: 'widgets.econGraph.adasDemandPullInflation',
+      },
+      {
+        src: '/widgets/widget_econgraph_adas_cost_push_inflation.png',
+        srcTc: '/widgets/widget_econgraph_adas_cost_push_inflation_tc.png',
+        alt: 'AD-AS cost-push inflation graph',
+        labelKey: 'widgets.econGraph.adasCostPushInflation',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryMoneyMarket',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_money_market_equilibrium.png',
+        srcTc: '/widgets/widget_econgraph_money_market_equilibrium_tc.png',
+        alt: 'Money market equilibrium graph',
+        labelKey: 'widgets.econGraph.moneyMarketEquilibrium',
+      },
+      {
+        src: '/widgets/widget_econgraph_money_demand_increase.png',
+        srcTc: '/widgets/widget_econgraph_money_demand_increase_tc.png',
+        alt: 'Money demand increase graph',
+        labelKey: 'widgets.econGraph.moneyDemandIncrease',
+      },
+      {
+        src: '/widgets/widget_econgraph_money_supply_increase.png',
+        srcTc: '/widgets/widget_econgraph_money_supply_increase_tc.png',
+        alt: 'Money supply increase graph',
+        labelKey: 'widgets.econGraph.moneySupplyIncrease',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryPpfTradeGains',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_ppf_efficiency_points.png',
+        srcTc: '/widgets/widget_econgraph_ppf_efficiency_points_tc.png',
+        alt: 'PPF efficiency point classifications',
+        labelKey: 'widgets.econGraph.ppfEfficiencyPoints',
+      },
+      {
+        src: '/widgets/widget_econgraph_ppf_biased_growth.png',
+        srcTc: '/widgets/widget_econgraph_ppf_biased_growth_tc.png',
+        alt: 'PPF biased growth graph',
+        labelKey: 'widgets.econGraph.ppfBiasedGrowth',
+      },
+      {
+        src: '/widgets/widget_econgraph_ppf_gains_from_trade.png',
+        srcTc: '/widgets/widget_econgraph_ppf_gains_from_trade_tc.png',
+        alt: 'PPF gains from trade graph',
+        labelKey: 'widgets.econGraph.ppfGainsFromTrade',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryInternationalTradeExchange',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_trade_tariff_revenue.png',
+        srcTc: '/widgets/widget_econgraph_trade_tariff_revenue_tc.png',
+        alt: 'Import tariff and tariff revenue graph',
+        labelKey: 'widgets.econGraph.tradeTariffRevenue',
+      },
+      {
+        src: '/widgets/widget_econgraph_trade_quota_rent.png',
+        srcTc: '/widgets/widget_econgraph_trade_quota_rent_tc.png',
+        alt: 'Import quota and quota rent graph',
+        labelKey: 'widgets.econGraph.tradeQuotaRent',
+      },
+      {
+        src: '/widgets/widget_econgraph_exchange_rate_export_appreciation.png',
+        srcTc: '/widgets/widget_econgraph_exchange_rate_export_appreciation_tc.png',
+        alt: 'Currency appreciation effect on export demand',
+        labelKey: 'widgets.econGraph.exchangeRateExportAppreciation',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryMonopoly',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_monopoly_profit_maximization.png',
+        srcTc: '/widgets/widget_econgraph_monopoly_profit_maximization_tc.png',
+        alt: 'Monopoly profit maximization graph',
+        labelKey: 'widgets.econGraph.monopolyProfitMaximization',
+      },
+      {
+        src: '/widgets/widget_econgraph_monopoly_welfare.png',
+        srcTc: '/widgets/widget_econgraph_monopoly_welfare_tc.png',
+        alt: 'Monopoly welfare areas graph',
+        labelKey: 'widgets.econGraph.monopolyWelfare',
+      },
+      {
+        src: '/widgets/widget_econgraph_monopoly_mc_increase.png',
+        srcTc: '/widgets/widget_econgraph_monopoly_mc_increase_tc.png',
+        alt: 'Monopoly marginal cost increase graph',
+        labelKey: 'widgets.econGraph.monopolyMcIncrease',
       },
     ],
   },
@@ -917,7 +1030,7 @@ const econGraphCategories = [
   }
 
   .widget-examples.econ-category-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .codeblock-category-list .econ-category:first-child .econ-category-grid {
