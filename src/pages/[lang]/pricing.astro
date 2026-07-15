@@ -17,15 +17,19 @@ const t = useTranslations(lang);
 
 const plans = [
   {
-    id: 'free',
-    name: t('pricing.plans.free.name'),
-    englishName: 'Free',
-    kicker: t('pricing.plans.free.kicker'),
-    description: t('pricing.plans.free.description'),
+    id: 'starter',
+    name: t('pricing.plans.starter.name'),
+    englishName: 'Starter',
+    kicker: t('pricing.plans.starter.kicker'),
+    description: t('pricing.plans.starter.description'),
+    originalMonthly: '10',
     monthly: '0',
     dailyGems: '10',
     dailyQuestions: '10',
     maximumGems: '50',
+    regularAnnual: '110',
+    annual: '0',
+    saving: '110',
   },
   {
     id: 'plus',
@@ -98,6 +102,7 @@ const plans = [
             </div>
 
             <div class="plan-price">
+              {plan.originalMonthly && <del class="original-monthly">HK${plan.originalMonthly}</del>}
               <span class="currency">HK$</span>
               <strong>{plan.monthly}</strong>
               <span class="period">{t('pricing.perMonth')}</span>
@@ -283,6 +288,14 @@ const plans = [
     margin-right: 0.25rem;
     font-size: 0.82rem;
     font-weight: 850;
+  }
+
+  .original-monthly {
+    margin-right: 0.7rem;
+    color: var(--hoppy-gray-dark);
+    font-size: 1rem;
+    font-weight: 850;
+    text-decoration-thickness: 2px;
   }
 
   .plan-price strong {

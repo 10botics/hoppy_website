@@ -58,7 +58,7 @@
   },
   "pricing": {
     "title": "選擇適合你的方案",
-    "subtitle": "由免費開始，按你的學習節奏選擇每日 Gem 配額。",
+    "subtitle": "由 Starter 開始，按你的學習節奏選擇每日 Gem 配額。",
     "comparisonLabel": "Gem 方案收費比較",
     "popular": "最受歡迎",
     "highest": "最高配額",
@@ -73,8 +73,8 @@
     "save": "即慳",
     "note": "所有價格均以港幣計算。年費方案將一次過收取全年費用。",
     "plans": {
-      "free": {
-        "name": "免費",
+      "starter": {
+        "name": "入門",
         "kicker": "輕鬆開始",
         "description": "適合初次體驗 Hoppy"
       },
