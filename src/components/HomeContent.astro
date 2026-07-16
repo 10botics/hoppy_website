@@ -46,6 +46,10 @@ const copy = isTc
       adaptiveTitle: '量度你的學習旅程',
       adaptiveText: 'Hoppy 會按照學生的程度調整練習，並幫助你追蹤每一步的進度！我們將一起量度成就，慶祝學習旅程中的每個里程碑。',
       adaptivePoints: ['按照作答情況調整練習', '支援不同學習程度', '清楚記錄學習進度'],
+      classroomTag: '學校及老師',
+      classroomTitle: '把 Hoppy 帶進 Google Classroom',
+      classroomText: '老師可透過 Google Classroom 發佈 Hoppy 練習指示及下載連結，學生在 Hoppy 完成互動練習，再按學習表現安排跟進。',
+      classroomSteps: ['在 Classroom 發佈練習', '學生使用 Hoppy 完成', '按學習結果安排跟進'],
       audienceTitle: '適合每一位參與學習的人',
       audiences: [
         ['學生', '透過互動題目，以適合自己的程度和步伐持續練習。'],
@@ -93,6 +97,10 @@ const copy = isTc
       adaptiveTitle: 'Measure Your Learning Journey',
       adaptiveText: 'Hoppy adapts practice to each student’s level and helps track progress with every hop! Together, we’ll measure achievements and celebrate milestones in the learning adventure.',
       adaptivePoints: ['Adjusts practice from student answers', 'Supports different learning levels', 'Makes learning progress visible'],
+      classroomTag: 'For schools and teachers',
+      classroomTitle: 'Bring Hoppy into Google Classroom',
+      classroomText: 'Teachers can use Google Classroom to post Hoppy practice instructions and download links. Students complete interactive practice in Hoppy, then teachers use the learning results to plan follow-up support.',
+      classroomSteps: ['Post practice in Classroom', 'Students complete it in Hoppy', 'Plan follow-up from the results'],
       audienceTitle: 'Made for everyone involved in learning',
       audiences: [
         ['Students', 'Practise with interactive questions at a level and pace that fits.'],
@@ -207,6 +215,25 @@ const copy = isTc
           <ul>
             {copy.adaptivePoints.map((point) => <li>{point}</li>)}
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="classroom section">
+      <div class="container classroom-card">
+        <div class="classroom-copy">
+          <span class="small-tag">{copy.classroomTag}</span>
+          <h2>{copy.classroomTitle}</h2>
+          <p>{copy.classroomText}</p>
+        </div>
+
+        <div class="classroom-flow" aria-label={copy.classroomTitle}>
+          {copy.classroomSteps.map((step, index) => (
+            <div class="classroom-step">
+              <span>{index + 1}</span>
+              <strong>{step}</strong>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -697,6 +724,73 @@ const copy = isTc
     text-align: center;
   }
 
+  .classroom {
+    padding-top: 0;
+    background: white;
+  }
+
+  .classroom-card {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 3rem;
+    border: 1px solid #d9e8ee;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #f5fbfd 0%, #edf7fa 100%);
+    box-shadow: 0 16px 42px rgba(26, 49, 68, 0.08);
+  }
+
+  .classroom-copy h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .classroom-copy > p {
+    margin: 1.1rem 0 0;
+    color: #5c7182;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .classroom-flow {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.25rem;
+    border: 1px solid #d9e5ea;
+    border-radius: 22px;
+    background: white;
+    box-shadow: 0 12px 30px rgba(26, 49, 68, 0.07);
+  }
+
+  .classroom-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    background: #f5f9fb;
+    color: var(--hoppy-navy);
+  }
+
+  .classroom-step span {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    flex: 0 0 34px;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--hoppy-blue);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  .classroom-step strong {
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
   .audience-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -800,7 +894,8 @@ const copy = isTc
 
     .hero-grid,
     .adaptive-card,
-    .review-highlight {
+    .review-highlight,
+    .classroom-card {
       grid-template-columns: 1fr;
     }
 
@@ -876,6 +971,11 @@ const copy = isTc
     .review-highlight {
       padding: 1.25rem;
       gap: 1.6rem;
+    }
+
+    .classroom-card {
+      padding: 1.4rem;
+      gap: 2rem;
     }
 
     .review-photo {

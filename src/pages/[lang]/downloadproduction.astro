@@ -16,6 +16,19 @@ const { lang: propLang } = Astro.props as Props;
 const { lang: paramLang } = Astro.params as { lang?: Lang };
 const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
 const t = useTranslations(lang);
+const qrCopy = lang === 'tc'
+  ? {
+      label: '快速下載',
+      title: '掃描下載 Hoppy',
+      text: '使用手機相機掃描 QR Code，立即前往 Hoppy 下載頁面。',
+      alt: 'Hoppy 應用程式下載 QR Code',
+    }
+  : {
+      label: 'Quick download',
+      title: 'Scan to download Hoppy',
+      text: 'Open your phone camera and scan the QR code to go directly to the Hoppy download page.',
+      alt: 'QR code for downloading the Hoppy app',
+    };
 
 // Only add language prefix for non-default locales
 const langPrefix = lang === defaultLang ? '' : `/${lang}`;
@@ -41,6 +54,23 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
     <!-- Download Content -->
     <section class="download-content">
       <div class="content-wrapper">
+        <section class="qr-download-card" aria-labelledby="qr-download-title">
+          <div class="qr-code-frame">
+            <img
+              src="/hoppy-download-qr.png"
+              alt={qrCopy.alt}
+              width="1072"
+              height="1092"
+              class="qr-code-image"
+            />
+          </div>
+          <div class="qr-download-copy">
+            <span class="qr-label">{qrCopy.label}</span>
+            <h2 id="qr-download-title">{qrCopy.title}</h2>
+            <p>{qrCopy.text}</p>
+          </div>
+        </section>
+
         <!-- Platform Toggle -->
         <div class="platform-toggle-container">
           <div class="platform-toggle">
@@ -255,6 +285,62 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
   .content-wrapper {
     max-width: 900px;
     margin: 0 auto;
+  }
+
+  .qr-download-card {
+    max-width: 760px;
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    border: 1px solid rgba(21, 48, 68, 0.09);
+    border-radius: 28px;
+    background: var(--hoppy-white);
+    box-shadow: 0 12px 38px rgba(21, 48, 68, 0.09);
+  }
+
+  .qr-code-frame {
+    padding: 0.8rem;
+    border: 1px solid #dce7ec;
+    border-radius: 20px;
+    background: white;
+  }
+
+  .qr-code-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    image-rendering: pixelated;
+  }
+
+  .qr-download-copy {
+    text-align: left;
+  }
+
+  .qr-label {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background: #dcf4fb;
+    color: #147fa2;
+    font-size: 0.76rem;
+    font-weight: 800;
+  }
+
+  .qr-download-copy h2 {
+    margin: 0;
+    color: var(--hoppy-navy);
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+  }
+
+  .qr-download-copy p {
+    margin: 0.9rem 0 0;
+    color: var(--hoppy-gray-dark);
+    line-height: 1.75;
   }
 
   /* Platform Toggle */
@@ -484,6 +570,22 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 
     .download-content {
       padding: 2rem 1rem;
+    }
+
+    .qr-download-card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .qr-code-frame {
+      width: min(100%, 230px);
+      margin-inline: auto;
+    }
+
+    .qr-download-copy {
+      text-align: center;
     }
 
     .platform-toggle {
