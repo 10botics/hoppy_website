@@ -318,7 +318,8 @@
       "featureInterventions": "Price ceiling, floor, quota, unit tax, and subsidy scenarios",
       "featureWelfareShading": "Consumer surplus, producer surplus, burden, revenue, and deadweight loss shading",
       "featureAreaLabels": "Semantic area legends for consumer surplus, producer surplus, tax revenue, and deadweight loss",
-      "featureMacroTrade": "AD-AS diagrams for macroeconomic gap and inflation questions",
+      "featureMacroTrade": "AD-AS and money-market diagrams for macroeconomic gaps, inflation, and monetary policy",
+      "featureAdvancedMarkets": "International trade, PPF gains from trade, and monopoly MR-MC welfare analysis",
       "featureAxisLabels": "English and Traditional Chinese axis labels for localized economics questions"
     },
     "additionalContent": "Additional Supported Content",
