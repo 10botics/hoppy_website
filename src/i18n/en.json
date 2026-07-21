@@ -5,7 +5,7 @@
   },
   "nav": {
     "home": "Home",
-    "widgets": "Widgets",
+    "widgets": "Question Types",
     "availability": "Availability",
     "download": "Download",
     "pricing": "Pricing",
@@ -27,7 +27,7 @@
       "getItOn": "GET IT ON",
       "googlePlay": "Google Play"
     },
-    "supportedWidgets": "Supported Widgets",
+    "supportedWidgets": "Supported Question Types",
     "whyChoose": "Why Choose Hoppy?",
     "features": {
       "interactive": {
@@ -139,10 +139,45 @@
     "returnHome": "Return to Hoppy Home"
   },
   "widgets": {
-    "title": "Supported Question Widgets",
-    "description": "Hoppy supports a variety of interactive widgets for creating engaging educational questions. Explore the different visualization types available for quiz content.",
+    "title": "Supported Question Types",
+    "description": "Hoppy supports a variety of visual question types for creating engaging educational questions. Explore the graphs, diagrams, formulas, and other visuals available in quiz content.",
     "liveExamples": "Live Examples",
-    "widgetVariations": "Widget Variations",
+    "widgetVariations": "Question Variations",
+    "subjectGroups": {
+      "navigationLabel": "Question types by subject",
+      "browseLabel": "Browse by subject",
+      "subjectLabel": "Subject",
+      "hubTitle": "Choose a subject",
+      "hubDescription": "See the graphs, diagrams, formulas, and visual question tools Hoppy provides for each subject.",
+      "exploreSubject": "Explore subject",
+      "allSubjects": "All subjects",
+      "backToSubjects": "← Back to all subjects",
+      "mathematics": {
+        "title": "Mathematics",
+        "pageTitle": "Mathematics Question Types",
+        "description": "Explore visual tools for time, data handling, statistics, functions, graphs, and three-dimensional geometry."
+      },
+      "physics": {
+        "title": "Physics",
+        "pageTitle": "Physics Question Types",
+        "description": "Explore circuit diagrams used to turn electrical concepts into clear question visuals."
+      },
+      "chemistry": {
+        "title": "Chemistry",
+        "pageTitle": "Chemistry Question Types",
+        "description": "Explore chemical equations, structures, particle diagrams, cells, laboratory setups, giant lattices, and Chemistry graphs."
+      },
+      "ict": {
+        "title": "ICT",
+        "pageTitle": "ICT Question Types",
+        "description": "Explore readable Python, C++, and pseudocode snippets for programming and computational-thinking questions."
+      },
+      "economics": {
+        "title": "Economics",
+        "pageTitle": "Economics Question Types",
+        "description": "Explore localized microeconomics and macroeconomics diagrams, from market equilibrium to welfare and policy analysis."
+      }
+    },
     "analogClock": {
       "title": "Analog Clock",
       "description": "Interactive analog clock display with hour and minute hands. Optional second hand for precise time questions.",
@@ -248,6 +283,102 @@
       "featureArrows": "Various reaction arrows (→, ⇌, ⇋) with conditions",
       "featureCoefficients": "Stoichiometric coefficients for balanced equations"
     },
+    "chemistryGallery": {
+      "title": "Chemistry Visuals",
+      "description": "Question-ready Chemistry diagrams and graphs generated directly from the same renderers used in Hoppy's Developer Test Screens.",
+      "examplesLabel": "Included examples:",
+      "featureStructures": "Chemical equations and organic structures with consistent formula formatting",
+      "featureParticles": "Covalent, ionic, electrochemical, and lattice representations",
+      "featureExperiments": "Labelled apparatus for common laboratory techniques",
+      "featureGraphs": "Chemistry-specific rate, energy, equilibrium, calorimetry, and property graphs",
+      "cards": {
+        "substitutedBenzene": "1-chloro-4-methylbenzene",
+        "aspirinDerivative": "Aspirin derivative with chiral side chain",
+        "sodiumAlkylSulphate": "Condensed sodium alkyl sulphate chain",
+        "propeneMonomer": "Propene monomer",
+        "polyPropene": "Poly(propene) repeat unit",
+        "polyChloroethene": "Poly(chloroethene) repeat unit",
+        "styrene": "Styrene with phenyl ring",
+        "polyStyrene": "Poly(styrene) repeat unit",
+        "expandedPolyPropene": "Expanded poly(propene) chain",
+        "expandedPolyEthene": "Expanded poly(ethene) chain",
+        "expandedPolyChloroethene": "Expanded poly(chloroethene) chain",
+        "expandedPolyStyrene": "Expanded poly(styrene) chain",
+        "expandedPmma": "Expanded PMMA chain",
+        "petChain": "Displayed PET chain portion",
+        "kevlarChain": "Displayed Kevlar chain portion",
+        "polyesterLinkage": "Simple polyester linkage",
+        "pmmaRepeatUnit": "PMMA repeat unit",
+        "petRepeatUnit": "PET repeat unit",
+        "kevlarRepeatUnit": "Kevlar repeat unit",
+        "hydrogen": "Hydrogen (H₂)",
+        "hydrogenChloride": "Hydrogen chloride (HCl)",
+        "water": "Water (H₂O)",
+        "ammonia": "Ammonia (NH₃)",
+        "methane": "Methane (CH₄)",
+        "oxygen": "Oxygen (O₂)",
+        "nitrogen": "Nitrogen (N₂)",
+        "carbonDioxide": "Carbon dioxide (CO₂)",
+        "sodiumChlorideDotCross": "Sodium chloride — ionic",
+        "magnesiumOxide": "Magnesium oxide — ionic",
+        "sodiumOxide": "Sodium oxide — ionic",
+        "magnesiumChloride": "Magnesium chloride — ionic",
+        "waterNoShells": "Water without shell circles",
+        "sodiumChlorideElectrolysis": "Concentrated sodium chloride electrolysis",
+        "silverElectroplating": "Silver electroplating",
+        "daniellCell": "Daniell chemical cell",
+        "filtration": "Filtration",
+        "simpleDistillation": "Simple distillation",
+        "titration": "Titration",
+        "gasOverWater": "Gas collection over water",
+        "heatingTestTube": "Heating a test tube",
+        "calorimetry": "Calorimetry",
+        "sodiumChlorideLattice": "Sodium chloride lattice",
+        "graphite": "Graphite layers and delocalised electrons",
+        "metallicStructure": "Metallic structure and delocalised electrons",
+        "reactionRate": "Gas volume against time",
+        "catalystEnergyProfile": "Catalyst lowers activation energy",
+        "dynamicEquilibrium": "Dynamic equilibrium concentrations",
+        "coolingCorrection": "Calorimetry cooling correction",
+        "period3MeltingPoints": "Period 3 melting-point pattern"
+      },
+      "organic": {
+        "title": "Organic and Polymer Structures",
+        "description": "Display structural formulae, substituents, monomers, polymers, and repeat units in a consistent question-ready format.",
+        "examples": "substituted benzene, propene and styrene monomers, poly(propene), poly(chloroethene), poly(styrene), PMMA, PET, Kevlar, and polyester linkages.",
+        "alt": "Hoppy organic structure renderer showing polymer repeat units"
+      },
+      "dotCross": {
+        "title": "Dot-and-Cross Diagrams",
+        "description": "Show bonding and electron transfer for covalent molecules and ionic compounds.",
+        "examples": "H₂, HCl, H₂O, NH₃, CH₄, O₂, N₂, CO₂, NaCl, MgO, Na₂O, and MgCl₂.",
+        "alt": "Hoppy dot-and-cross renderer showing nitrogen, carbon dioxide, and sodium chloride"
+      },
+      "cells": {
+        "title": "Electrochemical Cells",
+        "description": "Build clear electrolysis, electroplating, and chemical-cell diagrams with electrodes, electrolytes, salt bridges, labels, and electron flow.",
+        "examples": "concentrated sodium chloride electrolysis, copper(II) sulphate electrolysis with graphite or copper electrodes, silver electroplating, Daniell cells, and configurable simple cells.",
+        "alt": "Hoppy chemical cell renderer showing Daniell cells and electron flow"
+      },
+      "setups": {
+        "title": "Laboratory Setups",
+        "description": "Present labelled apparatus diagrams for common experimental techniques and practical questions.",
+        "examples": "filtration, simple distillation, titration, gas collection over water, heating a test tube, and calorimetry.",
+        "alt": "Hoppy Chemistry setup renderer showing filtration, simple distillation, and titration"
+      },
+      "lattices": {
+        "title": "Giant Lattices",
+        "description": "Compare ionic, giant covalent, and metallic structures, including layers and delocalised electrons.",
+        "examples": "sodium chloride ionic lattice, graphite layers, and metallic structure.",
+        "alt": "Hoppy giant lattice renderer showing ionic, graphite, and metallic structures"
+      },
+      "geogebra": {
+        "title": "Chemistry GeoGebra Graphs",
+        "description": "Render exam-ready Chemistry graphs with labelled axes, curves, guides, energy changes, and comparison cases.",
+        "examples": "reaction rates, energy profiles, catalyst pathways, dynamic equilibrium, calorimetry, thermometric titration, and physical-property trends.",
+        "alt": "Hoppy GeoGebra renderer showing a catalyst lowering activation energy"
+      }
+    },
     "codeBlock": {
       "title": "ICT Code Block",
       "description": "Code snippets with line numbers for ICT and computer science questions. Supports Python, C++, and pseudocode.",
@@ -276,6 +407,7 @@
       "categoryPpfTradeGains": "PPF and gains from trade",
       "categoryInternationalTradeExchange": "International trade, barriers, and exchange-rate effects",
       "categoryMonopoly": "Monopoly pricing and welfare",
+      "equilibrium": "Market equilibrium",
       "demandShift": "Demand shift",
       "demandSupplyShift": "Demand and supply shift",
       "supplyShift": "Supply shift",
@@ -342,9 +474,9 @@
     "backToHome": "← Back to Home"
   },
   "physicsPage": {
-    "title": "Physics Question Widgets",
-    "description": "Hoppy supports interactive widgets tailored for the HKDSE Physics Curriculum — graphs, circuits, electric and magnetic field diagrams, and formulas.",
-    "widgetVariations": "Widget Variations",
+    "title": "Physics Question Types",
+    "description": "Hoppy supports visual question types tailored for the HKDSE Physics Curriculum — graphs, circuits, electric and magnetic field diagrams, and formulas.",
+    "widgetVariations": "Question Variations",
     "comingSoon": "More physics setup visuals (force and motion, wave motion) are planned.",
     "backToHome": "← Back to Home",
     "graphs": {
@@ -1086,7 +1218,7 @@
                 "Interactive educational content and learning activities",
                 "Progress tracking and performance analytics",
                 "Multiple user profiles for family accounts",
-                "Visualization tools and interactive widgets for enhanced learning",
+                "Visualization tools and visual question types for enhanced learning",
                 "Premium features available through in-app purchases"
               ]
             }
@@ -1491,7 +1623,7 @@
       },
       "q3": {
         "question": "What subjects and topics does Hoppy cover?",
-        "answer": "Hoppy covers a wide range of subjects, primarily HK curriculum subjects, including Mathematics (time-telling, data interpretation, geometry, algebra, statistics), Science (physics circuits, chemistry equations), and more. The app features interactive widgets like analog and digital clocks, various charts and graphs, 3D geometric shapes, electric circuits, chemical equations, and mathematical function plotters."
+        "answer": "Hoppy covers a wide range of subjects, primarily HK curriculum subjects, including Mathematics (time-telling, data interpretation, geometry, algebra, statistics), Science (physics circuits, chemistry equations), and more. The app features visual question types such as analog and digital clocks, charts and graphs, 3D geometric shapes, electric circuits, chemical equations, and mathematical function plotters."
       },
       "q5": {
         "question": "Is Hoppy free to use?",
@@ -1519,7 +1651,7 @@
       },
       "q12": {
         "question": "What makes Hoppy different from other educational apps?",
-        "answer": "Hoppy stands out with its unique combination of engaging mascot-led learning, innovative interactive widgets, and comprehensive subject coverage. Our focus on making learning addictive (in a good way!) through fun, colorful design and creative play sets us apart. We use professional visualization tools like LaTeX math rendering, interactive 3D geometry, and real-time circuit simulations that make complex concepts accessible and exciting for young learners."
+        "answer": "Hoppy stands out with its unique combination of engaging mascot-led learning, innovative visual question types, and comprehensive subject coverage. Our focus on making learning addictive (in a good way!) through fun, colorful design and creative play sets us apart. We use professional visualization tools like LaTeX math rendering, interactive 3D geometry, and real-time circuit simulations that make complex concepts accessible and exciting for young learners."
       }
     }
   }

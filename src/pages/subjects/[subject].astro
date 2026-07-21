@@ -1,0 +1,22 @@
+---
+import SubjectPage from '../[lang]/supported-question-images.astro';
+import { defaultLang } from '../../i18n/ui';
+
+type Subject = 'mathematics' | 'chemistry' | 'ict' | 'economics';
+
+export function getStaticPaths() {
+  const subjects: Subject[] = ['mathematics', 'chemistry', 'ict', 'economics'];
+  return subjects.map((subject) => ({
+    params: { subject },
+    props: { subject },
+  }));
+}
+
+interface Props {
+  subject: Subject;
+}
+
+const { subject } = Astro.props as Props;
+---
+
+<SubjectPage lang={defaultLang} subject={subject} />
