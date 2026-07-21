@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import SubjectNavigation from '../../../components/widgets/SubjectNavigation.astro';
 import { languages, useTranslations, type Lang, defaultLang } from '../../../i18n/ui';
 
 export function getStaticPaths() {
@@ -30,6 +31,8 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
         </p>
       </div>
     </section>
+
+    <SubjectNavigation lang={lang} currentSubject="physics" />
 
     <section class="widgets-gallery">
       <!-- Physics Graphs -->
@@ -213,7 +216,7 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
     </section>
 
     <section class="back-section">
-      <a href={`${langPrefix}/`} class="back-link">{t('physicsPage.backToHome')}</a>
+      <a href={`${langPrefix}/supported-question-images`} class="back-link">{t('widgets.subjectGroups.backToSubjects')}</a>
     </section>
   </main>
 </Layout>

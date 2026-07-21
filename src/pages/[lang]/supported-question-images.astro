@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import SubjectNavigation from '../../components/widgets/SubjectNavigation.astro';
 import { languages, useTranslations, getLocalizedScreenshot, type Lang, defaultLang } from '../../i18n/ui';
 
 export function getStaticPaths() {
@@ -10,9 +11,10 @@ export function getStaticPaths() {
 
 interface Props {
   lang?: Lang;
+  subject?: 'mathematics' | 'chemistry' | 'ict' | 'economics';
 }
 
-const { lang: propLang } = Astro.props as Props;
+const { lang: propLang, subject: selectedSubject } = Astro.props as Props;
 const { lang: paramLang } = Astro.params as { lang?: Lang };
 const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
 const t = useTranslations(lang);
@@ -22,6 +24,188 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 
 // Helper function to get localized screenshot path
 const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
+
+const subjectGroups = [
+  {
+    id: 'mathematics',
+    labelKey: 'widgets.subjectGroups.mathematics.title',
+    descriptionKey: 'widgets.subjectGroups.mathematics.description',
+    image: '/widgets/widget_equationgraph_parabola.svg',
+  },
+  {
+    id: 'physics',
+    labelKey: 'widgets.subjectGroups.physics.title',
+    descriptionKey: 'widgets.subjectGroups.physics.description',
+    image: '/screenshots/screenshot-field-2.jpg',
+  },
+  {
+    id: 'chemistry',
+    labelKey: 'widgets.subjectGroups.chemistry.title',
+    descriptionKey: 'widgets.subjectGroups.chemistry.description',
+    image: '/widgets/widget_chemicalequation.svg',
+  },
+  {
+    id: 'ict',
+    labelKey: 'widgets.subjectGroups.ict.title',
+    descriptionKey: 'widgets.subjectGroups.ict.description',
+    image: '/widgets/widget_codeblock_python_12.png',
+  },
+  {
+    id: 'economics',
+    labelKey: 'widgets.subjectGroups.economics.title',
+    descriptionKey: 'widgets.subjectGroups.economics.description',
+    image: '/widgets/widget_econgraph_equilibrium.png',
+    imageTc: '/widgets/widget_econgraph_equilibrium_tc.png',
+  },
+];
+
+const currentSubject = selectedSubject
+  ? subjectGroups.find((subject) => subject.id === selectedSubject)
+  : undefined;
+
+const chemistryVariationCategoryData = [
+  {
+    id: 'equations',
+    icon: '🧪',
+    titleKey: 'widgets.chemicalEquation.title',
+    descriptionKey: 'widgets.chemicalEquation.description',
+    cards: [
+      {
+        src: '/widgets/widget_chemicalequation.svg',
+        labelKey: 'widgets.chemicalEquation.combustion',
+      },
+    ],
+  },
+  {
+    id: 'organic',
+    icon: '🧬',
+    titleKey: 'widgets.chemistryGallery.organic.title',
+    descriptionKey: 'widgets.chemistryGallery.organic.description',
+    cards: [
+      { src: '/widgets/chemistry/organic/substituted-benzene.png', labelKey: 'widgets.chemistryGallery.cards.substitutedBenzene' },
+      { src: '/widgets/chemistry/organic/aspirin-derivative.png', labelKey: 'widgets.chemistryGallery.cards.aspirinDerivative' },
+      { src: '/widgets/chemistry/organic/sodium-alkyl-sulphate.png', labelKey: 'widgets.chemistryGallery.cards.sodiumAlkylSulphate' },
+      { src: '/widgets/chemistry/organic/propene-monomer.png', labelKey: 'widgets.chemistryGallery.cards.propeneMonomer' },
+      { src: '/widgets/chemistry/organic/poly-propene.png', labelKey: 'widgets.chemistryGallery.cards.polyPropene' },
+      { src: '/widgets/chemistry/organic/poly-chloroethene.png', labelKey: 'widgets.chemistryGallery.cards.polyChloroethene' },
+      { src: '/widgets/chemistry/organic/styrene.png', labelKey: 'widgets.chemistryGallery.cards.styrene' },
+      { src: '/widgets/chemistry/organic/poly-styrene.png', labelKey: 'widgets.chemistryGallery.cards.polyStyrene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-propene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyPropene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-ethene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyEthene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-chloroethene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyChloroethene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-styrene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyStyrene' },
+      { src: '/widgets/chemistry/organic/expanded-pmma.png', labelKey: 'widgets.chemistryGallery.cards.expandedPmma' },
+      { src: '/widgets/chemistry/organic/pet-chain.png', labelKey: 'widgets.chemistryGallery.cards.petChain' },
+      { src: '/widgets/chemistry/organic/kevlar-chain.png', labelKey: 'widgets.chemistryGallery.cards.kevlarChain' },
+      { src: '/widgets/chemistry/organic/polyester-linkage.png', labelKey: 'widgets.chemistryGallery.cards.polyesterLinkage' },
+      { src: '/widgets/chemistry/organic/pmma-repeat-unit.png', labelKey: 'widgets.chemistryGallery.cards.pmmaRepeatUnit' },
+      { src: '/widgets/chemistry/organic/pet-repeat-unit.png', labelKey: 'widgets.chemistryGallery.cards.petRepeatUnit' },
+      { src: '/widgets/chemistry/organic/kevlar-repeat-unit.png', labelKey: 'widgets.chemistryGallery.cards.kevlarRepeatUnit' },
+    ],
+  },
+  {
+    id: 'bonding',
+    icon: '⚛️',
+    titleKey: 'widgets.chemistryGallery.dotCross.title',
+    descriptionKey: 'widgets.chemistryGallery.dotCross.description',
+    cards: [
+      { src: '/widgets/chemistry/dot-cross/hydrogen.png', labelKey: 'widgets.chemistryGallery.cards.hydrogen' },
+      { src: '/widgets/chemistry/dot-cross/hydrogen-chloride.png', labelKey: 'widgets.chemistryGallery.cards.hydrogenChloride' },
+      { src: '/widgets/chemistry/dot-cross/water.png', labelKey: 'widgets.chemistryGallery.cards.water' },
+      { src: '/widgets/chemistry/dot-cross/ammonia.png', labelKey: 'widgets.chemistryGallery.cards.ammonia' },
+      { src: '/widgets/chemistry/dot-cross/methane.png', labelKey: 'widgets.chemistryGallery.cards.methane' },
+      { src: '/widgets/chemistry/dot-cross/oxygen.png', labelKey: 'widgets.chemistryGallery.cards.oxygen' },
+      { src: '/widgets/chemistry/dot-cross/nitrogen.png', labelKey: 'widgets.chemistryGallery.cards.nitrogen' },
+      { src: '/widgets/chemistry/dot-cross/carbon-dioxide.png', labelKey: 'widgets.chemistryGallery.cards.carbonDioxide' },
+      { src: '/widgets/chemistry/dot-cross/sodium-chloride.png', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideDotCross' },
+      { src: '/widgets/chemistry/dot-cross/magnesium-oxide.png', labelKey: 'widgets.chemistryGallery.cards.magnesiumOxide' },
+      { src: '/widgets/chemistry/dot-cross/sodium-oxide.png', labelKey: 'widgets.chemistryGallery.cards.sodiumOxide' },
+      { src: '/widgets/chemistry/dot-cross/magnesium-chloride.png', labelKey: 'widgets.chemistryGallery.cards.magnesiumChloride' },
+      { src: '/widgets/chemistry/dot-cross/water-no-shells.png', labelKey: 'widgets.chemistryGallery.cards.waterNoShells' },
+    ],
+  },
+  {
+    id: 'electrochemistry',
+    icon: '🔋',
+    titleKey: 'widgets.chemistryGallery.cells.title',
+    descriptionKey: 'widgets.chemistryGallery.cells.description',
+    cards: [
+      { src: '/widgets/chemistry/cells/sodium-chloride-electrolysis.png', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideElectrolysis' },
+      { src: '/widgets/chemistry/cells/silver-electroplating.png', labelKey: 'widgets.chemistryGallery.cards.silverElectroplating' },
+      { src: '/widgets/chemistry/cells/daniell-cell.png', labelKey: 'widgets.chemistryGallery.cards.daniellCell' },
+    ],
+  },
+  {
+    id: 'experiments',
+    icon: '⚗️',
+    titleKey: 'widgets.chemistryGallery.setups.title',
+    descriptionKey: 'widgets.chemistryGallery.setups.description',
+    cards: [
+      { src: '/widgets/chemistry/setups/filtration.png', labelKey: 'widgets.chemistryGallery.cards.filtration' },
+      { src: '/widgets/chemistry/setups/simple-distillation.png', labelKey: 'widgets.chemistryGallery.cards.simpleDistillation' },
+      { src: '/widgets/chemistry/setups/titration.png', labelKey: 'widgets.chemistryGallery.cards.titration' },
+      { src: '/widgets/chemistry/setups/gas-over-water.png', labelKey: 'widgets.chemistryGallery.cards.gasOverWater' },
+      { src: '/widgets/chemistry/setups/heating-test-tube.png', labelKey: 'widgets.chemistryGallery.cards.heatingTestTube' },
+      { src: '/widgets/chemistry/setups/calorimetry.png', labelKey: 'widgets.chemistryGallery.cards.calorimetry' },
+    ],
+  },
+  {
+    id: 'structures',
+    icon: '💎',
+    titleKey: 'widgets.chemistryGallery.lattices.title',
+    descriptionKey: 'widgets.chemistryGallery.lattices.description',
+    cards: [
+      { src: '/widgets/chemistry/lattices/sodium-chloride-lattice.png', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideLattice' },
+      { src: '/widgets/chemistry/lattices/graphite.png', labelKey: 'widgets.chemistryGallery.cards.graphite' },
+      { src: '/widgets/chemistry/lattices/metallic-structure.png', labelKey: 'widgets.chemistryGallery.cards.metallicStructure' },
+    ],
+  },
+  {
+    id: 'graphs',
+    icon: '📈',
+    titleKey: 'widgets.chemistryGallery.geogebra.title',
+    descriptionKey: 'widgets.chemistryGallery.geogebra.description',
+    cards: [
+      { src: '/widgets/chemistry/geogebra/reaction-rate.png', labelKey: 'widgets.chemistryGallery.cards.reactionRate' },
+      { src: '/widgets/chemistry/geogebra/catalyst-energy-profile.png', labelKey: 'widgets.chemistryGallery.cards.catalystEnergyProfile' },
+      { src: '/widgets/chemistry/geogebra/dynamic-equilibrium.png', labelKey: 'widgets.chemistryGallery.cards.dynamicEquilibrium' },
+      { src: '/widgets/chemistry/geogebra/cooling-correction.png', labelKey: 'widgets.chemistryGallery.cards.coolingCorrection' },
+      { src: '/widgets/chemistry/geogebra/period-3-melting-points.png', labelKey: 'widgets.chemistryGallery.cards.period3MeltingPoints' },
+    ],
+  },
+];
+
+const chemistryCategoryOrder = [
+  'equations',
+  'bonding',
+  'structures',
+  'organic',
+  'experiments',
+  'electrochemistry',
+  'graphs',
+];
+
+const chemistryVariationCategories = chemistryCategoryOrder.map(
+  (id) => chemistryVariationCategoryData.find((category) => category.id === id)!,
+);
+
+const chemistryCardScales: Record<string, number> = {
+  '/widgets/chemistry/organic/substituted-benzene.png': 1.65,
+  '/widgets/chemistry/organic/aspirin-derivative.png': 1.55,
+  '/widgets/chemistry/organic/sodium-alkyl-sulphate.png': 1.45,
+  '/widgets/chemistry/organic/propene-monomer.png': 1.75,
+  '/widgets/chemistry/organic/poly-propene.png': 1.65,
+  '/widgets/chemistry/organic/poly-chloroethene.png': 1.65,
+  '/widgets/chemistry/organic/styrene.png': 1.45,
+  '/widgets/chemistry/organic/poly-styrene.png': 1.45,
+  '/widgets/chemistry/organic/expanded-poly-propene.png': 1.35,
+  '/widgets/chemistry/organic/expanded-poly-ethene.png': 1.35,
+  '/widgets/chemistry/organic/expanded-poly-chloroethene.png': 1.35,
+  '/widgets/chemistry/organic/expanded-poly-styrene.png': 1.25,
+  '/widgets/chemistry/organic/expanded-pmma.png': 1.3,
+  '/widgets/chemistry/organic/polyester-linkage.png': 1.3,
+  '/widgets/chemistry/organic/pmma-repeat-unit.png': 1.35,
+};
 
 const codeBlockCategories = [
   {
@@ -312,16 +496,55 @@ const econGraphCategories = [
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>{t('widgets.title')}</h1>
+        <h1>{selectedSubject && currentSubject ? t(`widgets.subjectGroups.${selectedSubject}.pageTitle`) : t('widgets.title')}</h1>
         <p class="hero-description">
-          {t('widgets.description')}
+          {selectedSubject && currentSubject
+            ? t(currentSubject.descriptionKey)
+            : t('widgets.description')}
         </p>
       </div>
     </section>
 
+    {selectedSubject ? (
+      <SubjectNavigation lang={lang} currentSubject={selectedSubject} />
+    ) : (
+      <section class="subject-hub" aria-labelledby="subject-hub-title">
+        <div class="subject-hub-heading">
+          <span>{t('widgets.subjectGroups.browseLabel')}</span>
+          <h2 id="subject-hub-title">{t('widgets.subjectGroups.hubTitle')}</h2>
+          <p>{t('widgets.subjectGroups.hubDescription')}</p>
+        </div>
+        <div class="subject-card-grid">
+          {subjectGroups.map((subject) => (
+            <a class="subject-card" href={`${langPrefix}/subjects/${subject.id}`}>
+              <div class="subject-card-image">
+                <img
+                  src={lang === 'tc' && subject.imageTc ? subject.imageTc : subject.image}
+                  alt=""
+                />
+              </div>
+              <div class="subject-card-copy">
+                <h3>{t(subject.labelKey)}</h3>
+                <p>{t(subject.descriptionKey)}</p>
+                <span>{t('widgets.subjectGroups.exploreSubject')} <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
     <!-- Widgets Gallery -->
+    {selectedSubject && (
     <section class="widgets-gallery">
-      
+
+      {selectedSubject === 'mathematics' && (<>
+      <div class="subject-heading" id="mathematics">
+        <span class="subject-heading-kicker">{t('widgets.subjectGroups.subjectLabel')}</span>
+        <h2>{t('widgets.subjectGroups.mathematics.title')}</h2>
+        <p>{t('widgets.subjectGroups.mathematics.description')}</p>
+      </div>
+
       <!-- Analog Clock -->
       <div class="widget-section">
         <div class="widget-header">
@@ -609,6 +832,15 @@ const econGraphCategories = [
         </div>
       </div>
 
+      </>)}
+
+      {selectedSubject === 'physics' && (<>
+      <div class="subject-heading" id="physics">
+        <span class="subject-heading-kicker">{t('widgets.subjectGroups.subjectLabel')}</span>
+        <h2>{t('widgets.subjectGroups.physics.title')}</h2>
+        <p>{t('widgets.subjectGroups.physics.description')}</p>
+      </div>
+
       <!-- Electric Circuit -->
       <div class="widget-section">
         <div class="widget-header">
@@ -670,44 +902,49 @@ const econGraphCategories = [
         </div>
       </div>
 
-      <!-- Chemical Equation -->
-      <div class="widget-section">
-        <div class="widget-header">
-          <div class="widget-icon">🧪</div>
-          <div class="widget-info">
-            <h2>{t('widgets.chemicalEquation.title')}</h2>
-            <p>{t('widgets.chemicalEquation.description')}</p>
+      </>)}
+
+      {selectedSubject === 'chemistry' && (<>
+      <div class="subject-heading" id="chemistry">
+        <span class="subject-heading-kicker">{t('widgets.subjectGroups.subjectLabel')}</span>
+        <h2>{t('widgets.subjectGroups.chemistry.title')}</h2>
+        <p>{t('widgets.subjectGroups.chemistry.description')}</p>
+      </div>
+
+      {chemistryVariationCategories.map((category) => (
+        <div class="widget-section chemistry-widget-section" id={`chemistry-${category.id}`}>
+          <div class="widget-header">
+            <div class="widget-icon">{category.icon}</div>
+            <div class="widget-info">
+              <h2>{t(category.titleKey)}</h2>
+              <p>{t(category.descriptionKey)}</p>
+            </div>
+          </div>
+
+          <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+          <div class={`widget-examples econ-category-grid chemistry-category-grid${category.cards.length === 1 ? ' chemistry-single-card' : ''}`}>
+            {category.cards.map((card) => (
+              <div class="widget-card econ-card chemistry-card">
+                <div
+                  class="chemistry-card-visual"
+                  style={`--chemistry-art-scale: ${chemistryCardScales[card.src] ?? 1}`}
+                >
+                  <img src={`${card.src}?v=20260721-5`} alt={t(card.labelKey)} loading="lazy" />
+                </div>
+                <span class="widget-label">{t(card.labelKey)}</span>
+              </div>
+            ))}
           </div>
         </div>
+      ))}
 
-        <!-- Live Screenshots -->
-        <div class="subsection-label">{t('widgets.liveExamples')}</div>
-        <div class="screenshots-grid">
-          <div class="screenshot-card">
-            <img src={screenshot("/screenshots/screenshot-chemical-equation-1.jpeg")} alt="Haber Process chemical equation" />
-          </div>
-        </div>
+      </>)}
 
-        <!-- Widget Examples -->
-        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
-        <div class="widget-examples single-column">
-          <div class="widget-card large">
-            <img src="/widgets/widget_chemicalequation.svg" alt="Chemical Equation Widget" />
-            <span class="widget-label">{t('widgets.chemicalEquation.combustion')}</span>
-          </div>
-        </div>
-
-        <!-- Features -->
-        <div class="subsection-label">{t('widgets.chemicalEquation.features')}</div>
-        <div class="features-list">
-          <ul>
-            <li>{t('widgets.chemicalEquation.featureSubscripts')}</li>
-            <li>{t('widgets.chemicalEquation.featureSuperscripts')}</li>
-            <li>{t('widgets.chemicalEquation.featureStates')}</li>
-            <li>{t('widgets.chemicalEquation.featureArrows')}</li>
-            <li>{t('widgets.chemicalEquation.featureCoefficients')}</li>
-          </ul>
-        </div>
+      {selectedSubject === 'ict' && (<>
+      <div class="subject-heading" id="ict">
+        <span class="subject-heading-kicker">{t('widgets.subjectGroups.subjectLabel')}</span>
+        <h2>{t('widgets.subjectGroups.ict.title')}</h2>
+        <p>{t('widgets.subjectGroups.ict.description')}</p>
       </div>
 
       <!-- ICT Code Block -->
@@ -744,6 +981,15 @@ const econGraphCategories = [
             <li>{t('widgets.codeBlock.featureCompactMode')}</li>
           </ul>
         </div>
+      </div>
+
+      </>)}
+
+      {selectedSubject === 'economics' && (<>
+      <div class="subject-heading" id="economics">
+        <span class="subject-heading-kicker">{t('widgets.subjectGroups.subjectLabel')}</span>
+        <h2>{t('widgets.subjectGroups.economics.title')}</h2>
+        <p>{t('widgets.subjectGroups.economics.description')}</p>
       </div>
 
       <!-- Economics Graph -->
@@ -788,9 +1034,13 @@ const econGraphCategories = [
         </div>
       </div>
 
+      </>)}
+
     </section>
+    )}
 
     <!-- Supported Features -->
+    {!selectedSubject && (
     <section class="features-section">
       <h2>{t('widgets.additionalContent')}</h2>
       <div class="features-grid">
@@ -816,10 +1066,13 @@ const econGraphCategories = [
         </div>
       </div>
     </section>
+    )}
 
     <!-- Back Link -->
     <section class="back-section">
-      <a href={`${langPrefix}/`} class="back-link">{t('widgets.backToHome')}</a>
+      <a href={selectedSubject ? `${langPrefix}/supported-question-images` : `${langPrefix}/`} class="back-link">
+        {selectedSubject ? t('widgets.subjectGroups.backToSubjects') : t('widgets.backToHome')}
+      </a>
     </section>
 
   </main>
@@ -876,11 +1129,150 @@ const econGraphCategories = [
     line-height: 1.7;
   }
 
+  .subject-hub {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .subject-hub-heading {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .subject-hub-heading > span {
+    color: #0284c7;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .subject-hub-heading h2 {
+    margin: 0.5rem 0 0.75rem;
+    color: #0f172a;
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .subject-hub-heading p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  .subject-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .subject-card {
+    min-width: 0;
+    overflow: hidden;
+    color: inherit;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .subject-card:first-child {
+    grid-row: span 2;
+  }
+
+  .subject-card:hover,
+  .subject-card:focus-visible {
+    border-color: #7dd3fc;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.13);
+    transform: translateY(-4px);
+    outline: none;
+  }
+
+  .subject-card-image {
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #eff9fd 0%, #f5f3ff 100%);
+  }
+
+  .subject-card:first-child .subject-card-image {
+    height: 300px;
+  }
+
+  .subject-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .subject-card-copy {
+    padding: 1.5rem;
+  }
+
+  .subject-card-copy h3 {
+    margin: 0 0 0.5rem;
+    color: #0f172a;
+    font-size: 1.4rem;
+  }
+
+  .subject-card-copy p {
+    margin: 0 0 1rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  .subject-card-copy > span {
+    color: #0284c7;
+    font-weight: 800;
+  }
+
   /* Widgets Gallery */
   .widgets-gallery {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 2rem;
+  }
+
+  .subject-heading {
+    scroll-margin-top: 160px;
+    margin: 1rem 0 2rem;
+    padding: 1.75rem 2rem;
+    background: linear-gradient(135deg, #eff9fd 0%, #f5f3ff 100%);
+    border: 1px solid #dbeafe;
+    border-left: 6px solid #3FB5DB;
+    border-radius: 18px;
+  }
+
+  .subject-heading:not(:first-child) {
+    margin-top: 5rem;
+  }
+
+  .subject-heading-kicker {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #0284c7;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .subject-heading h2 {
+    margin: 0 0 0.5rem;
+    color: #0f172a;
+    font-size: clamp(1.75rem, 4vw, 2.4rem);
+  }
+
+  .subject-heading p {
+    max-width: 760px;
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
   }
 
   .widget-section {
@@ -987,6 +1379,35 @@ const econGraphCategories = [
     color: #64748b;
     font-weight: 500;
     text-align: center;
+  }
+
+  .chemistry-card {
+    min-height: 360px;
+  }
+
+  .chemistry-card-visual {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+
+  .widget-card.chemistry-card img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transform: scale(var(--chemistry-art-scale, 1));
+    transform-origin: center;
+  }
+
+  .widget-examples.econ-category-grid.chemistry-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .widget-examples.econ-category-grid.chemistry-category-grid.chemistry-single-card {
+    grid-template-columns: minmax(260px, 520px);
   }
 
   /* Widget Examples */
@@ -1237,6 +1658,28 @@ const econGraphCategories = [
 
   /* Responsive Design */
   @media (max-width: 768px) {
+    .subject-hub {
+      padding: 3rem 1rem;
+    }
+
+    .subject-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .subject-card:first-child {
+      grid-row: auto;
+    }
+
+    .subject-card:first-child .subject-card-image,
+    .subject-card-image {
+      height: 210px;
+    }
+
+    .subject-heading {
+      scroll-margin-top: 90px;
+      padding: 1.5rem;
+    }
+
     .widget-header {
       flex-direction: column;
       align-items: center;
@@ -1252,9 +1695,15 @@ const econGraphCategories = [
     }
 
     .widget-examples.econ-category-grid,
+    .widget-examples.econ-category-grid.chemistry-category-grid,
+    .widget-examples.econ-category-grid.chemistry-category-grid.chemistry-single-card,
     .codeblock-category-list .econ-category:first-child .econ-category-grid,
     .codeblock-category-list .econ-category:last-child .econ-category-grid {
       grid-template-columns: 1fr;
+    }
+
+    .chemistry-card-visual {
+      height: 260px;
     }
 
     .econ-category-title {

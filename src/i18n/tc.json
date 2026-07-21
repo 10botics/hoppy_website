@@ -142,7 +142,42 @@
     "title": "支援的題目類型",
     "description": "Hoppy 支援多種互動題目類型，用於創建引人入勝的教育問題。探索測驗內容可用的不同視覺化類型。",
     "liveExamples": "實際範例",
-    "widgetVariations": "類型變化",
+    "widgetVariations": "題型變化",
+    "subjectGroups": {
+      "navigationLabel": "題目科目",
+      "browseLabel": "按科目瀏覽",
+      "subjectLabel": "科目",
+      "hubTitle": "選擇科目",
+      "hubDescription": "查看 Hoppy 為各科提供的線圖、圖解、公式及視覺化題目工具。",
+      "exploreSubject": "瀏覽科目",
+      "allSubjects": "所有科目",
+      "backToSubjects": "← 返回所有科目",
+      "mathematics": {
+        "title": "數學",
+        "pageTitle": "數學題目類型",
+        "description": "探索時間、數據處理、統計、函數、線圖及立體幾何的視覺化工具。"
+      },
+      "physics": {
+        "title": "物理",
+        "pageTitle": "物理題目類型",
+        "description": "探索把電學概念清晰呈現於題目中的電路圖。"
+      },
+      "chemistry": {
+        "title": "化學",
+        "pageTitle": "化學題目類型",
+        "description": "探索化學方程式、結構式、粒子圖、化學電池、實驗裝置、巨型晶格及化學圖表。"
+      },
+      "ict": {
+        "title": "資訊及通訊科技",
+        "pageTitle": "資訊及通訊科技題目類型",
+        "description": "探索清晰易讀的 Python、C++ 及偽代碼，支援編程與運算思維題目。"
+      },
+      "economics": {
+        "title": "經濟",
+        "pageTitle": "經濟題目類型",
+        "description": "探索本地化的微觀及宏觀經濟圖表，由市場均衡到福利與政策分析。"
+      }
+    },
     "analogClock": {
       "title": "模擬時鐘",
       "description": "互動式模擬時鐘顯示，具有時針和分針。可選配秒針以進行精確的時間問題。",
@@ -248,6 +283,102 @@
       "featureArrows": "各種反應箭頭（→、⇌、⇋）及條件",
       "featureCoefficients": "平衡方程式的化學計量係數"
     },
+    "chemistryGallery": {
+      "title": "化學題目視覺",
+      "description": "直接使用 Hoppy「開發者測試畫面」相同繪圖器產生的化學題目圖解及圖表。",
+      "examplesLabel": "包括範例：",
+      "featureStructures": "以統一化學式格式顯示化學方程式及有機結構",
+      "featureParticles": "呈現共價、離子、電化學及晶格結構",
+      "featureExperiments": "為常見實驗技術提供附標籤的儀器裝置",
+      "featureGraphs": "涵蓋反應速率、能量、平衡、量熱及物理性質的化學圖表",
+      "cards": {
+        "substitutedBenzene": "1-氯-4-甲基苯",
+        "aspirinDerivative": "具手性側鏈的阿士匹靈衍生物",
+        "sodiumAlkylSulphate": "縮合十二烷基硫酸鈉鏈",
+        "propeneMonomer": "丙烯單體",
+        "polyPropene": "聚丙烯重複單元",
+        "polyChloroethene": "聚氯乙烯重複單元",
+        "styrene": "帶苯環的苯乙烯",
+        "polyStyrene": "聚苯乙烯重複單元",
+        "expandedPolyPropene": "展開的聚丙烯鏈",
+        "expandedPolyEthene": "展開的聚乙烯鏈",
+        "expandedPolyChloroethene": "展開的聚氯乙烯鏈",
+        "expandedPolyStyrene": "展開的聚苯乙烯鏈",
+        "expandedPmma": "展開的 PMMA 鏈",
+        "petChain": "PET 鏈段",
+        "kevlarChain": "Kevlar 鏈段",
+        "polyesterLinkage": "簡單聚酯鍵",
+        "pmmaRepeatUnit": "PMMA 重複單元",
+        "petRepeatUnit": "PET 重複單元",
+        "kevlarRepeatUnit": "Kevlar 重複單元",
+        "hydrogen": "氫氣（H₂）",
+        "hydrogenChloride": "氯化氫（HCl）",
+        "water": "水（H₂O）",
+        "ammonia": "氨（NH₃）",
+        "methane": "甲烷（CH₄）",
+        "oxygen": "氧氣（O₂）",
+        "nitrogen": "氮氣（N₂）",
+        "carbonDioxide": "二氧化碳（CO₂）",
+        "sodiumChlorideDotCross": "氯化鈉——離子結構",
+        "magnesiumOxide": "氧化鎂——離子結構",
+        "sodiumOxide": "氧化鈉——離子結構",
+        "magnesiumChloride": "氯化鎂——離子結構",
+        "waterNoShells": "不顯示電子層圓圈的水分子",
+        "sodiumChlorideElectrolysis": "濃氯化鈉電解",
+        "silverElectroplating": "鍍銀",
+        "daniellCell": "丹尼爾化學電池",
+        "filtration": "過濾",
+        "simpleDistillation": "簡單蒸餾",
+        "titration": "滴定",
+        "gasOverWater": "水上集氣法",
+        "heatingTestTube": "加熱試管",
+        "calorimetry": "量熱法",
+        "sodiumChlorideLattice": "氯化鈉晶格",
+        "graphite": "石墨層及離域電子",
+        "metallicStructure": "金屬結構及離域電子",
+        "reactionRate": "氣體體積隨時間變化",
+        "catalystEnergyProfile": "催化劑降低活化能",
+        "dynamicEquilibrium": "動態平衡濃度",
+        "coolingCorrection": "量熱法冷卻修正",
+        "period3MeltingPoints": "第三周期熔點趨勢"
+      },
+      "organic": {
+        "title": "有機及聚合物結構",
+        "description": "以統一而清晰的題目格式顯示結構式、取代基、單體、聚合物及重複單元。",
+        "examples": "取代苯、丙烯及苯乙烯單體、聚丙烯、聚氯乙烯、聚苯乙烯、PMMA、PET、Kevlar 及聚酯鍵。",
+        "alt": "Hoppy 有機結構繪圖器顯示聚合物重複單元"
+      },
+      "dotCross": {
+        "title": "電子點叉圖",
+        "description": "顯示共價分子中的成鍵電子，以及離子化合物中的電子轉移。",
+        "examples": "H₂、HCl、H₂O、NH₃、CH₄、O₂、N₂、CO₂、NaCl、MgO、Na₂O 及 MgCl₂。",
+        "alt": "Hoppy 電子點叉圖繪圖器顯示氮氣、二氧化碳及氯化鈉"
+      },
+      "cells": {
+        "title": "電化學電池",
+        "description": "繪製清晰的電解、電鍍及化學電池圖，支援電極、電解質、鹽橋、標籤及電子流向。",
+        "examples": "濃氯化鈉電解、以石墨或銅作電極的硫酸銅(II)電解、鍍銀、丹尼爾電池及可自訂簡單電池。",
+        "alt": "Hoppy 化學電池繪圖器顯示丹尼爾電池及電子流向"
+      },
+      "setups": {
+        "title": "實驗裝置",
+        "description": "為常見實驗技術及實驗題目提供附標籤的儀器裝置圖。",
+        "examples": "過濾、簡單蒸餾、滴定、水上集氣法、加熱試管及量熱法。",
+        "alt": "Hoppy 化學實驗裝置繪圖器顯示過濾、簡單蒸餾及滴定"
+      },
+      "lattices": {
+        "title": "巨型晶格",
+        "description": "比較離子、巨型共價及金屬結構，包括層狀結構及離域電子。",
+        "examples": "氯化鈉離子晶格、石墨層狀結構及金屬結構。",
+        "alt": "Hoppy 巨型晶格繪圖器顯示離子、石墨及金屬結構"
+      },
+      "geogebra": {
+        "title": "化學 GeoGebra 圖表",
+        "description": "繪製適合考試題目的化學圖表，包括坐標軸、曲線、輔助線、能量變化及比較情境。",
+        "examples": "反應速率、能量剖面、催化劑反應途徑、動態平衡、量熱法、熱滴定及物理性質趨勢。",
+        "alt": "Hoppy GeoGebra 繪圖器顯示催化劑降低活化能"
+      }
+    },
     "codeBlock": {
       "title": "ICT 程式碼區塊",
       "description": "為 ICT 及電腦科學題目提供附行號的程式碼片段。支援 Python、C++ 及偽代碼。",
@@ -276,6 +407,7 @@
       "categoryPpfTradeGains": "生產可能曲線及貿易得益",
       "categoryInternationalTradeExchange": "國際貿易、貿易壁壘及匯率影響",
       "categoryMonopoly": "獨佔定價及福利分析",
+      "equilibrium": "市場均衡",
       "demandShift": "需求移動",
       "demandSupplyShift": "需求及供應同時移動",
       "supplyShift": "供應移動",
@@ -344,7 +476,7 @@
   "physicsPage": {
     "title": "物理題目類型",
     "description": "Hoppy 為香港中學文憑考試（HKDSE）物理課程提供專用互動題目類型——線圖、電路、電場和磁場圖與公式。",
-    "widgetVariations": "類型變化",
+    "widgetVariations": "題型變化",
     "comingSoon": "更多物理實驗裝置圖（力和運動、波動）即將推出。",
     "backToHome": "← 返回首頁",
     "graphs": {

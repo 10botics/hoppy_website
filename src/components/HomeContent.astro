@@ -30,12 +30,12 @@ const copy = isTc
       widgetText: 'Hoppy 把圖表、方程式、電路、化學反應和立體圖形直接融入練習，幫助學生真正理解概念。',
       widgetButton: '查看所有支援題型',
       widgetItems: [
-        ['互動時鐘', '用可視化時鐘練習時間概念', '/widgets/widget_analogclock.svg'],
-        ['圖表與數據', '從圖表中閱讀和理解數據', '/widgets/widget_barchart.svg'],
-        ['函數與方程', '把數學關係轉化為清晰圖像', '/widgets/widget_equationgraph_parabola.svg'],
-        ['電路', '直接在題目中觀察電路結構', '/widgets/widget_circuit.svg'],
-        ['化學方程式', '以清晰格式呈現化學反應', '/widgets/widget_chemicalequation.svg'],
-        ['立體圖形', '從不同角度理解立體幾何', '/widgets/widget_shape3d_cube.svg'],
+        ['互動時鐘', '用可視化時鐘練習時間概念', '/widgets/widget_analogclock.svg', '/subjects/mathematics'],
+        ['圖表與數據', '從圖表中閱讀和理解數據', '/widgets/widget_barchart.svg', '/subjects/mathematics'],
+        ['函數與方程', '把數學關係轉化為清晰圖像', '/widgets/widget_equationgraph_parabola.svg', '/subjects/mathematics'],
+        ['電路', '直接在題目中觀察電路結構', '/widgets/widget_circuit.svg', '/subjects/physics'],
+        ['化學方程式', '以清晰格式呈現化學反應', '/widgets/widget_chemicalequation.svg', '/subjects/chemistry'],
+        ['立體圖形', '從不同角度理解立體幾何', '/widgets/widget_shape3d_cube.svg', '/subjects/mathematics'],
       ],
       reviewTag: '家長及老師功能',
       reviewTitle: '家長和老師可查看學生答錯的題目',
@@ -69,7 +69,7 @@ const copy = isTc
       appStore: 'App Store',
       playSmall: 'GET IT ON',
       playStore: 'Google Play',
-      questionTypes: 'Supported Widgets',
+      questionTypes: 'Supported Question Types',
       whyTitle: 'Why Choose Hoppy?',
       features: [
         ['Interactive Learning', 'Engaging activities that make learning fun and memorable.', 'V'],
@@ -81,12 +81,12 @@ const copy = isTc
       widgetText: 'Hoppy brings charts, equations, circuits, chemical reactions and 3D shapes directly into practice so students can truly understand each concept.',
       widgetButton: 'View all supported question types',
       widgetItems: [
-        ['Interactive clocks', 'Practise time concepts with visual clocks', '/widgets/widget_analogclock.svg'],
-        ['Charts and data', 'Read and understand data through charts', '/widgets/widget_barchart.svg'],
-        ['Functions and equations', 'Turn mathematical relationships into clear visuals', '/widgets/widget_equationgraph_parabola.svg'],
-        ['Electric circuits', 'See circuit structures directly in each question', '/widgets/widget_circuit.svg'],
-        ['Chemical equations', 'Present chemical reactions in a clear format', '/widgets/widget_chemicalequation.svg'],
-        ['3D shapes', 'Understand solid geometry from different angles', '/widgets/widget_shape3d_cube.svg'],
+        ['Interactive clocks', 'Practise time concepts with visual clocks', '/widgets/widget_analogclock.svg', '/subjects/mathematics'],
+        ['Charts and data', 'Read and understand data through charts', '/widgets/widget_barchart.svg', '/subjects/mathematics'],
+        ['Functions and equations', 'Turn mathematical relationships into clear visuals', '/widgets/widget_equationgraph_parabola.svg', '/subjects/mathematics'],
+        ['Electric circuits', 'See circuit structures directly in each question', '/widgets/widget_circuit.svg', '/subjects/physics'],
+        ['Chemical equations', 'Present chemical reactions in a clear format', '/widgets/widget_chemicalequation.svg', '/subjects/chemistry'],
+        ['3D shapes', 'Understand solid geometry from different angles', '/widgets/widget_shape3d_cube.svg', '/subjects/mathematics'],
       ],
       reviewTag: 'For parents and teachers',
       reviewTitle: 'Parents and teachers can see which questions students got wrong',
@@ -169,7 +169,7 @@ const copy = isTc
 
           <div class="widget-gallery">
             {copy.widgetItems.map((item) => (
-              <a href={path('/supported-question-images')} class="widget-photo-card">
+              <a href={path(item[3])} class="widget-photo-card">
                 <div class="widget-photo-wrap">
                   <img src={item[2]} alt={item[0]} loading="lazy" />
                 </div>

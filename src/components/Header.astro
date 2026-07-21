@@ -26,7 +26,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 		</button>
 		<ul class="nav-links">
 			<li><a href={`${langPrefix}/`} class:list={["nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
-			<li><a href={`${langPrefix}/supported-question-images`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
+			<li><a href={`${langPrefix}/supported-question-images`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects/') }]}>{t('nav.widgets')}</a></li>
 			<li><a href={`${langPrefix}/pricing`} class:list={["nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
 			<li><a href={`${langPrefix}/qna`} class:list={["nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			<li class="lang-switcher">
@@ -86,7 +86,7 @@ const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 		<div class="mobile-menu-content">
 			<ul class="mobile-nav-links">
 				<li><a href={`${langPrefix}/`} class:list={["mobile-nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
-				<li><a href={`${langPrefix}/supported-question-images`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') }]}>{t('nav.widgets')}</a></li>
+				<li><a href={`${langPrefix}/supported-question-images`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects/') }]}>{t('nav.widgets')}</a></li>
 				<li><a href={`${langPrefix}/pricing`} class:list={["mobile-nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
 				<li><a href={`${langPrefix}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 				<li><a href={`${langPrefix}/downloadproduction`} class:list={["mobile-nav-link", "mobile-download-cta", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>

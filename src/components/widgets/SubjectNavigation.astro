@@ -1,0 +1,116 @@
+---
+import { useTranslations, type Lang, defaultLang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  currentSubject?: string;
+}
+
+const { lang, currentSubject } = Astro.props as Props;
+const t = useTranslations(lang);
+const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const subjects = ['mathematics', 'physics', 'chemistry', 'ict', 'economics'];
+---
+
+<nav class="subject-index" aria-label={t('widgets.subjectGroups.navigationLabel')}>
+  <div class="subject-index-inner">
+    <a class="all-subjects-link" href={`${langPrefix}/supported-question-images`}>
+      {t('widgets.subjectGroups.allSubjects')}
+    </a>
+    <div class="subject-index-links">
+      {subjects.map((subject) => (
+        <a
+          href={`${langPrefix}/subjects/${subject}`}
+          aria-current={subject === currentSubject ? 'page' : undefined}
+        >
+          {t(`widgets.subjectGroups.${subject}.title`)}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .subject-index {
+    position: sticky;
+    top: 72px;
+    z-index: 20;
+    padding: 0.9rem 2rem;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    backdrop-filter: blur(12px);
+  }
+
+  .subject-index-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .all-subjects-link,
+  .subject-index-links a {
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .all-subjects-link {
+    color: #475569;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    white-space: nowrap;
+  }
+
+  .subject-index-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .subject-index-links a {
+    color: #0f4c6e;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+  }
+
+  .all-subjects-link:hover,
+  .all-subjects-link:focus-visible,
+  .subject-index-links a:hover,
+  .subject-index-links a:focus-visible,
+  .subject-index-links a[aria-current='page'] {
+    color: #ffffff;
+    background: #0f4c6e;
+    border-color: #0f4c6e;
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    .subject-index {
+      position: static;
+      padding: 1rem;
+    }
+
+    .subject-index-inner {
+      align-items: stretch;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .subject-index-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .subject-index-links a:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
