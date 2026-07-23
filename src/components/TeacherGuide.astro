@@ -1,0 +1,670 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { defaultLang, type Lang } from '../i18n/ui';
+import {
+  sectionId,
+  publishedTeacherGuideSlugs,
+  teacherGuideChapterMap,
+  teacherGuideChapters,
+  type GuideChapter,
+} from '../data/teacherGuide';
+
+interface Props {
+  lang?: Lang;
+  chapterSlug?: string;
+}
+
+const { lang = defaultLang, chapterSlug } = Astro.props;
+const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const guidePath = `${langPrefix}/teacher-guide`;
+const chapter = chapterSlug
+  ? teacherGuideChapterMap.get(chapterSlug as GuideChapter['slug'])
+  : undefined;
+const previousChapter = chapter?.previous
+  ? teacherGuideChapterMap.get(chapter.previous)
+  : undefined;
+const nextChapter = chapter?.next
+  ? teacherGuideChapterMap.get(chapter.next)
+  : undefined;
+const previousChapterIsPublished = previousChapter
+  ? publishedTeacherGuideSlugs.has(previousChapter.slug)
+  : false;
+const nextChapterIsPublished = nextChapter
+  ? publishedTeacherGuideSlugs.has(nextChapter.slug)
+  : false;
+---
+
+<Layout lang={lang}>
+  <main class="teacher-guide">
+    <header class="guide-hero">
+      <div class="guide-hero-inner">
+        <p class="eyebrow">Hoppy Teacher Guide</p>
+        {chapter ? (
+          <>
+            <p class="chapter-kicker">Chapter {chapter.number} of {teacherGuideChapters.length}</p>
+            <h1>{chapter.title}</h1>
+            <p>{chapter.summary}</p>
+          </>
+        ) : (
+          <>
+            <h1>Teach with Hoppy, step by step</h1>
+            <p>Create a quiz, check it, publish it as a classroom assignment, and review the results.</p>
+          </>
+        )}
+      </div>
+    </header>
+
+    {chapter ? (
+      <div class="chapter-shell">
+        <article class="chapter-content">
+          <a class="outline-link" href={guidePath}>← Topic Outline</a>
+
+          <header class="chapter-heading">
+            <span>Chapter {chapter.number}</span>
+            <h2>{chapter.title}</h2>
+            <p>{chapter.summary}</p>
+          </header>
+
+          {chapter.chapterBullets && (
+            <section class="chapter-checklist" aria-label={`${chapter.title} checklist`}>
+              <ul>
+                {chapter.chapterBullets.map((item) => <li>{item}</li>)}
+              </ul>
+            </section>
+          )}
+
+          {chapter.sections.map((section) => (
+            <section class="guide-section" id={sectionId(section.number)} aria-labelledby={`${sectionId(section.number)}-title`}>
+              <div class="section-number" aria-hidden="true">{section.number}</div>
+              <div class="section-body">
+                <h2 id={`${sectionId(section.number)}-title`}>{section.title}</h2>
+                {section.introduction && <p class="section-introduction">{section.introduction}</p>}
+
+                {section.steps && (
+                  <ol class="steps">
+                    {section.steps.map((step) => <li>{step}</li>)}
+                  </ol>
+                )}
+
+                {section.bullets && (
+                  <ul class="detail-list">
+                    {section.bullets.map((item) => <li>{item}</li>)}
+                  </ul>
+                )}
+
+                {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+
+                {section.note && (
+                  <aside class="guide-note">
+                    <strong>{section.note.title}</strong>
+                    <p>{section.note.text}</p>
+                  </aside>
+                )}
+
+                {section.screenshot && (
+                  typeof section.screenshot === 'string' ? (
+                    <figure class="screenshot-placeholder">
+                      <div aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                          <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                          <circle cx="9" cy="10" r="2"></circle>
+                          <path d="m4 17 4-4 3 3 3-3 6 5"></path>
+                        </svg>
+                        <span>App screenshot to be added</span>
+                      </div>
+                      <figcaption>{section.screenshot}</figcaption>
+                    </figure>
+                  ) : (
+                    <figure class="app-screenshot">
+                      <div class="screenshot-frame">
+                        <img
+                          src={section.screenshot.src}
+                          alt={section.screenshot.alt}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        {section.screenshot.highlights?.map((highlight) => (
+                          <span
+                            class="screenshot-highlight"
+                            style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
+                            aria-hidden="true"
+                          >
+                          </span>
+                        ))}
+                      </div>
+                      <figcaption>{section.screenshot.caption}</figcaption>
+                    </figure>
+                  )
+                )}
+
+                {section.additionalScreenshots?.map((screenshot) => (
+                  <figure class="app-screenshot">
+                    <div class="screenshot-frame">
+                      <img
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {screenshot.highlights?.map((highlight) => (
+                        <span
+                          class="screenshot-highlight"
+                          style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
+                          aria-hidden="true"
+                        >
+                        </span>
+                      ))}
+                    </div>
+                    <figcaption>{screenshot.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          ))}
+
+          <section class="completion-card" aria-label="Chapter complete">
+            <span aria-hidden="true">✓</span>
+            <div>
+              <strong>Chapter {chapter.number} complete</strong>
+              <p>{chapter.completion}</p>
+            </div>
+          </section>
+
+          <nav class="chapter-navigation" aria-label="Teacher Guide chapter navigation">
+            {previousChapter && previousChapterIsPublished && (
+              <a class="chapter-nav-link previous" href={`${guidePath}/${previousChapter.slug}`}>
+                <span>← Previous Chapter</span>
+                <strong>{previousChapter.number}. {previousChapter.title}</strong>
+              </a>
+            )}
+            <a class="chapter-nav-link outline" href={guidePath}>
+              <span>All chapters</span>
+              <strong>Topic Outline</strong>
+            </a>
+            {nextChapter && nextChapterIsPublished && (
+              <a class="chapter-nav-link next" href={`${guidePath}/${nextChapter.slug}`}>
+                <span>Next Chapter →</span>
+                <strong>{nextChapter.number}. {nextChapter.title}</strong>
+              </a>
+            )}
+            {nextChapter && !nextChapterIsPublished && (
+              <span class="chapter-nav-link next unavailable" aria-disabled="true">
+                <span>Next Chapter</span>
+                <strong>{nextChapter.number}. {nextChapter.title} — coming later</strong>
+              </span>
+            )}
+          </nav>
+        </article>
+      </div>
+    ) : (
+      <div class="outline-shell">
+        <section class="guide-introduction">
+          <div>
+            <p class="eyebrow dark">Start here</p>
+            <h2>Start with Chapter 1</h2>
+          </div>
+          <p>Start with Chapter 1. Later chapters will be added one at a time and will follow the numbered order.</p>
+        </section>
+
+        <nav class="chapter-grid" aria-label="Teacher Guide topic outline">
+          {teacherGuideChapters.map((item) => {
+            const isPublished = publishedTeacherGuideSlugs.has(item.slug);
+            return (
+            <article class:list={["chapter-card", { unavailable: !isPublished }]}>
+              {isPublished ? (
+                <a class="chapter-card-heading" href={`${guidePath}/${item.slug}`}>
+                  <span>{item.number}</span>
+                  <div>
+                    <small>Chapter {item.number}</small>
+                    <h2>{item.title}</h2>
+                  </div>
+                </a>
+              ) : (
+                <div class="chapter-card-heading">
+                  <span>{item.number}</span>
+                  <div>
+                    <small>Chapter {item.number} · Coming later</small>
+                    <h2>{item.title}</h2>
+                  </div>
+                </div>
+              )}
+
+              {item.sections.length > 0 ? (
+                <ol>
+                  {item.sections.map((section) => (
+                    <li>
+                      {isPublished ? (
+                        <a href={`${guidePath}/${item.slug}#${sectionId(section.number)}`}>
+                          <b>{section.number}</b>
+                          <span>{section.title}</span>
+                        </a>
+                      ) : (
+                        <span>
+                          <b>{section.number}</b>
+                          <span>{section.title}</span>
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p class="chapter-summary">{item.summary}</p>
+              )}
+            </article>
+          )})}
+        </nav>
+      </div>
+    )}
+  </main>
+</Layout>
+
+<style>
+  .teacher-guide {
+    min-height: 100vh;
+    background: white;
+  }
+
+  .guide-hero {
+    color: #1a3144;
+    background: white;
+    padding: clamp(3rem, 7vw, 5rem) 1.5rem 2rem;
+  }
+
+  .guide-hero-inner {
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    margin: 0 0 .75rem;
+    color: #137da2;
+    font-size: .78rem;
+    font-weight: 850;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow.dark { color: #137da2; }
+  .chapter-kicker { margin: 0 0 .5rem; color: #677c87; font-weight: 750; }
+
+  .guide-hero h1 {
+    max-width: 900px;
+    margin: 0;
+    color: #132d40;
+    font-size: clamp(2.25rem, 6vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+  }
+
+  .guide-hero p:last-child {
+    max-width: 720px;
+    margin: 1.25rem 0 0;
+    color: #60747f;
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+
+  .outline-shell,
+  .chapter-shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 5rem;
+  }
+
+  .guide-introduction {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 2rem;
+    align-items: end;
+    margin: -3.75rem 0 2rem;
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+    border: 1px solid #dce7eb;
+    border-radius: 22px;
+    background: white;
+    box-shadow: 0 18px 50px rgba(18, 48, 66, .12);
+  }
+
+  .guide-introduction h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+  .guide-introduction > p { margin: 0; color: #526975; font-size: 1.08rem; line-height: 1.65; }
+
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .chapter-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #d9e5e9;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 5px 18px rgba(18, 48, 66, .045);
+  }
+
+  .chapter-card-heading {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 1.35rem;
+    color: #1a3144;
+    text-decoration: none;
+    transition: background-color .2s ease;
+  }
+
+  .chapter-card-heading:hover { background: #f0f9fc; }
+
+  .chapter-card-heading > span {
+    display: grid;
+    place-items: center;
+    width: 3.1rem;
+    height: 3.1rem;
+    border-radius: 14px;
+    background: #ddf4fb;
+    color: #116f91;
+    font-size: 1.15rem;
+    font-weight: 900;
+  }
+
+  .chapter-card-heading small {
+    color: #6b7d86;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  .chapter-card-heading h2 {
+    margin: .22rem 0 0;
+    font-size: 1.17rem;
+    line-height: 1.35;
+  }
+
+  .chapter-card ol {
+    margin: 0;
+    padding: 0 1.35rem 1.2rem 5.6rem;
+    list-style: none;
+  }
+
+  .chapter-card li + li { border-top: 1px solid #edf2f4; }
+
+  .chapter-card li a {
+    display: grid;
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: .45rem;
+    padding: .65rem .2rem;
+    color: #516772;
+    font-size: .86rem;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .chapter-card li > span {
+    display: grid;
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: .45rem;
+    padding: .65rem .2rem;
+    color: #84939a;
+    font-size: .86rem;
+    line-height: 1.4;
+  }
+
+  .chapter-card li a:hover { color: #10789e; }
+  .chapter-card li b { color: #1481a8; }
+  .chapter-summary { margin: 0; padding: 0 1.35rem 1.4rem 5.6rem; color: #60747e; line-height: 1.55; }
+  .chapter-card.unavailable { background: #f7f9fa; box-shadow: none; }
+  .chapter-card.unavailable .chapter-card-heading { color: #647782; }
+  .chapter-card.unavailable .chapter-card-heading > span { background: #e7edef; color: #6f8189; }
+  .chapter-card.unavailable .chapter-summary { color: #84939a; }
+
+  .chapter-shell { width: min(760px, calc(100% - 2rem)); padding-top: 0; }
+
+  .chapter-content {
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: white;
+    box-shadow: none;
+  }
+
+  .outline-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #137da2;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .outline-link:hover { text-decoration: underline; }
+
+  .chapter-heading { display: none; }
+  .chapter-heading > span { color: #137da2; font-size: .78rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+  .chapter-heading h2 { margin: .45rem 0 .8rem; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08; letter-spacing: -.035em; }
+  .chapter-heading p { max-width: 690px; margin: 0; color: #58707c; font-size: 1.08rem; line-height: 1.65; }
+
+  .guide-section {
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    gap: .95rem;
+    margin: 0;
+    padding: 2rem 0;
+    border-radius: 0;
+    scroll-margin-top: 6.5rem;
+    transition: background-color .3s ease, box-shadow .3s ease;
+  }
+
+  .guide-section + .guide-section { border-top: 1px solid #e4ebee; }
+  .guide-section:target { background: #f6fbfd; box-shadow: inset 3px 0 #36add2; padding-inline: 1rem; }
+
+  .section-number {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: #e1f5fb;
+    color: #11799d;
+    font-size: .78rem;
+    font-weight: 900;
+  }
+
+  .section-body h2 { margin: .15rem 0 .65rem; font-size: clamp(1.25rem, 3vw, 1.55rem); line-height: 1.25; }
+  .section-body p { color: #526975; line-height: 1.68; }
+  .section-introduction { margin: -.3rem 0 1.3rem; font-size: 1.03rem; }
+
+  .steps {
+    margin: 1.1rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: guide-step;
+  }
+
+  .steps li {
+    position: relative;
+    min-height: 2rem;
+    padding: .55rem 0 .55rem 3rem;
+    color: #243e4e;
+    line-height: 1.55;
+    counter-increment: guide-step;
+  }
+
+  .steps li::before {
+    content: counter(guide-step);
+    position: absolute;
+    top: .35rem;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 8px;
+    background: #1a3144;
+    color: white;
+    font-size: .82rem;
+    font-weight: 850;
+  }
+
+  .detail-list,
+  .chapter-checklist ul {
+    margin: 1rem 0 1.4rem;
+    padding-left: 1.2rem;
+  }
+
+  .detail-list li,
+  .chapter-checklist li { padding: .35rem 0 .35rem .35rem; color: #405967; line-height: 1.55; }
+  .detail-list li::marker,
+  .chapter-checklist li::marker { color: #27a0c8; }
+
+  .chapter-checklist {
+    margin: 2rem 0 1rem;
+    padding: 1.2rem 1.45rem;
+    border-radius: 16px;
+    background: #f3f9fb;
+  }
+
+  .guide-note {
+    margin: 1.5rem 0;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid #37acd2;
+    border-radius: 0 12px 12px 0;
+    background: #edf9fd;
+  }
+
+  .guide-note strong { color: #126f91; }
+  .guide-note p { margin: .25rem 0 0; font-size: .94rem; }
+
+  .screenshot-placeholder {
+    overflow: hidden;
+    margin: 1.8rem 0 0;
+    border: 1px dashed #9bb6c1;
+    border-radius: 14px;
+    background: #f7fafb;
+  }
+
+  .screenshot-placeholder > div {
+    display: grid;
+    place-items: center;
+    min-height: 190px;
+    padding: 1.5rem;
+    color: #6a7f89;
+    text-align: center;
+  }
+
+  .screenshot-placeholder svg { width: 2.4rem; fill: none; stroke: #58a9c2; stroke-width: 1.5; }
+  .screenshot-placeholder span { margin-top: .6rem; font-weight: 750; }
+  .screenshot-placeholder figcaption { padding: .8rem 1rem; border-top: 1px dashed #b7cbd2; color: #5b707b; font-size: .84rem; }
+
+  .app-screenshot {
+    width: min(100%, 360px);
+    overflow: hidden;
+    margin: 1.8rem auto 0;
+    border: 1px solid #cad9df;
+    border-radius: 18px;
+    background: #f7fafb;
+    box-shadow: 0 8px 24px rgba(19, 55, 75, .1);
+  }
+
+  .screenshot-frame { position: relative; }
+
+  .app-screenshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .screenshot-highlight {
+    position: absolute;
+    z-index: 2;
+    border: 4px solid #ef2626;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .8);
+    pointer-events: none;
+  }
+
+  .app-screenshot figcaption {
+    padding: .85rem 1rem;
+    border-top: 1px solid #d9e4e8;
+    color: #526975;
+    font-size: .84rem;
+    line-height: 1.5;
+  }
+
+  .completion-card {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 2rem 0 0;
+    padding: 1.3rem;
+    border-radius: 15px;
+    background: #eaf8ef;
+    color: #275e3a;
+  }
+
+  .completion-card > span {
+    display: grid;
+    place-items: center;
+    flex: 0 0 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #38a45a;
+    color: white;
+    font-weight: 900;
+  }
+
+  .completion-card p { margin: .2rem 0 0; color: #3f6c4e; line-height: 1.5; }
+
+  .chapter-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .75rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #dfe8ec;
+  }
+
+  .chapter-nav-link {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: .9rem 1rem;
+    border: 1px solid #ccdce3;
+    border-radius: 12px;
+    color: #1a3144;
+    text-decoration: none;
+    transition: border-color .2s ease, background-color .2s ease;
+  }
+
+  .chapter-nav-link:hover { border-color: #36acd1; background: #f0fafd; }
+  .chapter-nav-link span { color: #137da2; font-size: .76rem; font-weight: 800; }
+  .chapter-nav-link strong { overflow: hidden; margin-top: .25rem; font-size: .82rem; line-height: 1.35; }
+  .chapter-nav-link.next { grid-column: 3; text-align: right; }
+  .chapter-nav-link.outline { grid-column: 2; text-align: center; }
+  .chapter-nav-link.previous { grid-column: 1; }
+  .chapter-nav-link.unavailable {
+    border-style: dashed;
+    background: #f5f7f8;
+    color: #73848c;
+  }
+
+  @media (max-width: 760px) {
+    .chapter-grid { grid-template-columns: 1fr; }
+    .guide-introduction { grid-template-columns: 1fr; gap: 1rem; }
+    .guide-section { grid-template-columns: 2.4rem minmax(0, 1fr); gap: .8rem; padding-inline: 0; }
+    .guide-section:target { padding-inline: .75rem; }
+    .chapter-navigation { grid-template-columns: 1fr; }
+    .chapter-nav-link.previous,
+    .chapter-nav-link.outline,
+    .chapter-nav-link.next { grid-column: 1; text-align: left; }
+  }
+
+  @media (max-width: 480px) {
+    .outline-shell,
+    .chapter-shell { width: min(100% - 1rem, 1180px); }
+    .chapter-card-heading { grid-template-columns: 2.8rem minmax(0, 1fr); padding: 1rem; }
+    .chapter-card-heading > span { width: 2.7rem; height: 2.7rem; }
+    .chapter-card ol { padding: 0 1rem 1rem; }
+    .chapter-summary { padding: 0 1rem 1.2rem; }
+  }
+</style>
