@@ -1,6 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import SubjectNavigation from '../../../components/widgets/SubjectNavigation.astro';
+import SubjectNavigation from '../../../components/subjects/SubjectNavigation.astro';
 import { languages, useTranslations, type Lang, defaultLang } from '../../../i18n/ui';
 
 export function getStaticPaths() {
@@ -216,7 +216,7 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
     </section>
 
     <section class="back-section">
-      <a href={`${langPrefix}/supported-question-images`} class="back-link">{t('widgets.subjectGroups.backToSubjects')}</a>
+      <a href={`${langPrefix}/subjects`} class="back-link">{t('subjects.backToSubjects')}</a>
     </section>
   </main>
 </Layout>

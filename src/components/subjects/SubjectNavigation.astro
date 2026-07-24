@@ -12,10 +12,10 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 const subjects = ['mathematics', 'physics', 'chemistry', 'ict', 'economics'];
 ---
 
-<nav class="subject-index" aria-label={t('widgets.subjectGroups.navigationLabel')}>
+<nav class="subject-index" aria-label={t('subjects.navigationLabel')}>
   <div class="subject-index-inner">
-    <a class="all-subjects-link" href={`${langPrefix}/supported-question-images`}>
-      {t('widgets.subjectGroups.allSubjects')}
+    <a class="all-subjects-link" href={`${langPrefix}/subjects`}>
+      {t('subjects.allSubjects')}
     </a>
     <div class="subject-index-links">
       {subjects.map((subject) => (
@@ -23,7 +23,7 @@ const subjects = ['mathematics', 'physics', 'chemistry', 'ict', 'economics'];
           href={`${langPrefix}/subjects/${subject}`}
           aria-current={subject === currentSubject ? 'page' : undefined}
         >
-          {t(`widgets.subjectGroups.${subject}.title`)}
+          {t(`subjects.${subject}.title`)}
         </a>
       ))}
     </div>

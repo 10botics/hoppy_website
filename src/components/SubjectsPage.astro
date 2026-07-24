@@ -1,0 +1,1740 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubjectNavigation from './subjects/SubjectNavigation.astro';
+import { useTranslations, getLocalizedScreenshot, type Lang, defaultLang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+  subject?: 'mathematics' | 'chemistry' | 'ict' | 'economics';
+}
+
+const { lang: propLang, subject: selectedSubject } = Astro.props as Props;
+const { lang: paramLang } = Astro.params as { lang?: Lang };
+const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+
+// Only add language prefix for non-default locales
+const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+
+// Helper function to get localized screenshot path
+const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
+
+const subjectGroups = [
+  {
+    id: 'mathematics',
+    labelKey: 'subjects.mathematics.title',
+    descriptionKey: 'subjects.mathematics.description',
+    image: '/widgets/widget_equationgraph_parabola.svg',
+  },
+  {
+    id: 'physics',
+    labelKey: 'subjects.physics.title',
+    descriptionKey: 'subjects.physics.description',
+    image: '/screenshots/screenshot-field-2.jpg',
+  },
+  {
+    id: 'chemistry',
+    labelKey: 'subjects.chemistry.title',
+    descriptionKey: 'subjects.chemistry.description',
+    image: '/widgets/widget_chemicalequation.svg',
+  },
+  {
+    id: 'ict',
+    labelKey: 'subjects.ict.title',
+    descriptionKey: 'subjects.ict.description',
+    image: '/widgets/widget_codeblock_python_12.png',
+  },
+  {
+    id: 'economics',
+    labelKey: 'subjects.economics.title',
+    descriptionKey: 'subjects.economics.description',
+    image: '/widgets/widget_econgraph_equilibrium.png',
+    imageTc: '/widgets/widget_econgraph_equilibrium_tc.png',
+  },
+];
+
+const currentSubject = selectedSubject
+  ? subjectGroups.find((subject) => subject.id === selectedSubject)
+  : undefined;
+
+const chemistryVariationCategoryData = [
+  {
+    id: 'equations',
+    icon: '🧪',
+    titleKey: 'widgets.chemicalEquation.title',
+    descriptionKey: 'widgets.chemicalEquation.description',
+    cards: [
+      {
+        src: '/widgets/widget_chemicalequation.svg',
+        labelKey: 'widgets.chemicalEquation.combustion',
+      },
+    ],
+  },
+  {
+    id: 'organic',
+    icon: '🧬',
+    titleKey: 'widgets.chemistryGallery.organic.title',
+    descriptionKey: 'widgets.chemistryGallery.organic.description',
+    cards: [
+      { src: '/widgets/chemistry/organic/substituted-benzene.png', labelKey: 'widgets.chemistryGallery.cards.substitutedBenzene' },
+      { src: '/widgets/chemistry/organic/aspirin-derivative.png', labelKey: 'widgets.chemistryGallery.cards.aspirinDerivative' },
+      { src: '/widgets/chemistry/organic/sodium-alkyl-sulphate.png', labelKey: 'widgets.chemistryGallery.cards.sodiumAlkylSulphate' },
+      { src: '/widgets/chemistry/organic/propene-monomer.png', labelKey: 'widgets.chemistryGallery.cards.propeneMonomer' },
+      { src: '/widgets/chemistry/organic/poly-propene.png', labelKey: 'widgets.chemistryGallery.cards.polyPropene' },
+      { src: '/widgets/chemistry/organic/poly-chloroethene.png', labelKey: 'widgets.chemistryGallery.cards.polyChloroethene' },
+      { src: '/widgets/chemistry/organic/styrene.png', labelKey: 'widgets.chemistryGallery.cards.styrene' },
+      { src: '/widgets/chemistry/organic/poly-styrene.png', labelKey: 'widgets.chemistryGallery.cards.polyStyrene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-propene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyPropene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-ethene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyEthene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-chloroethene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyChloroethene' },
+      { src: '/widgets/chemistry/organic/expanded-poly-styrene.png', labelKey: 'widgets.chemistryGallery.cards.expandedPolyStyrene' },
+      { src: '/widgets/chemistry/organic/expanded-pmma.png', labelKey: 'widgets.chemistryGallery.cards.expandedPmma' },
+      { src: '/widgets/chemistry/organic/pet-chain.png', labelKey: 'widgets.chemistryGallery.cards.petChain' },
+      { src: '/widgets/chemistry/organic/kevlar-chain.png', labelKey: 'widgets.chemistryGallery.cards.kevlarChain' },
+      { src: '/widgets/chemistry/organic/polyester-linkage.png', labelKey: 'widgets.chemistryGallery.cards.polyesterLinkage' },
+      { src: '/widgets/chemistry/organic/pmma-repeat-unit.png', labelKey: 'widgets.chemistryGallery.cards.pmmaRepeatUnit' },
+      { src: '/widgets/chemistry/organic/pet-repeat-unit.png', labelKey: 'widgets.chemistryGallery.cards.petRepeatUnit' },
+      { src: '/widgets/chemistry/organic/kevlar-repeat-unit.png', labelKey: 'widgets.chemistryGallery.cards.kevlarRepeatUnit' },
+    ],
+  },
+  {
+    id: 'bonding',
+    icon: '⚛️',
+    titleKey: 'widgets.chemistryGallery.dotCross.title',
+    descriptionKey: 'widgets.chemistryGallery.dotCross.description',
+    cards: [
+      { src: '/widgets/chemistry/dot-cross/hydrogen.png', labelKey: 'widgets.chemistryGallery.cards.hydrogen' },
+      { src: '/widgets/chemistry/dot-cross/hydrogen-chloride.png', labelKey: 'widgets.chemistryGallery.cards.hydrogenChloride' },
+      { src: '/widgets/chemistry/dot-cross/water.png', labelKey: 'widgets.chemistryGallery.cards.water' },
+      { src: '/widgets/chemistry/dot-cross/ammonia.png', labelKey: 'widgets.chemistryGallery.cards.ammonia' },
+      { src: '/widgets/chemistry/dot-cross/methane.png', labelKey: 'widgets.chemistryGallery.cards.methane' },
+      { src: '/widgets/chemistry/dot-cross/oxygen.png', labelKey: 'widgets.chemistryGallery.cards.oxygen' },
+      { src: '/widgets/chemistry/dot-cross/nitrogen.png', labelKey: 'widgets.chemistryGallery.cards.nitrogen' },
+      { src: '/widgets/chemistry/dot-cross/carbon-dioxide.png', labelKey: 'widgets.chemistryGallery.cards.carbonDioxide' },
+      { src: '/widgets/chemistry/dot-cross/sodium-chloride.png', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideDotCross' },
+      { src: '/widgets/chemistry/dot-cross/magnesium-oxide.png', labelKey: 'widgets.chemistryGallery.cards.magnesiumOxide' },
+      { src: '/widgets/chemistry/dot-cross/sodium-oxide.png', labelKey: 'widgets.chemistryGallery.cards.sodiumOxide' },
+      { src: '/widgets/chemistry/dot-cross/magnesium-chloride.png', labelKey: 'widgets.chemistryGallery.cards.magnesiumChloride' },
+      { src: '/widgets/chemistry/dot-cross/water-no-shells.png', labelKey: 'widgets.chemistryGallery.cards.waterNoShells' },
+    ],
+  },
+  {
+    id: 'electrochemistry',
+    icon: '🔋',
+    titleKey: 'widgets.chemistryGallery.cells.title',
+    descriptionKey: 'widgets.chemistryGallery.cells.description',
+    cards: [
+      { src: '/widgets/chemistry/cells/sodium-chloride-electrolysis.png', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideElectrolysis' },
+      { src: '/widgets/chemistry/cells/silver-electroplating.png', labelKey: 'widgets.chemistryGallery.cards.silverElectroplating' },
+      { src: '/widgets/chemistry/cells/daniell-cell.png', labelKey: 'widgets.chemistryGallery.cards.daniellCell' },
+    ],
+  },
+  {
+    id: 'experiments',
+    icon: '⚗️',
+    titleKey: 'widgets.chemistryGallery.setups.title',
+    descriptionKey: 'widgets.chemistryGallery.setups.description',
+    cards: [
+      { src: '/widgets/chemistry/setups/filtration.png', labelKey: 'widgets.chemistryGallery.cards.filtration' },
+      { src: '/widgets/chemistry/setups/simple-distillation.png', labelKey: 'widgets.chemistryGallery.cards.simpleDistillation' },
+      { src: '/widgets/chemistry/setups/titration.png', labelKey: 'widgets.chemistryGallery.cards.titration' },
+      { src: '/widgets/chemistry/setups/gas-over-water.png', labelKey: 'widgets.chemistryGallery.cards.gasOverWater' },
+      { src: '/widgets/chemistry/setups/heating-test-tube.png', labelKey: 'widgets.chemistryGallery.cards.heatingTestTube' },
+      { src: '/widgets/chemistry/setups/calorimetry.png', labelKey: 'widgets.chemistryGallery.cards.calorimetry' },
+    ],
+  },
+  {
+    id: 'structures',
+    icon: '💎',
+    titleKey: 'widgets.chemistryGallery.lattices.title',
+    descriptionKey: 'widgets.chemistryGallery.lattices.description',
+    cards: [
+      { src: '/widgets/chemistry/lattices/sodium-chloride-lattice.png', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideLattice' },
+      { src: '/widgets/chemistry/lattices/graphite.png', labelKey: 'widgets.chemistryGallery.cards.graphite' },
+      { src: '/widgets/chemistry/lattices/metallic-structure.png', labelKey: 'widgets.chemistryGallery.cards.metallicStructure' },
+    ],
+  },
+  {
+    id: 'graphs',
+    icon: '📈',
+    titleKey: 'widgets.chemistryGallery.geogebra.title',
+    descriptionKey: 'widgets.chemistryGallery.geogebra.description',
+    cards: [
+      { src: '/widgets/chemistry/geogebra/reaction-rate.png', labelKey: 'widgets.chemistryGallery.cards.reactionRate' },
+      { src: '/widgets/chemistry/geogebra/catalyst-energy-profile.png', labelKey: 'widgets.chemistryGallery.cards.catalystEnergyProfile' },
+      { src: '/widgets/chemistry/geogebra/dynamic-equilibrium.png', labelKey: 'widgets.chemistryGallery.cards.dynamicEquilibrium' },
+      { src: '/widgets/chemistry/geogebra/cooling-correction.png', labelKey: 'widgets.chemistryGallery.cards.coolingCorrection' },
+      { src: '/widgets/chemistry/geogebra/period-3-melting-points.png', labelKey: 'widgets.chemistryGallery.cards.period3MeltingPoints' },
+    ],
+  },
+];
+
+const chemistryCategoryOrder = [
+  'equations',
+  'bonding',
+  'structures',
+  'organic',
+  'experiments',
+  'electrochemistry',
+  'graphs',
+];
+
+const chemistryVariationCategories = chemistryCategoryOrder.map(
+  (id) => chemistryVariationCategoryData.find((category) => category.id === id)!,
+);
+
+const chemistryCardScales: Record<string, number> = {
+  '/widgets/chemistry/organic/substituted-benzene.png': 1.65,
+  '/widgets/chemistry/organic/aspirin-derivative.png': 1.55,
+  '/widgets/chemistry/organic/sodium-alkyl-sulphate.png': 1.45,
+  '/widgets/chemistry/organic/propene-monomer.png': 1.75,
+  '/widgets/chemistry/organic/poly-propene.png': 1.65,
+  '/widgets/chemistry/organic/poly-chloroethene.png': 1.65,
+  '/widgets/chemistry/organic/styrene.png': 1.45,
+  '/widgets/chemistry/organic/poly-styrene.png': 1.45,
+  '/widgets/chemistry/organic/expanded-poly-propene.png': 1.35,
+  '/widgets/chemistry/organic/expanded-poly-ethene.png': 1.35,
+  '/widgets/chemistry/organic/expanded-poly-chloroethene.png': 1.35,
+  '/widgets/chemistry/organic/expanded-poly-styrene.png': 1.25,
+  '/widgets/chemistry/organic/expanded-pmma.png': 1.3,
+  '/widgets/chemistry/organic/polyester-linkage.png': 1.3,
+  '/widgets/chemistry/organic/pmma-repeat-unit.png': 1.35,
+};
+
+const codeBlockCategories = [
+  {
+    titleKey: 'widgets.codeBlock.categoryExamSnippets',
+    cards: [
+      {
+        src: '/widgets/widget_codeblock_python_12.png',
+        alt: 'Python code block with line numbers',
+        labelKey: 'widgets.codeBlock.pythonExample',
+      },
+      {
+        src: '/widgets/widget_codeblock_cpp_12.png',
+        alt: 'C++ code block with line numbers',
+        labelKey: 'widgets.codeBlock.cppExample',
+      },
+      {
+        src: '/widgets/widget_codeblock_pseudocode_12.png',
+        alt: 'Pseudocode block',
+        labelKey: 'widgets.codeBlock.pseudocodeExample',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.codeBlock.categoryCompactSnippets',
+    cards: [
+      {
+        src: '/widgets/widget_codeblock_compact_cpp.png',
+        alt: 'Compact C++ code snippet',
+        labelKey: 'widgets.codeBlock.compactSnippet',
+      },
+    ],
+  },
+];
+const econGraphCategories = [
+  {
+    titleKey: 'widgets.econGraph.categoryMarketBasics',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_equilibrium.png',
+        srcTc: '/widgets/widget_econgraph_equilibrium_tc.png',
+        alt: 'Market equilibrium graph',
+        labelKey: 'widgets.econGraph.equilibrium',
+      },
+      {
+        src: '/widgets/widget_econgraph_demand_shift.png',
+        srcTc: '/widgets/widget_econgraph_demand_shift_tc.png',
+        alt: 'Demand shift graph',
+        labelKey: 'widgets.econGraph.demandShift',
+      },
+      {
+        src: '/widgets/widget_econgraph_demand_supply_shift.png',
+        srcTc: '/widgets/widget_econgraph_demand_supply_shift_tc.png',
+        alt: 'Demand and supply shift graph',
+        labelKey: 'widgets.econGraph.demandSupplyShift',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryElasticity',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_inelastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_inelastic_demand_tc.png',
+        alt: 'Inelastic demand market graph',
+        labelKey: 'widgets.econGraph.inelasticDemand',
+      },
+      {
+        src: '/widgets/widget_econgraph_perfectly_elastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_perfectly_elastic_demand_tc.png',
+        alt: 'Perfectly elastic demand graph',
+        labelKey: 'widgets.econGraph.perfectlyElasticDemand',
+      },
+      {
+        src: '/widgets/widget_econgraph_perfectly_inelastic_supply.png',
+        srcTc: '/widgets/widget_econgraph_perfectly_inelastic_supply_tc.png',
+        alt: 'Perfectly inelastic supply graph',
+        labelKey: 'widgets.econGraph.perfectlyInelasticSupply',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryPolicyIncidence',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_price_floor_tighten.png',
+        srcTc: '/widgets/widget_econgraph_price_floor_tighten_tc.png',
+        alt: 'Tightened price floor graph',
+        labelKey: 'widgets.econGraph.priceFloorTighten',
+      },
+      {
+        src: '/widgets/widget_econgraph_tax_burden_supply_more_elastic.png',
+        srcTc: '/widgets/widget_econgraph_tax_burden_supply_more_elastic_tc.png',
+        alt: 'Tax burden with supply more elastic than demand',
+        labelKey: 'widgets.econGraph.taxBurdenSupplyMoreElastic',
+      },
+      {
+        src: '/widgets/widget_econgraph_tax_burden_perfectly_elastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_tax_burden_perfectly_elastic_demand_tc.png',
+        alt: 'Tax burden with perfectly elastic demand',
+        labelKey: 'widgets.econGraph.taxBurdenPerfectlyElasticDemand',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryWelfareAreas',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_equilibrium_welfare.png',
+        srcTc: '/widgets/widget_econgraph_equilibrium_welfare_tc.png',
+        alt: 'Consumer and producer surplus at market equilibrium',
+        labelKey: 'widgets.econGraph.equilibriumWelfare',
+      },
+      {
+        src: '/widgets/widget_econgraph_price_ceiling_welfare.png',
+        srcTc: '/widgets/widget_econgraph_price_ceiling_welfare_tc.png',
+        alt: 'Price ceiling welfare graph',
+        labelKey: 'widgets.econGraph.priceCeilingWelfare',
+      },
+      {
+        src: '/widgets/widget_econgraph_quota_welfare.png',
+        srcTc: '/widgets/widget_econgraph_quota_welfare_tc.png',
+        alt: 'Effective quota welfare and quota rent graph',
+        labelKey: 'widgets.econGraph.quotaWelfare',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_subsidy_welfare_demand_more_elastic.png',
+        srcTc: '/widgets/widget_econgraph_unit_subsidy_welfare_demand_more_elastic_tc.png',
+        alt: 'Subsidy welfare areas with demand more elastic than supply',
+        labelKey: 'widgets.econGraph.unitSubsidyWelfareDemandMoreElastic',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_tax_perfectly_elastic_demand.png',
+        srcTc: '/widgets/widget_econgraph_unit_tax_perfectly_elastic_demand_tc.png',
+        alt: 'Unit tax with perfectly elastic demand',
+        labelKey: 'widgets.econGraph.unitTaxPerfectlyElasticDemand',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_tax_area_legend.png',
+        srcTc: '/widgets/widget_econgraph_unit_tax_area_legend_tc.png',
+        alt: 'Unit tax welfare areas with semantic legend labels',
+        labelKey: 'widgets.econGraph.unitTaxAreaLegend',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryAreaLabels',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_shift_candidates_four_intersections.png',
+        srcTc: '/widgets/widget_econgraph_shift_candidates_four_intersections_tc.png',
+        alt: 'Four possible market intersections labelled A to D',
+        labelKey: 'widgets.econGraph.shiftCandidatesFourIntersections',
+      },
+      {
+        src: '/widgets/widget_econgraph_unit_tax_area_letters.png',
+        srcTc: '/widgets/widget_econgraph_unit_tax_area_letters_tc.png',
+        alt: 'Four welfare areas labelled A to D',
+        labelKey: 'widgets.econGraph.unitTaxAreaLetters',
+      },
+      {
+        src: '/widgets/widget_econgraph_subsidy_benefit_area_letters.png',
+        srcTc: '/widgets/widget_econgraph_subsidy_benefit_area_letters_tc.png',
+        alt: 'Subsidy benefit split with lettered areas',
+        labelKey: 'widgets.econGraph.subsidyBenefitAreaLetters',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryMacroAdas',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_adas_deflationary_gap.png',
+        srcTc: '/widgets/widget_econgraph_adas_deflationary_gap_tc.png',
+        alt: 'AD-AS deflationary gap graph',
+        labelKey: 'widgets.econGraph.adasDeflationaryGap',
+      },
+      {
+        src: '/widgets/widget_econgraph_adas_demand_pull_inflation.png',
+        srcTc: '/widgets/widget_econgraph_adas_demand_pull_inflation_tc.png',
+        alt: 'AD-AS demand-pull inflation graph',
+        labelKey: 'widgets.econGraph.adasDemandPullInflation',
+      },
+      {
+        src: '/widgets/widget_econgraph_adas_cost_push_inflation.png',
+        srcTc: '/widgets/widget_econgraph_adas_cost_push_inflation_tc.png',
+        alt: 'AD-AS cost-push inflation graph',
+        labelKey: 'widgets.econGraph.adasCostPushInflation',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryMoneyMarket',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_money_market_equilibrium.png',
+        srcTc: '/widgets/widget_econgraph_money_market_equilibrium_tc.png',
+        alt: 'Money market equilibrium graph',
+        labelKey: 'widgets.econGraph.moneyMarketEquilibrium',
+      },
+      {
+        src: '/widgets/widget_econgraph_money_demand_increase.png',
+        srcTc: '/widgets/widget_econgraph_money_demand_increase_tc.png',
+        alt: 'Money demand increase graph',
+        labelKey: 'widgets.econGraph.moneyDemandIncrease',
+      },
+      {
+        src: '/widgets/widget_econgraph_money_supply_increase.png',
+        srcTc: '/widgets/widget_econgraph_money_supply_increase_tc.png',
+        alt: 'Money supply increase graph',
+        labelKey: 'widgets.econGraph.moneySupplyIncrease',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryInternationalTradeExchange',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_trade_tariff_revenue.png',
+        srcTc: '/widgets/widget_econgraph_trade_tariff_revenue_tc.png',
+        alt: 'Import tariff and tariff revenue graph',
+        labelKey: 'widgets.econGraph.tradeTariffRevenue',
+      },
+      {
+        src: '/widgets/widget_econgraph_trade_quota_rent.png',
+        srcTc: '/widgets/widget_econgraph_trade_quota_rent_tc.png',
+        alt: 'Import quota and quota rent graph',
+        labelKey: 'widgets.econGraph.tradeQuotaRent',
+      },
+      {
+        src: '/widgets/widget_econgraph_exchange_rate_export_appreciation.png',
+        srcTc: '/widgets/widget_econgraph_exchange_rate_export_appreciation_tc.png',
+        alt: 'Currency appreciation effect on export demand',
+        labelKey: 'widgets.econGraph.exchangeRateExportAppreciation',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryMonopoly',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_monopoly_profit_maximization.png',
+        srcTc: '/widgets/widget_econgraph_monopoly_profit_maximization_tc.png',
+        alt: 'Monopoly profit maximization graph',
+        labelKey: 'widgets.econGraph.monopolyProfitMaximization',
+      },
+      {
+        src: '/widgets/widget_econgraph_monopoly_welfare.png',
+        srcTc: '/widgets/widget_econgraph_monopoly_welfare_tc.png',
+        alt: 'Monopoly welfare areas graph',
+        labelKey: 'widgets.econGraph.monopolyWelfare',
+      },
+      {
+        src: '/widgets/widget_econgraph_monopoly_mc_increase.png',
+        srcTc: '/widgets/widget_econgraph_monopoly_mc_increase_tc.png',
+        alt: 'Monopoly marginal cost increase graph',
+        labelKey: 'widgets.econGraph.monopolyMcIncrease',
+      },
+    ],
+  },
+  {
+    titleKey: 'widgets.econGraph.categoryPpfTradeGains',
+    cards: [
+      {
+        src: '/widgets/widget_econgraph_ppf_efficiency_points.png',
+        srcTc: '/widgets/widget_econgraph_ppf_efficiency_points_tc.png',
+        alt: 'PPF efficiency point classifications',
+        labelKey: 'widgets.econGraph.ppfEfficiencyPoints',
+      },
+      {
+        src: '/widgets/widget_econgraph_ppf_biased_growth.png',
+        srcTc: '/widgets/widget_econgraph_ppf_biased_growth_tc.png',
+        alt: 'PPF biased growth graph',
+        labelKey: 'widgets.econGraph.ppfBiasedGrowth',
+      },
+      {
+        src: '/widgets/widget_econgraph_ppf_gains_from_trade.png',
+        srcTc: '/widgets/widget_econgraph_ppf_gains_from_trade_tc.png',
+        alt: 'PPF gains from trade graph',
+        labelKey: 'widgets.econGraph.ppfGainsFromTrade',
+      },
+    ],
+  },
+];
+---
+
+<Layout lang={lang}>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>{selectedSubject && currentSubject ? t(`subjects.${selectedSubject}.pageTitle`) : t('subjects.title')}</h1>
+        <p class="hero-description">
+          {selectedSubject && currentSubject
+            ? t(currentSubject.descriptionKey)
+            : t('subjects.description')}
+        </p>
+      </div>
+    </section>
+
+    {selectedSubject ? (
+      <SubjectNavigation lang={lang} currentSubject={selectedSubject} />
+    ) : (
+      <section class="subject-hub" aria-labelledby="subject-hub-title">
+        <div class="subject-hub-heading">
+          <span>{t('subjects.browseLabel')}</span>
+          <h2 id="subject-hub-title">{t('subjects.hubTitle')}</h2>
+          <p>{t('subjects.hubDescription')}</p>
+        </div>
+        <div class="subject-card-grid">
+          {subjectGroups.map((subject) => (
+            <a class="subject-card" href={`${langPrefix}/subjects/${subject.id}`}>
+              <div class="subject-card-image">
+                <img
+                  src={lang === 'tc' && subject.imageTc ? subject.imageTc : subject.image}
+                  alt=""
+                />
+              </div>
+              <div class="subject-card-copy">
+                <h3>{t(subject.labelKey)}</h3>
+                <p>{t(subject.descriptionKey)}</p>
+                <span>{t('subjects.exploreSubject')} <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Widgets Gallery -->
+    {selectedSubject && (
+    <section class="widgets-gallery">
+
+      {selectedSubject === 'mathematics' && (<>
+      <div class="subject-heading" id="mathematics">
+        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
+        <h2>{t('subjects.mathematics.title')}</h2>
+        <p>{t('subjects.mathematics.description')}</p>
+      </div>
+
+      <!-- Analog Clock -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">🕐</div>
+          <div class="widget-info">
+            <h2>{t('widgets.analogClock.title')}</h2>
+            <p>{t('widgets.analogClock.description')}</p>
+          </div>
+        </div>
+        
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-analog-clock-1.jpeg")} alt="Analog clock selection question" />
+          </div>
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-analog-clock-3.jpeg")} alt="Analog to digital clock conversion" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples two-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_analogclock.svg" alt="Analog Clock without seconds" />
+            <span class="widget-label">{t('widgets.analogClock.withoutSecondHand')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_analogclock_seconds.svg" alt="Analog Clock with seconds" />
+            <span class="widget-label">{t('widgets.analogClock.withSecondHand')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Digital Clock -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">⏰</div>
+          <div class="widget-info">
+            <h2>{t('widgets.digitalClock.title')}</h2>
+            <p>{t('widgets.digitalClock.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-digital-clock-1.jpeg")} alt="Digital clock multiple choice question" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples two-column">
+          <div class="widget-card dark-bg">
+            <img src="/widgets/widget_digitalclock_12h.svg" alt="Digital Clock 12-hour format" />
+            <span class="widget-label">{t('widgets.digitalClock.format12')}</span>
+          </div>
+          <div class="widget-card dark-bg">
+            <img src="/widgets/widget_digitalclock_24h.svg" alt="Digital Clock 24-hour format" />
+            <span class="widget-label">{t('widgets.digitalClock.format24')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bar Chart -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📊</div>
+          <div class="widget-info">
+            <h2>{t('widgets.barChart.title')}</h2>
+            <p>{t('widgets.barChart.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-bar-chart-1.jpeg")} alt="Bar chart temperature question" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_barchart.svg" alt="Bar Chart Widget" />
+            <span class="widget-label">{t('widgets.barChart.quarterlySales')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stacked Bar Chart -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📊</div>
+          <div class="widget-info">
+            <h2>{t('widgets.stackedBarChart.title')}</h2>
+            <p>{t('widgets.stackedBarChart.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-stacked-bar-chart-1.jpeg")} alt="Stacked bar chart household expenses question" />
+          </div>
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-stacked-bar-chart-2.jpeg")} alt="Stacked bar chart activity participation" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_stackedbarchart.svg" alt="Stacked Bar Chart Widget" />
+            <span class="widget-label">{t('widgets.stackedBarChart.quarterlyRevenue')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Broken Line Graph -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📉</div>
+          <div class="widget-info">
+            <h2>{t('widgets.brokenLineGraph.title')}</h2>
+            <p>{t('widgets.brokenLineGraph.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-broken-line-graph-1.jpeg")} alt="Broken line graph daily steps question" />
+          </div>
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-broken-line-graph-2.jpeg")} alt="Broken line graph weekly temperature" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples two-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_brokenlinegraph.svg" alt="Broken Line Graph - Single Series" />
+            <span class="widget-label">{t('widgets.brokenLineGraph.singleSeries')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_brokenlinegraph_multi.svg" alt="Broken Line Graph - Multiple Series" />
+            <span class="widget-label">{t('widgets.brokenLineGraph.multipleSeries')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box Whisker Plot -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📈</div>
+          <div class="widget-info">
+            <h2>{t('widgets.boxWhisker.title')}</h2>
+            <p>{t('widgets.boxWhisker.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-box-whisker-1.jpeg")} alt="Box whisker IQR question" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_boxwhisker.svg" alt="Box Whisker Plot Widget" />
+            <span class="widget-label">{t('widgets.boxWhisker.scoreDistribution')}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equation Graph -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">📐</div>
+          <div class="widget-info">
+            <h2>{t('widgets.equationGraph.title')}</h2>
+            <p>{t('widgets.equationGraph.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-equation-graph-1.jpeg")} alt="Linear inequality graph" />
+          </div>
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-equation-graph-3.jpeg")} alt="Simultaneous equations" />
+          </div>
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-equation-graph-5.jpeg")} alt="Logarithmic functions" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples three-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_equationgraph_sin.svg" alt="Sine Graph" />
+            <span class="widget-label">sin(x)</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_equationgraph_sincos.svg" alt="Sine and Cosine Graph" />
+            <span class="widget-label">sin(x) & cos(x)</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_equationgraph_parabola.svg" alt="Parabola Graph" />
+            <span class="widget-label">x²</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Shapes -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">🔷</div>
+          <div class="widget-info">
+            <h2>{t('widgets.shape3d.title')}</h2>
+            <p>{t('widgets.shape3d.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-shape3d-1.jpeg")} alt="Tetrahedron faces question" />
+          </div>
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-shape3d-3.jpeg")} alt="Rectangular prism vertices question" />
+          </div>
+          <div class="screenshot-card">
+            <img src={screenshot("/screenshots/screenshot-shape3d-4.jpeg")} alt="Hexagonal prism vertices question" />
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples three-column">
+          <div class="widget-card">
+            <img src="/widgets/widget_shape3d_tetrahedron.svg" alt="Tetrahedron" />
+            <span class="widget-label">{t('widgets.shape3d.tetrahedron')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_shape3d_cube.svg" alt="Cube" />
+            <span class="widget-label">{t('widgets.shape3d.cube')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_shape3d_pyramid.svg" alt="Square Pyramid" />
+            <span class="widget-label">{t('widgets.shape3d.squarePyramid')}</span>
+          </div>
+        </div>
+        <div class="widget-examples three-column" style="margin-top: 1.5rem;">
+          <div class="widget-card">
+            <img src="/widgets/widget_shape3d_prism.svg" alt="Triangular Prism" />
+            <span class="widget-label">{t('widgets.shape3d.triangularPrism')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_shape3d_octahedron.svg" alt="Octahedron" />
+            <span class="widget-label">{t('widgets.shape3d.octahedron')}</span>
+          </div>
+          <div class="widget-card">
+            <img src="/widgets/widget_shape3d_tetrahedron_refs.svg" alt="Tetrahedron with Reference Points" />
+            <span class="widget-label">{t('widgets.shape3d.withReferencePoints')}</span>
+          </div>
+        </div>
+      </div>
+
+      </>)}
+
+      {selectedSubject === 'physics' && (<>
+      <div class="subject-heading" id="physics">
+        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
+        <h2>{t('subjects.physics.title')}</h2>
+        <p>{t('subjects.physics.description')}</p>
+      </div>
+
+      <!-- Electric Circuit -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">⚡</div>
+          <div class="widget-info">
+            <h2>{t('widgets.circuit.title')}</h2>
+            <p>{t('widgets.circuit.description')}</p>
+          </div>
+        </div>
+
+        <!-- Component Types -->
+        <div class="subsection-label">{t('widgets.circuit.supportedComponents')}</div>
+        <div class="component-list">
+          <div class="component-item">
+            <span class="component-icon">🔋</span>
+            <span class="component-name">{t('widgets.circuit.battery')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">▭</span>
+            <span class="component-name">{t('widgets.circuit.resistor')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">💡</span>
+            <span class="component-name">{t('widgets.circuit.bulb')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">⏻</span>
+            <span class="component-name">{t('widgets.circuit.switch')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">Ⓐ</span>
+            <span class="component-name">{t('widgets.circuit.ammeter')}</span>
+          </div>
+          <div class="component-item">
+            <span class="component-icon">Ⓥ</span>
+            <span class="component-name">{t('widgets.circuit.voltmeter')}</span>
+          </div>
+        </div>
+
+        <!-- Widget Examples -->
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples single-column">
+          <div class="widget-card large">
+            <img src="/widgets/widget_circuit.svg" alt="Electric Circuit Widget" />
+            <span class="widget-label">{t('widgets.circuit.simpleCircuit')}</span>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="subsection-label">{t('widgets.circuit.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.circuit.featureNodes')}</li>
+            <li>{t('widgets.circuit.featurePolarity')}</li>
+            <li>{t('widgets.circuit.featureOrientation')}</li>
+            <li>{t('widgets.circuit.featureTerminals')}</li>
+            <li>{t('widgets.circuit.featureJunctions')}</li>
+          </ul>
+        </div>
+      </div>
+
+      </>)}
+
+      {selectedSubject === 'chemistry' && (<>
+      <div class="subject-heading" id="chemistry">
+        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
+        <h2>{t('subjects.chemistry.title')}</h2>
+        <p>{t('subjects.chemistry.description')}</p>
+      </div>
+
+      {chemistryVariationCategories.map((category) => (
+        <div class="widget-section chemistry-widget-section" id={`chemistry-${category.id}`}>
+          <div class="widget-header">
+            <div class="widget-icon">{category.icon}</div>
+            <div class="widget-info">
+              <h2>{t(category.titleKey)}</h2>
+              <p>{t(category.descriptionKey)}</p>
+            </div>
+          </div>
+
+          <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+          <div class={`widget-examples econ-category-grid chemistry-category-grid${category.cards.length === 1 ? ' chemistry-single-card' : ''}`}>
+            {category.cards.map((card) => (
+              <div class="widget-card econ-card chemistry-card">
+                <div
+                  class="chemistry-card-visual"
+                  style={`--chemistry-art-scale: ${chemistryCardScales[card.src] ?? 1}`}
+                >
+                  <img src={`${card.src}?v=20260721-5`} alt={t(card.labelKey)} loading="lazy" />
+                </div>
+                <span class="widget-label">{t(card.labelKey)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      </>)}
+
+      {selectedSubject === 'ict' && (<>
+      <div class="subject-heading" id="ict">
+        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
+        <h2>{t('subjects.ict.title')}</h2>
+        <p>{t('subjects.ict.description')}</p>
+      </div>
+
+      <!-- ICT Code Block -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">💻</div>
+          <div class="widget-info">
+            <h2>{t('widgets.codeBlock.title')}</h2>
+            <p>{t('widgets.codeBlock.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="econ-category-list codeblock-category-list">
+          {codeBlockCategories.map((category) => (
+            <div class="econ-category">
+              <h3 class="econ-category-title">{t(category.titleKey)}</h3>
+              <div class="widget-examples econ-category-grid">
+                {category.cards.map((card) => (
+                  <div class="widget-card econ-card">
+                    <img src={card.src} alt={card.alt} />
+                    <span class="widget-label">{t(card.labelKey)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="subsection-label">{t('widgets.codeBlock.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.codeBlock.featureLineNumbers')}</li>
+            <li>{t('widgets.codeBlock.featureLanguages')}</li>
+            <li>{t('widgets.codeBlock.featureCompactMode')}</li>
+          </ul>
+        </div>
+      </div>
+
+      </>)}
+
+      {selectedSubject === 'economics' && (<>
+      <div class="subject-heading" id="economics">
+        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
+        <h2>{t('subjects.economics.title')}</h2>
+        <p>{t('subjects.economics.description')}</p>
+      </div>
+
+      <!-- Economics Graph -->
+      <div class="widget-section">
+        <div class="widget-header">
+          <div class="widget-icon">💹</div>
+          <div class="widget-info">
+            <h2>{t('widgets.econGraph.title')}</h2>
+            <p>{t('widgets.econGraph.description')}</p>
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="econ-category-list">
+          {econGraphCategories.map((category) => (
+            <div class="econ-category">
+              <h3 class="econ-category-title">{t(category.titleKey)}</h3>
+              <div class="widget-examples econ-category-grid">
+                {category.cards.map((card) => (
+                  <div class="widget-card econ-card">
+                    <img src={lang === 'tc' && card.srcTc ? card.srcTc : card.src} alt={card.alt} />
+                    <span class="widget-label">{t(card.labelKey)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="subsection-label">{t('widgets.econGraph.features')}</div>
+        <div class="features-list">
+          <ul>
+            <li>{t('widgets.econGraph.featureShifts')}</li>
+            <li>{t('widgets.econGraph.featureElasticity')}</li>
+            <li>{t('widgets.econGraph.featureInterventions')}</li>
+            <li>{t('widgets.econGraph.featureWelfareShading')}</li>
+            <li>{t('widgets.econGraph.featureAreaLabels')}</li>
+            <li>{t('widgets.econGraph.featureMacroTrade')}</li>
+            <li>{t('widgets.econGraph.featureAdvancedMarkets')}</li>
+            <li>{t('widgets.econGraph.featureAxisLabels')}</li>
+          </ul>
+        </div>
+      </div>
+
+      </>)}
+
+    </section>
+    )}
+
+    <!-- Supported Features -->
+    {!selectedSubject && (
+    <section class="features-section">
+      <h2>{t('widgets.additionalContent')}</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">📝</div>
+          <h3>{t('widgets.latex.title')}</h3>
+          <p>{t('widgets.latex.description')}</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎨</div>
+          <h3>{t('widgets.svg.title')}</h3>
+          <p>{t('widgets.svg.description')}</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📋</div>
+          <h3>{t('widgets.tables.title')}</h3>
+          <p>{t('widgets.tables.description')}</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔷</div>
+          <h3>{t('widgets.geometry.title')}</h3>
+          <p>{t('widgets.geometry.description')}</p>
+        </div>
+      </div>
+    </section>
+    )}
+
+    <!-- Back Link -->
+    <section class="back-section">
+      <a href={selectedSubject ? `${langPrefix}/subjects` : `${langPrefix}/`} class="back-link">
+        {selectedSubject ? t('subjects.backToSubjects') : t('widgets.backToHome')}
+      </a>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(63, 181, 219, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .subject-hub {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .subject-hub-heading {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  .subject-hub-heading > span {
+    color: #0284c7;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .subject-hub-heading h2 {
+    margin: 0.5rem 0 0.75rem;
+    color: #0f172a;
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .subject-hub-heading p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  .subject-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .subject-card {
+    min-width: 0;
+    overflow: hidden;
+    color: inherit;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .subject-card:first-child {
+    grid-row: span 2;
+  }
+
+  .subject-card:hover,
+  .subject-card:focus-visible {
+    border-color: #7dd3fc;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.13);
+    transform: translateY(-4px);
+    outline: none;
+  }
+
+  .subject-card-image {
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #eff9fd 0%, #f5f3ff 100%);
+  }
+
+  .subject-card:first-child .subject-card-image {
+    height: 300px;
+  }
+
+  .subject-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .subject-card-copy {
+    padding: 1.5rem;
+  }
+
+  .subject-card-copy h3 {
+    margin: 0 0 0.5rem;
+    color: #0f172a;
+    font-size: 1.4rem;
+  }
+
+  .subject-card-copy p {
+    margin: 0 0 1rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  .subject-card-copy > span {
+    color: #0284c7;
+    font-weight: 800;
+  }
+
+  /* Widgets Gallery */
+  .widgets-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .subject-heading {
+    scroll-margin-top: 160px;
+    margin: 1rem 0 2rem;
+    padding: 1.75rem 2rem;
+    background: linear-gradient(135deg, #eff9fd 0%, #f5f3ff 100%);
+    border: 1px solid #dbeafe;
+    border-left: 6px solid #3FB5DB;
+    border-radius: 18px;
+  }
+
+  .subject-heading:not(:first-child) {
+    margin-top: 5rem;
+  }
+
+  .subject-heading-kicker {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #0284c7;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .subject-heading h2 {
+    margin: 0 0 0.5rem;
+    color: #0f172a;
+    font-size: clamp(1.75rem, 4vw, 2.4rem);
+  }
+
+  .subject-heading p {
+    max-width: 760px;
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .widget-section {
+    margin-bottom: 4rem;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .widget-section:hover {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .widget-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .widget-icon {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+    padding: 1rem;
+    border-radius: 16px;
+    flex-shrink: 0;
+  }
+
+  .widget-info h2 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .widget-info p {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Subsection Labels */
+  .subsection-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3FB5DB;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .subsection-label:first-of-type {
+    margin-top: 0;
+  }
+
+  /* Screenshots Grid */
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .screenshot-card {
+    background: linear-gradient(135deg, #fafafa 0%, #f0f4f8 100%);
+    border-radius: 12px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .screenshot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: #3FB5DB;
+  }
+
+  .screenshot-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .screenshot-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .chemistry-card {
+    min-height: 360px;
+  }
+
+  .chemistry-card-visual {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+
+  .widget-card.chemistry-card img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transform: scale(var(--chemistry-art-scale, 1));
+    transform-origin: center;
+  }
+
+  .widget-examples.econ-category-grid.chemistry-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .widget-examples.econ-category-grid.chemistry-category-grid.chemistry-single-card {
+    grid-template-columns: minmax(260px, 520px);
+  }
+
+  /* Widget Examples */
+  .widget-examples {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .widget-examples.two-column {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .widget-examples.three-column {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .widget-examples.single-column {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .econ-category-list {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .econ-category {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .econ-category-title {
+    color: #0f172a;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    padding-left: 0.85rem;
+    border-left: 4px solid #3FB5DB;
+  }
+
+  .widget-examples.econ-category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .codeblock-category-list .econ-category:first-child .econ-category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .codeblock-category-list .econ-category:first-child .widget-card {
+    padding: 1rem;
+  }
+
+  .codeblock-category-list .econ-category:last-child .econ-category-grid {
+    grid-template-columns: minmax(260px, 480px);
+  }
+
+  .widget-card.econ-card {
+    padding: 1.25rem;
+  }
+
+  .widget-card.econ-card img {
+    max-width: 100%;
+  }
+
+  .widget-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .widget-card:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  }
+
+  .widget-card.dark-bg {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-color: #334155;
+  }
+
+  .widget-card.dark-bg:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  }
+
+  .widget-card.dark-bg .widget-label {
+    color: #94a3b8;
+  }
+
+  .widget-card.large img {
+    max-width: 100%;
+  }
+
+  .widget-card img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+  }
+
+  .widget-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* Features Section */
+  .features-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .features-section h2 {
+    text-align: center;
+    color: #0f172a;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #3FB5DB;
+  }
+
+  .feature-item .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item h3 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .feature-item p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* Back Section */
+  .back-section {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #3FB5DB;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #3FB5DB;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: #3FB5DB;
+    color: #ffffff;
+    transform: translateX(-5px);
+  }
+
+  /* Component List (for Circuit widget) */
+  .component-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .component-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .component-item:hover {
+    border-color: #3FB5DB;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    transform: translateY(-2px);
+  }
+
+  .component-icon {
+    font-size: 1.25rem;
+  }
+
+  .component-name {
+    font-size: 0.95rem;
+    color: #334155;
+    font-weight: 500;
+  }
+
+  /* Features List */
+  .features-list {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .features-list ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style-type: disc;
+  }
+
+  .features-list li {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .subject-hub {
+      padding: 3rem 1rem;
+    }
+
+    .subject-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .subject-card:first-child {
+      grid-row: auto;
+    }
+
+    .subject-card:first-child .subject-card-image,
+    .subject-card-image {
+      height: 210px;
+    }
+
+    .subject-heading {
+      scroll-margin-top: 90px;
+      padding: 1.5rem;
+    }
+
+    .widget-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .widget-section {
+      padding: 1.5rem;
+    }
+
+    .widget-card {
+      padding: 1.5rem;
+    }
+
+    .widget-examples.econ-category-grid,
+    .widget-examples.econ-category-grid.chemistry-category-grid,
+    .widget-examples.econ-category-grid.chemistry-category-grid.chemistry-single-card,
+    .codeblock-category-list .econ-category:first-child .econ-category-grid,
+    .codeblock-category-list .econ-category:last-child .econ-category-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .chemistry-card-visual {
+      height: 260px;
+    }
+
+    .econ-category-title {
+      font-size: 1rem;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .widgets-gallery {
+      padding: 2rem 1rem;
+    }
+
+    .screenshots-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .screenshot-card {
+      padding: 0.5rem;
+    }
+
+    .screenshot-card img {
+      max-width: 100%;
+    }
+
+    .screenshot-label {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .screenshots-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+

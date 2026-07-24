@@ -6,7 +6,7 @@
   "nav": {
     "home": "首頁",
     "teacherGuide": "教師指南",
-    "widgets": "題目類型",
+    "subjects": "科目",
     "availability": "服務地區",
     "download": "下載",
     "pricing": "方案收費",
@@ -28,7 +28,7 @@
       "getItOn": "立即下載",
       "googlePlay": "Google Play"
     },
-    "supportedWidgets": "支援的題目類型",
+    "subjects": "科目",
     "whyChoose": "為什麼選擇 Hoppy？",
     "features": {
       "interactive": {
@@ -139,13 +139,50 @@
     },
     "returnHome": "返回 Hoppy 首頁"
   },
+  "subjects": {
+    "title": "科目",
+    "description": "探索 Hoppy 提供的科目，以及各科的學習資源。",
+    "navigationLabel": "科目",
+    "browseLabel": "按科目瀏覽",
+    "subjectLabel": "科目",
+    "hubTitle": "選擇科目",
+    "hubDescription": "查看 Hoppy 為各科提供的學習視覺內容及資源。",
+    "exploreSubject": "瀏覽科目",
+    "allSubjects": "所有科目",
+    "backToSubjects": "← 返回所有科目",
+    "mathematics": {
+      "title": "數學",
+      "pageTitle": "數學",
+      "description": "探索時間、數據處理、統計、函數、線圖及立體幾何的學習資源。"
+    },
+    "physics": {
+      "title": "物理",
+      "pageTitle": "物理",
+      "description": "探索電路及其他物理概念的學習資源。"
+    },
+    "chemistry": {
+      "title": "化學",
+      "pageTitle": "化學",
+      "description": "探索化學方程式、結構式、粒子圖、化學電池、實驗裝置、巨型晶格及化學圖表。"
+    },
+    "ict": {
+      "title": "資訊及通訊科技",
+      "pageTitle": "資訊及通訊科技",
+      "description": "探索清晰易讀的 Python、C++ 及偽代碼編程與運算思維資源。"
+    },
+    "economics": {
+      "title": "經濟",
+      "pageTitle": "經濟",
+      "description": "探索本地化的微觀及宏觀經濟學習資源，由市場均衡到福利與政策分析。"
+    }
+  },
   "widgets": {
-    "title": "支援的題目類型",
-    "description": "Hoppy 支援多種互動題目類型，用於創建引人入勝的教育問題。探索測驗內容可用的不同視覺化類型。",
+    "title": "科目",
+    "description": "探索 Hoppy 提供的科目，以及各科可用的線圖、圖解、公式和其他學習視覺內容。",
     "liveExamples": "實際範例",
-    "widgetVariations": "題型變化",
+    "widgetVariations": "範例",
     "subjectGroups": {
-      "navigationLabel": "題目科目",
+      "navigationLabel": "科目",
       "browseLabel": "按科目瀏覽",
       "subjectLabel": "科目",
       "hubTitle": "選擇科目",
@@ -155,27 +192,27 @@
       "backToSubjects": "← 返回所有科目",
       "mathematics": {
         "title": "數學",
-        "pageTitle": "數學題目類型",
+        "pageTitle": "數學",
         "description": "探索時間、數據處理、統計、函數、線圖及立體幾何的視覺化工具。"
       },
       "physics": {
         "title": "物理",
-        "pageTitle": "物理題目類型",
+        "pageTitle": "物理",
         "description": "探索把電學概念清晰呈現於題目中的電路圖。"
       },
       "chemistry": {
         "title": "化學",
-        "pageTitle": "化學題目類型",
+        "pageTitle": "化學",
         "description": "探索化學方程式、結構式、粒子圖、化學電池、實驗裝置、巨型晶格及化學圖表。"
       },
       "ict": {
         "title": "資訊及通訊科技",
-        "pageTitle": "資訊及通訊科技題目類型",
+        "pageTitle": "資訊及通訊科技",
         "description": "探索清晰易讀的 Python、C++ 及偽代碼，支援編程與運算思維題目。"
       },
       "economics": {
         "title": "經濟",
-        "pageTitle": "經濟題目類型",
+        "pageTitle": "經濟",
         "description": "探索本地化的微觀及宏觀經濟圖表，由市場均衡到福利與政策分析。"
       }
     },
@@ -396,7 +433,7 @@
     },
     "econGraph": {
       "title": "經濟學圖表",
-      "description": "適用於高中經濟題目的互動圖表，支援供求、彈性、政策干預、福利面積及 AD-AS 題型。",
+      "description": "適用於高中經濟學習內容的互動圖表，涵蓋供求、彈性、政策干預、福利面積及 AD-AS。",
       "features": "功能特點",
       "categoryMarketBasics": "市場基礎及曲線移動",
       "categoryElasticity": "彈性情況",
@@ -475,9 +512,9 @@
     "backToHome": "← 返回首頁"
   },
   "physicsPage": {
-    "title": "物理題目類型",
-    "description": "Hoppy 為香港中學文憑考試（HKDSE）物理課程提供專用互動題目類型——線圖、電路、電場和磁場圖與公式。",
-    "widgetVariations": "題型變化",
+    "title": "物理",
+    "description": "探索 Hoppy 為香港中學文憑考試（HKDSE）物理課程提供的線圖、電路、電場和磁場圖與公式。",
+    "widgetVariations": "範例",
     "comingSoon": "更多物理實驗裝置圖（力和運動、波動）即將推出。",
     "backToHome": "← 返回首頁",
     "graphs": {
@@ -1624,7 +1661,7 @@
       },
       "q3": {
         "question": "Hoppy 涵蓋哪些科目和主題？",
-        "answer": "Hoppy 涵蓋廣泛的學科，包括數學（時間讀取、數據解讀、幾何、代數、統計）、科學（物理電路、化學方程式）等。應用程式具有互動式題目類型，如模擬和數字時鐘、各種圖表和圖形、3D 幾何形狀、電路圖、化學方程式和數學函數繪圖器。"
+        "answer": "Hoppy 涵蓋廣泛的香港課程科目，包括數學、科學、物理、化學、資訊及通訊科技、經濟等。學習內容可包括模擬和數字時鐘、各種圖表、3D 幾何形狀、電路圖、化學方程式和數學函數圖像。"
       },
       "q5": {
         "question": "Hoppy 是否免費使用？",
@@ -1652,7 +1689,7 @@
       },
       "q12": {
         "question": "Hoppy 與其他教育應用程式有何不同？",
-        "answer": "Hoppy 以其獨特的吉祥物引領學習、創新的互動題目類型和全面的學科覆蓋而脫穎而出。我們專注於通過有趣、色彩繽紛的設計和創意玩樂讓學習「令人上癮」（以好的方式！），這使我們與眾不同。我們使用專業的視覺化工具，如 LaTeX 數學渲染、互動式 3D 幾何和即時電路模擬，讓年輕學習者能夠輕鬆且興奮地理解複雜概念。"
+        "answer": "Hoppy 結合吉祥物引領學習、全面的科目內容和清晰的教育視覺效果。色彩繽紛的設計、LaTeX 數學渲染、互動式 3D 幾何和即時電路模擬，讓年輕學習者更容易投入並理解複雜概念。"
       }
     }
   }
