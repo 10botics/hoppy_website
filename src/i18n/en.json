@@ -148,6 +148,7 @@
     "hubTitle": "Choose a subject",
     "hubDescription": "See the learning visuals and resources Hoppy provides for each subject.",
     "exploreSubject": "Explore subject",
+    "comingSoon": "Coming soon",
     "allSubjects": "All subjects",
     "backToSubjects": "← Back to all subjects",
     "mathematics": {
@@ -174,6 +175,11 @@
       "title": "Economics",
       "pageTitle": "Economics",
       "description": "Explore localized microeconomics and macroeconomics resources, from market equilibrium to welfare and policy analysis."
+    },
+    "biology": {
+      "title": "Biology",
+      "pageTitle": "Biology",
+      "description": "Biology learning resources will be added here."
     }
   },
   "widgets": {
