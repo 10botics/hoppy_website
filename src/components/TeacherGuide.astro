@@ -198,14 +198,6 @@ const nextChapterIsPublished = nextChapter
       </div>
     ) : (
       <div class="outline-shell">
-        <section class="guide-introduction">
-          <div>
-            <p class="eyebrow dark">Start here</p>
-            <h2>Start with Chapter 1</h2>
-          </div>
-          <p>Start with Chapter 1. Later chapters will be added one at a time and will follow the numbered order.</p>
-        </section>
-
         <nav class="chapter-grid" aria-label="Teacher Guide topic outline">
           {teacherGuideChapters.map((item) => {
             const isPublished = publishedTeacherGuideSlugs.has(item.slug);
@@ -308,32 +300,18 @@ const nextChapterIsPublished = nextChapter
   .chapter-shell {
     width: min(1180px, calc(100% - 2rem));
     margin: 0 auto;
-    padding: 2rem 0 5rem;
+    padding: 0 0 5rem;
   }
-
-  .guide-introduction {
-    display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-    gap: 2rem;
-    align-items: end;
-    margin: -3.75rem 0 2rem;
-    padding: clamp(1.4rem, 4vw, 2.4rem);
-    border: 1px solid #dce7eb;
-    border-radius: 22px;
-    background: white;
-    box-shadow: 0 18px 50px rgba(18, 48, 66, .12);
-  }
-
-  .guide-introduction h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.8rem); }
-  .guide-introduction > p { margin: 0; color: #526975; font-size: 1.08rem; line-height: 1.65; }
 
   .chapter-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
   }
 
   .chapter-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     min-width: 0;
     overflow: hidden;
     border: 1px solid #d9e5e9;
@@ -346,8 +324,9 @@ const nextChapterIsPublished = nextChapter
     display: grid;
     grid-template-columns: 3.25rem minmax(0, 1fr);
     gap: 1rem;
-    align-items: start;
+    align-items: center;
     padding: 1.35rem;
+    border-bottom: 1px solid #edf2f4;
     color: #1a3144;
     text-decoration: none;
     transition: background-color .2s ease;
@@ -383,7 +362,7 @@ const nextChapterIsPublished = nextChapter
 
   .chapter-card ol {
     margin: 0;
-    padding: 0 1.35rem 1.2rem 5.6rem;
+    padding: .7rem 1.35rem;
     list-style: none;
   }
 
@@ -412,7 +391,7 @@ const nextChapterIsPublished = nextChapter
 
   .chapter-card li a:hover { color: #10789e; }
   .chapter-card li b { color: #1481a8; }
-  .chapter-summary { margin: 0; padding: 0 1.35rem 1.4rem 5.6rem; color: #60747e; line-height: 1.55; }
+  .chapter-summary { margin: 0; padding: 1.35rem; color: #60747e; line-height: 1.55; }
   .chapter-card.unavailable { background: #f7f9fa; box-shadow: none; }
   .chapter-card.unavailable .chapter-card-heading { color: #647782; }
   .chapter-card.unavailable .chapter-card-heading > span { background: #e7edef; color: #6f8189; }
@@ -577,9 +556,11 @@ const nextChapterIsPublished = nextChapter
   .screenshot-highlight {
     position: absolute;
     z-index: 2;
-    border: 4px solid #ef2626;
+    border: 0;
     border-radius: 10px;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, .8);
+    outline: 3px solid #ef2626;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, .72);
     pointer-events: none;
   }
 
@@ -649,8 +630,6 @@ const nextChapterIsPublished = nextChapter
   }
 
   @media (max-width: 760px) {
-    .chapter-grid { grid-template-columns: 1fr; }
-    .guide-introduction { grid-template-columns: 1fr; gap: 1rem; }
     .guide-section { grid-template-columns: 2.4rem minmax(0, 1fr); gap: .8rem; padding-inline: 0; }
     .guide-section:target { padding-inline: .75rem; }
     .chapter-navigation { grid-template-columns: 1fr; }

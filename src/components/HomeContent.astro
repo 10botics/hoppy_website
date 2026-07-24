@@ -18,17 +18,17 @@ const copy = isTc
       appStore: 'App Store',
       playSmall: '立即下載',
       playStore: 'Google Play',
-      questionTypes: '支援的題目類型',
+      subjects: '科目',
       whyTitle: '為什麼選擇 Hoppy？',
       features: [
         ['互動學習', '引人入勝的活動，讓學習變得有趣且難忘。', '視'],
         ['創意玩樂', '色彩繽紛、充滿童趣的設計，激發好奇心和想像力。', '適'],
         ['進度追蹤', '見證孩子的成長，慶祝每一個成就。', '進'],
       ],
-      widgetTag: '互動題目',
+      widgetTag: '科目內容',
       widgetTitle: '把抽象概念變成看得見的題目',
       widgetText: 'Hoppy 把圖表、方程式、電路、化學反應和立體圖形直接融入練習，幫助學生真正理解概念。',
-      widgetButton: '查看所有支援題型',
+      widgetButton: '查看所有科目',
       widgetItems: [
         ['互動時鐘', '用可視化時鐘練習時間概念', '/widgets/widget_analogclock.svg', '/subjects/mathematics'],
         ['圖表與數據', '從圖表中閱讀和理解數據', '/widgets/widget_barchart.svg', '/subjects/mathematics'],
@@ -53,7 +53,7 @@ const copy = isTc
       audienceTitle: '適合每一位參與學習的人',
       audiences: [
         ['學生', '透過互動題目，以適合自己的程度和步伐持續練習。'],
-        ['老師', '利用清晰的視覺題型，協助講解較難單靠文字表達的概念。'],
+        ['老師', '利用清晰的視覺內容，協助講解較難單靠文字表達的概念。'],
         ['家長', '透過進度追蹤及多個學習者檔案，了解孩子的學習旅程。'],
       ],
       pricingTitle: '尋找適合你的學習方案',
@@ -69,7 +69,7 @@ const copy = isTc
       appStore: 'App Store',
       playSmall: 'GET IT ON',
       playStore: 'Google Play',
-      questionTypes: 'Supported Question Types',
+      subjects: 'Subjects',
       whyTitle: 'Why Choose Hoppy?',
       features: [
         ['Interactive Learning', 'Engaging activities that make learning fun and memorable.', 'V'],
@@ -79,7 +79,7 @@ const copy = isTc
       widgetTag: 'Interactive questions',
       widgetTitle: 'Turn abstract concepts into questions students can see',
       widgetText: 'Hoppy brings charts, equations, circuits, chemical reactions and 3D shapes directly into practice so students can truly understand each concept.',
-      widgetButton: 'View all supported question types',
+      widgetButton: 'View all subjects',
       widgetItems: [
         ['Interactive clocks', 'Practise time concepts with visual clocks', '/widgets/widget_analogclock.svg', '/subjects/mathematics'],
         ['Charts and data', 'Read and understand data through charts', '/widgets/widget_barchart.svg', '/subjects/mathematics'],
@@ -135,7 +135,7 @@ const copy = isTc
             </a>
           </div>
 
-          <a href={path('/supported-question-images')} class="secondary-button">{copy.questionTypes}</a>
+          <a href={path('/subjects')} class="secondary-button">{copy.subjects}</a>
         </div>
 
         <div class="hero-image-wrap">
@@ -164,7 +164,7 @@ const copy = isTc
               <h3>{copy.widgetTitle}</h3>
               <p>{copy.widgetText}</p>
             </div>
-            <a href={path('/supported-question-images')} class="widget-link">{copy.widgetButton} <span aria-hidden="true">→</span></a>
+            <a href={path('/subjects')} class="widget-link">{copy.widgetButton} <span aria-hidden="true">→</span></a>
           </div>
 
           <div class="widget-gallery">

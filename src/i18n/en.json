@@ -6,7 +6,7 @@
   "nav": {
     "home": "Home",
     "teacherGuide": "Teacher Guide",
-    "widgets": "Question Types",
+    "subjects": "Subjects",
     "availability": "Availability",
     "download": "Download",
     "pricing": "Pricing",
@@ -28,7 +28,7 @@
       "getItOn": "GET IT ON",
       "googlePlay": "Google Play"
     },
-    "supportedWidgets": "Supported Question Types",
+    "subjects": "Subjects",
     "whyChoose": "Why Choose Hoppy?",
     "features": {
       "interactive": {
@@ -139,13 +139,50 @@
     },
     "returnHome": "Return to Hoppy Home"
   },
+  "subjects": {
+    "title": "Subjects",
+    "description": "Explore the subjects available in Hoppy and the learning resources provided for each one.",
+    "navigationLabel": "Subjects",
+    "browseLabel": "Browse by subject",
+    "subjectLabel": "Subject",
+    "hubTitle": "Choose a subject",
+    "hubDescription": "See the learning visuals and resources Hoppy provides for each subject.",
+    "exploreSubject": "Explore subject",
+    "allSubjects": "All subjects",
+    "backToSubjects": "← Back to all subjects",
+    "mathematics": {
+      "title": "Mathematics",
+      "pageTitle": "Mathematics",
+      "description": "Explore resources for time, data handling, statistics, functions, graphs, and three-dimensional geometry."
+    },
+    "physics": {
+      "title": "Physics",
+      "pageTitle": "Physics",
+      "description": "Explore learning resources for circuits and other physics concepts."
+    },
+    "chemistry": {
+      "title": "Chemistry",
+      "pageTitle": "Chemistry",
+      "description": "Explore chemical equations, structures, particle diagrams, cells, laboratory setups, giant lattices, and Chemistry graphs."
+    },
+    "ict": {
+      "title": "ICT",
+      "pageTitle": "ICT",
+      "description": "Explore readable Python, C++, and pseudocode resources for programming and computational thinking."
+    },
+    "economics": {
+      "title": "Economics",
+      "pageTitle": "Economics",
+      "description": "Explore localized microeconomics and macroeconomics resources, from market equilibrium to welfare and policy analysis."
+    }
+  },
   "widgets": {
-    "title": "Supported Question Types",
-    "description": "Hoppy supports a variety of visual question types for creating engaging educational questions. Explore the graphs, diagrams, formulas, and other visuals available in quiz content.",
+    "title": "Subjects",
+    "description": "Explore the subjects available in Hoppy and see the graphs, diagrams, formulas, and other learning visuals provided for each one.",
     "liveExamples": "Live Examples",
-    "widgetVariations": "Question Variations",
+    "widgetVariations": "Examples",
     "subjectGroups": {
-      "navigationLabel": "Question types by subject",
+      "navigationLabel": "Subjects",
       "browseLabel": "Browse by subject",
       "subjectLabel": "Subject",
       "hubTitle": "Choose a subject",
@@ -155,27 +192,27 @@
       "backToSubjects": "← Back to all subjects",
       "mathematics": {
         "title": "Mathematics",
-        "pageTitle": "Mathematics Question Types",
+        "pageTitle": "Mathematics",
         "description": "Explore visual tools for time, data handling, statistics, functions, graphs, and three-dimensional geometry."
       },
       "physics": {
         "title": "Physics",
-        "pageTitle": "Physics Question Types",
+        "pageTitle": "Physics",
         "description": "Explore circuit diagrams used to turn electrical concepts into clear question visuals."
       },
       "chemistry": {
         "title": "Chemistry",
-        "pageTitle": "Chemistry Question Types",
+        "pageTitle": "Chemistry",
         "description": "Explore chemical equations, structures, particle diagrams, cells, laboratory setups, giant lattices, and Chemistry graphs."
       },
       "ict": {
         "title": "ICT",
-        "pageTitle": "ICT Question Types",
+        "pageTitle": "ICT",
         "description": "Explore readable Python, C++, and pseudocode snippets for programming and computational-thinking questions."
       },
       "economics": {
         "title": "Economics",
-        "pageTitle": "Economics Question Types",
+        "pageTitle": "Economics",
         "description": "Explore localized microeconomics and macroeconomics diagrams, from market equilibrium to welfare and policy analysis."
       }
     },
@@ -475,8 +512,8 @@
     "backToHome": "← Back to Home"
   },
   "physicsPage": {
-    "title": "Physics Question Types",
-    "description": "Hoppy supports visual question types tailored for the HKDSE Physics Curriculum — graphs, circuits, electric and magnetic field diagrams, and formulas.",
+    "title": "Physics",
+    "description": "Explore the graphs, circuits, electric and magnetic field diagrams, and formulas Hoppy provides for the HKDSE Physics curriculum.",
     "widgetVariations": "Question Variations",
     "comingSoon": "More physics setup visuals (force and motion, wave motion) are planned.",
     "backToHome": "← Back to Home",
@@ -1219,7 +1256,7 @@
                 "Interactive educational content and learning activities",
                 "Progress tracking and performance analytics",
                 "Multiple user profiles for family accounts",
-                "Visualization tools and visual question types for enhanced learning",
+                "Visualization tools for enhanced learning",
                 "Premium features available through in-app purchases"
               ]
             }
@@ -1624,7 +1661,7 @@
       },
       "q3": {
         "question": "What subjects and topics does Hoppy cover?",
-        "answer": "Hoppy covers a wide range of subjects, primarily HK curriculum subjects, including Mathematics (time-telling, data interpretation, geometry, algebra, statistics), Science (physics circuits, chemistry equations), and more. The app features visual question types such as analog and digital clocks, charts and graphs, 3D geometric shapes, electric circuits, chemical equations, and mathematical function plotters."
+        "answer": "Hoppy covers a wide range of subjects, primarily from the Hong Kong curriculum, including Mathematics, Science, Physics, Chemistry, ICT, Economics, and more. Learning content can include analog and digital clocks, charts and graphs, 3D geometric shapes, electric circuits, chemical equations, and mathematical function plots."
       },
       "q5": {
         "question": "Is Hoppy free to use?",
@@ -1652,7 +1689,7 @@
       },
       "q12": {
         "question": "What makes Hoppy different from other educational apps?",
-        "answer": "Hoppy stands out with its unique combination of engaging mascot-led learning, innovative visual question types, and comprehensive subject coverage. Our focus on making learning addictive (in a good way!) through fun, colorful design and creative play sets us apart. We use professional visualization tools like LaTeX math rendering, interactive 3D geometry, and real-time circuit simulations that make complex concepts accessible and exciting for young learners."
+        "answer": "Hoppy combines engaging mascot-led learning with broad subject coverage and clear educational visuals. Its colorful design, LaTeX mathematics, interactive 3D geometry, and real-time circuit simulations make complex concepts more accessible and engaging for young learners."
       }
     }
   }
