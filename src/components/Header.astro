@@ -14,9 +14,11 @@ const langPrefix = lang === defaultLang ? '' : `/${lang}`;
 
 // Get the path without language prefix for switching
 const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
-const availableLanguages = currentPath.includes('/teacher-guide')
-	? { en: languages.en }
-	: languages;
+const availableLanguages = languages;
+const getLanguagePath = (code: Lang) =>
+	currentPath.includes('/teacher-guide')
+		? `/${code}${pathWithoutLang}`
+		: getLocalizedLegalPath(pathWithoutLang, code);
 ---
 
 <nav class="main-nav">
@@ -24,14 +26,14 @@ const availableLanguages = currentPath.includes('/teacher-guide')
 		<a href={`${langPrefix}/`} class="nav-logo">
 			<span class="nav-logo-text">H<span class="bunny-o">o</span>ppy</span>
 		</a>
-		<button class="mobile-menu-btn" aria-label="Toggle menu">
+		<button class="mobile-menu-btn" aria-label={lang === 'tc' ? '開啟選單' : 'Toggle menu'}>
 			<span class="hamburger"></span>
 		</button>
 		<ul class="nav-links">
 			<li><a href={`${langPrefix}/`} class:list={["nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
 			<li><a href={`${langPrefix}/subjects`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
 			<li><a href={`${langPrefix}/pricing`} class:list={["nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
-			{lang === 'en' && <li><a href="/en/teacher-guide" class:list={["nav-link", { active: currentPath.includes('/teacher-guide') }]}>{t('nav.teacherGuide')}</a></li>}
+			<li><a href={`/${lang}/teacher-guide`} class:list={["nav-link", { active: currentPath.includes('/teacher-guide') }]}>{t('nav.teacherGuide')}</a></li>
 			<li><a href={`${langPrefix}/qna`} class:list={["nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			<li class="lang-switcher">
 				<div class="lang-dropdown">
@@ -49,7 +51,7 @@ const availableLanguages = currentPath.includes('/teacher-guide')
 					<div class="lang-menu">
 						{Object.entries(availableLanguages).map(([code, name]) => (
 							<a 
-								href={getLocalizedLegalPath(pathWithoutLang, code as Lang)}
+								href={getLanguagePath(code as Lang)}
 								class:list={["lang-option", { active: lang === code }]}
 							>
 								{name}
@@ -78,7 +80,7 @@ const availableLanguages = currentPath.includes('/teacher-guide')
 				type="button"
 				class="mobile-menu-close"
 				id="mobile-menu-close"
-				aria-label="Close menu"
+				aria-label={lang === 'tc' ? '關閉選單' : 'Close menu'}
 			>
 				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -92,7 +94,7 @@ const availableLanguages = currentPath.includes('/teacher-guide')
 				<li><a href={`${langPrefix}/`} class:list={["mobile-nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
 				<li><a href={`${langPrefix}/subjects`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
 				<li><a href={`${langPrefix}/pricing`} class:list={["mobile-nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
-				{lang === 'en' && <li><a href="/en/teacher-guide" class:list={["mobile-nav-link", { active: currentPath.includes('/teacher-guide') }]}>{t('nav.teacherGuide')}</a></li>}
+				<li><a href={`/${lang}/teacher-guide`} class:list={["mobile-nav-link", { active: currentPath.includes('/teacher-guide') }]}>{t('nav.teacherGuide')}</a></li>
 				<li><a href={`${langPrefix}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 				<li><a href={`${langPrefix}/downloadproduction`} class:list={["mobile-nav-link", "mobile-download-cta", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
 			</ul>
@@ -114,7 +116,7 @@ const availableLanguages = currentPath.includes('/teacher-guide')
 					<div class="mobile-lang-menu">
 						{Object.entries(availableLanguages).map(([code, name]) => (
 							<a 
-								href={getLocalizedLegalPath(pathWithoutLang, code as Lang)}
+								href={getLanguagePath(code as Lang)}
 								class:list={["mobile-lang-option", { active: lang === code }]}
 							>
 								{name}

@@ -491,7 +491,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
         paragraphs: [
           'Open Members to see who has joined.',
-          'Google Classroom roster import is another option for linked School and Public classrooms. See Chapter 7.',
+          'Google Classroom roster import is another option for linked School and Public classrooms. See Chapter 8.',
         ],
         screenshot: {
           src: '/images/teacher-guide/chapter-4/invite-students-link.jpeg',
@@ -848,23 +848,23 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '7.5',
-        title: 'Schedule Recurring Assignments',
-        introduction: 'Open the classroom, then open Settings and Auto Assign Assignment.',
+        title: 'Set Up Auto Assignments',
+        introduction: 'Open the classroom Settings, then select Auto Assign Assignment to open Auto Assignment Settings.',
         steps: [
-          'Select New or Add Configuration.',
-          'Choose the subject, grade level, and language.',
-          'Choose the publication days and hour.',
-          'Set the number of hours students have to complete each assignment.',
-          'Select Save. A new schedule is enabled automatically.',
+          'Select New to open Add Configuration.',
+          'Choose the grade level, subject, and language.',
+          'Choose the Days of Week for automatic assignments.',
+          'Set the Publish Hour and Due After period.',
+          'Select Save. The new configuration appears as Enabled.',
         ],
         paragraphs: [
-          'Use the switch to enable or disable a schedule. Open its three-dot menu to edit or delete it.',
-          'The grade and subject cannot be changed when editing an existing schedule.',
+          'Use the switch to set a configuration to Enabled or Disabled. Open its three-dot menu to Edit or Delete it.',
+          'The grade and subject cannot be changed in Edit Configuration.',
         ],
         screenshot: {
           src: '/images/teacher-guide/chapter-7/auto-assignment.png',
           alt: 'Auto Assignment Settings with no configurations and the New button.',
-          caption: 'Select New to add an auto-assignment configuration.',
+          caption: 'Select New in Auto Assignment Settings.',
           highlights: [
             { label: 'New', left: 76.5, top: 14.6, width: 16.8, height: 5.2 },
           ],
@@ -873,7 +873,7 @@ export const teacherGuideChapters: GuideChapter[] = [
           {
             src: '/images/teacher-guide/chapter-7/auto-assignment-form.png',
             alt: 'Auto Assignment configuration form for grade, subject, language, days, publication time, and due period.',
-            caption: 'Choose the quiz context and schedule, then select Save.',
+            caption: 'Complete Add Configuration, then select Save.',
             highlights: [
               { label: 'Grade, subject, and language', left: 8.2, top: 22.1, width: 83.6, height: 29.4 },
               { label: 'Schedule', left: 8.2, top: 52.5, width: 83.6, height: 28.4 },
@@ -967,7 +967,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       {
         number: '8.2',
         title: 'Manage Google Classroom Synchronization',
-        introduction: 'The connection status appears as Not Linked, Linked, or Action Required.',
+        introduction: 'The connection status appears as Not Linked, Linked, or Linked (Action Required).',
         bullets: [
           'Publishing a Hoppy assignment creates corresponding Google Classroom coursework.',
           'Changing its title or deadline updates the Google coursework.',
@@ -1239,7 +1239,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         number: '11.5',
         title: 'Google Classroom Sync Problems',
         bullets: [
-          'Open Google Classroom Linking and check whether the status is Linked or Action Required.',
+          'Open Google Classroom Linking and check whether the status is Linked or Linked (Action Required).',
           'Use Relink if authorization has expired.',
           'Confirm that the intended Google Classroom course is connected.',
         ],

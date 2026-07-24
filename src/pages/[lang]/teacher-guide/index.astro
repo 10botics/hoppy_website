@@ -3,7 +3,7 @@ import TeacherGuide from '../../../components/TeacherGuide.astro';
 import type { Lang } from '../../../i18n/ui';
 
 export function getStaticPaths() {
-  return [{ params: { lang: 'en' } }];
+  return [{ params: { lang: 'en' } }, { params: { lang: 'tc' } }];
 }
 
 const { lang } = Astro.params as { lang: Lang };

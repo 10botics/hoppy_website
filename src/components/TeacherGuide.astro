@@ -8,6 +8,11 @@ import {
   teacherGuideChapters,
   type GuideChapter,
 } from '../data/teacherGuide';
+import {
+  publishedTeacherGuideSlugsTc,
+  teacherGuideChapterMapTc,
+  teacherGuideChaptersTc,
+} from '../data/teacherGuideTc';
 
 interface Props {
   lang?: Lang;
@@ -15,58 +20,105 @@ interface Props {
 }
 
 const { lang = defaultLang, chapterSlug } = Astro.props;
-const langPrefix = lang === defaultLang ? '' : `/${lang}`;
-const guidePath = `${langPrefix}/teacher-guide`;
+const isTc = lang === 'tc';
+const guidePath = `/${lang}/teacher-guide`;
+const chapters = isTc ? teacherGuideChaptersTc : teacherGuideChapters;
+const chapterMap = isTc ? teacherGuideChapterMapTc : teacherGuideChapterMap;
+const publishedSlugs = isTc ? publishedTeacherGuideSlugsTc : publishedTeacherGuideSlugs;
 const chapter = chapterSlug
-  ? teacherGuideChapterMap.get(chapterSlug as GuideChapter['slug'])
+  ? chapterMap.get(chapterSlug as GuideChapter['slug'])
   : undefined;
 const previousChapter = chapter?.previous
-  ? teacherGuideChapterMap.get(chapter.previous)
+  ? chapterMap.get(chapter.previous)
   : undefined;
 const nextChapter = chapter?.next
-  ? teacherGuideChapterMap.get(chapter.next)
+  ? chapterMap.get(chapter.next)
   : undefined;
 const previousChapterIsPublished = previousChapter
-  ? publishedTeacherGuideSlugs.has(previousChapter.slug)
+  ? publishedSlugs.has(previousChapter.slug)
   : false;
 const nextChapterIsPublished = nextChapter
-  ? publishedTeacherGuideSlugs.has(nextChapter.slug)
+  ? publishedSlugs.has(nextChapter.slug)
   : false;
+const ui = isTc
+  ? {
+      eyebrow: 'Hoppy 教師指南',
+      chapterOf: (number: number) => `第 ${number} 章（共 ${chapters.length} 章）`,
+      overviewTitle: '逐步使用 Hoppy 教學',
+      overviewSummary: '建立練習、檢查內容、發布為課室作業，並查看結果。',
+      topicOutline: '主題大綱',
+      chapter: (number: number) => `第 ${number} 章`,
+      screenshotNoteTitle: '截圖語言',
+      screenshotNote: '',
+      complete: (number: number) => `第 ${number} 章完成`,
+      previousChapter: '← 上一章',
+      nextChapter: '下一章 →',
+      allChapters: '所有章節',
+      chapterNavigation: '教師指南章節導覽',
+      outlineNavigation: '教師指南主題大綱',
+      checklist: '清單',
+      comingLater: '稍後推出',
+    }
+  : {
+      eyebrow: 'Hoppy Teacher Guide',
+      chapterOf: (number: number) => `Chapter ${number} of ${chapters.length}`,
+      overviewTitle: 'Teach with Hoppy, step by step',
+      overviewSummary: 'Create a quiz, check it, publish it as a classroom assignment, and review the results.',
+      topicOutline: 'Topic Outline',
+      chapter: (number: number) => `Chapter ${number}`,
+      screenshotNoteTitle: '',
+      screenshotNote: '',
+      complete: (number: number) => `Chapter ${number} complete`,
+      previousChapter: '← Previous Chapter',
+      nextChapter: 'Next Chapter →',
+      allChapters: 'All chapters',
+      chapterNavigation: 'Teacher Guide chapter navigation',
+      outlineNavigation: 'Teacher Guide topic outline',
+      checklist: 'checklist',
+      comingLater: 'Coming later',
+    };
 ---
 
 <Layout lang={lang}>
   <main class="teacher-guide">
     <header class="guide-hero">
       <div class="guide-hero-inner">
-        <p class="eyebrow">Hoppy Teacher Guide</p>
+        <p class="eyebrow">{ui.eyebrow}</p>
         {chapter ? (
           <>
-            <p class="chapter-kicker">Chapter {chapter.number} of {teacherGuideChapters.length}</p>
+            <p class="chapter-kicker">{ui.chapterOf(chapter.number)}</p>
             <h1>{chapter.title}</h1>
             <p>{chapter.summary}</p>
           </>
         ) : (
           <>
-            <h1>Teach with Hoppy, step by step</h1>
-            <p>Create a quiz, check it, publish it as a classroom assignment, and review the results.</p>
+            <h1>{ui.overviewTitle}</h1>
+            <p>{ui.overviewSummary}</p>
           </>
         )}
       </div>
     </header>
 
+    {ui.screenshotNote && (
+      <aside class="language-note">
+        <strong>{ui.screenshotNoteTitle}</strong>
+        <p>{ui.screenshotNote}</p>
+      </aside>
+    )}
+
     {chapter ? (
       <div class="chapter-shell">
         <article class="chapter-content">
-          <a class="outline-link" href={guidePath}>← Topic Outline</a>
+          <a class="outline-link" href={guidePath}>← {ui.topicOutline}</a>
 
           <header class="chapter-heading">
-            <span>Chapter {chapter.number}</span>
+            <span>{ui.chapter(chapter.number)}</span>
             <h2>{chapter.title}</h2>
             <p>{chapter.summary}</p>
           </header>
 
           {chapter.chapterBullets && (
-            <section class="chapter-checklist" aria-label={`${chapter.title} checklist`}>
+            <section class="chapter-checklist" aria-label={`${chapter.title} ${ui.checklist}`}>
               <ul>
                 {chapter.chapterBullets.map((item) => <li>{item}</li>)}
               </ul>
@@ -162,35 +214,35 @@ const nextChapterIsPublished = nextChapter
             </section>
           ))}
 
-          <section class="completion-card" aria-label="Chapter complete">
+          <section class="completion-card" aria-label={ui.complete(chapter.number)}>
             <span aria-hidden="true">✓</span>
             <div>
-              <strong>Chapter {chapter.number} complete</strong>
+              <strong>{ui.complete(chapter.number)}</strong>
               <p>{chapter.completion}</p>
             </div>
           </section>
 
-          <nav class="chapter-navigation" aria-label="Teacher Guide chapter navigation">
+          <nav class="chapter-navigation" aria-label={ui.chapterNavigation}>
             {previousChapter && previousChapterIsPublished && (
               <a class="chapter-nav-link previous" href={`${guidePath}/${previousChapter.slug}`}>
-                <span>← Previous Chapter</span>
+                <span>{ui.previousChapter}</span>
                 <strong>{previousChapter.number}. {previousChapter.title}</strong>
               </a>
             )}
             <a class="chapter-nav-link outline" href={guidePath}>
-              <span>All chapters</span>
-              <strong>Topic Outline</strong>
+              <span>{ui.allChapters}</span>
+              <strong>{ui.topicOutline}</strong>
             </a>
             {nextChapter && nextChapterIsPublished && (
               <a class="chapter-nav-link next" href={`${guidePath}/${nextChapter.slug}`}>
-                <span>Next Chapter →</span>
+                <span>{ui.nextChapter}</span>
                 <strong>{nextChapter.number}. {nextChapter.title}</strong>
               </a>
             )}
             {nextChapter && !nextChapterIsPublished && (
               <span class="chapter-nav-link next unavailable" aria-disabled="true">
-                <span>Next Chapter</span>
-                <strong>{nextChapter.number}. {nextChapter.title} — coming later</strong>
+                <span>{ui.nextChapter}</span>
+                <strong>{nextChapter.number}. {nextChapter.title} — {ui.comingLater}</strong>
               </span>
             )}
           </nav>
@@ -198,16 +250,16 @@ const nextChapterIsPublished = nextChapter
       </div>
     ) : (
       <div class="outline-shell">
-        <nav class="chapter-grid" aria-label="Teacher Guide topic outline">
-          {teacherGuideChapters.map((item) => {
-            const isPublished = publishedTeacherGuideSlugs.has(item.slug);
+        <nav class="chapter-grid" aria-label={ui.outlineNavigation}>
+          {chapters.map((item) => {
+            const isPublished = publishedSlugs.has(item.slug);
             return (
             <article class:list={["chapter-card", { unavailable: !isPublished }]}>
               {isPublished ? (
                 <a class="chapter-card-heading" href={`${guidePath}/${item.slug}`}>
                   <span>{item.number}</span>
                   <div>
-                    <small>Chapter {item.number}</small>
+                    <small>{ui.chapter(item.number)}</small>
                     <h2>{item.title}</h2>
                   </div>
                 </a>
@@ -215,7 +267,7 @@ const nextChapterIsPublished = nextChapter
                 <div class="chapter-card-heading">
                   <span>{item.number}</span>
                   <div>
-                    <small>Chapter {item.number} · Coming later</small>
+                    <small>{ui.chapter(item.number)} · {ui.comingLater}</small>
                     <h2>{item.title}</h2>
                   </div>
                 </div>
@@ -295,6 +347,19 @@ const nextChapterIsPublished = nextChapter
     font-size: 1.08rem;
     line-height: 1.65;
   }
+
+  .language-note {
+    width: min(760px, calc(100% - 2rem));
+    margin: 0 auto 2rem;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid #37acd2;
+    border-radius: 0 12px 12px 0;
+    background: #edf9fd;
+    color: #315363;
+  }
+
+  .language-note strong { color: #126f91; }
+  .language-note p { margin: .25rem 0 0; line-height: 1.6; }
 
   .outline-shell,
   .chapter-shell {

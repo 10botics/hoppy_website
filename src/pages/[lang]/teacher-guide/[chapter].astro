@@ -4,9 +4,11 @@ import { publishedTeacherGuideChapters } from '../../../data/teacherGuide';
 import type { Lang } from '../../../i18n/ui';
 
 export function getStaticPaths() {
-  return publishedTeacherGuideChapters.map((chapter) => ({
-    params: { lang: 'en', chapter: chapter.slug },
-  }));
+  return ['en', 'tc'].flatMap((lang) =>
+    publishedTeacherGuideChapters.map((chapter) => ({
+      params: { lang, chapter: chapter.slug },
+    })),
+  );
 }
 
 const { lang, chapter } = Astro.params as { lang: Lang; chapter: string };
