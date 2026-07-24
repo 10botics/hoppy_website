@@ -148,6 +148,7 @@
     "hubTitle": "選擇科目",
     "hubDescription": "查看 Hoppy 為各科提供的學習視覺內容及資源。",
     "exploreSubject": "瀏覽科目",
+    "comingSoon": "即將推出",
     "allSubjects": "所有科目",
     "backToSubjects": "← 返回所有科目",
     "mathematics": {
@@ -174,6 +175,11 @@
       "title": "經濟",
       "pageTitle": "經濟",
       "description": "探索本地化的微觀及宏觀經濟學習資源，由市場均衡到福利與政策分析。"
+    },
+    "biology": {
+      "title": "生物",
+      "pageTitle": "生物",
+      "description": "生物科學習資源將於稍後加入。"
     }
   },
   "widgets": {

@@ -45,11 +45,11 @@ export const teacherGuideChapters: GuideChapter[] = [
     number: 1,
     slug: 'chapter-1',
     title: 'Choose a Topic and Create a Quiz with Explore',
-    summary: 'Create a quiz by choosing a grade, subject, and curriculum topic in Explore.',
+    summary: 'Create a curriculum-aligned quiz quickly by choosing the grade, subject, and learning units in Explore.',
     sections: [
       {
         number: '1.1',
-        title: 'Choose the Grade Level',
+        title: 'Choose Grade Level',
         steps: ['Open Explore.', 'Choose the grade level.'],
         screenshot: {
           src: '/images/teacher-guide/chapter-1/open-explore.png',
@@ -72,7 +72,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '1.2',
-        title: 'Choose the Subject and Learning Units',
+        title: 'Choose Subject and Learning Units',
         introduction: 'Hoppy calls the curriculum topics within a subject learning units.',
         steps: [
           'Choose the subject.',
@@ -132,7 +132,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '1.4',
-        title: 'Review the Generated Quiz',
+        title: 'Review Generated Quiz',
         steps: [
           'Review the quiz title, grade level, subject, question count, and duration.',
           'Review the description and related learning units.',
@@ -151,11 +151,11 @@ export const teacherGuideChapters: GuideChapter[] = [
     number: 2,
     slug: 'chapter-2',
     title: 'Turn Your Idea or Material into a Quiz with Create',
-    summary: 'Create a quiz from a quiz description, reference materials, or both.',
+    summary: 'Turn a lesson idea or reference material into a quiz tailored to the content you want to teach.',
     sections: [
       {
         number: '2.1',
-        title: 'Enter a Quiz Description',
+        title: 'Enter Quiz Description',
         steps: [
           'Open Create.',
           'Enter a one-time description of the quiz you want. You can include the subject, grade level, learning units, or a specific focus.',
@@ -206,7 +206,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '2.3',
-        title: 'Confirm the Quiz Context',
+        title: 'Confirm Quiz Context',
         steps: [
           'Check the detected subject, grade level, and language.',
           'Correct any selection that does not match the quiz you want.',
@@ -224,8 +224,12 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '2.4',
-        title: 'Select the Learning Units',
+        title: 'Select Learning Units',
         steps: ['Select at least one learning unit.', 'Select Confirm.'],
+        note: {
+          title: 'If no learning unit matches',
+          text: 'Hoppy may suggest Others when your description or materials do not match a specific learning unit. You can continue with Others and Custom Made. Chapter 9 explains this advanced option.',
+        },
         screenshot: {
           src: '/images/teacher-guide/chapter-2/select-learning-units.png',
           alt: 'Hoppy Create screen showing five selected fractions learning units and the Confirm button.',
@@ -238,7 +242,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '2.5',
-        title: 'Choose the Quiz Settings',
+        title: 'Choose Quiz Settings',
         steps: [
           'Set the expected duration.',
           'Choose the number of questions.',
@@ -263,7 +267,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '2.6',
-        title: 'Review the Generated Quiz',
+        title: 'Review Generated Quiz',
         steps: [
           'Review the quiz title, grade level, subject, question count, and duration.',
           'Review the description and related learning units.',
@@ -278,11 +282,11 @@ export const teacherGuideChapters: GuideChapter[] = [
     number: 3,
     slug: 'chapter-3',
     title: 'Check Your Quiz Before Assigning It',
-    summary: 'Try the quiz and check its questions, answers, and explanations before assigning it.',
+    summary: 'Prepare a reliable quiz by reviewing its content, reporting problems, and choosing how to share or export it.',
     sections: [
       {
         number: '3.1',
-        title: 'Try Your Quiz',
+        title: 'Preview Quiz',
         steps: [
           'Select Start.',
           'Choose an answer and select Submit.',
@@ -292,7 +296,7 @@ export const teacherGuideChapters: GuideChapter[] = [
           'Follow the result screens to Finish and Back.',
         ],
         note: {
-          title: 'Your practice attempt',
+          title: 'Practice attempt',
           text: 'This creates your personal attempt, not a classroom assignment. The quiz remains available under My Quizzes.',
         },
         screenshot: {
@@ -322,7 +326,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '3.2',
-        title: 'View the Questions, Answers, and Explanations',
+        title: 'View Questions, Answers, and Explanations',
         steps: [
           'Select View Questions on the quiz page.',
           'Use the arrows or numbered question markers to move through the quiz.',
@@ -351,7 +355,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '3.3',
-        title: 'View the Quiz Leaderboard',
+        title: 'View Quiz Leaderboard',
         paragraphs: [
           'Select View Leaderboard to see the users who completed the quiz, ranked by their score and completion time.',
         ],
@@ -363,7 +367,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '3.4',
-        title: 'Report a Problem If Needed',
+        title: 'Report a Problem',
         paragraphs: ['If you find a problem while viewing a question, select Report and choose the reason.'],
         screenshot: {
           src: '/images/teacher-guide/chapter-3/question-review.png',
@@ -386,7 +390,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '3.5',
-        title: 'Share Your Quiz',
+        title: 'Share Quiz',
         steps: [
           'Select Share Quiz.',
           'If you own the quiz, choose its visibility.',
@@ -424,7 +428,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '3.6',
-        title: 'Export Your Quiz to PDF',
+        title: 'Export Quiz to PDF',
         steps: ['Select Export to PDF on the quiz page.', 'Check the PDF preview.', 'Select Save PDF.'],
         paragraphs: [
           'The PDF contains the questions and an answers section with explanations. A share link or QR code may appear when the quiz visibility allows sharing.',
@@ -447,7 +451,7 @@ export const teacherGuideChapters: GuideChapter[] = [
     number: 4,
     slug: 'chapter-4',
     title: 'Publish Your Quiz as a Classroom Assignment',
-    summary: 'Choose or create a classroom, add students, and publish the quiz as an assignment.',
+    summary: 'Turn a reviewed quiz into a scheduled classroom assignment that students can access at the right time.',
     sections: [
       {
         number: '4.1',
@@ -456,7 +460,7 @@ export const teacherGuideChapters: GuideChapter[] = [
           'Open My Classrooms.',
           'Select an existing classroom, or create one and give it a recognizable name.',
         ],
-        note: { title: 'Reuse your classroom', text: 'You can use the same classroom for future assignments.' },
+        note: { title: 'Reuse Classroom', text: 'You can use the same classroom for future assignments.' },
         screenshot: {
           src: '/images/teacher-guide/chapter-4/my-classrooms.png',
           alt: 'My Classrooms screen with the Create button at the top.',
@@ -479,8 +483,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '4.2',
-        title: 'Invite Students If Needed',
-        introduction: 'If the intended students already appear under Members, continue to 4.3.',
+        title: 'Invite Students',
         bullets: [
           'Share or copy the classroom link.',
           'Show or share the classroom QR code.',
@@ -512,7 +515,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '4.3',
-        title: 'Add the Quiz as an Assignment',
+        title: 'Add Quiz as an Assignment',
         steps: [
           'Open the classroom.',
           'Select Add Assignment.',
@@ -545,7 +548,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '4.4',
-        title: 'Set the Publication and Due Times',
+        title: 'Set Publication and Due Times',
         steps: [
           'Set Published Date & Time.',
           'Set Due Date & Time later than the publication time.',
@@ -562,7 +565,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '4.5',
-        title: 'Create the Assignment',
+        title: 'Create Assignment',
         steps: ['Check the classroom, quiz, notes, and dates.', 'Select Create Assignment.'],
         paragraphs: [
           'Students can open the assignment after its publication time. Wait until at least one student completes it before continuing to Chapter 5.',
@@ -595,11 +598,11 @@ export const teacherGuideChapters: GuideChapter[] = [
     number: 5,
     slug: 'chapter-5',
     title: 'Check Student Completion and Results',
-    summary: 'See who completed the assignment and understand how the class performed.',
+    summary: 'Use completion and performance data to understand student progress and decide where follow-up is needed.',
     sections: [
       {
         number: '5.1',
-        title: 'View Assignment Results',
+        title: 'View Results',
         steps: ['Open the classroom.', 'Open Assignments.', 'Select the assignment.'],
         screenshot: {
           src: '/images/teacher-guide/chapter-5/assignment-results-overview.png',
@@ -612,21 +615,21 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '5.2',
-        title: 'See Who Has Completed the Assignment',
+        title: 'Check Student Completion',
         introduction: 'Open Completion Status to see:',
         bullets: ['Not Finished', 'Completed', 'Completed Late', 'Overdue'],
         paragraphs: [
-          'Select a status to see the students in that group, or select View Detail to see all learners. Not Finished work may still be within the available time; Overdue work has passed its due time.',
+          'Select a status to see the students in that group, or select View Detail to see all students. Not Finished work may still be within the available time; Overdue work has passed its due time.',
         ],
         screenshot: {
           src: '/images/teacher-guide/chapter-5/completion-detail.png',
-          alt: 'All Learners showing one learner who has not started and four learners who completed on time, with their scores and completion details.',
-          caption: 'All Learners shows each learner’s status. Completed entries also show the score, percentage, time spent, and completion time.',
+          alt: 'All Learners showing one student who has not started and four students who completed on time, with their scores and completion details.',
+          caption: 'All Learners shows each student’s status. Completed entries also show the score, percentage, time spent, and completion time.',
         },
       },
       {
         number: '5.3',
-        title: 'Understand How the Class Performed',
+        title: 'Review Class Performance',
         bullets: [
           'Average Score includes assignments completed on time.',
           'Average Score (Including Late) includes all completed assignments.',
@@ -640,15 +643,24 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '5.4',
-        title: 'Optional: Review Individual Student Attempts',
+        title: 'Review Student Attempts',
         steps: [
           'Open View Detail.',
-          'Check each learner’s status, score, time spent, and completion time.',
-          'Select a learner who completed the assignment.',
-          'Use the numbered controls to review the learner’s answers and explanations.',
+          'Check each student’s status, score, time spent, and completion time.',
+          'Select a student who completed the assignment.',
+          'Use the numbered controls to review the student’s answers and explanations.',
           'Close the attempt to return to All Learners.',
         ],
         screenshot: {
+          src: '/images/teacher-guide/chapter-5/assignment-results-overview.png',
+          alt: 'Assignment Info showing Completion Status and the View Detail button.',
+          caption: 'Select View Detail under Completion Status.',
+          highlights: [
+            { label: 'View Detail', left: 38, top: 77.6, width: 24, height: 4.3 },
+          ],
+        },
+        additionalScreenshots: [
+          {
           src: '/images/teacher-guide/chapter-5/student-attempt-mixed.png',
           alt: 'A completed student attempt showing correct questions in green, incorrect questions in red, the selected answer, and the explanation.',
           caption: 'Green numbers mark correct answers and red numbers mark incorrect answers. Select a number to review that question.',
@@ -656,7 +668,8 @@ export const teacherGuideChapters: GuideChapter[] = [
             { label: 'Question navigation', left: 3.8, top: 12.8, width: 92.4, height: 5 },
             { label: 'Answer and explanation', left: 3.8, top: 36.7, width: 92.4, height: 53.2 },
           ],
-        },
+          },
+        ],
       },
     ],
     completion: 'Great work! You reviewed student completion, individual attempts, and class performance for an assignment.',
@@ -667,29 +680,37 @@ export const teacherGuideChapters: GuideChapter[] = [
     number: 6,
     slug: 'chapter-6',
     title: 'Create Follow-Up Practice',
-    summary: 'Create another quiz that responds to the class results or provides further practice.',
+    summary: 'Use assignment results to create and assign a follow-up quiz for areas where students need more practice.',
     sections: [
       {
         number: '6.1',
-        title: 'Generate a Similar Quiz from Assignment Results',
+        title: 'Generate Follow-Up Quiz',
         steps: [
           'Open an assignment with student submissions.',
           'Review the Learning Unit Statistics and identify where students need more practice.',
-          'Select Generate Similar Quiz.',
-          'Choose the learning units to include.',
+          'Select Generate Similar Quiz at the bottom of Assignment Info.',
           'Choose Growth Areas for targeted practice or All Topics for balanced review.',
           'Choose Easier, Same, or Harder.',
           'Set the number of questions and time limit.',
           'Select Confirm.',
-          'Select View & Edit Questions and check the quiz before assigning it.',
+          'Wait for generation to finish. Hoppy opens the new quiz automatically.',
         ],
         note: {
-          title: 'Choose the follow-up that students need',
-          text: 'Growth Areas gives more practice to weaker learning units identified from the assignment results. All Topics spreads practice across the selected learning units. Use Easier to rebuild confidence, Same to reinforce learning, or Harder to provide extension.',
+          title: 'Choose Follow-Up Focus',
+          text: 'Growth Areas prioritizes weaker learning units identified from the assignment results. All Topics spreads practice across the assignment’s learning units. Use Easier to rebuild confidence, Same to reinforce learning, or Harder to provide extension.',
         },
         screenshot: {
+          src: '/images/teacher-guide/chapter-6/follow-up-entry.png',
+          alt: 'Assignment Info showing learning-unit results and the follow-up quiz button.',
+          caption: 'Review the learning-unit results, then select the follow-up quiz button.',
+          highlights: [
+            { label: 'Generate Similar Quiz', left: 3.8, top: 89.9, width: 92.4, height: 6.1 },
+          ],
+        },
+        additionalScreenshots: [
+          {
           src: '/images/teacher-guide/chapter-6/similar-quiz.png',
-          alt: 'Similar quiz setup with focus area, difficulty, time limit, number of questions, and Confirm.',
+          alt: 'Follow-up quiz setup with focus area, difficulty, time limit, number of questions, and Confirm.',
           caption: 'Choose the focus and difficulty, set the duration and question count, then select Confirm.',
           highlights: [
             { label: 'Focus area', left: 7.8, top: 30.7, width: 84.4, height: 4.8 },
@@ -698,19 +719,30 @@ export const teacherGuideChapters: GuideChapter[] = [
             { label: 'Number of questions', left: 7.8, top: 59.5, width: 84.4, height: 7.3 },
             { label: 'Confirm', left: 3.8, top: 90, width: 92.4, height: 6.8 },
           ],
-        },
+          },
+        ],
       },
       {
         number: '6.2',
-        title: 'Assign the Follow-Up Quiz',
+        title: 'Assign Follow-Up Quiz',
         steps: [
           'Review the follow-up quiz and make any needed changes.',
-          'Add it to the same classroom as a new assignment.',
+          'Select Assign.',
+          'Choose the same classroom.',
           'Set the publication and due times, then create the assignment.',
         ],
+        paragraphs: ['For a refresher on creating assignments, see Chapter 4.'],
         note: {
-          title: 'Compare the next results',
+          title: 'Compare Follow-Up Results',
           text: 'After students complete the follow-up assignment, compare its learning-unit results with the original assignment to see whether performance improved. If you need a reminder on how to review completion and results, go back to Chapter 5.',
+        },
+        screenshot: {
+          src: '/images/teacher-guide/chapter-3/quiz-info-start.png',
+          alt: 'Hoppy Quiz Info screen with the Assign button at the bottom.',
+          caption: 'Select Assign to publish the follow-up quiz as a new classroom assignment.',
+          highlights: [
+            { label: 'Assign', left: 4.5, top: 89.7, width: 91, height: 5.7 },
+          ],
         },
       },
     ],
@@ -721,12 +753,12 @@ export const teacherGuideChapters: GuideChapter[] = [
   {
     number: 7,
     slug: 'chapter-7',
-    title: 'Manage Your Classroom and Assignments',
-    summary: 'Maintain assignments, members, leaderboards, recurring schedules, and Google Classroom connections.',
+    title: 'Manage Classrooms and Assignments',
+    summary: 'Keep classrooms organized by managing members, assignments, leaderboard settings, and recurring schedules.',
     sections: [
       {
         number: '7.1',
-        title: 'Manage Classroom Members and Roles',
+        title: 'Manage Members and Roles',
         paragraphs: [
           'Open My Classrooms, select a classroom, and open Members to view students, instructors, their roles, and the classroom owner.',
           'To remove a member, select the member, choose Remove from Classroom, and confirm. Only the classroom owner can remove an instructor.',
@@ -742,7 +774,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '7.2',
-        title: 'View the Classroom Leaderboard',
+        title: 'View Classroom Leaderboard',
         paragraphs: [
           'Open a classroom to see the leaderboard preview, then select See all. The full list shows each student’s total points across published assignments and completed assignments out of the total.',
         ],
@@ -798,8 +830,95 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
       {
         number: '7.4',
-        title: 'Connect to Google Classroom',
-        introduction: 'Open the Hoppy classroom, then open Settings and Google Classroom Linking.',
+        title: 'Manage Existing Assignments',
+        introduction: 'An assignment may appear as:',
+        bullets: ['Unpublished', 'Published', 'All Completed', 'Closed', 'Closed (Missing Submissions)'],
+        paragraphs: [
+          'Open an assignment to view its questions and answers. Edit its title, notes, or due date when permitted. The publication time cannot be edited.',
+          'Deleting an assignment cannot be undone. If the classroom is linked to Google Classroom, the corresponding Google coursework is also deleted.',
+        ],
+        screenshot: {
+          src: '/images/teacher-guide/chapter-7/classroom-settings.png',
+          alt: 'Assignment information screen with the Edit and Delete menu open.',
+          caption: 'Open the three-dot menu to edit or delete an assignment.',
+          highlights: [
+            { label: 'Edit or Delete', left: 71.8, top: 4.5, width: 26.4, height: 13.8 },
+          ],
+        },
+      },
+      {
+        number: '7.5',
+        title: 'Schedule Recurring Assignments',
+        introduction: 'Open the classroom, then open Settings and Auto Assign Assignment.',
+        steps: [
+          'Select New or Add Configuration.',
+          'Choose the subject, grade level, and language.',
+          'Choose the publication days and hour.',
+          'Set the number of hours students have to complete each assignment.',
+          'Select Save. A new schedule is enabled automatically.',
+        ],
+        paragraphs: [
+          'Use the switch to enable or disable a schedule. Open its three-dot menu to edit or delete it.',
+          'The grade and subject cannot be changed when editing an existing schedule.',
+        ],
+        screenshot: {
+          src: '/images/teacher-guide/chapter-7/auto-assignment.png',
+          alt: 'Auto Assignment Settings with no configurations and the New button.',
+          caption: 'Select New to add an auto-assignment configuration.',
+          highlights: [
+            { label: 'New', left: 76.5, top: 14.6, width: 16.8, height: 5.2 },
+          ],
+        },
+        additionalScreenshots: [
+          {
+            src: '/images/teacher-guide/chapter-7/auto-assignment-form.png',
+            alt: 'Auto Assignment configuration form for grade, subject, language, days, publication time, and due period.',
+            caption: 'Choose the quiz context and schedule, then select Save.',
+            highlights: [
+              { label: 'Grade, subject, and language', left: 8.2, top: 22.1, width: 83.6, height: 29.4 },
+              { label: 'Schedule', left: 8.2, top: 52.5, width: 83.6, height: 28.4 },
+              { label: 'Save', left: 50.5, top: 81.3, width: 37.5, height: 6.8 },
+            ],
+          },
+        ],
+      },
+      {
+        number: '7.6',
+        title: 'View Assignment Leaderboard',
+        paragraphs: [
+          'Open an assignment and select View Leaderboard. Completed attempts are ranked by score and then by earlier completion time. Each entry shows the score, time taken, completion time, and late status.',
+        ],
+        screenshot: {
+          src: '/images/teacher-guide/chapter-5/assignment-info.png',
+          alt: 'Assignment information screen with the View Leaderboard button.',
+          caption: 'Select View Leaderboard from the assignment.',
+          highlights: [
+            { label: 'View Leaderboard', left: 3.8, top: 68.3, width: 92.4, height: 6 },
+          ],
+        },
+        additionalScreenshots: [
+          {
+            src: '/images/teacher-guide/chapter-7/assignment-leaderboard.png',
+            alt: 'Full Hoppy assignment leaderboard showing four learners ranked by score and time.',
+            caption: 'The assignment leaderboard ranks completed attempts by score and then completion time.',
+          },
+        ],
+      },
+    ],
+    completion: 'You can now maintain your classroom, assignments, members, and leaderboards.',
+    previous: 'chapter-6',
+    next: 'chapter-8',
+  },
+  {
+    number: 8,
+    slug: 'chapter-8',
+    title: 'Connect Google Classroom',
+    summary: 'Connect an existing Google Classroom course to bring matching students into Hoppy and synchronize Hoppy assignments and scores.',
+    sections: [
+      {
+        number: '8.1',
+        title: 'Connect Google Classroom',
+        introduction: 'This chapter is for schools using Google Classroom. Open the Hoppy classroom, then open Settings and Google Classroom Linking.',
         steps: [
           'Select Link to Google Classroom and authorize the Google account.',
           'Select the Google Classroom course.',
@@ -837,16 +956,16 @@ export const teacherGuideChapters: GuideChapter[] = [
           },
           {
             src: '/images/teacher-guide/chapter-7/google-classroom-imported-member.png',
-            alt: 'Hoppy classroom Members tab showing Test User added as a sixth learner after Google Classroom roster import.',
-            caption: 'Matching Google Classroom students are added under Members. Test User is the imported learner in this example.',
+            alt: 'Hoppy classroom Members tab showing Test User added as a sixth student after Google Classroom roster import.',
+            caption: 'Matching Google Classroom students are added under Members. Test User is the imported student in this example.',
             highlights: [
-              { label: 'Imported learner', left: 3.8, top: 63.2, width: 92.4, height: 7.6 },
+              { label: 'Imported student', left: 3.8, top: 63.2, width: 92.4, height: 7.6 },
             ],
           },
         ],
       },
       {
-        number: '7.5',
+        number: '8.2',
         title: 'Manage Google Classroom Synchronization',
         introduction: 'The connection status appears as Not Linked, Linked, or Action Required.',
         bullets: [
@@ -871,96 +990,20 @@ export const teacherGuideChapters: GuideChapter[] = [
           ],
         },
       },
-      {
-        number: '7.6',
-        title: 'Manage Existing Assignments',
-        introduction: 'An assignment may appear as:',
-        bullets: ['Unpublished', 'Published', 'All Completed', 'Closed', 'Closed (Missing Submissions)'],
-        paragraphs: [
-          'Open an assignment to view its questions and answers. Edit its title, notes, or due date when permitted. The publication time cannot be edited.',
-          'Deleting an assignment cannot be undone. If the classroom is linked to Google Classroom, the corresponding Google coursework is also deleted.',
-        ],
-        screenshot: {
-          src: '/images/teacher-guide/chapter-7/classroom-settings.png',
-          alt: 'Assignment information screen with the Edit and Delete menu open.',
-          caption: 'Open the three-dot menu to edit or delete an assignment.',
-          highlights: [
-            { label: 'Edit or Delete', left: 71.8, top: 4.5, width: 26.4, height: 13.8 },
-          ],
-        },
-      },
-      {
-        number: '7.7',
-        title: 'Schedule Recurring Assignments',
-        introduction: 'Open the classroom, then open Settings and Auto Assign Assignment.',
-        steps: [
-          'Select New or Add Configuration.',
-          'Choose the subject, grade level, and language.',
-          'Choose the publication days and hour.',
-          'Set the number of hours students have to complete each assignment.',
-          'Select Save. A new schedule is enabled automatically.',
-        ],
-        paragraphs: [
-          'Use the switch to enable or disable a schedule. Open its three-dot menu to edit or delete it.',
-          'The grade and subject cannot be changed when editing an existing schedule.',
-        ],
-        screenshot: {
-          src: '/images/teacher-guide/chapter-7/auto-assignment.png',
-          alt: 'Auto Assignment Settings with no configurations and the New button.',
-          caption: 'Select New to add an auto-assignment configuration.',
-          highlights: [
-            { label: 'New', left: 76.5, top: 14.6, width: 16.8, height: 5.2 },
-          ],
-        },
-        additionalScreenshots: [
-          {
-            src: '/images/teacher-guide/chapter-7/auto-assignment-form.png',
-            alt: 'Auto Assignment configuration form for grade, subject, language, days, publication time, and due period.',
-            caption: 'Choose the quiz context and schedule, then select Save.',
-            highlights: [
-              { label: 'Grade, subject, and language', left: 8.2, top: 22.1, width: 83.6, height: 29.4 },
-              { label: 'Schedule', left: 8.2, top: 52.5, width: 83.6, height: 28.4 },
-              { label: 'Save', left: 50.5, top: 81.3, width: 37.5, height: 6.8 },
-            ],
-          },
-        ],
-      },
-      {
-        number: '7.8',
-        title: 'View the Assignment Leaderboard',
-        paragraphs: [
-          'Open an assignment and select View Leaderboard. Completed attempts are ranked by score and then by earlier completion time. Each entry shows the score, time taken, completion time, and late status.',
-        ],
-        screenshot: {
-          src: '/images/teacher-guide/chapter-5/assignment-info.png',
-          alt: 'Assignment information screen with the View Leaderboard button.',
-          caption: 'Select View Leaderboard from the assignment.',
-          highlights: [
-            { label: 'View Leaderboard', left: 3.8, top: 68.3, width: 92.4, height: 6 },
-          ],
-        },
-        additionalScreenshots: [
-          {
-            src: '/images/teacher-guide/chapter-7/assignment-leaderboard.png',
-            alt: 'Full Hoppy assignment leaderboard showing four learners ranked by score and time.',
-            caption: 'The assignment leaderboard ranks completed attempts by score and then completion time.',
-          },
-        ],
-      },
     ],
-    completion: 'You can now maintain your classroom, assignments, members, and connected services.',
-    previous: 'chapter-6',
-    next: 'chapter-8',
+    completion: 'Your Hoppy classroom is connected to Google Classroom.',
+    previous: 'chapter-7',
+    next: 'chapter-9',
   },
   {
-    number: 8,
-    slug: 'chapter-8',
-    title: 'Set Your Teaching and Quiz Preferences',
-    summary: 'Set your usual grades, preferred subjects, languages, and reusable quiz instructions.',
+    number: 9,
+    slug: 'chapter-9',
+    title: 'Advanced Quiz Options and Preferences',
+    summary: 'Set teaching and quiz preferences, and use Others when content does not match a specific learning unit.',
     sections: [
       {
-        number: '8.1',
-        title: 'Set Your Usual Grades and Preferred Subjects',
+        number: '9.1',
+        title: 'Set Usual Grades and Preferred Subjects',
         introduction: 'Open Profile, select the settings gear, and open User Profile.',
         steps: [
           'Choose the grades you usually teach.',
@@ -1001,8 +1044,8 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '8.2',
-        title: 'Set the App and Quiz Languages',
+        number: '9.2',
+        title: 'Set App and Quiz Languages',
         introduction: 'From Settings, open Preferences.',
         bullets: [
           'Preferred Language changes Hoppy’s menus, buttons, and instructions.',
@@ -1033,36 +1076,84 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '8.3',
-        title: 'Save Reusable Quiz Instructions',
+        number: '9.3',
+        title: 'Save Quiz Instructions',
         steps: [
           'On the Preferences page, find Custom Quiz Prompt.',
           'Enter instructions you want to reuse, such as using metric units or keeping questions concise.',
           'Wait for the prompt to save automatically.',
-          'Choose whether to apply it when the option appears during quiz creation.',
+          'During quiz creation, turn on Apply custom quiz prompt when you want to use the saved instructions.',
         ],
+        note: {
+          title: 'Effect on quiz generation',
+          text: 'When enabled, Hoppy applies the saved instructions while generating the quiz. When disabled, the saved prompt is not applied.',
+        },
         screenshot: {
           src: '/images/teacher-guide/chapter-8/preferences.png',
           alt: 'Preferences page with the Custom Quiz Prompt field.',
-          caption: 'Add instructions that you want Hoppy to offer again during quiz creation.',
+          caption: 'Save reusable instructions in the Custom Quiz Prompt field.',
           highlights: [
             { label: 'Custom Quiz Prompt', left: 3.8, top: 53.1, width: 92.4, height: 14.1 },
           ],
         },
+        additionalScreenshots: [
+          {
+            src: '/images/teacher-guide/chapter-1/custom-made-details.jpeg',
+            alt: 'Quiz settings with the Apply custom quiz prompt switch turned off.',
+            caption: 'Turn on Apply custom quiz prompt to use the saved instructions for this quiz.',
+            highlights: [
+              { label: 'Apply saved instructions', left: 8.6, top: 69.1, width: 82.5, height: 7.1 },
+            ],
+          },
+        ],
+      },
+      {
+        number: '9.4',
+        title: 'Use the Others Learning Unit',
+        introduction: 'Others is a fallback in Create for content that does not match a specific learning unit.',
+        bullets: [
+          'Hoppy may suggest or select Others when your quiz description or reference materials do not match the available learning units.',
+          'Use Others only when no specific learning unit accurately describes the content.',
+          'Provide a clear quiz description or suitable reference materials so Hoppy knows what questions to generate.',
+          'Select Custom Made. Question Bank requires at least one specific learning unit with existing questions.',
+        ],
+        note: {
+          title: 'Not a curriculum topic',
+          text: 'Others does not add a new named learning unit. It groups content that falls outside the available learning-unit list.',
+        },
+        screenshot: {
+          src: '/images/teacher-guide/chapter-9/others-learning-unit.png',
+          alt: 'Hoppy Create showing Others automatically selected as the only learning unit for an unmatched quiz topic.',
+          caption: 'When the requested content does not match a specific learning unit, Hoppy can select Others automatically.',
+          highlights: [
+            { label: 'Others selected', left: 8.2, top: 35.6, width: 83.6, height: 4.6 },
+          ],
+        },
+        additionalScreenshots: [
+          {
+            src: '/images/teacher-guide/chapter-9/others-quiz-mode.png',
+            alt: 'Quiz settings showing Custom Made selected and Question Bank unavailable because only the Others learning unit is selected.',
+            caption: 'With only Others selected, use Custom Made. Question Bank is unavailable because Others has no existing question pool.',
+            highlights: [
+              { label: 'Available question mode', left: 8.2, top: 54.4, width: 83.7, height: 6.6 },
+              { label: 'Why Custom Made is required', left: 8.2, top: 65.8, width: 83.7, height: 5.1 },
+            ],
+          },
+        ],
       },
     ],
-    completion: 'Your usual teaching and quiz preferences are saved.',
-    previous: 'chapter-7',
-    next: 'chapter-9',
+    completion: 'You are ready to use Hoppy’s advanced quiz options and preferences.',
+    previous: 'chapter-8',
+    next: 'chapter-10',
   },
   {
-    number: 9,
-    slug: 'chapter-9',
+    number: 10,
+    slug: 'chapter-10',
     title: 'Teach Safely and Responsibly with Hoppy',
-    summary: 'Use Hoppy in ways that protect students and support sound teaching decisions.',
+    summary: 'Use Hoppy responsibly by checking AI-generated content, protecting student information, and choosing fair classroom settings.',
     sections: [
       {
-        number: '9.1',
+        number: '10.1',
         title: 'Check AI-Generated Content',
         bullets: [
           'Review every generated question, answer, and explanation before students see it.',
@@ -1071,7 +1162,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '9.2',
+        number: '10.2',
         title: 'Protect Student Information',
         bullets: [
           'Do not place unnecessary personal or sensitive student information in quiz prompts, notes, or uploaded files.',
@@ -1080,7 +1171,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '9.3',
+        number: '10.3',
         title: 'Use Appropriate Teaching Materials',
         bullets: [
           'Upload only materials that you are allowed to use.',
@@ -1089,7 +1180,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '9.4',
+        number: '10.4',
         title: 'Choose Fair Classroom Settings',
         bullets: [
           'Choose leaderboard visibility that suits the age and needs of the class.',
@@ -1099,18 +1190,18 @@ export const teacherGuideChapters: GuideChapter[] = [
       },
     ],
     completion: 'You have reviewed the key practices for safe and responsible use.',
-    previous: 'chapter-8',
-    next: 'chapter-10',
+    previous: 'chapter-9',
+    next: 'chapter-11',
   },
   {
-    number: 10,
-    slug: 'chapter-10',
+    number: 11,
+    slug: 'chapter-11',
     title: 'Solve Common Problems and Get Help',
-    summary: 'Check the most common causes when something does not work as expected.',
+    summary: 'Resolve common setup and synchronization problems so teaching can continue, and know where to get help.',
     sections: [
       {
-        number: '10.1',
-        title: 'I Cannot Find the Expected Subject or Learning Unit',
+        number: '11.1',
+        title: 'Find a Missing Subject or Learning Unit',
         bullets: [
           'Check the selected grade level; available subjects depend on the grade.',
           'Check the selected subject and scroll through its learning units.',
@@ -1118,8 +1209,8 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '10.2',
-        title: 'A Student Cannot See the Assignment',
+        number: '11.2',
+        title: 'Assignment Not Visible',
         bullets: [
           'Check that the student has joined the correct classroom.',
           'Check the Published Date & Time. An unpublished assignment is not yet available.',
@@ -1127,8 +1218,8 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '10.3',
-        title: 'Results or Growth Areas Are Missing',
+        number: '11.3',
+        title: 'Missing Results or Growth Areas',
         bullets: [
           'Wait until at least one student completes the assignment.',
           'Check Completion Status to confirm that a submission was recorded.',
@@ -1136,8 +1227,8 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '10.4',
-        title: 'A File Will Not Upload',
+        number: '11.4',
+        title: 'File Upload Problems',
         bullets: [
           'Check that the file type is supported and that the file opens normally on your device.',
           'Try a smaller file or split a long document into shorter reference materials.',
@@ -1145,8 +1236,8 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '10.5',
-        title: 'Google Classroom Is Not Synchronizing',
+        number: '11.5',
+        title: 'Google Classroom Sync Problems',
         bullets: [
           'Open Google Classroom Linking and check whether the status is Linked or Action Required.',
           'Use Relink if authorization has expired.',
@@ -1154,16 +1245,16 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
       },
       {
-        number: '10.6',
-        title: 'Report a Question or Get More Help',
+        number: '11.6',
+        title: 'Report Questions and Get Help',
         paragraphs: [
           'Use Report while reviewing a quiz question to send feedback about that question.',
-          'For more answers, open the Hoppy FAQ at /en/qna. If an account, access, or synchronization problem continues, email hi@hoppy.day.',
+          'For more answers, open Hoppy FAQ. If an account, access, or synchronization problem continues, email hi@hoppy.day.',
         ],
       },
     ],
     completion: 'You now know where to begin when you need help.',
-    previous: 'chapter-9',
+    previous: 'chapter-10',
   },
 ];
 
@@ -1172,7 +1263,7 @@ export const teacherGuideChapterMap = new Map(
 );
 
 export const publishedTeacherGuideChapters = teacherGuideChapters.filter(
-  (chapter) => chapter.number <= 10,
+  (chapter) => chapter.number <= 11,
 );
 
 export const publishedTeacherGuideSlugs = new Set(
