@@ -79,12 +79,12 @@ export function useLegalTranslations(lang: Lang) {
 export function getLocalizedPath(path: string, lang: Lang): string {
   // Remove any existing language prefix
   const cleanPath = path.replace(/^\/(tc|en)/, '') || '/';
-  // Only add language prefix for non-default locales (respects prefixDefaultLocale: false)
-  const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+  // Keep every locale explicit in the URL, including the default locale.
+  const langPrefix = `/${lang}`;
   return `${langPrefix}${cleanPath === '/' ? '' : cleanPath}` || '/';
 }
 
-// Special-case legal routes so English is canonical/unprefixed even though defaultLang is tc.
+// Keep the existing unprefixed English legal URLs canonical for backwards compatibility.
 export function getLocalizedLegalPath(path: string, lang: Lang): string {
   const normalized = normalizePath(path);
   const cleanPath = normalized.replace(/^\/(tc|en)/, '') || '/';

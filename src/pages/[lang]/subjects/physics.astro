@@ -18,7 +18,7 @@ const { lang: paramLang } = Astro.params as { lang?: Lang };
 const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 
-const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const langPrefix = `/${lang}`;
 // Replace these placeholder links when the final sample quizzes are published.
 const sampleQuizzes = [
   {
