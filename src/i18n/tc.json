@@ -523,6 +523,29 @@
     "widgetVariations": "範例",
     "comingSoon": "更多物理實驗裝置圖（力和運動、波動）即將推出。",
     "backToHome": "← 返回首頁",
+    "sampleQuiz": {
+      "title": "示例測驗",
+      "description": "選擇課題，下載可列印試卷或在 Hoppy 應用程式內進行互動測驗。",
+      "downloadPdf": "PDF",
+      "openInApp": "在 Hoppy 開啟",
+      "quizzes": {
+        "mechanics": {
+          "title": "力學：運動與力",
+          "description": "運動線圖、牛頓定律、動量、功、能量及功率。",
+          "meta": "12 題"
+        },
+        "electricity": {
+          "title": "電學與電路",
+          "description": "電流、電壓、電阻、串聯電路及並聯電路。",
+          "meta": "10 題"
+        },
+        "waves": {
+          "title": "波動與光學",
+          "description": "波的特性、反射、折射、透鏡及電磁波譜。",
+          "meta": "10 題"
+        }
+      }
+    },
     "graphs": {
       "title": "物理線圖",
       "description": "繪製物理題目所需的力和運動、熱和氣體、波動等線圖，包括速度-時間、位移-時間、溫度-時間加熱/冷卻線圖、I-V 特性圖及波形瞬時圖。",

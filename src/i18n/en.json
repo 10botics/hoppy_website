@@ -523,6 +523,29 @@
     "widgetVariations": "Question Variations",
     "comingSoon": "More physics setup visuals (force and motion, wave motion) are planned.",
     "backToHome": "← Back to Home",
+    "sampleQuiz": {
+      "title": "Sample Quizzes",
+      "description": "Choose a topic, then download a printable quiz or practise interactively in the Hoppy app.",
+      "downloadPdf": "PDF",
+      "openInApp": "Open in Hoppy",
+      "quizzes": {
+        "mechanics": {
+          "title": "Mechanics: Motion and Forces",
+          "description": "Motion graphs, Newton's laws, momentum, work, energy, and power.",
+          "meta": "12 questions"
+        },
+        "electricity": {
+          "title": "Electricity and Circuits",
+          "description": "Current, voltage, resistance, series circuits, and parallel circuits.",
+          "meta": "10 questions"
+        },
+        "waves": {
+          "title": "Waves and Optics",
+          "description": "Wave properties, reflection, refraction, lenses, and the electromagnetic spectrum.",
+          "meta": "10 questions"
+        }
+      }
+    },
     "graphs": {
       "title": "Physics Graphs",
       "description": "Plot force-and-motion, heat-and-gases, and wave graphs for Physics questions — including velocity–time, displacement–time, temperature–time heating/cooling line graphs, I–V characteristics, and wave snapshots.",
