@@ -185,7 +185,25 @@
     "mathematics": {
       "title": "數學",
       "pageTitle": "數學",
-      "description": "探索時間、數據處理、統計、函數、線圖及立體幾何的學習資源。"
+      "description": "探索時間、數據處理、統計、函數、線圖及立體幾何的學習資源。",
+      "goldQuiz": {
+        "title": "Hoppy Gold 精選測驗",
+        "description": "透過可下載的測驗練習數學，並可在 Hoppy 內互動作答。",
+        "downloadPdf": "PDF",
+        "openInApp": "在 Hoppy 開啟",
+        "quizzes": {
+          "straightLines": {
+            "title": "直線方程",
+            "description": "練習坐標幾何中的直線方程。",
+            "meta": "10 題"
+          },
+          "probability": {
+            "title": "概率法則與條件事件",
+            "description": "練習概率法則與條件事件。",
+            "meta": "10 題"
+          }
+        }
+      }
     },
     "physics": {
       "title": "物理",

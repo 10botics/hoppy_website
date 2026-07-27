@@ -185,7 +185,25 @@
     "mathematics": {
       "title": "Mathematics",
       "pageTitle": "Mathematics",
-      "description": "Explore resources for time, data handling, statistics, functions, graphs, and three-dimensional geometry."
+      "description": "Explore resources for time, data handling, statistics, functions, graphs, and three-dimensional geometry.",
+      "goldQuiz": {
+        "title": "Hoppy Gold Quiz Collection",
+        "description": "Practise mathematics with downloadable quizzes, then continue interactively in Hoppy.",
+        "downloadPdf": "PDF",
+        "openInApp": "Open in Hoppy",
+        "quizzes": {
+          "straightLines": {
+            "title": "Equations of Straight Lines",
+            "description": "Practise equations of straight lines in coordinate geometry.",
+            "meta": "10 questions"
+          },
+          "probability": {
+            "title": "Laws of Probability and Conditional Events",
+            "description": "Practise the laws of probability and conditional events.",
+            "meta": "10 questions"
+          }
+        }
+      }
     },
     "physics": {
       "title": "Physics",

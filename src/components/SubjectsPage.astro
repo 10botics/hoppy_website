@@ -234,6 +234,31 @@ const currentSection = selectedLevel
   ? subjectSections.find((section) => section.id === selectedLevel)
   : undefined;
 
+const mathematicsGoldQuizzes = [
+  {
+    title: t('subjects.mathematics.goldQuiz.quizzes.straightLines.title'),
+    description: t('subjects.mathematics.goldQuiz.quizzes.straightLines.description'),
+    meta: t('subjects.mathematics.goldQuiz.quizzes.straightLines.meta'),
+    pdfUrl: lang === 'tc'
+      ? '/downloads/hkdse-mathematics-25-straight-line-equations-tc.pdf'
+      : '/downloads/hkdse-mathematics-24-equations-of-straight-lines.pdf',
+    appUrl: lang === 'tc'
+      ? 'https://app.hoppy.day/q/2znwjv'
+      : 'https://app.hoppy.day/q/tf3rpy',
+  },
+  {
+    title: t('subjects.mathematics.goldQuiz.quizzes.probability.title'),
+    description: t('subjects.mathematics.goldQuiz.quizzes.probability.description'),
+    meta: t('subjects.mathematics.goldQuiz.quizzes.probability.meta'),
+    pdfUrl: lang === 'tc'
+      ? '/downloads/hkdse-mathematics-17-probability-laws-and-conditional-events-tc.pdf'
+      : '/downloads/hkdse-mathematics-14-laws-of-probability-and-conditional-events.pdf',
+    appUrl: lang === 'tc'
+      ? 'https://app.hoppy.day/q/qcpgqf'
+      : 'https://app.hoppy.day/q/geyyxf',
+  },
+];
+
 const ictSampleExercises = [
   {
     title: t('subjects.ict.sampleExercise.quizzes.programming.title'),
@@ -807,6 +832,16 @@ const econGraphCategories = [
         <h2>{t('subjects.mathematics.title')}</h2>
         <p>{t('subjects.mathematics.description')}</p>
       </div>
+
+      {selectedLevel === 'secondary' && (
+        <SampleQuizSection
+          title={t('subjects.mathematics.goldQuiz.title')}
+          description={t('subjects.mathematics.goldQuiz.description')}
+          downloadLabel={t('subjects.mathematics.goldQuiz.downloadPdf')}
+          openInAppLabel={t('subjects.mathematics.goldQuiz.openInApp')}
+          quizzes={mathematicsGoldQuizzes}
+        />
+      )}
 
       <div class="mathematics-level-groups">
         {mathematicsWidgetGroups
