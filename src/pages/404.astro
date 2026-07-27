@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getLangFromUrl, useTranslations, defaultLang } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const langPrefix = `/${lang}`;
 const homeHref = `${langPrefix}/`;
 ---
 

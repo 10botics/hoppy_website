@@ -7,6 +7,8 @@ export default defineConfig({
     defaultLocale: "tc",
     locales: ["tc", "en"],
     routing: {
+      // Routes are explicitly namespaced by src/pages/[lang].
+      // Keep middleware from intercepting the legacy unprefixed redirect pages.
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false
     }

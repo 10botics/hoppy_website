@@ -14,7 +14,7 @@ const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 
 // Only add language prefix for non-default locales
-const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const langPrefix = `/${lang}`;
 
 // Helper function to get localized screenshot path
 const screenshot = (path: string) => getLocalizedScreenshot(path, lang);

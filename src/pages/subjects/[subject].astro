@@ -1,6 +1,5 @@
 ---
-import SubjectPage from '../../components/SubjectsPage.astro';
-import { defaultLang } from '../../i18n/ui';
+import RedirectPage from '../../components/RedirectPage.astro';
 
 type Subject = 'mathematics' | 'chemistry' | 'ict' | 'economics';
 
@@ -17,6 +16,7 @@ interface Props {
 }
 
 const { subject } = Astro.props as Props;
+const destination = `/tc/subjects/${subject}`;
 ---
 
-<SubjectPage lang={defaultLang} subject={subject} />
+<RedirectPage to={destination} />

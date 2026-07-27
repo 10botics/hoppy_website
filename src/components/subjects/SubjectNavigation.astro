@@ -1,5 +1,5 @@
 ---
-import { useTranslations, type Lang, defaultLang } from '../../i18n/ui';
+import { useTranslations, type Lang } from '../../i18n/ui';
 
 interface Props {
   lang: Lang;
@@ -8,7 +8,7 @@ interface Props {
 
 const { lang, currentSubject } = Astro.props as Props;
 const t = useTranslations(lang);
-const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const langPrefix = `/${lang}`;
 const subjects = ['mathematics', 'physics', 'chemistry', 'ict', 'economics'];
 ---
 

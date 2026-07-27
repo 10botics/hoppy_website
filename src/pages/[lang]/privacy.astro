@@ -18,7 +18,7 @@ const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
 const t = useLegalTranslations(lang);
 
 // Only add language prefix for non-default locales
-const langPrefix = lang === defaultLang ? '' : `/${lang}`;
+const langPrefix = `/${lang}`;
 
 const disclaimer = t('privacy.body.disclaimer') as string;
 const intro = t('privacy.body.intro') as string[];
