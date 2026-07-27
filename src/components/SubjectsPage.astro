@@ -63,18 +63,18 @@ const currentSubject = selectedSubject
   ? subjectGroups.find((subject) => subject.id === selectedSubject)
   : undefined;
 
-const ictGoldQuizzes = [
+const ictSampleExercises = [
   {
-    title: t('subjects.ict.goldQuiz.quizzes.programming.title'),
-    description: t('subjects.ict.goldQuiz.quizzes.programming.description'),
-    meta: t('subjects.ict.goldQuiz.quizzes.programming.meta'),
+    title: t('subjects.ict.sampleExercise.quizzes.programming.title'),
+    description: t('subjects.ict.sampleExercise.quizzes.programming.description'),
+    meta: t('subjects.ict.sampleExercise.quizzes.programming.meta'),
     pdfUrl: '/downloads/hkdse-ict-04-programming-fundamentals-python-applications.pdf',
     appUrl: 'https://app.hoppy.day/q/abbwtu',
   },
   {
-    title: t('subjects.ict.goldQuiz.quizzes.hardware.title'),
-    description: t('subjects.ict.goldQuiz.quizzes.hardware.description'),
-    meta: t('subjects.ict.goldQuiz.quizzes.hardware.meta'),
+    title: t('subjects.ict.sampleExercise.quizzes.hardware.title'),
+    description: t('subjects.ict.sampleExercise.quizzes.hardware.description'),
+    meta: t('subjects.ict.sampleExercise.quizzes.hardware.meta'),
     pdfUrl: '/downloads/hkdse-ict-09-computer-memory-storage-hardware.pdf',
     appUrl: 'https://app.hoppy.day/q/vzypcr',
   },
@@ -962,18 +962,18 @@ const econGraphCategories = [
       </>)}
 
       {selectedSubject === 'ict' && (<>
-      <!-- Hoppy Gold Quizzes -->
+      <!-- Sample Exercises -->
       <div class="widget-section sample-quiz-section">
         <div class="widget-header">
           <div class="widget-icon sample-quiz-icon" aria-hidden="true">📝</div>
           <div class="widget-info">
-            <h2>{t('subjects.ict.goldQuiz.title')}</h2>
-            <p>{t('subjects.ict.goldQuiz.description')}</p>
+            <h2>{t('subjects.ict.sampleExercise.title')}</h2>
+            <p>{t('subjects.ict.sampleExercise.description')}</p>
           </div>
         </div>
 
         <div class="quiz-list">
-          {ictGoldQuizzes.map((quiz, index) => (
+          {ictSampleExercises.map((quiz, index) => (
             <article class="quiz-list-item">
               <div class="quiz-list-number" aria-hidden="true">
                 {String(index + 1).padStart(2, '0')}
@@ -990,10 +990,10 @@ const econGraphCategories = [
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14" />
                   </svg>
-                  {t('subjects.ict.goldQuiz.downloadPdf')}
+                  {t('subjects.ict.sampleExercise.downloadPdf')}
                 </a>
                 <a href={quiz.appUrl} class="quiz-button quiz-button-primary">
-                  {t('subjects.ict.goldQuiz.openInApp')}
+                  {t('subjects.ict.sampleExercise.openInApp')}
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="m9 18 6-6-6-6" />
                   </svg>

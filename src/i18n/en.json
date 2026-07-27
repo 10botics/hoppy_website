@@ -170,21 +170,21 @@
       "title": "ICT",
       "pageTitle": "ICT",
       "description": "Explore readable Python, C++, and pseudocode resources for programming and computational thinking.",
-      "goldQuiz": {
-        "title": "Hoppy Gold Quiz Collection",
-        "description": "Practise HKDSE ICT with downloadable quizzes, then continue interactively in Hoppy.",
+      "sampleExercise": {
+        "title": "Sample Exercises",
+        "description": "Choose a topic, then download a printable exercise or practise interactively in Hoppy.",
         "downloadPdf": "PDF",
         "openInApp": "Open in Hoppy",
         "quizzes": {
           "programming": {
-            "title": "資訊及通訊科技#4 - Programming Fundamentals and Python Applications",
-            "description": "Programming fundamentals, variables and constants, control structures, algorithms, and Python applications.",
-            "meta": "11 pages · PDF · 617 KB"
+            "title": "Programming Fundamentals & Python",
+            "description": "Variables, constants, control structures, algorithms, and Python applications.",
+            "meta": "7 questions · English"
           },
           "hardware": {
-            "title": "資訊及通訊科技#9 - Computer Memory, Storage and Hardware Components",
-            "description": "Computer memory, storage media, processor architecture, and hardware components.",
-            "meta": "6 pages · PDF · 48 KB"
+            "title": "Computer Memory, Storage & Hardware",
+            "description": "Memory, storage devices, processor architecture, and hardware components.",
+            "meta": "10 questions · English"
           }
         }
       }

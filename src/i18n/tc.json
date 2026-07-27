@@ -170,21 +170,21 @@
       "title": "資訊及通訊科技",
       "pageTitle": "資訊及通訊科技",
       "description": "探索清晰易讀的 Python、C++ 及偽代碼編程與運算思維資源。",
-      "goldQuiz": {
-        "title": "Hoppy Gold 精選練習",
-        "description": "透過可下載的練習題溫習香港中學文憑資訊及通訊科技，並可在 Hoppy 內互動作答。",
+      "sampleExercise": {
+        "title": "示例練習",
+        "description": "選擇課題，下載可列印試卷或在 Hoppy 應用程式內進行互動練習。",
         "downloadPdf": "PDF",
         "openInApp": "在 Hoppy 開啟",
         "quizzes": {
           "programming": {
-            "title": "資訊及通訊科技#4 - Programming Fundamentals and Python Applications",
-            "description": "程式設計基礎、變數與常數、控制結構、演算法及 Python 應用。",
-            "meta": "11 頁 · PDF · 617 KB"
+            "title": "編程基礎與 Python",
+            "description": "變數、常數、控制結構、演算法及 Python 應用。",
+            "meta": "7 題 · 英文"
           },
           "hardware": {
-            "title": "資訊及通訊科技#9 - Computer Memory, Storage and Hardware Components",
-            "description": "電腦記憶體、儲存媒體、處理器架構及硬件組件。",
-            "meta": "6 頁 · PDF · 48 KB"
+            "title": "電腦記憶體、儲存與硬件",
+            "description": "記憶體、儲存裝置、處理器架構及硬件組件。",
+            "meta": "10 題 · 英文"
           }
         }
       }
