@@ -171,8 +171,8 @@
       "pageTitle": "資訊及通訊科技",
       "description": "探索清晰易讀的 Python、C++ 及偽代碼編程與運算思維資源。",
       "goldQuiz": {
-        "title": "Hoppy Gold 精選測驗",
-        "description": "透過可下載的測驗練習香港中學文憑資訊及通訊科技，並可在 Hoppy 內互動作答。",
+        "title": "Hoppy Gold 精選練習",
+        "description": "透過可下載的練習題溫習香港中學文憑資訊及通訊科技，並可在 Hoppy 內互動作答。",
         "downloadPdf": "PDF",
         "openInApp": "在 Hoppy 開啟",
         "quizzes": {
@@ -542,8 +542,8 @@
     "comingSoon": "更多物理實驗裝置圖（力和運動、波動）即將推出。",
     "backToHome": "← 返回首頁",
     "sampleQuiz": {
-      "title": "示例測驗",
-      "description": "選擇課題，下載可列印試卷或在 Hoppy 應用程式內進行互動測驗。",
+      "title": "示例練習",
+      "description": "選擇課題，下載可列印試卷或在 Hoppy 應用程式內進行互動練習。",
       "downloadPdf": "PDF",
       "openInApp": "在 Hoppy 開啟",
       "quizzes": {
