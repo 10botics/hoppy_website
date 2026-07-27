@@ -251,7 +251,7 @@
     "biology": {
       "title": "生物",
       "pageTitle": "生物",
-      "description": "生物科學習資源將於稍後加入。"
+      "description": "探索分子遺傳學、遺傳、神經協調、感覺、體內平衡及其他生物學課題。"
     }
   },
   "widgets": {
@@ -599,13 +599,13 @@
         "traditionalChinese": {
           "title": "國家發展與香港機遇",
           "description": "有關國家發展及其為香港帶來機遇的繁體中文公民與社會發展科練習。",
-          "meta": "練習 4",
+          "meta": "10 題",
           "language": "繁體中文"
         },
         "english": {
           "title": "National Development, Diplomacy and Hong Kong Opportunities",
           "description": "有關國家發展、外交及香港機遇的英文公民與社會發展科練習。",
-          "meta": "練習 1",
+          "meta": "10 題",
           "language": "English"
         }
       }
@@ -620,13 +620,13 @@
       "practice": {
         "title": "Feelings and Simple Comparisons",
         "description": "關於表達感受及作簡單比較的小學英文練習。",
-        "meta": "練習 5",
+        "meta": "10 題",
         "language": "English"
       },
       "practice6": {
         "title": "Modals, Infinitives and Phrasal Verbs",
         "description": "涵蓋情態動詞、不定詞及常用短語動詞的小學英文練習。",
-        "meta": "練習 6",
+        "meta": "10 題",
         "language": "English"
       }
     }
@@ -640,13 +640,13 @@
       "practice": {
         "title": "複句關聯詞運用",
         "description": "練習在複句中正確運用關聯詞。",
-        "meta": "練習 1",
+        "meta": "10 題",
         "language": "繁體中文"
       },
       "practice4": {
         "title": "修辭手法辨識與運用",
         "description": "練習辨識及正確運用不同修辭手法。",
-        "meta": "練習 4",
+        "meta": "10 題",
         "language": "繁體中文"
       }
     }
@@ -660,13 +660,13 @@
       "practice": {
         "title": "小數概念與八個方向",
         "description": "涵蓋小數概念及八個方向的小學數學練習。",
-        "meta": "練習 2",
+        "meta": "10 題",
         "language": "繁體中文"
       },
       "practice5": {
         "title": "Improper Fractions, Mixed Numbers and Same-Denominator Operations",
         "description": "涵蓋假分數、帶分數及同分母運算的小學數學英文練習。",
-        "meta": "練習 5",
+        "meta": "10 題",
         "language": "English"
       }
     }
@@ -680,13 +680,13 @@
       "practice": {
         "title": "Growing Up Healthy and Getting Along",
         "description": "關於健康成長及與人建立良好關係的小學常識科英文練習。",
-        "meta": "練習 1",
+        "meta": "10 題",
         "language": "English"
       },
       "practice2": {
         "title": "編程思維、太空科技、物態改變與簡單機械",
         "description": "涵蓋編程思維、太空科技、物態改變及簡單機械的小學常識科練習。",
-        "meta": "練習 2",
+        "meta": "10 題",
         "language": "繁體中文"
       }
     }
@@ -700,13 +700,13 @@
       "practice39": {
         "title": "Molecular Genetics and Inheritance",
         "description": "涵蓋分子遺傳學及遺傳的中學生物科英文練習。",
-        "meta": "練習 39",
+        "meta": "10 題",
         "language": "English"
       },
       "practice43": {
         "title": "Nervous Coordination, Senses and Homeostasis",
         "description": "涵蓋神經協調、感覺及體內平衡的中學生物科英文練習。",
-        "meta": "練習 43",
+        "meta": "10 題",
         "language": "English"
       }
     }
