@@ -7,7 +7,7 @@ import { useTranslations, getLocalizedScreenshot, type Lang, defaultLang } from 
 interface Props {
   lang?: Lang;
   level?: 'primary' | 'secondary';
-  subject?: 'chinese' | 'english' | 'mathematics' | 'science' | 'humanities' | 'chemistry' | 'ict' | 'economics' | 'csd' | 'biology';
+  subject?: 'chinese' | 'english' | 'mathematics' | 'science' | 'general-studies' | 'humanities' | 'chemistry' | 'ict' | 'economics' | 'csd' | 'biology';
 }
 
 const { lang: propLang, level: selectedLevel, subject: selectedSubject } = Astro.props as Props;
@@ -68,6 +68,52 @@ const primaryChineseSamplePractices = [
     pdfUrl: '/downloads/primary-chinese-compound-sentence-connectives.pdf',
     appUrl: 'https://app.hoppy.day/q/hdzufx',
   },
+  {
+    title: t('primaryChinesePage.samplePractice.practice4.title'),
+    description: t('primaryChinesePage.samplePractice.practice4.description'),
+    meta: t('primaryChinesePage.samplePractice.practice4.meta'),
+    language: t('primaryChinesePage.samplePractice.practice4.language'),
+    pdfUrl: '/downloads/primary-chinese-rhetorical-devices.pdf',
+    appUrl: 'https://app.hoppy.day/q/eejzjj',
+  },
+];
+
+const primaryMathematicsSamplePractices = [
+  {
+    title: t('primaryMathematicsPage.samplePractice.practice.title'),
+    description: t('primaryMathematicsPage.samplePractice.practice.description'),
+    meta: t('primaryMathematicsPage.samplePractice.practice.meta'),
+    language: t('primaryMathematicsPage.samplePractice.practice.language'),
+    pdfUrl: '/downloads/primary-mathematics-decimals-eight-directions.pdf',
+    appUrl: 'https://app.hoppy.day/q/vyfnze',
+  },
+  {
+    title: t('primaryMathematicsPage.samplePractice.practice5.title'),
+    description: t('primaryMathematicsPage.samplePractice.practice5.description'),
+    meta: t('primaryMathematicsPage.samplePractice.practice5.meta'),
+    language: t('primaryMathematicsPage.samplePractice.practice5.language'),
+    pdfUrl: '/downloads/primary-mathematics-improper-fractions-mixed-numbers.pdf',
+    appUrl: 'https://app.hoppy.day/q/vvrqkb',
+  },
+];
+
+const primaryGeneralStudiesSamplePractices = [
+  {
+    title: t('primaryGeneralStudiesPage.samplePractice.practice.title'),
+    description: t('primaryGeneralStudiesPage.samplePractice.practice.description'),
+    meta: t('primaryGeneralStudiesPage.samplePractice.practice.meta'),
+    language: t('primaryGeneralStudiesPage.samplePractice.practice.language'),
+    pdfUrl: '/downloads/primary-general-studies-growing-up-healthy-getting-along.pdf',
+    appUrl: 'https://app.hoppy.day/q/fhapqg',
+  },
+  {
+    title: t('primaryGeneralStudiesPage.samplePractice.practice2.title'),
+    description: t('primaryGeneralStudiesPage.samplePractice.practice2.description'),
+    meta: t('primaryGeneralStudiesPage.samplePractice.practice2.meta'),
+    language: t('primaryGeneralStudiesPage.samplePractice.practice2.language'),
+    pdfUrl: '/downloads/primary-general-studies-computational-thinking-space-technology.pdf',
+    appUrl: 'https://app.hoppy.day/q/umpsnr',
+  },
 ];
 
 const subjectSections = [
@@ -93,6 +139,12 @@ const subjectSections = [
         labelKey: 'subjects.mathematics.title',
         descriptionKey: 'subjects.mathematics.description',
         icon: '➗',
+      },
+      {
+        id: 'general-studies',
+        labelKey: 'subjects.general-studies.title',
+        descriptionKey: 'subjects.general-studies.description',
+        icon: '🧭',
       },
       {
         id: 'science',
@@ -727,6 +779,26 @@ const econGraphCategories = [
           <p>{t(currentSubject.descriptionKey)}</p>
           <p class="coming-soon-message">{t('subjects.comingSoonDescription')}</p>
         </section>
+      )}
+
+      {selectedSubject === 'mathematics' && selectedLevel === 'primary' && (
+        <SampleQuizSection
+          title={t('primaryMathematicsPage.samplePractice.title')}
+          description={t('primaryMathematicsPage.samplePractice.description')}
+          downloadLabel={t('primaryMathematicsPage.samplePractice.downloadPdf')}
+          openInAppLabel={t('primaryMathematicsPage.samplePractice.openInApp')}
+          quizzes={primaryMathematicsSamplePractices}
+        />
+      )}
+
+      {selectedSubject === 'general-studies' && selectedLevel === 'primary' && (
+        <SampleQuizSection
+          title={t('primaryGeneralStudiesPage.samplePractice.title')}
+          description={t('primaryGeneralStudiesPage.samplePractice.description')}
+          downloadLabel={t('primaryGeneralStudiesPage.samplePractice.downloadPdf')}
+          openInAppLabel={t('primaryGeneralStudiesPage.samplePractice.openInApp')}
+          quizzes={primaryGeneralStudiesSamplePractices}
+        />
       )}
 
       {selectedSubject === 'mathematics' && (<>
@@ -1547,6 +1619,10 @@ const econGraphCategories = [
 
   .subject-card-visual--science {
     background: linear-gradient(135deg, #dcfce7 0%, #cffafe 100%);
+  }
+
+  .subject-card-visual--general-studies {
+    background: linear-gradient(135deg, #d1fae5 0%, #fef3c7 100%);
   }
 
   .subject-card-visual--humanities {

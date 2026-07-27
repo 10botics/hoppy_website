@@ -4,12 +4,12 @@ import PhysicsPage from '../../../../components/subjects/PhysicsPage.astro';
 import { languages, type Lang } from '../../../../i18n/ui';
 
 type Level = 'primary' | 'secondary';
-type Subject = 'chinese' | 'english' | 'mathematics' | 'science' | 'humanities' | 'physics' | 'chemistry' | 'ict' | 'economics' | 'csd' | 'biology';
+type Subject = 'chinese' | 'english' | 'mathematics' | 'science' | 'general-studies' | 'humanities' | 'physics' | 'chemistry' | 'ict' | 'economics' | 'csd' | 'biology';
 type StandardSubject = Exclude<Subject, 'physics'>;
 
 export function getStaticPaths() {
   const subjectsByLevel: Record<Level, Subject[]> = {
-    primary: ['chinese', 'english', 'mathematics', 'science', 'humanities'],
+    primary: ['chinese', 'english', 'mathematics', 'general-studies', 'science', 'humanities'],
     secondary: ['chinese', 'english', 'mathematics', 'csd', 'physics', 'chemistry', 'biology', 'ict', 'economics'],
   };
 

@@ -11,7 +11,7 @@ const { lang, level, currentSubject } = Astro.props as Props;
 const t = useTranslations(lang);
 const langPrefix = `/${lang}`;
 const subjects = level === 'primary'
-  ? ['chinese', 'english', 'mathematics', 'science', 'humanities']
+  ? ['chinese', 'english', 'mathematics', 'general-studies', 'science', 'humanities']
   : ['chinese', 'english', 'mathematics', 'csd', 'physics', 'chemistry', 'biology', 'ict', 'economics'];
 ---
 

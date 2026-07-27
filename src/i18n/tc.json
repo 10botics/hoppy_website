@@ -172,6 +172,11 @@
       "pageTitle": "科學",
       "description": "探索生命、物質、能量、地球及科學探究。"
     },
+    "general-studies": {
+      "title": "常識科",
+      "pageTitle": "常識科",
+      "description": "探索健康、社會、科學、科技及我們身處的世界。"
+    },
     "humanities": {
       "title": "人文科",
       "pageTitle": "人文科",
@@ -611,13 +616,59 @@
   "primaryChinesePage": {
     "samplePractice": {
       "title": "示例練習",
-      "description": "下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
       "downloadPdf": "PDF",
       "openInApp": "在 Hoppy 開啟",
       "practice": {
         "title": "複句關聯詞運用",
         "description": "練習在複句中正確運用關聯詞。",
         "meta": "練習 1",
+        "language": "繁體中文"
+      },
+      "practice4": {
+        "title": "修辭手法辨識與運用",
+        "description": "練習辨識及正確運用不同修辭手法。",
+        "meta": "練習 4",
+        "language": "繁體中文"
+      }
+    }
+  },
+  "primaryMathematicsPage": {
+    "samplePractice": {
+      "title": "示例練習",
+      "description": "下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "downloadPdf": "PDF",
+      "openInApp": "在 Hoppy 開啟",
+      "practice": {
+        "title": "小數概念與八個方向",
+        "description": "涵蓋小數概念及八個方向的小學數學練習。",
+        "meta": "練習 2",
+        "language": "繁體中文"
+      },
+      "practice5": {
+        "title": "Improper Fractions, Mixed Numbers and Same-Denominator Operations",
+        "description": "涵蓋假分數、帶分數及同分母運算的小學數學英文練習。",
+        "meta": "練習 5",
+        "language": "English"
+      }
+    }
+  },
+  "primaryGeneralStudiesPage": {
+    "samplePractice": {
+      "title": "示例練習",
+      "description": "下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "downloadPdf": "PDF",
+      "openInApp": "在 Hoppy 開啟",
+      "practice": {
+        "title": "Growing Up Healthy and Getting Along",
+        "description": "關於健康成長及與人建立良好關係的小學常識科英文練習。",
+        "meta": "練習 1",
+        "language": "English"
+      },
+      "practice2": {
+        "title": "編程思維、太空科技、物態改變與簡單機械",
+        "description": "涵蓋編程思維、太空科技、物態改變及簡單機械的小學常識科練習。",
+        "meta": "練習 2",
         "language": "繁體中文"
       }
     }

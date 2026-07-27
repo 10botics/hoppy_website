@@ -172,6 +172,11 @@
       "pageTitle": "Science",
       "description": "Explore living things, matter, energy, Earth, and the scientific process."
     },
+    "general-studies": {
+      "title": "General Studies",
+      "pageTitle": "General Studies",
+      "description": "Explore health, society, science, technology, and the world around us."
+    },
     "humanities": {
       "title": "Humanities",
       "pageTitle": "Humanities",
@@ -610,14 +615,60 @@
   },
   "primaryChinesePage": {
     "samplePractice": {
-      "title": "Sample Practice",
-      "description": "Download the printable practice or practise interactively in the Hoppy app.",
+      "title": "Sample Practices",
+      "description": "Choose a topic, download the printable practice, or practise interactively in the Hoppy app.",
       "downloadPdf": "PDF",
       "openInApp": "Open in Hoppy",
       "practice": {
         "title": "複句關聯詞運用",
         "description": "Primary Chinese practice on using connectives correctly in compound sentences.",
         "meta": "Practice 1",
+        "language": "Traditional Chinese"
+      },
+      "practice4": {
+        "title": "修辭手法辨識與運用",
+        "description": "Primary Chinese practice on identifying and applying rhetorical devices.",
+        "meta": "Practice 4",
+        "language": "Traditional Chinese"
+      }
+    }
+  },
+  "primaryMathematicsPage": {
+    "samplePractice": {
+      "title": "Sample Practice",
+      "description": "Download the printable practice or practise interactively in the Hoppy app.",
+      "downloadPdf": "PDF",
+      "openInApp": "Open in Hoppy",
+      "practice": {
+        "title": "小數概念與八個方向",
+        "description": "Primary Mathematics practice covering decimal concepts and the eight compass directions.",
+        "meta": "Practice 2",
+        "language": "Traditional Chinese"
+      },
+      "practice5": {
+        "title": "Improper Fractions, Mixed Numbers and Same-Denominator Operations",
+        "description": "Primary Mathematics practice covering improper fractions, mixed numbers, and operations with the same denominator.",
+        "meta": "Practice 5",
+        "language": "English"
+      }
+    }
+  },
+  "primaryGeneralStudiesPage": {
+    "samplePractice": {
+      "title": "Sample Practice",
+      "description": "Download the printable practice or practise interactively in the Hoppy app.",
+      "downloadPdf": "PDF",
+      "openInApp": "Open in Hoppy",
+      "practice": {
+        "title": "Growing Up Healthy and Getting Along",
+        "description": "Primary General Studies practice about healthy development and building positive relationships with others.",
+        "meta": "Practice 1",
+        "language": "English"
+      },
+      "practice2": {
+        "title": "編程思維、太空科技、物態改變與簡單機械",
+        "description": "Primary General Studies practice covering computational thinking, space technology, changes of state, and simple machines.",
+        "meta": "Practice 2",
         "language": "Traditional Chinese"
       }
     }
