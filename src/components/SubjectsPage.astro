@@ -63,6 +63,23 @@ const currentSubject = selectedSubject
   ? subjectGroups.find((subject) => subject.id === selectedSubject)
   : undefined;
 
+const ictGoldQuizzes = [
+  {
+    title: t('subjects.ict.goldQuiz.quizzes.programming.title'),
+    description: t('subjects.ict.goldQuiz.quizzes.programming.description'),
+    meta: t('subjects.ict.goldQuiz.quizzes.programming.meta'),
+    pdfUrl: '/downloads/hkdse-ict-04-programming-fundamentals-python-applications.pdf',
+    appUrl: 'https://app.hoppy.day/q/abbwtu',
+  },
+  {
+    title: t('subjects.ict.goldQuiz.quizzes.hardware.title'),
+    description: t('subjects.ict.goldQuiz.quizzes.hardware.description'),
+    meta: t('subjects.ict.goldQuiz.quizzes.hardware.meta'),
+    pdfUrl: '/downloads/hkdse-ict-09-computer-memory-storage-hardware.pdf',
+    appUrl: 'https://app.hoppy.day/q/vzypcr',
+  },
+];
+
 const chemistryVariationCategoryData = [
   {
     id: 'equations',
@@ -951,6 +968,48 @@ const econGraphCategories = [
         <p>{t('subjects.ict.description')}</p>
       </div>
 
+      <!-- Hoppy Gold Quizzes -->
+      <div class="widget-section sample-quiz-section">
+        <div class="widget-header">
+          <div class="widget-icon sample-quiz-icon" aria-hidden="true">📝</div>
+          <div class="widget-info">
+            <h2>{t('subjects.ict.goldQuiz.title')}</h2>
+            <p>{t('subjects.ict.goldQuiz.description')}</p>
+          </div>
+        </div>
+
+        <div class="quiz-list">
+          {ictGoldQuizzes.map((quiz, index) => (
+            <article class="quiz-list-item">
+              <div class="quiz-list-number" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <div class="quiz-list-info">
+                <div class="quiz-list-heading">
+                  <h3>{quiz.title}</h3>
+                  <span class="quiz-meta">{quiz.meta}</span>
+                </div>
+                <p>{quiz.description}</p>
+              </div>
+              <div class="quiz-actions">
+                <a href={quiz.pdfUrl} class="quiz-button quiz-button-secondary" download>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14" />
+                  </svg>
+                  {t('subjects.ict.goldQuiz.downloadPdf')}
+                </a>
+                <a href={quiz.appUrl} class="quiz-button quiz-button-primary">
+                  {t('subjects.ict.goldQuiz.openInApp')}
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
       <!-- ICT Code Block -->
       <div class="widget-section">
         <div class="widget-header">
@@ -1376,6 +1435,179 @@ const econGraphCategories = [
     margin: 0;
   }
 
+  .sample-quiz-section {
+    position: relative;
+    overflow: hidden;
+    border-color: #bae6fd;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(125, 211, 252, 0.2), transparent 32%),
+      #ffffff;
+  }
+
+  .sample-quiz-section::after {
+    content: '';
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    right: -5rem;
+    bottom: -6rem;
+    border: 2rem solid rgba(14, 165, 233, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .sample-quiz-icon {
+    display: grid;
+    width: 5rem;
+    height: 5rem;
+    padding: 0;
+    place-items: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+    box-shadow: 0 10px 24px rgba(56, 189, 248, 0.28);
+  }
+
+  .quiz-list {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .quiz-list-item {
+    display: grid;
+    grid-template-columns: 2.75rem minmax(240px, 1fr) auto;
+    gap: 1.1rem;
+    align-items: center;
+    padding: 1.15rem;
+    background: rgba(248, 250, 252, 0.88);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .quiz-list-item:hover {
+    background: #ffffff;
+    border-color: #7dd3fc;
+    box-shadow: 0 10px 24px -18px rgba(14, 116, 144, 0.6);
+    transform: translateY(-1px);
+  }
+
+  .quiz-list-number {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    color: #0284c7;
+    background: #e0f2fe;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .quiz-list-info {
+    min-width: 0;
+  }
+
+  .quiz-list-heading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.75rem;
+    align-items: center;
+  }
+
+  .quiz-list-info h3 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .quiz-list-info p {
+    margin: 0.35rem 0 0;
+    color: #64748b;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .quiz-meta {
+    display: inline-flex;
+    padding: 0.25rem 0.55rem;
+    color: #475569;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .quiz-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.6rem;
+  }
+
+  .quiz-button {
+    display: inline-flex;
+    min-height: 2.65rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #0ea5e9;
+    border-radius: 10px;
+    font-size: 0.83rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .quiz-button svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
+  .quiz-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .quiz-button-primary {
+    color: #ffffff;
+    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+    box-shadow: 0 8px 18px rgba(14, 165, 233, 0.24);
+  }
+
+  .quiz-button-primary:hover {
+    border-color: #0284c7;
+    box-shadow: 0 12px 24px rgba(14, 165, 233, 0.32);
+  }
+
+  .quiz-button-secondary {
+    color: #0369a1;
+    background: #ffffff;
+  }
+
+  .quiz-button-secondary:hover {
+    color: #075985;
+    background: #f0f9ff;
+  }
+
   /* Subsection Labels */
   .subsection-label {
     font-size: 0.85rem;
@@ -1712,6 +1944,15 @@ const econGraphCategories = [
     .subject-card-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .quiz-list-item {
+      grid-template-columns: 2.75rem minmax(0, 1fr);
+    }
+
+    .quiz-actions {
+      grid-column: 2;
+      justify-content: flex-start;
+    }
   }
 
   @media (max-width: 768px) {
@@ -1744,6 +1985,26 @@ const econGraphCategories = [
 
     .widget-card {
       padding: 1.5rem;
+    }
+
+    .quiz-list-item {
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+      gap: 0.85rem;
+      padding: 1rem;
+    }
+
+    .quiz-list-number {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .quiz-actions {
+      grid-column: 1 / -1;
+      flex-direction: column;
+    }
+
+    .quiz-button {
+      width: 100%;
     }
 
     .widget-examples.econ-category-grid,
