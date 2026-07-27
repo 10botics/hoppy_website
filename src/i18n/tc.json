@@ -149,8 +149,34 @@
     "hubDescription": "查看 Hoppy 為各科提供的學習視覺內容及資源。",
     "exploreSubject": "瀏覽科目",
     "comingSoon": "即將推出",
+    "comingSoonDescription": "我們正在準備此科目的學習資源，敬請期待。",
     "allSubjects": "所有科目",
     "backToSubjects": "← 返回所有科目",
+    "schoolLevelLabel": "學校階段",
+    "primaryTitle": "小學",
+    "primaryDescription": "建立語文、數學、科學及人文科目的穩固基礎。",
+    "secondaryTitle": "中學",
+    "secondaryDescription": "探索適合初中及高中各科的學習資源。",
+    "chinese": {
+      "title": "中國語文",
+      "pageTitle": "中國語文",
+      "description": "培養閱讀、寫作、理解及語文運用能力。"
+    },
+    "english": {
+      "title": "英國語文",
+      "pageTitle": "英國語文",
+      "description": "建立閱讀、寫作、文法、詞彙及溝通能力。"
+    },
+    "science": {
+      "title": "科學",
+      "pageTitle": "科學",
+      "description": "探索生命、物質、能量、地球及科學探究。"
+    },
+    "humanities": {
+      "title": "人文科",
+      "pageTitle": "人文科",
+      "description": "認識人群、社區、文化、歷史及我們身處的世界。"
+    },
     "mathematics": {
       "title": "數學",
       "pageTitle": "數學",
@@ -172,7 +198,7 @@
       "description": "探索清晰易讀的 Python、C++ 及偽代碼編程與運算思維資源。",
       "sampleExercise": {
         "title": "示例練習",
-        "description": "選擇課題，下載可列印試卷或在 Hoppy 應用程式內進行互動練習。",
+        "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
         "downloadPdf": "PDF",
         "openInApp": "在 Hoppy 開啟",
         "quizzes": {
@@ -193,6 +219,11 @@
       "title": "經濟",
       "pageTitle": "經濟",
       "description": "探索本地化的微觀及宏觀經濟學習資源，由市場均衡到福利與政策分析。"
+    },
+    "csd": {
+      "title": "公民與社會發展科",
+      "pageTitle": "公民與社會發展科",
+      "description": "探索當代議題、香港、國家及互聯相依的現代世界。"
     },
     "biology": {
       "title": "生物",
@@ -535,6 +566,62 @@
     },
     "backToHome": "← 返回首頁"
   },
+  "csdPage": {
+    "sampleQuiz": {
+      "title": "示例練習",
+      "description": "選擇語言，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "downloadPdf": "PDF",
+      "openInApp": "在 Hoppy 開啟",
+      "quizzes": {
+        "traditionalChinese": {
+          "title": "國家發展與香港機遇",
+          "description": "有關國家發展及其為香港帶來機遇的繁體中文公民與社會發展科練習。",
+          "meta": "練習 4",
+          "language": "繁體中文"
+        },
+        "english": {
+          "title": "National Development, Diplomacy and Hong Kong Opportunities",
+          "description": "有關國家發展、外交及香港機遇的英文公民與社會發展科練習。",
+          "meta": "練習 1",
+          "language": "English"
+        }
+      }
+    }
+  },
+  "primaryEnglishPage": {
+    "samplePractice": {
+      "title": "示例練習",
+      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "downloadPdf": "PDF",
+      "openInApp": "在 Hoppy 開啟",
+      "practice": {
+        "title": "Feelings and Simple Comparisons",
+        "description": "關於表達感受及作簡單比較的小學英文練習。",
+        "meta": "練習 5",
+        "language": "English"
+      },
+      "practice6": {
+        "title": "Modals, Infinitives and Phrasal Verbs",
+        "description": "涵蓋情態動詞、不定詞及常用短語動詞的小學英文練習。",
+        "meta": "練習 6",
+        "language": "English"
+      }
+    }
+  },
+  "primaryChinesePage": {
+    "samplePractice": {
+      "title": "示例練習",
+      "description": "下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "downloadPdf": "PDF",
+      "openInApp": "在 Hoppy 開啟",
+      "practice": {
+        "title": "複句關聯詞運用",
+        "description": "練習在複句中正確運用關聯詞。",
+        "meta": "練習 1",
+        "language": "繁體中文"
+      }
+    }
+  },
   "physicsPage": {
     "title": "物理",
     "description": "探索 Hoppy 為香港中學文憑考試（HKDSE）物理課程提供的線圖、電路、電場和磁場圖與公式。",
@@ -543,7 +630,7 @@
     "backToHome": "← 返回首頁",
     "sampleQuiz": {
       "title": "示例練習",
-      "description": "選擇課題，下載可列印試卷或在 Hoppy 應用程式內進行互動練習。",
+      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
       "downloadPdf": "PDF",
       "openInApp": "在 Hoppy 開啟",
       "quizzes": {

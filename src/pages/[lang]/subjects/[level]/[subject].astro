@@ -1,0 +1,37 @@
+---
+import SubjectsPage from '../../../../components/SubjectsPage.astro';
+import PhysicsPage from '../../../../components/subjects/PhysicsPage.astro';
+import { languages, type Lang } from '../../../../i18n/ui';
+
+type Level = 'primary' | 'secondary';
+type Subject = 'chinese' | 'english' | 'mathematics' | 'science' | 'humanities' | 'physics' | 'chemistry' | 'ict' | 'economics' | 'csd' | 'biology';
+type StandardSubject = Exclude<Subject, 'physics'>;
+
+export function getStaticPaths() {
+  const subjectsByLevel: Record<Level, Subject[]> = {
+    primary: ['chinese', 'english', 'mathematics', 'science', 'humanities'],
+    secondary: ['chinese', 'english', 'mathematics', 'csd', 'physics', 'chemistry', 'biology', 'ict', 'economics'],
+  };
+
+  return Object.keys(languages).flatMap((lang) =>
+    Object.entries(subjectsByLevel).flatMap(([level, subjects]) =>
+      subjects.map((subject) => ({
+        params: { lang, level, subject },
+        props: { lang: lang as Lang, level: level as Level, subject },
+      })),
+    ),
+  );
+}
+
+interface Props {
+  lang: Lang;
+  level: Level;
+  subject: Subject;
+}
+
+const { lang, level, subject } = Astro.props as Props;
+---
+
+{subject === 'physics'
+  ? <PhysicsPage lang={lang} />
+  : <SubjectsPage lang={lang} level={level} subject={subject as StandardSubject} />}

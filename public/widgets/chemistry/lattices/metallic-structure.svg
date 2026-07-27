@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="284" viewBox="0 0 620 284" role="img" aria-labelledby="title description">
+  <title id="title">Metallic lattice</title>
+  <desc id="description">A regular lattice of positive metal ions surrounded by delocalised electrons labelled e minus.</desc>
+  <defs>
+    <g id="metal-ion">
+      <circle r="19" fill="#bbdefb" stroke="#263746" stroke-width="1.8"/>
+      <text text-anchor="middle" dominant-baseline="central" fill="#263746" font-family="Arial, sans-serif" font-size="17" font-weight="800">+</text>
+    </g>
+    <circle id="electron" r="4.5" fill="#ef6c00"/>
+  </defs>
+
+  <g font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#263746">
+    <use href="#electron" transform="translate(292 28)"/>
+    <text x="307" y="33">e⁻</text>
+    <text x="340" y="33" fill="#64748b" font-size="12" font-weight="600">delocalised electron</text>
+  </g>
+
+  <g>
+    <use href="#metal-ion" transform="translate(170 72)"/>
+    <use href="#metal-ion" transform="translate(240 72)"/>
+    <use href="#metal-ion" transform="translate(310 72)"/>
+    <use href="#metal-ion" transform="translate(380 72)"/>
+    <use href="#metal-ion" transform="translate(450 72)"/>
+    <use href="#metal-ion" transform="translate(170 124)"/>
+    <use href="#metal-ion" transform="translate(240 124)"/>
+    <use href="#metal-ion" transform="translate(310 124)"/>
+    <use href="#metal-ion" transform="translate(380 124)"/>
+    <use href="#metal-ion" transform="translate(450 124)"/>
+    <use href="#metal-ion" transform="translate(170 176)"/>
+    <use href="#metal-ion" transform="translate(240 176)"/>
+    <use href="#metal-ion" transform="translate(310 176)"/>
+    <use href="#metal-ion" transform="translate(380 176)"/>
+    <use href="#metal-ion" transform="translate(450 176)"/>
+    <use href="#metal-ion" transform="translate(170 228)"/>
+    <use href="#metal-ion" transform="translate(240 228)"/>
+    <use href="#metal-ion" transform="translate(310 228)"/>
+    <use href="#metal-ion" transform="translate(380 228)"/>
+    <use href="#metal-ion" transform="translate(450 228)"/>
+  </g>
+
+  <g>
+    <use href="#electron" transform="translate(205 98)"/>
+    <use href="#electron" transform="translate(275 98)"/>
+    <use href="#electron" transform="translate(345 98)"/>
+    <use href="#electron" transform="translate(415 98)"/>
+    <use href="#electron" transform="translate(205 150)"/>
+    <use href="#electron" transform="translate(275 150)"/>
+    <use href="#electron" transform="translate(345 150)"/>
+    <use href="#electron" transform="translate(415 150)"/>
+    <use href="#electron" transform="translate(205 202)"/>
+    <use href="#electron" transform="translate(275 202)"/>
+    <use href="#electron" transform="translate(345 202)"/>
+    <use href="#electron" transform="translate(415 202)"/>
+  </g>
+</svg>

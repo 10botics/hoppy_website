@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="284" viewBox="0 0 620 284" role="img" aria-labelledby="title description">
+  <title id="title">Sodium chloride ionic lattice</title>
+  <desc id="description">Alternating sodium ions labelled Na plus and chloride ions labelled Cl minus in a three-dimensional lattice.</desc>
+  <defs>
+    <g id="sodium">
+      <circle r="19" fill="#e1bee7" stroke="#433843" stroke-width="1.8"/>
+      <text text-anchor="middle" dominant-baseline="central" fill="#302630" font-family="Arial, sans-serif" font-size="13" font-weight="700">Na⁺</text>
+    </g>
+    <g id="chloride">
+      <circle r="19" fill="#c8e6c9" stroke="#384338" stroke-width="1.8"/>
+      <text text-anchor="middle" dominant-baseline="central" fill="#263026" font-family="Arial, sans-serif" font-size="13" font-weight="700">Cl⁻</text>
+    </g>
+  </defs>
+
+  <g fill="none" stroke="#94a3b8" stroke-width="1.5" opacity=".55">
+    <path d="M220 70H430 M220 125H430 M220 180H430 M220 70V180 M290 70V180 M360 70V180 M430 70V180"/>
+    <path d="M188 98H398 M188 153H398 M188 208H398 M188 98V208 M258 98V208 M328 98V208 M398 98V208"/>
+    <path d="M188 98 220 70M258 98 290 70M328 98 360 70M398 98 430 70M188 153 220 125M258 153 290 125M328 153 360 125M398 153 430 125M188 208 220 180M258 208 290 180M328 208 360 180M398 208 430 180"/>
+  </g>
+
+  <g opacity=".82">
+    <use href="#chloride" transform="translate(220 70)"/>
+    <use href="#sodium" transform="translate(290 70)"/>
+    <use href="#chloride" transform="translate(360 70)"/>
+    <use href="#sodium" transform="translate(430 70)"/>
+    <use href="#sodium" transform="translate(220 125)"/>
+    <use href="#chloride" transform="translate(290 125)"/>
+    <use href="#sodium" transform="translate(360 125)"/>
+    <use href="#chloride" transform="translate(430 125)"/>
+    <use href="#chloride" transform="translate(220 180)"/>
+    <use href="#sodium" transform="translate(290 180)"/>
+    <use href="#chloride" transform="translate(360 180)"/>
+    <use href="#sodium" transform="translate(430 180)"/>
+  </g>
+
+  <use href="#sodium" transform="translate(188 98)"/>
+  <use href="#chloride" transform="translate(258 98)"/>
+  <use href="#sodium" transform="translate(328 98)"/>
+  <use href="#chloride" transform="translate(398 98)"/>
+  <use href="#chloride" transform="translate(188 153)"/>
+  <use href="#sodium" transform="translate(258 153)"/>
+  <use href="#chloride" transform="translate(328 153)"/>
+  <use href="#sodium" transform="translate(398 153)"/>
+  <use href="#sodium" transform="translate(188 208)"/>
+  <use href="#chloride" transform="translate(258 208)"/>
+  <use href="#sodium" transform="translate(328 208)"/>
+  <use href="#chloride" transform="translate(398 208)"/>
+</svg>

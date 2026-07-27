@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SubjectNavigation from './subjects/SubjectNavigation.astro';
+import SampleQuizSection from './subjects/SampleQuizSection.astro';
 import { useTranslations, getLocalizedScreenshot, type Lang, defaultLang } from '../i18n/ui';
 
 interface Props {
   lang?: Lang;
-  subject?: 'mathematics' | 'chemistry' | 'ict' | 'economics';
+  level?: 'primary' | 'secondary';
+  subject?: 'chinese' | 'english' | 'mathematics' | 'science' | 'humanities' | 'chemistry' | 'ict' | 'economics' | 'csd' | 'biology';
 }
 
-const { lang: propLang, subject: selectedSubject } = Astro.props as Props;
+const { lang: propLang, level: selectedLevel, subject: selectedSubject } = Astro.props as Props;
 const { lang: paramLang } = Astro.params as { lang?: Lang };
 const lang = (propLang ?? paramLang ?? defaultLang) as Lang;
 const t = useTranslations(lang);
@@ -19,48 +21,165 @@ const langPrefix = `/${lang}`;
 // Helper function to get localized screenshot path
 const screenshot = (path: string) => getLocalizedScreenshot(path, lang);
 
-const subjectGroups = [
+const csdSampleQuizzes = [
   {
-    id: 'mathematics',
-    labelKey: 'subjects.mathematics.title',
-    descriptionKey: 'subjects.mathematics.description',
-    icon: '➗',
+    title: t('csdPage.sampleQuiz.quizzes.traditionalChinese.title'),
+    description: t('csdPage.sampleQuiz.quizzes.traditionalChinese.description'),
+    meta: t('csdPage.sampleQuiz.quizzes.traditionalChinese.meta'),
+    language: t('csdPage.sampleQuiz.quizzes.traditionalChinese.language'),
+    pdfUrl: '/downloads/csd-national-development-hong-kong-opportunities.pdf',
+    appUrl: 'https://app.hoppy.day/q/kfsrde',
   },
   {
-    id: 'physics',
-    labelKey: 'subjects.physics.title',
-    descriptionKey: 'subjects.physics.description',
-    icon: '⚛️',
-  },
-  {
-    id: 'chemistry',
-    labelKey: 'subjects.chemistry.title',
-    descriptionKey: 'subjects.chemistry.description',
-    icon: '🧪',
-  },
-  {
-    id: 'ict',
-    labelKey: 'subjects.ict.title',
-    descriptionKey: 'subjects.ict.description',
-    icon: '💻',
-  },
-  {
-    id: 'economics',
-    labelKey: 'subjects.economics.title',
-    descriptionKey: 'subjects.economics.description',
-    icon: '📈',
-  },
-  {
-    id: 'biology',
-    labelKey: 'subjects.biology.title',
-    descriptionKey: 'subjects.biology.description',
-    icon: '🧬',
-    comingSoon: true,
+    title: t('csdPage.sampleQuiz.quizzes.english.title'),
+    description: t('csdPage.sampleQuiz.quizzes.english.description'),
+    meta: t('csdPage.sampleQuiz.quizzes.english.meta'),
+    language: t('csdPage.sampleQuiz.quizzes.english.language'),
+    pdfUrl: '/downloads/csd-national-development-diplomacy-hong-kong-opportunities-en.pdf',
+    appUrl: 'https://app.hoppy.day/q/jfbmbc',
   },
 ];
 
-const currentSubject = selectedSubject
-  ? subjectGroups.find((subject) => subject.id === selectedSubject)
+const primaryEnglishSamplePractices = [
+  {
+    title: t('primaryEnglishPage.samplePractice.practice.title'),
+    description: t('primaryEnglishPage.samplePractice.practice.description'),
+    meta: t('primaryEnglishPage.samplePractice.practice.meta'),
+    language: t('primaryEnglishPage.samplePractice.practice.language'),
+    pdfUrl: '/downloads/primary-english-feelings-simple-comparisons.pdf',
+    appUrl: 'https://app.hoppy.day/q/tdaktg',
+  },
+  {
+    title: t('primaryEnglishPage.samplePractice.practice6.title'),
+    description: t('primaryEnglishPage.samplePractice.practice6.description'),
+    meta: t('primaryEnglishPage.samplePractice.practice6.meta'),
+    language: t('primaryEnglishPage.samplePractice.practice6.language'),
+    pdfUrl: '/downloads/primary-english-modals-infinitives-phrasal-verbs.pdf',
+    appUrl: 'https://app.hoppy.day/q/zuctk7',
+  },
+];
+
+const primaryChineseSamplePractices = [
+  {
+    title: t('primaryChinesePage.samplePractice.practice.title'),
+    description: t('primaryChinesePage.samplePractice.practice.description'),
+    meta: t('primaryChinesePage.samplePractice.practice.meta'),
+    language: t('primaryChinesePage.samplePractice.practice.language'),
+    pdfUrl: '/downloads/primary-chinese-compound-sentence-connectives.pdf',
+    appUrl: 'https://app.hoppy.day/q/hdzufx',
+  },
+];
+
+const subjectSections = [
+  {
+    id: 'primary',
+    titleKey: 'subjects.primaryTitle',
+    descriptionKey: 'subjects.primaryDescription',
+    subjects: [
+      {
+        id: 'chinese',
+        labelKey: 'subjects.chinese.title',
+        descriptionKey: 'subjects.chinese.description',
+        icon: '文',
+      },
+      {
+        id: 'english',
+        labelKey: 'subjects.english.title',
+        descriptionKey: 'subjects.english.description',
+        icon: 'A',
+      },
+      {
+        id: 'mathematics',
+        labelKey: 'subjects.mathematics.title',
+        descriptionKey: 'subjects.mathematics.description',
+        icon: '➗',
+      },
+      {
+        id: 'science',
+        labelKey: 'subjects.science.title',
+        descriptionKey: 'subjects.science.description',
+        icon: '🔬',
+        comingSoon: true,
+      },
+      {
+        id: 'humanities',
+        labelKey: 'subjects.humanities.title',
+        descriptionKey: 'subjects.humanities.description',
+        icon: '🌏',
+        comingSoon: true,
+      },
+    ],
+  },
+  {
+    id: 'secondary',
+    titleKey: 'subjects.secondaryTitle',
+    descriptionKey: 'subjects.secondaryDescription',
+    subjects: [
+      {
+        id: 'chinese',
+        labelKey: 'subjects.chinese.title',
+        descriptionKey: 'subjects.chinese.description',
+        icon: '文',
+        comingSoon: true,
+      },
+      {
+        id: 'english',
+        labelKey: 'subjects.english.title',
+        descriptionKey: 'subjects.english.description',
+        icon: 'A',
+        comingSoon: true,
+      },
+      {
+        id: 'mathematics',
+        labelKey: 'subjects.mathematics.title',
+        descriptionKey: 'subjects.mathematics.description',
+        icon: '➗',
+      },
+      {
+        id: 'csd',
+        labelKey: 'subjects.csd.title',
+        descriptionKey: 'subjects.csd.description',
+        icon: '🏙️',
+      },
+      {
+        id: 'physics',
+        labelKey: 'subjects.physics.title',
+        descriptionKey: 'subjects.physics.description',
+        icon: '⚛️',
+      },
+      {
+        id: 'chemistry',
+        labelKey: 'subjects.chemistry.title',
+        descriptionKey: 'subjects.chemistry.description',
+        icon: '🧪',
+      },
+      {
+        id: 'biology',
+        labelKey: 'subjects.biology.title',
+        descriptionKey: 'subjects.biology.description',
+        icon: '🧬',
+        comingSoon: true,
+      },
+      {
+        id: 'ict',
+        labelKey: 'subjects.ict.title',
+        descriptionKey: 'subjects.ict.description',
+        icon: '💻',
+      },
+      {
+        id: 'economics',
+        labelKey: 'subjects.economics.title',
+        descriptionKey: 'subjects.economics.description',
+        icon: '📈',
+      },
+    ],
+  },
+];
+
+const subjectGroups = subjectSections.flatMap((section) => section.subjects);
+
+const currentSection = selectedLevel
+  ? subjectSections.find((section) => section.id === selectedLevel)
   : undefined;
 
 const ictSampleExercises = [
@@ -77,6 +196,37 @@ const ictSampleExercises = [
     meta: t('subjects.ict.sampleExercise.quizzes.hardware.meta'),
     pdfUrl: '/downloads/hkdse-ict-09-computer-memory-storage-hardware.pdf',
     appUrl: 'https://app.hoppy.day/q/vzypcr',
+  },
+];
+
+const currentSubject = selectedSubject
+  ? currentSection?.subjects.find((subject) => subject.id === selectedSubject)
+    ?? subjectGroups.find((subject) => subject.id === selectedSubject)
+  : undefined;
+
+const mathematicsWidgetGroups = [
+  {
+    id: 'primary',
+    titleKey: 'subjects.primaryTitle',
+    widgets: [
+      { id: 'analog-clock', titleKey: 'widgets.analogClock.title', icon: '🕐' },
+      { id: 'digital-clock', titleKey: 'widgets.digitalClock.title', icon: '⏰' },
+      { id: 'bar-chart', titleKey: 'widgets.barChart.title', icon: '📊' },
+      { id: 'broken-line-graph', titleKey: 'widgets.brokenLineGraph.title', icon: '📉' },
+      { id: 'shape-3d', titleKey: 'widgets.shape3d.title', icon: '🔷' },
+    ],
+  },
+  {
+    id: 'secondary',
+    titleKey: 'subjects.secondaryTitle',
+    widgets: [
+      { id: 'bar-chart', titleKey: 'widgets.barChart.title', icon: '📊' },
+      { id: 'stacked-bar-chart', titleKey: 'widgets.stackedBarChart.title', icon: '📊' },
+      { id: 'broken-line-graph', titleKey: 'widgets.brokenLineGraph.title', icon: '📉' },
+      { id: 'box-whisker', titleKey: 'widgets.boxWhisker.title', icon: '📈' },
+      { id: 'equation-graph', titleKey: 'widgets.equationGraph.title', icon: '📐' },
+      { id: 'shape-3d', titleKey: 'widgets.shape3d.title', icon: '🔷' },
+    ],
   },
 ];
 
@@ -129,7 +279,6 @@ const chemistryVariationCategoryData = [
       { src: '/widgets/chemistry/dot-cross/hydrogen.png', labelKey: 'widgets.chemistryGallery.cards.hydrogen' },
       { src: '/widgets/chemistry/dot-cross/hydrogen-chloride.png', labelKey: 'widgets.chemistryGallery.cards.hydrogenChloride' },
       { src: '/widgets/chemistry/dot-cross/water.png', labelKey: 'widgets.chemistryGallery.cards.water' },
-      { src: '/widgets/chemistry/dot-cross/ammonia.png', labelKey: 'widgets.chemistryGallery.cards.ammonia' },
       { src: '/widgets/chemistry/dot-cross/methane.png', labelKey: 'widgets.chemistryGallery.cards.methane' },
       { src: '/widgets/chemistry/dot-cross/oxygen.png', labelKey: 'widgets.chemistryGallery.cards.oxygen' },
       { src: '/widgets/chemistry/dot-cross/nitrogen.png', labelKey: 'widgets.chemistryGallery.cards.nitrogen' },
@@ -172,9 +321,9 @@ const chemistryVariationCategoryData = [
     titleKey: 'widgets.chemistryGallery.lattices.title',
     descriptionKey: 'widgets.chemistryGallery.lattices.description',
     cards: [
-      { src: '/widgets/chemistry/lattices/sodium-chloride-lattice.png', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideLattice' },
+      { src: '/widgets/chemistry/lattices/sodium-chloride-lattice.svg', labelKey: 'widgets.chemistryGallery.cards.sodiumChlorideLattice' },
       { src: '/widgets/chemistry/lattices/graphite.png', labelKey: 'widgets.chemistryGallery.cards.graphite' },
-      { src: '/widgets/chemistry/lattices/metallic-structure.png', labelKey: 'widgets.chemistryGallery.cards.metallicStructure' },
+      { src: '/widgets/chemistry/lattices/metallic-structure.svg', labelKey: 'widgets.chemistryGallery.cards.metallicStructure' },
     ],
   },
   {
@@ -523,41 +672,62 @@ const econGraphCategories = [
     </section>
 
     {selectedSubject ? (
-      <SubjectNavigation lang={lang} currentSubject={selectedSubject} />
+      <SubjectNavigation lang={lang} level={selectedLevel ?? 'secondary'} currentSubject={selectedSubject} />
     ) : (
       <section class="subject-hub" aria-labelledby="subject-hub-title">
         <h2 id="subject-hub-title" class="visually-hidden">{t('subjects.hubTitle')}</h2>
-        <div class="subject-card-grid">
-          {subjectGroups.map((subject) => subject.comingSoon ? (
-            <article class="subject-card subject-card--coming-soon">
-              <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
-                <span class="subject-icon">{subject.icon}</span>
-              </div>
-              <div class="subject-card-copy">
-                <h3>{t(subject.labelKey)}</h3>
-                <p>{t(subject.descriptionKey)}</p>
-                <span class="subject-status">{t('subjects.comingSoon')}</span>
-              </div>
-            </article>
-          ) : (
-            <a class="subject-card" href={`${langPrefix}/subjects/${subject.id}`}>
-              <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
-                <span class="subject-icon">{subject.icon}</span>
-              </div>
-              <div class="subject-card-copy">
-                <h3>{t(subject.labelKey)}</h3>
-                <p>{t(subject.descriptionKey)}</p>
-                <span>{t('subjects.exploreSubject')} <span aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          ))}
-        </div>
+        {subjectSections.map((section) => (
+          <section class="school-level-section" aria-labelledby={`${section.id}-subjects-title`}>
+            <div class="school-level-heading">
+              <span class="school-level-kicker">{t('subjects.schoolLevelLabel')}</span>
+              <h2 id={`${section.id}-subjects-title`}>{t(section.titleKey)}</h2>
+              <p>{t(section.descriptionKey)}</p>
+            </div>
+            <div class="subject-card-grid">
+              {section.subjects.map((subject) => subject.comingSoon ? (
+                <a class="subject-card subject-card--coming-soon" href={`${langPrefix}/subjects/${section.id}/${subject.id}`}>
+                  <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
+                    <span class="subject-icon">{subject.icon}</span>
+                  </div>
+                  <div class="subject-card-copy">
+                    <h3>{t(subject.labelKey)}</h3>
+                    <p>{t(subject.descriptionKey)}</p>
+                    <span class="subject-status">{t('subjects.comingSoon')}</span>
+                  </div>
+                </a>
+              ) : (
+                <a class="subject-card" href={`${langPrefix}/subjects/${section.id}/${subject.id}`}>
+                  <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
+                    <span class="subject-icon">{subject.icon}</span>
+                  </div>
+                  <div class="subject-card-copy">
+                    <h3>{t(subject.labelKey)}</h3>
+                    <p>{t(subject.descriptionKey)}</p>
+                    <span>{t('subjects.exploreSubject')} <span aria-hidden="true">→</span></span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
       </section>
     )}
 
     <!-- Widgets Gallery -->
     {selectedSubject && (
     <section class="widgets-gallery">
+
+      {currentSubject?.comingSoon && (
+        <section class="subject-coming-soon" aria-labelledby="coming-soon-title">
+          <div class={`subject-card-visual subject-card-visual--${currentSubject.id}`} aria-hidden="true">
+            <span class="subject-icon">{currentSubject.icon}</span>
+          </div>
+          <span class="subject-heading-kicker">{t('subjects.comingSoon')}</span>
+          <h2 id="coming-soon-title">{t(currentSubject.labelKey)}</h2>
+          <p>{t(currentSubject.descriptionKey)}</p>
+          <p class="coming-soon-message">{t('subjects.comingSoonDescription')}</p>
+        </section>
+      )}
 
       {selectedSubject === 'mathematics' && (<>
       <div class="subject-heading" id="mathematics">
@@ -566,8 +736,28 @@ const econGraphCategories = [
         <p>{t('subjects.mathematics.description')}</p>
       </div>
 
+      <div class="mathematics-level-groups">
+        {mathematicsWidgetGroups
+          .filter((group) => !selectedLevel || group.id === selectedLevel)
+          .map((group) => (
+          <section class={`mathematics-level-group mathematics-level-group--${group.id}`}>
+            <span class="school-level-kicker">{t('subjects.schoolLevelLabel')}</span>
+            <h2>{t(group.titleKey)}</h2>
+            <div class="mathematics-widget-links">
+              {group.widgets.map((widget) => (
+                <a href={`#math-${widget.id}`}>
+                  <span aria-hidden="true">{widget.icon}</span>
+                  {t(widget.titleKey)}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
       <!-- Analog Clock -->
-      <div class="widget-section">
+      {selectedLevel !== 'secondary' && (
+      <div class="widget-section" id="math-analog-clock">
         <div class="widget-header">
           <div class="widget-icon">🕐</div>
           <div class="widget-info">
@@ -600,9 +790,11 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      )}
 
       <!-- Digital Clock -->
-      <div class="widget-section">
+      {selectedLevel !== 'secondary' && (
+      <div class="widget-section" id="math-digital-clock">
         <div class="widget-header">
           <div class="widget-icon">⏰</div>
           <div class="widget-info">
@@ -632,9 +824,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      )}
 
       <!-- Bar Chart -->
-      <div class="widget-section">
+      <div class="widget-section" id="math-bar-chart">
         <div class="widget-header">
           <div class="widget-icon">📊</div>
           <div class="widget-info">
@@ -662,7 +855,8 @@ const econGraphCategories = [
       </div>
 
       <!-- Stacked Bar Chart -->
-      <div class="widget-section">
+      {selectedLevel !== 'primary' && (
+      <div class="widget-section" id="math-stacked-bar-chart">
         <div class="widget-header">
           <div class="widget-icon">📊</div>
           <div class="widget-info">
@@ -691,9 +885,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      )}
 
       <!-- Broken Line Graph -->
-      <div class="widget-section">
+      <div class="widget-section" id="math-broken-line-graph">
         <div class="widget-header">
           <div class="widget-icon">📉</div>
           <div class="widget-info">
@@ -728,7 +923,8 @@ const econGraphCategories = [
       </div>
 
       <!-- Box Whisker Plot -->
-      <div class="widget-section">
+      {selectedLevel !== 'primary' && (
+      <div class="widget-section" id="math-box-whisker">
         <div class="widget-header">
           <div class="widget-icon">📈</div>
           <div class="widget-info">
@@ -754,9 +950,11 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      )}
 
       <!-- Equation Graph -->
-      <div class="widget-section">
+      {selectedLevel !== 'primary' && (
+      <div class="widget-section" id="math-equation-graph">
         <div class="widget-header">
           <div class="widget-icon">📐</div>
           <div class="widget-info">
@@ -796,9 +994,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      )}
 
       <!-- 3D Shapes -->
-      <div class="widget-section">
+      <div class="widget-section" id="math-shape-3d">
         <div class="widget-header">
           <div class="widget-icon">🔷</div>
           <div class="widget-info">
@@ -854,6 +1053,36 @@ const econGraphCategories = [
       </div>
 
       </>)}
+
+      {selectedSubject === 'csd' && (
+        <SampleQuizSection
+          title={t('csdPage.sampleQuiz.title')}
+          description={t('csdPage.sampleQuiz.description')}
+          downloadLabel={t('csdPage.sampleQuiz.downloadPdf')}
+          openInAppLabel={t('csdPage.sampleQuiz.openInApp')}
+          quizzes={csdSampleQuizzes}
+        />
+      )}
+
+      {selectedSubject === 'english' && selectedLevel === 'primary' && (
+        <SampleQuizSection
+          title={t('primaryEnglishPage.samplePractice.title')}
+          description={t('primaryEnglishPage.samplePractice.description')}
+          downloadLabel={t('primaryEnglishPage.samplePractice.downloadPdf')}
+          openInAppLabel={t('primaryEnglishPage.samplePractice.openInApp')}
+          quizzes={primaryEnglishSamplePractices}
+        />
+      )}
+
+      {selectedSubject === 'chinese' && selectedLevel === 'primary' && (
+        <SampleQuizSection
+          title={t('primaryChinesePage.samplePractice.title')}
+          description={t('primaryChinesePage.samplePractice.description')}
+          downloadLabel={t('primaryChinesePage.samplePractice.downloadPdf')}
+          openInAppLabel={t('primaryChinesePage.samplePractice.openInApp')}
+          quizzes={primaryChineseSamplePractices}
+        />
+      )}
 
       {selectedSubject === 'physics' && (<>
       <div class="subject-heading" id="physics">
@@ -1218,6 +1447,37 @@ const econGraphCategories = [
     border: 0;
   }
 
+  .school-level-section + .school-level-section {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid #dbeafe;
+  }
+
+  .school-level-heading {
+    max-width: 760px;
+    margin-bottom: 1.25rem;
+  }
+
+  .school-level-kicker {
+    color: #0284c7;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .school-level-heading h2 {
+    margin: 0.2rem 0 0.35rem;
+    color: #0f172a;
+    font-size: clamp(1.6rem, 3vw, 2.15rem);
+  }
+
+  .school-level-heading p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.6;
+  }
+
   .subject-card-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1253,12 +1513,6 @@ const econGraphCategories = [
     box-shadow: none;
   }
 
-  .subject-card--coming-soon:hover {
-    border-color: #e2e8f0;
-    box-shadow: none;
-    transform: none;
-  }
-
   .subject-card-image {
     display: flex;
     align-items: center;
@@ -1283,6 +1537,22 @@ const econGraphCategories = [
     background: linear-gradient(135deg, #e0f2fe 0%, #eef2ff 100%);
   }
 
+  .subject-card-visual--chinese {
+    background: linear-gradient(135deg, #fee2e2 0%, #fff7ed 100%);
+  }
+
+  .subject-card-visual--english {
+    background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%);
+  }
+
+  .subject-card-visual--science {
+    background: linear-gradient(135deg, #dcfce7 0%, #cffafe 100%);
+  }
+
+  .subject-card-visual--humanities {
+    background: linear-gradient(135deg, #fef3c7 0%, #ffedd5 100%);
+  }
+
   .subject-card-visual--physics {
     background: linear-gradient(135deg, #ede9fe 0%, #e0f2fe 100%);
   }
@@ -1297,6 +1567,10 @@ const econGraphCategories = [
 
   .subject-card-visual--economics {
     background: linear-gradient(135deg, #fef3c7 0%, #ecfccb 100%);
+  }
+
+  .subject-card-visual--csd {
+    background: linear-gradient(135deg, #ffedd5 0%, #e0f2fe 100%);
   }
 
   .subject-card-visual--biology {
@@ -1333,6 +1607,107 @@ const econGraphCategories = [
 
   .subject-card-copy .subject-status {
     color: #64748b;
+  }
+
+  .subject-coming-soon {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #ffffff;
+    border: 1px dashed #94a3b8;
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  }
+
+  .subject-coming-soon .subject-card-visual {
+    display: grid;
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto 1.5rem;
+    place-items: center;
+    border-radius: 24px;
+  }
+
+  .subject-coming-soon .subject-icon {
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .subject-coming-soon h2 {
+    margin: 0.35rem 0 0.75rem;
+    color: #0f172a;
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .subject-coming-soon p {
+    max-width: 580px;
+    margin: 0 auto;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  .subject-coming-soon .coming-soon-message {
+    margin-top: 1rem;
+    color: #0284c7;
+    font-weight: 700;
+  }
+
+  .mathematics-level-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .mathematics-level-group {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 20px;
+  }
+
+  .mathematics-level-group--secondary {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+    border-color: #ddd6fe;
+  }
+
+  .mathematics-level-group h2 {
+    margin: 0.25rem 0 1rem;
+    color: #0f172a;
+    font-size: 1.5rem;
+  }
+
+  .mathematics-widget-links {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .mathematics-widget-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.75rem 0.9rem;
+    color: #0f4c6e;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .mathematics-widget-links a:hover,
+  .mathematics-widget-links a:focus-visible {
+    border-color: #38bdf8;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  .widget-section[id^='math-'] {
+    scroll-margin-top: 100px;
   }
 
   /* Widgets Gallery */
@@ -1960,6 +2335,10 @@ const econGraphCategories = [
 
     .subject-card {
       grid-template-rows: 140px minmax(0, 1fr);
+    }
+
+    .mathematics-level-groups {
+      grid-template-columns: 1fr;
     }
 
     .subject-heading {

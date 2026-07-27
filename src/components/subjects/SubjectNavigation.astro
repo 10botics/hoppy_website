@@ -3,13 +3,16 @@ import { useTranslations, type Lang } from '../../i18n/ui';
 
 interface Props {
   lang: Lang;
+  level: 'primary' | 'secondary';
   currentSubject?: string;
 }
 
-const { lang, currentSubject } = Astro.props as Props;
+const { lang, level, currentSubject } = Astro.props as Props;
 const t = useTranslations(lang);
 const langPrefix = `/${lang}`;
-const subjects = ['mathematics', 'physics', 'chemistry', 'ict', 'economics'];
+const subjects = level === 'primary'
+  ? ['chinese', 'english', 'mathematics', 'science', 'humanities']
+  : ['chinese', 'english', 'mathematics', 'csd', 'physics', 'chemistry', 'biology', 'ict', 'economics'];
 ---
 
 <nav class="subject-index" aria-label={t('subjects.navigationLabel')}>
@@ -20,7 +23,7 @@ const subjects = ['mathematics', 'physics', 'chemistry', 'ict', 'economics'];
     <div class="subject-index-links">
       {subjects.map((subject) => (
         <a
-          href={`${langPrefix}/subjects/${subject}`}
+          href={`${langPrefix}/subjects/${level}/${subject}`}
           aria-current={subject === currentSubject ? 'page' : undefined}
         >
           {t(`subjects.${subject}.title`)}

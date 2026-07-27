@@ -149,8 +149,34 @@
     "hubDescription": "See the learning visuals and resources Hoppy provides for each subject.",
     "exploreSubject": "Explore subject",
     "comingSoon": "Coming soon",
+    "comingSoonDescription": "We are preparing learning resources for this subject. Please check back soon.",
     "allSubjects": "All subjects",
     "backToSubjects": "← Back to all subjects",
+    "schoolLevelLabel": "School level",
+    "primaryTitle": "Primary School",
+    "primaryDescription": "Build strong foundations across languages, mathematics, science, and humanities.",
+    "secondaryTitle": "Secondary School",
+    "secondaryDescription": "Explore subject-specific resources for junior and senior secondary learning.",
+    "chinese": {
+      "title": "Chinese Language",
+      "pageTitle": "Chinese Language",
+      "description": "Develop reading, writing, comprehension, and language skills."
+    },
+    "english": {
+      "title": "English Language",
+      "pageTitle": "English Language",
+      "description": "Build reading, writing, grammar, vocabulary, and communication skills."
+    },
+    "science": {
+      "title": "Science",
+      "pageTitle": "Science",
+      "description": "Explore living things, matter, energy, Earth, and the scientific process."
+    },
+    "humanities": {
+      "title": "Humanities",
+      "pageTitle": "Humanities",
+      "description": "Learn about people, communities, culture, history, and the world around us."
+    },
     "mathematics": {
       "title": "Mathematics",
       "pageTitle": "Mathematics",
@@ -193,6 +219,11 @@
       "title": "Economics",
       "pageTitle": "Economics",
       "description": "Explore localized microeconomics and macroeconomics resources, from market equilibrium to welfare and policy analysis."
+    },
+    "csd": {
+      "title": "Citizenship and Social Development",
+      "pageTitle": "Citizenship and Social Development",
+      "description": "Explore contemporary issues, Hong Kong, the nation, and the interconnected modern world."
     },
     "biology": {
       "title": "Biology",
@@ -534,6 +565,62 @@
       "description": "Interactive 3D shapes with perspective projection and labeled vertices"
     },
     "backToHome": "← Back to Home"
+  },
+  "csdPage": {
+    "sampleQuiz": {
+      "title": "Sample Practices",
+      "description": "Choose a language, download the printable practice, or practise interactively in the Hoppy app.",
+      "downloadPdf": "PDF",
+      "openInApp": "Open in Hoppy",
+      "quizzes": {
+        "traditionalChinese": {
+          "title": "國家發展與香港機遇",
+          "description": "Traditional Chinese practice about national development and the opportunities it creates for Hong Kong.",
+          "meta": "Practice 4",
+          "language": "Traditional Chinese"
+        },
+        "english": {
+          "title": "National Development, Diplomacy and Hong Kong Opportunities",
+          "description": "English practice about national development, diplomacy, and opportunities for Hong Kong.",
+          "meta": "Practice 1",
+          "language": "English"
+        }
+      }
+    }
+  },
+  "primaryEnglishPage": {
+    "samplePractice": {
+      "title": "Sample Practices",
+      "description": "Choose a topic, download the printable practice, or practise interactively in the Hoppy app.",
+      "downloadPdf": "PDF",
+      "openInApp": "Open in Hoppy",
+      "practice": {
+        "title": "Feelings and Simple Comparisons",
+        "description": "Primary English practice about describing feelings and making simple comparisons.",
+        "meta": "Practice 5",
+        "language": "English"
+      },
+      "practice6": {
+        "title": "Modals, Infinitives and Phrasal Verbs",
+        "description": "Primary English practice covering modal verbs, infinitives, and common phrasal verbs.",
+        "meta": "Practice 6",
+        "language": "English"
+      }
+    }
+  },
+  "primaryChinesePage": {
+    "samplePractice": {
+      "title": "Sample Practice",
+      "description": "Download the printable practice or practise interactively in the Hoppy app.",
+      "downloadPdf": "PDF",
+      "openInApp": "Open in Hoppy",
+      "practice": {
+        "title": "複句關聯詞運用",
+        "description": "Primary Chinese practice on using connectives correctly in compound sentences.",
+        "meta": "Practice 1",
+        "language": "Traditional Chinese"
+      }
+    }
   },
   "physicsPage": {
     "title": "Physics",
