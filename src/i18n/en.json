@@ -691,6 +691,26 @@
       }
     }
   },
+  "biologyPage": {
+    "samplePractice": {
+      "title": "Sample Practices",
+      "description": "Choose a topic, download the printable practice, or practise interactively in the Hoppy app.",
+      "downloadPdf": "PDF",
+      "openInApp": "Open in Hoppy",
+      "practice39": {
+        "title": "Molecular Genetics and Inheritance",
+        "description": "Secondary Biology practice covering molecular genetics and inheritance.",
+        "meta": "Practice 39",
+        "language": "English"
+      },
+      "practice43": {
+        "title": "Nervous Coordination, Senses and Homeostasis",
+        "description": "Secondary Biology practice covering nervous coordination, the senses, and homeostasis.",
+        "meta": "Practice 43",
+        "language": "English"
+      }
+    }
+  },
   "physicsPage": {
     "title": "Physics",
     "description": "Explore the graphs, circuits, electric and magnetic field diagrams, and formulas Hoppy provides for the HKDSE Physics curriculum.",

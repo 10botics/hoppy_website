@@ -691,6 +691,26 @@
       }
     }
   },
+  "biologyPage": {
+    "samplePractice": {
+      "title": "示例練習",
+      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "downloadPdf": "PDF",
+      "openInApp": "在 Hoppy 開啟",
+      "practice39": {
+        "title": "Molecular Genetics and Inheritance",
+        "description": "涵蓋分子遺傳學及遺傳的中學生物科英文練習。",
+        "meta": "練習 39",
+        "language": "English"
+      },
+      "practice43": {
+        "title": "Nervous Coordination, Senses and Homeostasis",
+        "description": "涵蓋神經協調、感覺及體內平衡的中學生物科英文練習。",
+        "meta": "練習 43",
+        "language": "English"
+      }
+    }
+  },
   "physicsPage": {
     "title": "物理",
     "description": "探索 Hoppy 為香港中學文憑考試（HKDSE）物理課程提供的線圖、電路、電場和磁場圖與公式。",

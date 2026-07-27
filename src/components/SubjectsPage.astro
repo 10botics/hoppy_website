@@ -116,6 +116,25 @@ const primaryGeneralStudiesSamplePractices = [
   },
 ];
 
+const secondaryBiologySamplePractices = [
+  {
+    title: t('biologyPage.samplePractice.practice39.title'),
+    description: t('biologyPage.samplePractice.practice39.description'),
+    meta: t('biologyPage.samplePractice.practice39.meta'),
+    language: t('biologyPage.samplePractice.practice39.language'),
+    pdfUrl: '/downloads/secondary-biology-molecular-genetics-inheritance.pdf',
+    appUrl: 'https://app.hoppy.day/q/aexjte',
+  },
+  {
+    title: t('biologyPage.samplePractice.practice43.title'),
+    description: t('biologyPage.samplePractice.practice43.description'),
+    meta: t('biologyPage.samplePractice.practice43.meta'),
+    language: t('biologyPage.samplePractice.practice43.language'),
+    pdfUrl: '/downloads/secondary-biology-nervous-coordination-homeostasis.pdf',
+    appUrl: 'https://app.hoppy.day/q/qfyyvp',
+  },
+];
+
 const subjectSections = [
   {
     id: 'primary',
@@ -210,7 +229,6 @@ const subjectSections = [
         labelKey: 'subjects.biology.title',
         descriptionKey: 'subjects.biology.description',
         icon: '🧬',
-        comingSoon: true,
       },
       {
         id: 'ict',
@@ -1168,6 +1186,16 @@ const econGraphCategories = [
           downloadLabel={t('csdPage.sampleQuiz.downloadPdf')}
           openInAppLabel={t('csdPage.sampleQuiz.openInApp')}
           quizzes={csdSampleQuizzes}
+        />
+      )}
+
+      {selectedSubject === 'biology' && selectedLevel === 'secondary' && (
+        <SampleQuizSection
+          title={t('biologyPage.samplePractice.title')}
+          description={t('biologyPage.samplePractice.description')}
+          downloadLabel={t('biologyPage.samplePractice.downloadPdf')}
+          openInAppLabel={t('biologyPage.samplePractice.openInApp')}
+          quizzes={secondaryBiologySamplePractices}
         />
       )}
 
