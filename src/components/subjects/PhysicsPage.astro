@@ -13,28 +13,30 @@ const lang = (propLang ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 
 const langPrefix = `/${lang}`;
-// Replace these placeholder links when the final sample quizzes are published.
 const sampleQuizzes = [
   {
-    title: t('physicsPage.sampleQuiz.quizzes.mechanics.title'),
-    description: t('physicsPage.sampleQuiz.quizzes.mechanics.description'),
-    meta: t('physicsPage.sampleQuiz.quizzes.mechanics.meta'),
-    pdfUrl: '/downloads/hkdse-physics-sample-quiz.pdf',
-    appUrl: 'https://app.hoppy.day/q/physics-mechanics-sample',
+    title: t('physicsPage.sampleQuiz.quizzes.momentsEnergyMotion.title'),
+    description: t('physicsPage.sampleQuiz.quizzes.momentsEnergyMotion.description'),
+    meta: t('physicsPage.sampleQuiz.quizzes.momentsEnergyMotion.meta'),
+    language: t('physicsPage.sampleQuiz.quizzes.momentsEnergyMotion.language'),
+    pdfUrl: '/downloads/hkdse-physics-moments-energy-accelerated-motion.pdf',
+    appUrl: 'https://app.hoppy.day/q/jrwmfp',
   },
   {
-    title: t('physicsPage.sampleQuiz.quizzes.electricity.title'),
-    description: t('physicsPage.sampleQuiz.quizzes.electricity.description'),
-    meta: t('physicsPage.sampleQuiz.quizzes.electricity.meta'),
-    pdfUrl: '/downloads/hkdse-physics-sample-quiz.pdf',
-    appUrl: 'https://app.hoppy.day/q/physics-electricity-sample',
+    title: t('physicsPage.sampleQuiz.quizzes.momentumProjectiles.title'),
+    description: t('physicsPage.sampleQuiz.quizzes.momentumProjectiles.description'),
+    meta: t('physicsPage.sampleQuiz.quizzes.momentumProjectiles.meta'),
+    language: t('physicsPage.sampleQuiz.quizzes.momentumProjectiles.language'),
+    pdfUrl: '/downloads/hkdse-physics-momentum-projectiles-gravitation-circular-motion.pdf',
+    appUrl: 'https://app.hoppy.day/q/xssntd',
   },
   {
-    title: t('physicsPage.sampleQuiz.quizzes.waves.title'),
-    description: t('physicsPage.sampleQuiz.quizzes.waves.description'),
-    meta: t('physicsPage.sampleQuiz.quizzes.waves.meta'),
-    pdfUrl: '/downloads/hkdse-physics-sample-quiz.pdf',
-    appUrl: 'https://app.hoppy.day/q/physics-waves-sample',
+    title: t('physicsPage.sampleQuiz.quizzes.heatKineticTheory.title'),
+    description: t('physicsPage.sampleQuiz.quizzes.heatKineticTheory.description'),
+    meta: t('physicsPage.sampleQuiz.quizzes.heatKineticTheory.meta'),
+    language: t('physicsPage.sampleQuiz.quizzes.heatKineticTheory.language'),
+    pdfUrl: '/downloads/hkdse-physics-heat-temperature-kinetic-theory.pdf',
+    appUrl: 'https://app.hoppy.day/q/t4kkwr',
   },
 ];
 ---

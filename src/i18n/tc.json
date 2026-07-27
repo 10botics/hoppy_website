@@ -703,20 +703,23 @@
       "downloadPdf": "PDF",
       "openInApp": "在 Hoppy 開啟",
       "quizzes": {
-        "mechanics": {
-          "title": "力學：運動與力",
-          "description": "運動線圖、牛頓定律、動量、功、能量及功率。",
-          "meta": "12 題"
+        "momentsEnergyMotion": {
+          "title": "力矩、能量與加速運動",
+          "description": "練習力矩、機械能、功率及勻加速運動。",
+          "meta": "10 題",
+          "language": "英文"
         },
-        "electricity": {
-          "title": "電學與電路",
-          "description": "電流、電壓、電阻、串聯電路及並聯電路。",
-          "meta": "10 題"
+        "momentumProjectiles": {
+          "title": "動量、拋體、萬有引力與圓周運動",
+          "description": "練習動量、拋體運動、重力場、衛星軌道及圓周運動。",
+          "meta": "10 題",
+          "language": "英文"
         },
-        "waves": {
-          "title": "波動與光學",
-          "description": "波的特性、反射、折射、透鏡及電磁波譜。",
-          "meta": "10 題"
+        "heatKineticTheory": {
+          "title": "熱、溫度與氣體分子運動論",
+          "description": "練習溫標、熱容量、理想氣體、氣體分子運動論及物態變化。",
+          "meta": "10 題",
+          "language": "英文"
         }
       }
     },

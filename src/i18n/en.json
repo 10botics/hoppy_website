@@ -703,20 +703,23 @@
       "downloadPdf": "PDF",
       "openInApp": "Open in Hoppy",
       "quizzes": {
-        "mechanics": {
-          "title": "Mechanics: Motion and Forces",
-          "description": "Motion graphs, Newton's laws, momentum, work, energy, and power.",
-          "meta": "12 questions"
+        "momentsEnergyMotion": {
+          "title": "Moments, Energy and Accelerated Motion",
+          "description": "Practise moments, mechanical energy, power, and uniformly accelerated motion.",
+          "meta": "10 questions",
+          "language": "English"
         },
-        "electricity": {
-          "title": "Electricity and Circuits",
-          "description": "Current, voltage, resistance, series circuits, and parallel circuits.",
-          "meta": "10 questions"
+        "momentumProjectiles": {
+          "title": "Momentum, Projectiles, Gravitation and Circular Motion",
+          "description": "Practise momentum, projectile motion, gravitational fields, satellite orbits, and circular motion.",
+          "meta": "10 questions",
+          "language": "English"
         },
-        "waves": {
-          "title": "Waves and Optics",
-          "description": "Wave properties, reflection, refraction, lenses, and the electromagnetic spectrum.",
-          "meta": "10 questions"
+        "heatKineticTheory": {
+          "title": "Heat, Temperature and Kinetic Theory",
+          "description": "Practise temperature scales, heat capacity, ideal gases, kinetic theory, and changes of state.",
+          "meta": "10 questions",
+          "language": "English"
         }
       }
     },
