@@ -197,12 +197,14 @@
           "straightLines": {
             "title": "Equations of Straight Lines",
             "description": "Practise equations of straight lines in coordinate geometry.",
-            "meta": "10 questions"
+            "meta": "10 questions",
+            "language": "English"
           },
           "probability": {
             "title": "Laws of Probability and Conditional Events",
             "description": "Practise the laws of probability and conditional events.",
-            "meta": "10 questions"
+            "meta": "10 questions",
+            "language": "English"
           }
         }
       }
@@ -230,12 +232,14 @@
           "programming": {
             "title": "Programming Fundamentals & Python",
             "description": "Variables, constants, control structures, algorithms, and Python applications.",
-            "meta": "7 questions · English"
+            "meta": "7 questions",
+            "language": "English"
           },
           "hardware": {
             "title": "Computer Memory, Storage & Hardware",
             "description": "Memory, storage devices, processor architecture, and hardware components.",
-            "meta": "10 questions · English"
+            "meta": "10 questions",
+            "language": "English"
           }
         }
       }
@@ -699,15 +703,15 @@
       "description": "Choose a topic, open the printable practice, or practise interactively in the Hoppy app.",
       "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
-      "practice39": {
-        "title": "Molecular Genetics and Inheritance",
-        "description": "Secondary Biology practice covering molecular genetics and inheritance.",
+      "practice50": {
+        "title": "Body Systems, Growth and Diet",
+        "description": "Secondary Biology practice covering body systems, growth and diet.",
         "meta": "10 questions",
         "language": "English"
       },
-      "practice43": {
-        "title": "Nervous Coordination, Senses and Homeostasis",
-        "description": "Secondary Biology practice covering nervous coordination, the senses, and homeostasis.",
+      "practice59": {
+        "title": "Natural Selection, Speciation and Classification",
+        "description": "Secondary Biology practice covering natural selection, speciation and classification.",
         "meta": "10 questions",
         "language": "English"
       }

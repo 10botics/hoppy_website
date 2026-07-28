@@ -118,20 +118,20 @@ const primaryGeneralStudiesSamplePractices = [
 
 const secondaryBiologySamplePractices = [
   {
-    title: t('biologyPage.samplePractice.practice39.title'),
-    description: t('biologyPage.samplePractice.practice39.description'),
-    meta: t('biologyPage.samplePractice.practice39.meta'),
-    language: t('biologyPage.samplePractice.practice39.language'),
-    pdfUrl: '/downloads/secondary-biology-molecular-genetics-inheritance.pdf',
-    appUrl: 'https://app.hoppy.day/q/aexjte',
+    title: t('biologyPage.samplePractice.practice50.title'),
+    description: t('biologyPage.samplePractice.practice50.description'),
+    meta: t('biologyPage.samplePractice.practice50.meta'),
+    language: t('biologyPage.samplePractice.practice50.language'),
+    pdfUrl: '/downloads/secondary-biology-body-systems-growth-diet.pdf',
+    appUrl: 'https://app.hoppy.day/q/zzwdkx',
   },
   {
-    title: t('biologyPage.samplePractice.practice43.title'),
-    description: t('biologyPage.samplePractice.practice43.description'),
-    meta: t('biologyPage.samplePractice.practice43.meta'),
-    language: t('biologyPage.samplePractice.practice43.language'),
-    pdfUrl: '/downloads/secondary-biology-nervous-coordination-homeostasis.pdf',
-    appUrl: 'https://app.hoppy.day/q/qfyyvp',
+    title: t('biologyPage.samplePractice.practice59.title'),
+    description: t('biologyPage.samplePractice.practice59.description'),
+    meta: t('biologyPage.samplePractice.practice59.meta'),
+    language: t('biologyPage.samplePractice.practice59.language'),
+    pdfUrl: '/downloads/secondary-biology-natural-selection-speciation-classification.pdf',
+    appUrl: 'https://app.hoppy.day/q/pbbfqc',
   },
 ];
 
@@ -257,6 +257,7 @@ const mathematicsGoldQuizzes = [
     title: t('subjects.mathematics.goldQuiz.quizzes.straightLines.title'),
     description: t('subjects.mathematics.goldQuiz.quizzes.straightLines.description'),
     meta: t('subjects.mathematics.goldQuiz.quizzes.straightLines.meta'),
+    language: t('subjects.mathematics.goldQuiz.quizzes.straightLines.language'),
     pdfUrl: lang === 'tc'
       ? '/downloads/hkdse-mathematics-25-straight-line-equations-tc.pdf'
       : '/downloads/hkdse-mathematics-24-equations-of-straight-lines.pdf',
@@ -268,6 +269,7 @@ const mathematicsGoldQuizzes = [
     title: t('subjects.mathematics.goldQuiz.quizzes.probability.title'),
     description: t('subjects.mathematics.goldQuiz.quizzes.probability.description'),
     meta: t('subjects.mathematics.goldQuiz.quizzes.probability.meta'),
+    language: t('subjects.mathematics.goldQuiz.quizzes.probability.language'),
     pdfUrl: lang === 'tc'
       ? '/downloads/hkdse-mathematics-17-probability-laws-and-conditional-events-tc.pdf'
       : '/downloads/hkdse-mathematics-14-laws-of-probability-and-conditional-events.pdf',
@@ -282,6 +284,7 @@ const ictSampleExercises = [
     title: t('subjects.ict.sampleExercise.quizzes.programming.title'),
     description: t('subjects.ict.sampleExercise.quizzes.programming.description'),
     meta: t('subjects.ict.sampleExercise.quizzes.programming.meta'),
+    language: t('subjects.ict.sampleExercise.quizzes.programming.language'),
     pdfUrl: '/downloads/hkdse-ict-04-programming-fundamentals-python-applications.pdf',
     appUrl: 'https://app.hoppy.day/q/abbwtu',
   },
@@ -289,6 +292,7 @@ const ictSampleExercises = [
     title: t('subjects.ict.sampleExercise.quizzes.hardware.title'),
     description: t('subjects.ict.sampleExercise.quizzes.hardware.description'),
     meta: t('subjects.ict.sampleExercise.quizzes.hardware.meta'),
+    language: t('subjects.ict.sampleExercise.quizzes.hardware.language'),
     pdfUrl: '/downloads/hkdse-ict-09-computer-memory-storage-hardware.pdf',
     appUrl: 'https://app.hoppy.day/q/vzypcr',
   },
@@ -1326,52 +1330,13 @@ const econGraphCategories = [
       </>)}
 
       {selectedSubject === 'ict' && (<>
-      <!-- Sample Exercises -->
-      <div class="widget-section sample-quiz-section">
-        <div class="widget-header">
-          <div class="widget-icon sample-quiz-icon" aria-hidden="true">📝</div>
-          <div class="widget-info">
-            <h2>{t('subjects.ict.sampleExercise.title')}</h2>
-            <p>{t('subjects.ict.sampleExercise.description')}</p>
-          </div>
-        </div>
-
-        <div class="quiz-list">
-          {ictSampleExercises.map((quiz, index) => (
-            <article class="quiz-list-item">
-              <div class="quiz-list-number" aria-hidden="true">
-                {String(index + 1).padStart(2, '0')}
-              </div>
-              <div class="quiz-list-info">
-                <div class="quiz-list-heading">
-                  <h3>{quiz.title}</h3>
-                  <span class="quiz-meta">{quiz.meta}</span>
-                </div>
-                <p>{quiz.description}</p>
-              </div>
-              <div class="quiz-actions">
-                <a
-                  href={quiz.pdfUrl}
-                  class="quiz-button quiz-button-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M14 5h5v5m0-5-9 9M19 13v6H5V5h6" />
-                  </svg>
-                  {t('subjects.ict.sampleExercise.openPdf')}
-                </a>
-                <a href={quiz.appUrl} class="quiz-button quiz-button-primary">
-                  {t('subjects.ict.sampleExercise.openInApp')}
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="m9 18 6-6-6-6" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
+      <SampleQuizSection
+        title={t('subjects.ict.sampleExercise.title')}
+        description={t('subjects.ict.sampleExercise.description')}
+        openPdfLabel={t('subjects.ict.sampleExercise.openPdf')}
+        openInAppLabel={t('subjects.ict.sampleExercise.openInApp')}
+        quizzes={ictSampleExercises}
+      />
 
       <!-- ICT Code Block -->
       <div class="widget-section">

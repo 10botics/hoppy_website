@@ -197,12 +197,14 @@
           "straightLines": {
             "title": "直線方程",
             "description": "練習坐標幾何中的直線方程。",
-            "meta": "10 題"
+            "meta": "10 題",
+            "language": "繁體中文"
           },
           "probability": {
             "title": "概率法則與條件事件",
             "description": "練習概率法則與條件事件。",
-            "meta": "10 題"
+            "meta": "10 題",
+            "language": "繁體中文"
           }
         }
       }
@@ -230,12 +232,14 @@
           "programming": {
             "title": "編程基礎與 Python",
             "description": "變數、常數、控制結構、演算法及 Python 應用。",
-            "meta": "7 題 · 英文"
+            "meta": "7 題",
+            "language": "英文"
           },
           "hardware": {
             "title": "電腦記憶體、儲存與硬件",
             "description": "記憶體、儲存裝置、處理器架構及硬件組件。",
-            "meta": "10 題 · 英文"
+            "meta": "10 題",
+            "language": "英文"
           }
         }
       }
@@ -608,7 +612,7 @@
           "title": "National Development, Diplomacy and Hong Kong Opportunities",
           "description": "有關國家發展、外交及香港機遇的英文公民與社會發展科練習。",
           "meta": "10 題",
-          "language": "English"
+          "language": "英文"
         }
       }
     }
@@ -623,13 +627,13 @@
         "title": "Feelings and Simple Comparisons",
         "description": "關於表達感受及作簡單比較的小學英文練習。",
         "meta": "10 題",
-        "language": "English"
+        "language": "英文"
       },
       "practice6": {
         "title": "Modals, Infinitives and Phrasal Verbs",
         "description": "涵蓋情態動詞、不定詞及常用短語動詞的小學英文練習。",
         "meta": "10 題",
-        "language": "English"
+        "language": "英文"
       }
     }
   },
@@ -669,7 +673,7 @@
         "title": "Improper Fractions, Mixed Numbers and Same-Denominator Operations",
         "description": "涵蓋假分數、帶分數及同分母運算的小學數學英文練習。",
         "meta": "10 題",
-        "language": "English"
+        "language": "英文"
       }
     }
   },
@@ -683,7 +687,7 @@
         "title": "Growing Up Healthy and Getting Along",
         "description": "關於健康成長及與人建立良好關係的小學常識科英文練習。",
         "meta": "10 題",
-        "language": "English"
+        "language": "英文"
       },
       "practice2": {
         "title": "編程思維、太空科技、物態改變與簡單機械",
@@ -699,17 +703,17 @@
       "description": "選擇課題，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
       "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
-      "practice39": {
-        "title": "Molecular Genetics and Inheritance",
-        "description": "涵蓋分子遺傳學及遺傳的中學生物科英文練習。",
+      "practice50": {
+        "title": "Body Systems, Growth and Diet",
+        "description": "涵蓋身體系統、生長及飲食的中學生物科英文練習。",
         "meta": "10 題",
-        "language": "English"
+        "language": "英文"
       },
-      "practice43": {
-        "title": "Nervous Coordination, Senses and Homeostasis",
-        "description": "涵蓋神經協調、感覺及體內平衡的中學生物科英文練習。",
+      "practice59": {
+        "title": "Natural Selection, Speciation and Classification",
+        "description": "涵蓋自然選擇、物種形成及分類的中學生物科英文練習。",
         "meta": "10 題",
-        "language": "English"
+        "language": "英文"
       }
     }
   },
