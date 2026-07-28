@@ -153,6 +153,8 @@
     "allSubjects": "所有科目",
     "backToSubjects": "← 返回所有科目",
     "schoolLevelLabel": "學校階段",
+    "primaryButton": "小學",
+    "secondaryButton": "中學",
     "primaryTitle": "小學",
     "primaryDescription": "建立語文、數學、科學及人文科目的穩固基礎。",
     "secondaryTitle": "中學",
@@ -187,9 +189,9 @@
       "pageTitle": "數學",
       "description": "探索時間、數據處理、統計、函數、線圖及立體幾何的學習資源。",
       "goldQuiz": {
-        "title": "Hoppy Gold 精選測驗",
-        "description": "透過可下載的測驗練習數學，並可在 Hoppy 內互動作答。",
-        "downloadPdf": "PDF",
+        "title": "Hoppy Gold 精選練習",
+        "description": "開啟可列印數學練習，或在 Hoppy 內互動作答。",
+        "openPdf": "開啟 PDF",
         "openInApp": "在 Hoppy 開啟",
         "quizzes": {
           "straightLines": {
@@ -220,9 +222,9 @@
       "pageTitle": "資訊及通訊科技",
       "description": "探索清晰易讀的 Python、C++ 及偽代碼編程與運算思維資源。",
       "sampleExercise": {
-        "title": "示例練習",
-        "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-        "downloadPdf": "PDF",
+        "title": "Hoppy Gold 精選練習",
+        "description": "選擇課題，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+        "openPdf": "開啟 PDF",
         "openInApp": "在 Hoppy 開啟",
         "quizzes": {
           "programming": {
@@ -591,9 +593,9 @@
   },
   "csdPage": {
     "sampleQuiz": {
-      "title": "示例練習",
-      "description": "選擇語言，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold 精選練習",
+      "description": "選擇語言，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
       "quizzes": {
         "traditionalChinese": {
@@ -613,9 +615,9 @@
   },
   "primaryEnglishPage": {
     "samplePractice": {
-      "title": "示例練習",
-      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold 精選練習",
+      "description": "選擇課題，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
       "practice": {
         "title": "Feelings and Simple Comparisons",
@@ -633,9 +635,9 @@
   },
   "primaryChinesePage": {
     "samplePractice": {
-      "title": "示例練習",
-      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold 精選練習",
+      "description": "選擇課題，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
       "practice": {
         "title": "複句關聯詞運用",
@@ -653,9 +655,9 @@
   },
   "primaryMathematicsPage": {
     "samplePractice": {
-      "title": "示例練習",
-      "description": "下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold 精選練習",
+      "description": "開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
       "practice": {
         "title": "小數概念與八個方向",
@@ -673,9 +675,9 @@
   },
   "primaryGeneralStudiesPage": {
     "samplePractice": {
-      "title": "示例練習",
-      "description": "下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold 精選練習",
+      "description": "開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
       "practice": {
         "title": "Growing Up Healthy and Getting Along",
@@ -693,9 +695,9 @@
   },
   "biologyPage": {
     "samplePractice": {
-      "title": "示例練習",
-      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold 精選練習",
+      "description": "選擇課題，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
       "practice39": {
         "title": "Molecular Genetics and Inheritance",
@@ -718,9 +720,9 @@
     "comingSoon": "更多物理實驗裝置圖（力和運動、波動）即將推出。",
     "backToHome": "← 返回首頁",
     "sampleQuiz": {
-      "title": "示例練習",
-      "description": "選擇課題，下載可列印練習或在 Hoppy 應用程式內進行互動練習。",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold 精選練習",
+      "description": "選擇課題，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+      "openPdf": "開啟 PDF",
       "openInApp": "在 Hoppy 開啟",
       "quizzes": {
         "momentsEnergyMotion": {

@@ -828,7 +828,7 @@ const econGraphCategories = [
         <SampleQuizSection
           title={t('primaryMathematicsPage.samplePractice.title')}
           description={t('primaryMathematicsPage.samplePractice.description')}
-          downloadLabel={t('primaryMathematicsPage.samplePractice.downloadPdf')}
+          openPdfLabel={t('primaryMathematicsPage.samplePractice.openPdf')}
           openInAppLabel={t('primaryMathematicsPage.samplePractice.openInApp')}
           quizzes={primaryMathematicsSamplePractices}
         />
@@ -838,7 +838,7 @@ const econGraphCategories = [
         <SampleQuizSection
           title={t('primaryGeneralStudiesPage.samplePractice.title')}
           description={t('primaryGeneralStudiesPage.samplePractice.description')}
-          downloadLabel={t('primaryGeneralStudiesPage.samplePractice.downloadPdf')}
+          openPdfLabel={t('primaryGeneralStudiesPage.samplePractice.openPdf')}
           openInAppLabel={t('primaryGeneralStudiesPage.samplePractice.openInApp')}
           quizzes={primaryGeneralStudiesSamplePractices}
         />
@@ -855,7 +855,7 @@ const econGraphCategories = [
         <SampleQuizSection
           title={t('subjects.mathematics.goldQuiz.title')}
           description={t('subjects.mathematics.goldQuiz.description')}
-          downloadLabel={t('subjects.mathematics.goldQuiz.downloadPdf')}
+          openPdfLabel={t('subjects.mathematics.goldQuiz.openPdf')}
           openInAppLabel={t('subjects.mathematics.goldQuiz.openInApp')}
           quizzes={mathematicsGoldQuizzes}
         />
@@ -1183,7 +1183,7 @@ const econGraphCategories = [
         <SampleQuizSection
           title={t('csdPage.sampleQuiz.title')}
           description={t('csdPage.sampleQuiz.description')}
-          downloadLabel={t('csdPage.sampleQuiz.downloadPdf')}
+          openPdfLabel={t('csdPage.sampleQuiz.openPdf')}
           openInAppLabel={t('csdPage.sampleQuiz.openInApp')}
           quizzes={csdSampleQuizzes}
         />
@@ -1193,7 +1193,7 @@ const econGraphCategories = [
         <SampleQuizSection
           title={t('biologyPage.samplePractice.title')}
           description={t('biologyPage.samplePractice.description')}
-          downloadLabel={t('biologyPage.samplePractice.downloadPdf')}
+          openPdfLabel={t('biologyPage.samplePractice.openPdf')}
           openInAppLabel={t('biologyPage.samplePractice.openInApp')}
           quizzes={secondaryBiologySamplePractices}
         />
@@ -1203,7 +1203,7 @@ const econGraphCategories = [
         <SampleQuizSection
           title={t('primaryEnglishPage.samplePractice.title')}
           description={t('primaryEnglishPage.samplePractice.description')}
-          downloadLabel={t('primaryEnglishPage.samplePractice.downloadPdf')}
+          openPdfLabel={t('primaryEnglishPage.samplePractice.openPdf')}
           openInAppLabel={t('primaryEnglishPage.samplePractice.openInApp')}
           quizzes={primaryEnglishSamplePractices}
         />
@@ -1213,7 +1213,7 @@ const econGraphCategories = [
         <SampleQuizSection
           title={t('primaryChinesePage.samplePractice.title')}
           description={t('primaryChinesePage.samplePractice.description')}
-          downloadLabel={t('primaryChinesePage.samplePractice.downloadPdf')}
+          openPdfLabel={t('primaryChinesePage.samplePractice.openPdf')}
           openInAppLabel={t('primaryChinesePage.samplePractice.openInApp')}
           quizzes={primaryChineseSamplePractices}
         />
@@ -1350,11 +1350,16 @@ const econGraphCategories = [
                 <p>{quiz.description}</p>
               </div>
               <div class="quiz-actions">
-                <a href={quiz.pdfUrl} class="quiz-button quiz-button-secondary" download>
+                <a
+                  href={quiz.pdfUrl}
+                  class="quiz-button quiz-button-secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14" />
+                    <path d="M14 5h5v5m0-5-9 9M19 13v6H5V5h6" />
                   </svg>
-                  {t('subjects.ict.sampleExercise.downloadPdf')}
+                  {t('subjects.ict.sampleExercise.openPdf')}
                 </a>
                 <a href={quiz.appUrl} class="quiz-button quiz-button-primary">
                   {t('subjects.ict.sampleExercise.openInApp')}
@@ -1457,35 +1462,6 @@ const econGraphCategories = [
 
       </>)}
 
-    </section>
-    )}
-
-    <!-- Supported Features -->
-    {!selectedSubject && (
-    <section class="features-section">
-      <h2>{t('widgets.additionalContent')}</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon">📝</div>
-          <h3>{t('widgets.latex.title')}</h3>
-          <p>{t('widgets.latex.description')}</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">🎨</div>
-          <h3>{t('widgets.svg.title')}</h3>
-          <p>{t('widgets.svg.description')}</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">📋</div>
-          <h3>{t('widgets.tables.title')}</h3>
-          <p>{t('widgets.tables.description')}</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">🔷</div>
-          <h3>{t('widgets.geometry.title')}</h3>
-          <p>{t('widgets.geometry.description')}</p>
-        </div>
-      </div>
     </section>
     )}
 
@@ -2312,60 +2288,6 @@ const econGraphCategories = [
     color: #64748b;
     font-weight: 500;
     text-align: center;
-  }
-
-  /* Features Section */
-  .features-section {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  }
-
-  .features-section h2 {
-    text-align: center;
-    color: #0f172a;
-    margin-bottom: 2.5rem;
-    font-size: 2rem;
-  }
-
-  .features-grid {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .feature-item {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
-    transition: all 0.3s ease;
-  }
-
-  .feature-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border-color: #3FB5DB;
-  }
-
-  .feature-item .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .feature-item h3 {
-    color: #0f172a;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-  }
-
-  .feature-item p {
-    color: #64748b;
-    font-size: 0.95rem;
-    margin: 0;
   }
 
   /* Back Section */

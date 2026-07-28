@@ -153,6 +153,8 @@
     "allSubjects": "All subjects",
     "backToSubjects": "← Back to all subjects",
     "schoolLevelLabel": "School level",
+    "primaryButton": "Primary",
+    "secondaryButton": "Secondary",
     "primaryTitle": "Primary School",
     "primaryDescription": "Build strong foundations across languages, mathematics, science, and humanities.",
     "secondaryTitle": "Secondary School",
@@ -188,8 +190,8 @@
       "description": "Explore resources for time, data handling, statistics, functions, graphs, and three-dimensional geometry.",
       "goldQuiz": {
         "title": "Hoppy Gold Quiz Collection",
-        "description": "Practise mathematics with downloadable quizzes, then continue interactively in Hoppy.",
-        "downloadPdf": "PDF",
+        "description": "Open a printable mathematics quiz or practise interactively in Hoppy.",
+        "openPdf": "Open PDF",
         "openInApp": "Open in Hoppy",
         "quizzes": {
           "straightLines": {
@@ -220,9 +222,9 @@
       "pageTitle": "ICT",
       "description": "Explore readable Python, C++, and pseudocode resources for programming and computational thinking.",
       "sampleExercise": {
-        "title": "Sample Exercises",
-        "description": "Choose a topic, then download a printable exercise or practise interactively in Hoppy.",
-        "downloadPdf": "PDF",
+        "title": "Hoppy Gold Quiz Collection",
+        "description": "Choose a topic, then open the printable exercise or practise interactively in Hoppy.",
+        "openPdf": "Open PDF",
         "openInApp": "Open in Hoppy",
         "quizzes": {
           "programming": {
@@ -591,9 +593,9 @@
   },
   "csdPage": {
     "sampleQuiz": {
-      "title": "Sample Practices",
-      "description": "Choose a language, download the printable practice, or practise interactively in the Hoppy app.",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold Quiz Collection",
+      "description": "Choose a language, open the printable practice, or practise interactively in the Hoppy app.",
+      "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
       "quizzes": {
         "traditionalChinese": {
@@ -613,9 +615,9 @@
   },
   "primaryEnglishPage": {
     "samplePractice": {
-      "title": "Sample Practices",
-      "description": "Choose a topic, download the printable practice, or practise interactively in the Hoppy app.",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold Quiz Collection",
+      "description": "Choose a topic, open the printable practice, or practise interactively in the Hoppy app.",
+      "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
       "practice": {
         "title": "Feelings and Simple Comparisons",
@@ -633,9 +635,9 @@
   },
   "primaryChinesePage": {
     "samplePractice": {
-      "title": "Sample Practices",
-      "description": "Choose a topic, download the printable practice, or practise interactively in the Hoppy app.",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold Quiz Collection",
+      "description": "Choose a topic, open the printable practice, or practise interactively in the Hoppy app.",
+      "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
       "practice": {
         "title": "複句關聯詞運用",
@@ -653,9 +655,9 @@
   },
   "primaryMathematicsPage": {
     "samplePractice": {
-      "title": "Sample Practice",
-      "description": "Download the printable practice or practise interactively in the Hoppy app.",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold Quiz Collection",
+      "description": "Open the printable practice or practise interactively in the Hoppy app.",
+      "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
       "practice": {
         "title": "小數概念與八個方向",
@@ -673,9 +675,9 @@
   },
   "primaryGeneralStudiesPage": {
     "samplePractice": {
-      "title": "Sample Practice",
-      "description": "Download the printable practice or practise interactively in the Hoppy app.",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold Quiz Collection",
+      "description": "Open the printable practice or practise interactively in the Hoppy app.",
+      "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
       "practice": {
         "title": "Growing Up Healthy and Getting Along",
@@ -693,9 +695,9 @@
   },
   "biologyPage": {
     "samplePractice": {
-      "title": "Sample Practices",
-      "description": "Choose a topic, download the printable practice, or practise interactively in the Hoppy app.",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold Quiz Collection",
+      "description": "Choose a topic, open the printable practice, or practise interactively in the Hoppy app.",
+      "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
       "practice39": {
         "title": "Molecular Genetics and Inheritance",
@@ -718,9 +720,9 @@
     "comingSoon": "More physics setup visuals (force and motion, wave motion) are planned.",
     "backToHome": "← Back to Home",
     "sampleQuiz": {
-      "title": "Sample Quizzes",
-      "description": "Choose a topic, then download a printable quiz or practise interactively in the Hoppy app.",
-      "downloadPdf": "PDF",
+      "title": "Hoppy Gold Quiz Collection",
+      "description": "Choose a topic, then open the printable practice or practise interactively in the Hoppy app.",
+      "openPdf": "Open PDF",
       "openInApp": "Open in Hoppy",
       "quizzes": {
         "momentsEnergyMotion": {

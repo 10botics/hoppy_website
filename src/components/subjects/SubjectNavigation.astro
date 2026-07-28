@@ -10,25 +10,51 @@ interface Props {
 const { lang, level, currentSubject } = Astro.props as Props;
 const t = useTranslations(lang);
 const langPrefix = `/${lang}`;
-const subjects = level === 'primary'
-  ? ['chinese', 'english', 'mathematics', 'general-studies', 'science', 'humanities']
-  : ['chinese', 'english', 'mathematics', 'csd', 'physics', 'chemistry', 'biology', 'ict', 'economics'];
+const subjectsByLevel = {
+  primary: ['chinese', 'english', 'mathematics', 'general-studies', 'science', 'humanities'],
+  secondary: ['chinese', 'english', 'mathematics', 'csd', 'physics', 'chemistry', 'biology', 'ict', 'economics'],
+} as const;
+const subjects = subjectsByLevel[level];
+const schoolLevels = ['primary', 'secondary'] as const;
+
+const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
+  const targetSubjects: readonly string[] = subjectsByLevel[targetLevel];
+
+  if (currentSubject && targetSubjects.includes(currentSubject)) {
+    return `${langPrefix}/subjects/${targetLevel}/${currentSubject}`;
+  }
+
+  return `${langPrefix}/subjects#${targetLevel}-subjects-title`;
+};
 ---
 
 <nav class="subject-index" aria-label={t('subjects.navigationLabel')}>
   <div class="subject-index-inner">
-    <a class="all-subjects-link" href={`${langPrefix}/subjects`}>
-      {t('subjects.allSubjects')}
-    </a>
-    <div class="subject-index-links">
-      {subjects.map((subject) => (
+    <div class="school-level-switcher" aria-label={t('subjects.schoolLevelLabel')}>
+      {schoolLevels.map((schoolLevel) => (
         <a
-          href={`${langPrefix}/subjects/${level}/${subject}`}
-          aria-current={subject === currentSubject ? 'page' : undefined}
+          class="school-level-button"
+          href={getLevelHref(schoolLevel)}
+          aria-current={schoolLevel === level ? 'page' : undefined}
         >
-          {t(`subjects.${subject}.title`)}
+          {t(`subjects.${schoolLevel}Button`)}
         </a>
       ))}
+    </div>
+    <div class="subject-links-row">
+      <a class="all-subjects-link" href={`${langPrefix}/subjects`}>
+        {t('subjects.allSubjects')}
+      </a>
+      <div class="subject-index-links">
+        {subjects.map((subject) => (
+          <a
+            href={`${langPrefix}/subjects/${level}/${subject}`}
+            aria-current={subject === currentSubject ? 'page' : undefined}
+          >
+            {t(`subjects.${subject}.title`)}
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 </nav>
@@ -48,6 +74,47 @@ const subjects = level === 'primary'
   .subject-index-inner {
     max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+  }
+
+  .school-level-switcher {
+    grid-row: 1;
+    justify-self: center;
+    display: inline-flex;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    background: #f8fafc;
+  }
+
+  .school-level-button {
+    min-width: 7rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .school-level-button:hover,
+  .school-level-button:focus-visible,
+  .school-level-button[aria-current='page'] {
+    color: #ffffff;
+    background: #0f4c6e;
+    outline: none;
+  }
+
+  .subject-links-row {
+    grid-row: 2;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,8 +170,16 @@ const subjects = level === 'primary'
 
     .subject-index-inner {
       align-items: stretch;
-      flex-direction: column;
       text-align: center;
+    }
+
+    .school-level-switcher {
+      justify-self: center;
+    }
+
+    .subject-links-row {
+      align-items: stretch;
+      flex-direction: column;
     }
 
     .subject-index-links {

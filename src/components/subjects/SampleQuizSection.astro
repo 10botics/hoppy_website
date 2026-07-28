@@ -11,7 +11,7 @@ interface Quiz {
 interface Props {
   title: string;
   description: string;
-  downloadLabel: string;
+  openPdfLabel: string;
   openInAppLabel: string;
   quizzes: Quiz[];
 }
@@ -19,7 +19,7 @@ interface Props {
 const {
   title,
   description,
-  downloadLabel,
+  openPdfLabel,
   openInAppLabel,
   quizzes,
 } = Astro.props as Props;
@@ -49,11 +49,16 @@ const {
           <p>{quiz.description}</p>
         </div>
         <div class="quiz-actions">
-          <a href={quiz.pdfUrl} class="quiz-button quiz-button-secondary" download>
+          <a
+            href={quiz.pdfUrl}
+            class="quiz-button quiz-button-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14" />
+              <path d="M14 5h5v5m0-5-9 9M19 13v6H5V5h6" />
             </svg>
-            {downloadLabel}
+            {openPdfLabel}
           </a>
           <a href={quiz.appUrl} class="quiz-button quiz-button-primary">
             {openInAppLabel}
