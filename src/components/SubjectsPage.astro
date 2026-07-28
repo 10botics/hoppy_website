@@ -475,6 +475,7 @@ const chemistryCardScales: Record<string, number> = {
 const codeBlockCategories = [
   {
     titleKey: 'widgets.codeBlock.categoryExamSnippets',
+    gridClass: 'codeblock-grid-three',
     cards: [
       {
         src: '/widgets/widget_codeblock_python_12.png',
@@ -494,12 +495,23 @@ const codeBlockCategories = [
     ],
   },
   {
-    titleKey: 'widgets.codeBlock.categoryCompactSnippets',
+    titleKey: 'widgets.codeBlock.categoryDataAndWeb',
+    gridClass: 'codeblock-grid-three',
     cards: [
       {
-        src: '/widgets/widget_codeblock_compact_cpp.png',
-        alt: 'Compact C++ code snippet',
-        labelKey: 'widgets.codeBlock.compactSnippet',
+        src: '/widgets/widget_codeblock_sql.png',
+        alt: 'SQL query code block with syntax highlighting',
+        labelKey: 'widgets.codeBlock.sqlExample',
+      },
+      {
+        src: '/widgets/widget_codeblock_html.png',
+        alt: 'HTML structure code block with syntax highlighting',
+        labelKey: 'widgets.codeBlock.htmlExample',
+      },
+      {
+        src: '/widgets/widget_codeblock_css.png',
+        alt: 'CSS rule code block with syntax highlighting',
+        labelKey: 'widgets.codeBlock.cssExample',
       },
     ],
   },
@@ -1353,10 +1365,10 @@ const econGraphCategories = [
           {codeBlockCategories.map((category) => (
             <div class="econ-category">
               <h3 class="econ-category-title">{t(category.titleKey)}</h3>
-              <div class="widget-examples econ-category-grid">
+              <div class={`widget-examples econ-category-grid ${category.gridClass}`}>
                 {category.cards.map((card) => (
                   <div class="widget-card econ-card">
-                    <img src={card.src} alt={card.alt} />
+                    <img src={card.src} alt={card.alt} loading="lazy" />
                     <span class="widget-label">{t(card.labelKey)}</span>
                   </div>
                 ))}
@@ -1369,7 +1381,7 @@ const econGraphCategories = [
           <ul>
             <li>{t('widgets.codeBlock.featureLineNumbers')}</li>
             <li>{t('widgets.codeBlock.featureLanguages')}</li>
-            <li>{t('widgets.codeBlock.featureCompactMode')}</li>
+            <li>{t('widgets.codeBlock.featureSyntaxHighlighting')}</li>
           </ul>
         </div>
       </div>
@@ -2187,16 +2199,12 @@ const econGraphCategories = [
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .codeblock-category-list .econ-category:first-child .econ-category-grid {
+  .codeblock-category-list .codeblock-grid-three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .codeblock-category-list .econ-category:first-child .widget-card {
+  .codeblock-category-list .codeblock-grid-three .widget-card {
     padding: 1rem;
-  }
-
-  .codeblock-category-list .econ-category:last-child .econ-category-grid {
-    grid-template-columns: minmax(260px, 480px);
   }
 
   .widget-card.econ-card {
@@ -2409,8 +2417,7 @@ const econGraphCategories = [
     .widget-examples.econ-category-grid,
     .widget-examples.econ-category-grid.chemistry-category-grid,
     .widget-examples.econ-category-grid.chemistry-category-grid.chemistry-single-card,
-    .codeblock-category-list .econ-category:first-child .econ-category-grid,
-    .codeblock-category-list .econ-category:last-child .econ-category-grid {
+    .codeblock-category-list .codeblock-grid-three {
       grid-template-columns: 1fr;
     }
 

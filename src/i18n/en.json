@@ -503,17 +503,19 @@
     },
     "codeBlock": {
       "title": "ICT Code Block",
-      "description": "Code snippets with line numbers for ICT and computer science questions. Supports Python, C++, and pseudocode.",
+      "description": "Clear, exam-ready code snippets for ICT questions, supporting languages such as Python, C++, pseudocode, SQL, HTML, and CSS.",
       "features": "Features",
-      "categoryExamSnippets": "Exam-style multi-line snippets",
-      "categoryCompactSnippets": "Compact snippets",
+      "categoryExamSnippets": "Programming and pseudocode",
+      "categoryDataAndWeb": "Database and web code",
       "pythonExample": "Python — 12 lines with line numbers",
       "cppExample": "C++ — multi-line program",
       "pseudocodeExample": "Pseudocode",
-      "compactSnippet": "Compact code snippet",
-      "featureLineNumbers": "Line-number gutter for multi-line code snippets",
-      "featureLanguages": "Language badge for Python, C++, and pseudocode",
-      "featureCompactMode": "Compact layout for short code in answer options"
+      "sqlExample": "SQL — query and sorting",
+      "htmlExample": "HTML — form structure",
+      "cssExample": "CSS — styling rules",
+      "featureLineNumbers": "Clear line numbers make multi-line code easy to read and reference",
+      "featureLanguages": "Supports Python, C++, pseudocode, SQL, HTML, CSS, and more",
+      "featureSyntaxHighlighting": "Syntax highlighting distinguishes keywords, strings, values, and operators"
     },
     "econGraph": {
       "title": "Economics Graph",
