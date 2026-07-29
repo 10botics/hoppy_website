@@ -251,6 +251,7 @@ const subjectGroups = subjectSections.flatMap((section) => section.subjects);
 const currentSection = selectedLevel
   ? subjectSections.find((section) => section.id === selectedLevel)
   : undefined;
+const visibleSubjectSections = currentSection ? [currentSection] : subjectSections;
 
 const mathematicsGoldQuizzes = [
   {
@@ -806,43 +807,46 @@ const econGraphCategories = [
     {selectedSubject ? (
       <SubjectNavigation lang={lang} level={selectedLevel ?? 'secondary'} currentSubject={selectedSubject} />
     ) : (
-      <section class="subject-hub" aria-labelledby="subject-hub-title">
-        <h2 id="subject-hub-title" class="visually-hidden">{t('subjects.hubTitle')}</h2>
-        {subjectSections.map((section) => (
-          <section class="school-level-section" aria-labelledby={`${section.id}-subjects-title`}>
-            <div class="school-level-heading">
-              <span class="school-level-kicker">{t('subjects.schoolLevelLabel')}</span>
-              <h2 id={`${section.id}-subjects-title`}>{t(section.titleKey)}</h2>
-              <p>{t(section.descriptionKey)}</p>
-            </div>
-            <div class="subject-card-grid">
-              {section.subjects.map((subject) => subject.comingSoon ? (
-                <a class="subject-card subject-card--coming-soon" href={`${langPrefix}/subjects/${section.id}/${subject.id}`}>
-                  <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
-                    <span class="subject-icon">{subject.icon}</span>
-                  </div>
-                  <div class="subject-card-copy">
-                    <h3>{t(subject.labelKey)}</h3>
-                    <p>{t(subject.descriptionKey)}</p>
-                    <span class="subject-status">{t('subjects.comingSoon')}</span>
-                  </div>
-                </a>
-              ) : (
-                <a class="subject-card" href={`${langPrefix}/subjects/${section.id}/${subject.id}`}>
-                  <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
-                    <span class="subject-icon">{subject.icon}</span>
-                  </div>
-                  <div class="subject-card-copy">
-                    <h3>{t(subject.labelKey)}</h3>
-                    <p>{t(subject.descriptionKey)}</p>
-                    <span>{t('subjects.exploreSubject')} <span aria-hidden="true">→</span></span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
-        ))}
-      </section>
+      <>
+        <SubjectNavigation lang={lang} level={selectedLevel ?? 'primary'} />
+        <section class="subject-hub" aria-labelledby="subject-hub-title">
+          <h2 id="subject-hub-title" class="visually-hidden">{t('subjects.hubTitle')}</h2>
+          {visibleSubjectSections.map((section) => (
+            <section class="school-level-section" aria-labelledby={`${section.id}-subjects-title`}>
+              <div class="school-level-heading">
+                <span class="school-level-kicker">{t('subjects.schoolLevelLabel')}</span>
+                <h2 id={`${section.id}-subjects-title`}>{t(section.titleKey)}</h2>
+                <p>{t(section.descriptionKey)}</p>
+              </div>
+              <div class="subject-card-grid">
+                {section.subjects.map((subject) => subject.comingSoon ? (
+                  <a class="subject-card subject-card--coming-soon" href={`${langPrefix}/subjects/${section.id}/${subject.id}`}>
+                    <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
+                      <span class="subject-icon">{subject.icon}</span>
+                    </div>
+                    <div class="subject-card-copy">
+                      <h3>{t(subject.labelKey)}</h3>
+                      <p>{t(subject.descriptionKey)}</p>
+                      <span class="subject-status">{t('subjects.comingSoon')}</span>
+                    </div>
+                  </a>
+                ) : (
+                  <a class="subject-card" href={`${langPrefix}/subjects/${section.id}/${subject.id}`}>
+                    <div class={`subject-card-image subject-card-visual subject-card-visual--${subject.id}`} aria-hidden="true">
+                      <span class="subject-icon">{subject.icon}</span>
+                    </div>
+                    <div class="subject-card-copy">
+                      <h3>{t(subject.labelKey)}</h3>
+                      <p>{t(subject.descriptionKey)}</p>
+                      <span>{t('subjects.exploreSubject')} <span aria-hidden="true">→</span></span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
+        </section>
+      </>
     )}
 
     <!-- Widgets Gallery -->
@@ -882,12 +886,6 @@ const econGraphCategories = [
       )}
 
       {selectedSubject === 'mathematics' && (<>
-      <div class="subject-heading" id="mathematics">
-        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
-        <h2>{t('subjects.mathematics.title')}</h2>
-        <p>{t('subjects.mathematics.description')}</p>
-      </div>
-
       {selectedLevel === 'secondary' && (
         <SampleQuizSection
           title={t('subjects.mathematics.goldQuiz.title')}
@@ -1327,12 +1325,6 @@ const econGraphCategories = [
       </>)}
 
       {selectedSubject === 'chemistry' && (<>
-      <div class="subject-heading" id="chemistry">
-        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
-        <h2>{t('subjects.chemistry.title')}</h2>
-        <p>{t('subjects.chemistry.description')}</p>
-      </div>
-
       {chemistryVariationCategories.map((category) => (
         <div class="widget-section chemistry-widget-section" id={`chemistry-${category.id}`}>
           <div class="widget-header">
@@ -1465,7 +1457,7 @@ const econGraphCategories = [
 
     <!-- Back Link -->
     <section class="back-section">
-      <a href={selectedSubject ? `${langPrefix}/subjects` : `${langPrefix}/`} class="back-link">
+      <a href={selectedSubject ? `${langPrefix}/subjects/${selectedLevel}` : `${langPrefix}/`} class="back-link">
         {selectedSubject ? t('subjects.backToSubjects') : t('widgets.backToHome')}
       </a>
     </section>

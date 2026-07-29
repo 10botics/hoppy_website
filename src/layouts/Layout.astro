@@ -6,12 +6,16 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
 	lang?: Lang;
+	title?: string;
+	description?: string;
 }
 
-const { lang: propLang } = Astro.props;
+const { lang: propLang, title, description } = Astro.props;
 const lang = propLang || getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
+const pageTitle = title ?? t('meta.title');
+const pageDescription = description ?? t('meta.description');
 
 // Determine HTML lang attribute
 const htmlLang = lang === 'tc' ? 'zh-Hant' : 'en';
@@ -24,8 +28,8 @@ const htmlLang = lang === 'tc' ? 'zh-Hant' : 'en';
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/jpeg" href="/hoppy-ruler.jpeg" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={t('meta.description')} />
-		<title>{t('meta.title')}</title>
+		<meta name="description" content={pageDescription} />
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<Header lang={lang} currentPath={currentPath} />

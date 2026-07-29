@@ -1,5 +1,5 @@
 ---
-import TeacherGuide from '../../../components/TeacherGuide.astro';
+import RedirectPage from '../../../components/RedirectPage.astro';
 import { publishedTeacherGuideChapters } from '../../../data/teacherGuide';
 import type { Lang } from '../../../i18n/ui';
 
@@ -14,4 +14,4 @@ export function getStaticPaths() {
 const { lang, chapter } = Astro.params as { lang: Lang; chapter: string };
 ---
 
-<TeacherGuide lang={lang} chapterSlug={chapter} />
+<RedirectPage to={`/${lang}/guide/teacher/${chapter}`} />

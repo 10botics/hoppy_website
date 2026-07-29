@@ -15,7 +15,7 @@ const langPrefix = `/${lang}`;
 const pathWithoutLang = currentPath.replace(/^\/(tc|en)/, '') || '/';
 const availableLanguages = languages;
 const getLanguagePath = (code: Lang) =>
-	currentPath.includes('/teacher-guide')
+	currentPath.includes('/guide') || currentPath.includes('/teacher-guide')
 		? `/${code}${pathWithoutLang}`
 		: getLocalizedLegalPath(pathWithoutLang, code);
 ---
@@ -30,9 +30,9 @@ const getLanguagePath = (code: Lang) =>
 		</button>
 		<ul class="nav-links">
 			<li><a href={`${langPrefix}/`} class:list={["nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
-			<li><a href={`${langPrefix}/subjects`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
+			<li><a href={`${langPrefix}/subjects/primary`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
 			<li><a href={`${langPrefix}/pricing`} class:list={["nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
-			<li><a href={`/${lang}/teacher-guide`} class:list={["nav-link", { active: currentPath.includes('/teacher-guide') }]}>{t('nav.teacherGuide')}</a></li>
+			<li><a href={`/${lang}/guide`} class:list={["nav-link", { active: currentPath.includes('/guide') || currentPath.includes('/teacher-guide') }]}>{t('nav.guide')}</a></li>
 			<li><a href={`${langPrefix}/qna`} class:list={["nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 			<li class="lang-switcher">
 				<div class="lang-dropdown">
@@ -91,9 +91,9 @@ const getLanguagePath = (code: Lang) =>
 		<div class="mobile-menu-content">
 			<ul class="mobile-nav-links">
 				<li><a href={`${langPrefix}/`} class:list={["mobile-nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
-				<li><a href={`${langPrefix}/subjects`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
+				<li><a href={`${langPrefix}/subjects/primary`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
 				<li><a href={`${langPrefix}/pricing`} class:list={["mobile-nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
-				<li><a href={`/${lang}/teacher-guide`} class:list={["mobile-nav-link", { active: currentPath.includes('/teacher-guide') }]}>{t('nav.teacherGuide')}</a></li>
+				<li><a href={`/${lang}/guide`} class:list={["mobile-nav-link", { active: currentPath.includes('/guide') || currentPath.includes('/teacher-guide') }]}>{t('nav.guide')}</a></li>
 				<li><a href={`${langPrefix}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
 				<li><a href={`${langPrefix}/downloadproduction`} class:list={["mobile-nav-link", "mobile-download-cta", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
 			</ul>

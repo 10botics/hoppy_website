@@ -229,7 +229,7 @@ const translations: ChapterTranslation[] = [
         steps: [
           '選擇「分享練習」。',
           '如你是練習建立者，請選擇練習的可見性。',
-          '選擇「分享連結」或「複製連結」，或顯示／分享 QR 碼。',
+          '選擇「分享連結」或「複製連結」，或顯示／分享二維碼。',
         ],
         bullets: [
           '「公開」讓練習可被搜尋和分享。',
@@ -245,13 +245,13 @@ const translations: ChapterTranslation[] = [
           labels: ['可見性', '連結', '分享連結／複製連結'],
         },
         additionalScreenshots: [
-          { caption: '開啟「QR 碼」，顯示或分享練習 QR 碼。', labels: ['QR 碼'] },
+          { caption: '開啟「二維碼」，顯示或分享練習二維碼。', labels: ['二維碼'] },
         ],
       },
       {
         title: '將練習匯出為 PDF',
         steps: ['在練習頁面選擇「匯出 PDF」。', '檢查 PDF 預覽。', '選擇「儲存 PDF」。'],
-        paragraphs: ['PDF 包含題目，以及附有解釋的答案部分。當練習的可見性允許分享時，亦可能顯示分享連結或 QR 碼。'],
+        paragraphs: ['PDF 包含題目，以及附有解釋的答案部分。當練習的可見性允許分享時，亦可能顯示分享連結或二維碼。'],
         screenshot: { caption: '檢查預覽，然後選擇「儲存 PDF」。', labels: ['儲存 PDF'] },
       },
     ],
@@ -277,7 +277,7 @@ const translations: ChapterTranslation[] = [
         title: '邀請學生',
         bullets: [
           '分享或複製課室連結。',
-          '顯示或分享課室 QR 碼。',
+          '顯示或分享課室二維碼。',
           '將六位字元的課室代碼交給學生，讓他們透過「加入課室」輸入。',
         ],
         paragraphs: [
@@ -286,7 +286,7 @@ const translations: ChapterTranslation[] = [
         ],
         screenshot: { caption: '直接分享或複製課室連結。', labels: ['連結', '分享或複製'] },
         additionalScreenshots: [
-          { caption: '開啟「QR 碼」，顯示或分享課室 QR 碼。', labels: ['QR 碼'] },
+          { caption: '開啟「二維碼」，顯示或分享課室二維碼。', labels: ['二維碼'] },
         ],
       },
       {
@@ -298,7 +298,7 @@ const translations: ChapterTranslation[] = [
           '選擇「繼續」。',
           '檢查功課標題，並按需要加入備註。',
         ],
-        paragraphs: ['功課沒有獨立分享連結或 QR 碼。請在課室發佈功課，讓課室成員接收並完成。'],
+        paragraphs: ['功課沒有獨立分享連結或二維碼。請在課室發佈功課，讓課室成員接收並完成。'],
         screenshot: { caption: '開啟「功課」，然後選擇「新增功課」。', labels: ['新增功課'] },
         additionalScreenshots: [
           { caption: '選擇練習，然後按「繼續」。', labels: ['已選練習', '繼續'] },
@@ -651,7 +651,7 @@ const translations: ChapterTranslation[] = [
         title: '保障學生資料',
         bullets: [
           '不要在練習提示、備註或上載檔案中加入不必要的個人或敏感學生資料。',
-          '只向指定學生分享課室連結、代碼和 QR 碼。',
+          '只向指定學生分享課室連結、代碼和二維碼。',
           '定期檢查課室成員，移除不再需要存取權限的人。',
         ],
       },

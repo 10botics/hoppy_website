@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const isTc = lang === 'tc';
+const copy = isTc
+  ? {
+      eyebrow: 'Hoppy 指南',
+      title: '你想使用哪一份指南？',
+      summary: '選擇學生或教師指南，按你的需要逐步使用 Hoppy。',
+      studentTitle: '學生指南',
+      studentSummary: '建立並完成練習、完成功課、重溫結果，並建立跟進練習。',
+      studentAction: '開啟學生指南',
+      teacherTitle: '教師指南',
+      teacherSummary: '建立並檢查練習、發佈課室功課、查看結果，並管理教學流程。',
+      teacherAction: '開啟教師指南',
+    }
+  : {
+      eyebrow: 'Hoppy Guides',
+      title: 'Which guide do you need?',
+      summary: 'Choose the Student or Teacher Guide for a step-by-step path through Hoppy.',
+      studentTitle: 'Student Guide',
+      studentSummary: 'Create and take quizzes, complete assignments, review results, and generate follow-up quizzes.',
+      studentAction: 'Open Student Guide',
+      teacherTitle: 'Teacher Guide',
+      teacherSummary: 'Create and check quizzes, publish classroom assignments, review results, and manage teaching workflows.',
+      teacherAction: 'Open Teacher Guide',
+    };
+---
+
+<Layout
+  lang={lang}
+  title={`${copy.eyebrow} | Hoppy`}
+  description={copy.summary}
+>
+  <main class="guide-landing">
+    <header>
+      <p>{copy.eyebrow}</p>
+      <h1>{copy.title}</h1>
+      <div>{copy.summary}</div>
+    </header>
+
+    <section aria-label={copy.title}>
+      <a href={`/${lang}/guide/student`}>
+        <span class="audience-icon" aria-hidden="true">01</span>
+        <div>
+          <h2>{copy.studentTitle}</h2>
+          <p>{copy.studentSummary}</p>
+          <strong>{copy.studentAction} <span aria-hidden="true">→</span></strong>
+        </div>
+      </a>
+
+      <a href={`/${lang}/guide/teacher`}>
+        <span class="audience-icon teacher" aria-hidden="true">02</span>
+        <div>
+          <h2>{copy.teacherTitle}</h2>
+          <p>{copy.teacherSummary}</p>
+          <strong>{copy.teacherAction} <span aria-hidden="true">→</span></strong>
+        </div>
+      </a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .guide-landing {
+    min-height: 75vh;
+    padding: clamp(4rem, 8vw, 7rem) 1.5rem 6rem;
+    color: #1a3144;
+    background:
+      radial-gradient(circle at 85% 5%, rgba(63, 181, 219, .2), transparent 30%),
+      #fff;
+  }
+
+  header {
+    width: min(760px, 100%);
+    margin: 0 auto 3rem;
+  }
+
+  header > p {
+    margin: 0 0 .75rem;
+    color: #137da2;
+    font-size: .8rem;
+    font-weight: 850;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 7vw, 4.2rem);
+    line-height: 1.05;
+    letter-spacing: -.04em;
+  }
+
+  header > div {
+    max-width: 660px;
+    margin-top: 1.2rem;
+    color: #60747f;
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    width: min(960px, 100%);
+    margin: 0 auto;
+  }
+
+  section > a {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 1.2rem;
+    min-height: 250px;
+    padding: 2rem;
+    border: 1px solid #d6e5ea;
+    border-radius: 22px;
+    background: white;
+    color: #1a3144;
+    text-decoration: none;
+    box-shadow: 0 12px 35px rgba(18, 48, 66, .07);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+
+  section > a:hover {
+    transform: translateY(-4px);
+    border-color: #36add2;
+    box-shadow: 0 18px 40px rgba(18, 48, 66, .12);
+  }
+
+  section > a:focus-visible {
+    outline: 3px solid #36add2;
+    outline-offset: 3px;
+  }
+
+  .audience-icon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 16px;
+    background: #ddf4fb;
+    color: #116f91;
+    font-weight: 900;
+  }
+
+  .audience-icon.teacher {
+    background: #fff0d5;
+    color: #94610a;
+  }
+
+  h2 {
+    margin: .3rem 0 .8rem;
+    font-size: 1.6rem;
+  }
+
+  section p {
+    margin: 0;
+    color: #60747f;
+    line-height: 1.65;
+  }
+
+  section strong {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #137da2;
+  }
+
+  @media (max-width: 720px) {
+    section {
+      grid-template-columns: 1fr;
+    }
+
+    section > a {
+      min-height: 0;
+      padding: 1.4rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    section > a {
+      transition: none;
+    }
+
+    section > a:hover {
+      transform: none;
+    }
+  }
+</style>

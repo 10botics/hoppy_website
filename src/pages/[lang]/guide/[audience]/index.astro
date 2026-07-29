@@ -1,0 +1,18 @@
+---
+import Guide from '../../../../components/Guide.astro';
+import type { Lang } from '../../../../i18n/ui';
+
+type Audience = 'student' | 'teacher';
+
+export function getStaticPaths() {
+  return ['en', 'tc'].flatMap((lang) =>
+    ['student', 'teacher'].map((audience) => ({
+      params: { lang, audience },
+    })),
+  );
+}
+
+const { lang, audience } = Astro.params as { lang: Lang; audience: Audience };
+---
+
+<Guide lang={lang} audience={audience} />

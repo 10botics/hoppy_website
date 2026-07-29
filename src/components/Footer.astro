@@ -7,6 +7,9 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const quizDisclaimer = lang === 'tc'
+	? '免責聲明：所有測驗均由人工智能生成，其內容不代表 10Botics 或 Hoppy 的立場。'
+	: 'Disclaimer: All quizzes are AI-generated, and their content does not represent the views of 10Botics or Hoppy.';
 ---
 
 <footer class="global-footer">
@@ -22,6 +25,7 @@ const t = useTranslations(lang);
 				<span class="footer-separator">•</span>
 				<a href={getLocalizedLegalPath('/terms', lang)} class="footer-link">{t('nav.terms')}</a>
 			</p>
+			<div class="quiz-disclaimer">{quizDisclaimer}</div>
 		</div>
 	</div>
 </footer>
@@ -65,5 +69,15 @@ const t = useTranslations(lang);
 	.footer-separator {
 		margin: 0 0.75rem;
 		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.quiz-disclaimer {
+		max-width: 56rem;
+		margin: 1.35rem auto 0;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		color: rgba(255, 255, 255, 0.48);
+		font-size: 0.72rem;
+		line-height: 1.55;
 	}
 </style>

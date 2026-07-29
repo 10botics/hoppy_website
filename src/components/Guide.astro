@@ -13,18 +13,36 @@ import {
   teacherGuideChapterMapTc,
   teacherGuideChaptersTc,
 } from '../data/teacherGuideTc';
+import {
+  publishedStudentGuideSlugs,
+  studentGuideChapterMap,
+  studentGuideChapters,
+} from '../data/studentGuide';
+import {
+  publishedStudentGuideSlugsTc,
+  studentGuideChapterMapTc,
+  studentGuideChaptersTc,
+} from '../data/studentGuideTc';
 
 interface Props {
   lang?: Lang;
+  audience: 'student' | 'teacher';
   chapterSlug?: string;
 }
 
-const { lang = defaultLang, chapterSlug } = Astro.props;
+const { lang = defaultLang, audience, chapterSlug } = Astro.props;
 const isTc = lang === 'tc';
-const guidePath = `/${lang}/teacher-guide`;
-const chapters = isTc ? teacherGuideChaptersTc : teacherGuideChapters;
-const chapterMap = isTc ? teacherGuideChapterMapTc : teacherGuideChapterMap;
-const publishedSlugs = isTc ? publishedTeacherGuideSlugsTc : publishedTeacherGuideSlugs;
+const isStudent = audience === 'student';
+const guidePath = `/${lang}/guide/${audience}`;
+const chapters = isStudent
+  ? (isTc ? studentGuideChaptersTc : studentGuideChapters)
+  : (isTc ? teacherGuideChaptersTc : teacherGuideChapters);
+const chapterMap = isStudent
+  ? (isTc ? studentGuideChapterMapTc : studentGuideChapterMap)
+  : (isTc ? teacherGuideChapterMapTc : teacherGuideChapterMap);
+const publishedSlugs = isStudent
+  ? (isTc ? publishedStudentGuideSlugsTc : publishedStudentGuideSlugs)
+  : (isTc ? publishedTeacherGuideSlugsTc : publishedTeacherGuideSlugs);
 const chapter = chapterSlug
   ? chapterMap.get(chapterSlug as GuideChapter['slug'])
   : undefined;
@@ -40,12 +58,9 @@ const previousChapterIsPublished = previousChapter
 const nextChapterIsPublished = nextChapter
   ? publishedSlugs.has(nextChapter.slug)
   : false;
-const ui = isTc
+const commonUi = isTc
   ? {
-      eyebrow: 'Hoppy 教師指南',
       chapterOf: (number: number) => `第 ${number} 章（共 ${chapters.length} 章）`,
-      overviewTitle: '逐步使用 Hoppy 教學',
-      overviewSummary: '建立練習、檢查內容、發布為課室作業，並查看結果。',
       topicOutline: '主題大綱',
       chapter: (number: number) => `第 ${number} 章`,
       screenshotNoteTitle: '截圖語言',
@@ -54,16 +69,11 @@ const ui = isTc
       previousChapter: '← 上一章',
       nextChapter: '下一章 →',
       allChapters: '所有章節',
-      chapterNavigation: '教師指南章節導覽',
-      outlineNavigation: '教師指南主題大綱',
       checklist: '清單',
       comingLater: '稍後推出',
     }
   : {
-      eyebrow: 'Hoppy Teacher Guide',
       chapterOf: (number: number) => `Chapter ${number} of ${chapters.length}`,
-      overviewTitle: 'Teach with Hoppy, step by step',
-      overviewSummary: 'Create a quiz, check it, publish it as a classroom assignment, and review the results.',
       topicOutline: 'Topic Outline',
       chapter: (number: number) => `Chapter ${number}`,
       screenshotNoteTitle: '',
@@ -72,14 +82,48 @@ const ui = isTc
       previousChapter: '← Previous Chapter',
       nextChapter: 'Next Chapter →',
       allChapters: 'All chapters',
-      chapterNavigation: 'Teacher Guide chapter navigation',
-      outlineNavigation: 'Teacher Guide topic outline',
       checklist: 'checklist',
       comingLater: 'Coming later',
     };
+const audienceUi = isStudent
+  ? (isTc
+      ? {
+          eyebrow: 'Hoppy 學生指南',
+          overviewTitle: '使用 Hoppy 建立、完成及重溫練習',
+          overviewSummary: '建立個人練習、完成功課、閱讀解釋，並根據結果建立跟進練習。',
+          chapterNavigation: '學生指南章節導覽',
+          outlineNavigation: '學生指南主題大綱',
+        }
+      : {
+          eyebrow: 'Hoppy Student Guide',
+          overviewTitle: 'Create, complete, and review practice with Hoppy',
+          overviewSummary: 'Create personal practice, complete assignments, learn from explanations, and follow up from your results.',
+          chapterNavigation: 'Student Guide chapter navigation',
+          outlineNavigation: 'Student Guide topic outline',
+        })
+  : (isTc
+      ? {
+          eyebrow: 'Hoppy 教師指南',
+          overviewTitle: '逐步使用 Hoppy 教學',
+          overviewSummary: '建立練習、檢查內容、發佈為課室功課，並查看結果。',
+          chapterNavigation: '教師指南章節導覽',
+          outlineNavigation: '教師指南主題大綱',
+        }
+      : {
+          eyebrow: 'Hoppy Teacher Guide',
+          overviewTitle: 'Teach with Hoppy, step by step',
+          overviewSummary: 'Create a quiz, check it, publish it as a classroom assignment, and review the results.',
+          chapterNavigation: 'Teacher Guide chapter navigation',
+          outlineNavigation: 'Teacher Guide topic outline',
+        });
+const ui = { ...commonUi, ...audienceUi };
+const pageTitle = chapter
+  ? `${chapter.title} | ${audienceUi.eyebrow}`
+  : `${audienceUi.eyebrow} | Hoppy`;
+const pageDescription = chapter?.summary ?? audienceUi.overviewSummary;
 ---
 
-<Layout lang={lang}>
+<Layout lang={lang} title={pageTitle} description={pageDescription}>
   <main class="teacher-guide">
     <header class="guide-hero">
       <div class="guide-hero-inner">

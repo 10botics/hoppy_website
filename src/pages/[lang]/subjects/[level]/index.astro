@@ -1,0 +1,26 @@
+---
+import SubjectsPage from '../../../../components/SubjectsPage.astro';
+import { languages, type Lang } from '../../../../i18n/ui';
+
+type Level = 'primary' | 'secondary';
+
+export function getStaticPaths() {
+  const levels: Level[] = ['primary', 'secondary'];
+
+  return Object.keys(languages).flatMap((lang) =>
+    levels.map((level) => ({
+      params: { lang, level },
+      props: { lang: lang as Lang, level },
+    })),
+  );
+}
+
+interface Props {
+  lang: Lang;
+  level: Level;
+}
+
+const { lang, level } = Astro.props as Props;
+---
+
+<SubjectsPage lang={lang} level={level} />
