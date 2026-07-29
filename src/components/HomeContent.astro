@@ -9,6 +9,10 @@ interface Props {
 
 const { lang } = Astro.props;
 const copy = homeContent[lang];
+const audiencePriority = { teachers: 0, parents: 1, students: 2 };
+const audiences = [...copy.audiences].sort(
+  (a, b) => audiencePriority[a.id] - audiencePriority[b.id],
+);
 const path = (value: string) => getLocalizedPath(value, lang);
 const schoolBenefit = lang === 'tc'
   ? {
@@ -113,10 +117,10 @@ const getScreenshotImage = (
       <div class="container">
         <h2 id="audience-selector-title" class="visually-hidden">{copy.conceptLabel}</h2>
         <div class="audience-grid">
-          {copy.audiences.map((audience, index) => (
+          {audiences.map((audience, index) => (
             <a class="audience-card" href={`#${audience.id}`}>
               <span class:list={['audience-number', `audience-number-${index + 1}`]}>
-                {audience.number}
+                {String(index + 1).padStart(2, '0')}
               </span>
               <h3>{audience.label}</h3>
               <p>{audience.summary}</p>
@@ -127,7 +131,7 @@ const getScreenshotImage = (
       </div>
     </section>
 
-    {copy.audiences.map((audience, index) => (
+    {audiences.map((audience, index) => (
       <section
         class:list={[
           'audience-section',
