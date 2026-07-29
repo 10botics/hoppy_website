@@ -24,7 +24,7 @@ const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
     return `${langPrefix}/subjects/${targetLevel}/${currentSubject}`;
   }
 
-  return `${langPrefix}/subjects#${targetLevel}-subjects-title`;
+  return `${langPrefix}/subjects/${targetLevel}`;
 };
 ---
 
@@ -42,9 +42,6 @@ const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
       ))}
     </div>
     <div class="subject-links-row">
-      <a class="all-subjects-link" href={`${langPrefix}/subjects`}>
-        {t('subjects.allSubjects')}
-      </a>
       <div class="subject-index-links">
         {subjects.map((subject) => (
           <a
@@ -121,7 +118,6 @@ const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
     gap: 1rem;
   }
 
-  .all-subjects-link,
   .subject-index-links a {
     padding: 0.5rem 0.9rem;
     border-radius: 999px;
@@ -129,13 +125,6 @@ const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
     font-weight: 700;
     text-decoration: none;
     transition: all 0.2s ease;
-  }
-
-  .all-subjects-link {
-    color: #475569;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    white-space: nowrap;
   }
 
   .subject-index-links {
@@ -151,8 +140,6 @@ const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
     border: 1px solid #bae6fd;
   }
 
-  .all-subjects-link:hover,
-  .all-subjects-link:focus-visible,
   .subject-index-links a:hover,
   .subject-index-links a:focus-visible,
   .subject-index-links a[aria-current='page'] {

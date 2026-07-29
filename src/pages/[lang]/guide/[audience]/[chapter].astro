@@ -1,0 +1,31 @@
+---
+import Guide from '../../../../components/Guide.astro';
+import { publishedStudentGuideChapters } from '../../../../data/studentGuide';
+import { publishedTeacherGuideChapters } from '../../../../data/teacherGuide';
+import type { Lang } from '../../../../i18n/ui';
+
+type Audience = 'student' | 'teacher';
+
+export function getStaticPaths() {
+  const audiences = [
+    { audience: 'student', chapters: publishedStudentGuideChapters },
+    { audience: 'teacher', chapters: publishedTeacherGuideChapters },
+  ] as const;
+
+  return ['en', 'tc'].flatMap((lang) =>
+    audiences.flatMap(({ audience, chapters }) =>
+      chapters.map((chapter) => ({
+        params: { lang, audience, chapter: chapter.slug },
+      })),
+    ),
+  );
+}
+
+const { lang, audience, chapter } = Astro.params as {
+  lang: Lang;
+  audience: Audience;
+  chapter: string;
+};
+---
+
+<Guide lang={lang} audience={audience} chapterSlug={chapter} />
