@@ -6,7 +6,7 @@ interface Props {
 const { to } = Astro.props as Props;
 const site = Astro.site ?? new URL('https://www.hoppy.day');
 const destinationUrl = new URL(to, site);
-const socialImageUrl = new URL('/hoppy-social-card.png', site);
+const socialImageUrl = new URL('/hoppy-social-card-v2.png', site);
 const isTraditionalChinese = to === '/tc' || to.startsWith('/tc/');
 const pageTitle = isTraditionalChinese
   ? 'Hoppy - 跳入學習之旅'
