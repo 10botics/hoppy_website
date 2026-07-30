@@ -116,23 +116,23 @@ export const homeContent: Record<Lang, HomeContent> = {
         id: 'teachers',
         number: '03',
         label: 'Teachers',
-        summary: 'DSE-style quizzes · Learning gaps · Classroom sync',
+        summary: 'Quiz creation · Learning insights · Classroom sync',
         eyebrow: 'For teachers',
         title: 'Create, understand and manage.',
-        description: 'Create DSE-style quizzes, identify learning gaps, and plan the next assignment—all in one place.',
+        description: 'Create quizzes for different subjects and levels, identify learning needs, and plan the next assignment—all in one place.',
         points: [
-          'Generate from topics or teaching materials and export editable DOCX',
-          'Use assignment results to identify learning gaps',
+          'Generate quizzes from topics or teaching materials and export editable DOCX',
+          'Use assignment results to identify learning needs',
           'Schedule quizzes and sync with Google Classroom',
         ],
         screenshots: [
           {
-            title: 'Create DSE-style quizzes',
-            description: 'Generate a DSE-style quiz from topics or teaching materials.',
+            title: 'Create personalised quizzes',
+            description: 'Generate a quiz for any subject or level from topics or teaching materials.',
           },
           {
             title: 'See class performance',
-            description: 'Assignment results showing class performance and learning gaps.',
+            description: 'Assignment results showing class performance and learning needs.',
           },
           {
             title: 'Sync Google Classroom',
@@ -226,23 +226,23 @@ export const homeContent: Record<Lang, HomeContent> = {
         id: 'teachers',
         number: '03',
         label: '老師',
-        summary: 'DSE 類型練習 · 學習差距 · 課室同步',
+        summary: '建立練習 · 學習需要 · 課室同步',
         eyebrow: '老師功能',
         title: '建立、了解、管理，一站完成。',
-        description: '在同一個平台建立 DSE 類型練習、找出學習差距，並安排下一份功課。',
+        description: '在同一個平台按不同科目和程度建立練習、了解學習需要，並安排下一份功課。',
         points: [
           '按課題或教材建立練習，並匯出可編輯 DOCX',
-          '利用功課結果找出學習差距',
+          '利用功課結果了解學習需要',
           '排程練習並與 Google Classroom 同步',
         ],
         screenshots: [
           {
-            title: '建立 DSE 類型練習',
-            description: '按課題或教材建立 DSE 類型練習。',
+            title: '建立個人化練習',
+            description: '按科目、程度、課題或教材建立練習。',
           },
           {
             title: '查看全班表現',
-            description: '顯示全班表現和學習差距的功課結果。',
+            description: '顯示全班表現和學習需要的功課結果。',
           },
           {
             title: '連結 Google Classroom',

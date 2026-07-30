@@ -8,8 +8,8 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const quizDisclaimer = lang === 'tc'
-	? '免責聲明：所有測驗均由人工智能生成，其內容不代表 10Botics 或 Hoppy 的立場。'
-	: 'Disclaimer: All quizzes are AI-generated, and their content does not represent the views of 10Botics or Hoppy.';
+	? '免責聲明：測驗內容根據使用者提供的資料生成。使用者提供的資料及所生成的內容與 Hoppy 或 10Botics 無關，亦不代表其立場。'
+	: 'Disclaimer: Quiz content is generated from information provided by users. User-provided information and the resulting content are not related to and do not represent Hoppy or 10Botics.';
 ---
 
 <footer class="global-footer">

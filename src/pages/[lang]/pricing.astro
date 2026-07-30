@@ -127,6 +127,7 @@ const plans = [
       </div>
 
       <p class="pricing-note">{t('pricing.note')}</p>
+      <p class="pricing-note pricing-disclaimer">{t('pricing.generationDisclaimer')}</p>
     </section>
   </main>
 </Layout>
@@ -408,6 +409,10 @@ const plans = [
     font-size: 0.78rem;
     line-height: 1.6;
     text-align: center;
+  }
+
+  .pricing-disclaimer {
+    margin-top: 0.3rem;
   }
 
   @media (max-width: 980px) {

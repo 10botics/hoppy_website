@@ -18,12 +18,6 @@ const subjects = subjectsByLevel[level];
 const schoolLevels = ['primary', 'secondary'] as const;
 
 const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
-  const targetSubjects: readonly string[] = subjectsByLevel[targetLevel];
-
-  if (currentSubject && targetSubjects.includes(currentSubject)) {
-    return `${langPrefix}/subjects/${targetLevel}/${currentSubject}`;
-  }
-
   return `${langPrefix}/subjects/${targetLevel}`;
 };
 ---
@@ -43,6 +37,12 @@ const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
     </div>
     <div class="subject-links-row">
       <div class="subject-index-links">
+        {currentSubject && (
+          <a class="all-subjects-link" href={`${langPrefix}/subjects/${level}`}>
+            <span aria-hidden="true">←</span>
+            {t('subjects.allSubjects')}
+          </a>
+        )}
         {subjects.map((subject) => (
           <a
             href={`${langPrefix}/subjects/${level}/${subject}`}

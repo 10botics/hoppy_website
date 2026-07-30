@@ -19,11 +19,13 @@ const schoolBenefit = lang === 'tc'
       eyebrow: '學校效益',
       title: '一個平台，涵蓋熱門學校科目。',
       description: '讓學生和教師在同一個地方使用跨科目的學習與課堂工具。',
+      action: '瀏覽科目',
     }
   : {
       eyebrow: 'For schools',
       title: 'One platform covering popular school subjects.',
       description: 'Give students and teachers one place for learning and classroom tools across subjects.',
+      action: 'Explore subjects',
     };
 const teacherScreenshotRoot = lang === 'tc'
   ? '/images/teacher-guide-tc'
@@ -32,7 +34,7 @@ const studentScreenshotRoot = lang === 'tc'
   ? '/images/student-guide-tc'
   : '/images/student-guide';
 const teacherScreenshots = [
-  `${teacherScreenshotRoot}/chapter-2/quiz-description-dse.png`,
+  `${teacherScreenshotRoot}/chapter-2/quiz-description-secondary.png`,
   `${teacherScreenshotRoot}/chapter-5/class-performance.png`,
   `${teacherScreenshotRoot}/chapter-7/google-classroom-linked.png`,
 ];
@@ -224,6 +226,10 @@ const getScreenshotImage = (
           <p class="school-benefit-eyebrow">{schoolBenefit.eyebrow}</p>
           <h2>{schoolBenefit.title}</h2>
           <p class="school-benefit-description">{schoolBenefit.description}</p>
+          <a class="school-benefit-link" href={path('/subjects')}>
+            {schoolBenefit.action}
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
@@ -879,6 +885,20 @@ const getScreenshotImage = (
     color: #557084;
     font-size: 1.05rem;
     line-height: 1.65;
+  }
+
+  .school-benefit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+    color: #087da9;
+    font-weight: 850;
+    text-decoration: none;
+  }
+
+  .school-benefit-link:hover {
+    text-decoration: underline;
   }
 
   .pricing-content {

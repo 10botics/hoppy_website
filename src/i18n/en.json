@@ -73,6 +73,7 @@
     "regularPrice": "Regular price",
     "save": "Save",
     "note": "All prices are in Hong Kong dollars. Annual plans are billed once per year.",
+    "generationDisclaimer": "The number of questions that can be generated is an estimate only and may change without prior notice.",
     "plans": {
       "starter": {
         "name": "Starter",

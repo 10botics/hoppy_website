@@ -73,6 +73,7 @@
     "regularPrice": "原價",
     "save": "即慳",
     "note": "所有價格均以港幣計算。年費方案將一次過收取全年費用。",
+    "generationDisclaimer": "可生成的題目數量僅為估算，並可能在不作事先通知的情況下更改。",
     "plans": {
       "starter": {
         "name": "入門",
