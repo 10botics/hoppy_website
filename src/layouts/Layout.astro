@@ -8,14 +8,24 @@ interface Props {
 	lang?: Lang;
 	title?: string;
 	description?: string;
+	image?: string;
 }
 
-const { lang: propLang, title, description } = Astro.props;
+const {
+	lang: propLang,
+	title,
+	description,
+	image = '/hoppy-social-card.png',
+} = Astro.props;
 const lang = propLang || getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
 const pageTitle = title ?? t('meta.title');
 const pageDescription = description ?? t('meta.description');
+const site = Astro.site ?? new URL('https://www.hoppy.day');
+const canonicalUrl = new URL(currentPath, site);
+const socialImageUrl = new URL(image, site);
+const ogLocale = lang === 'tc' ? 'zh_HK' : 'en_US';
 
 // Determine HTML lang attribute
 const htmlLang = lang === 'tc' ? 'zh-Hant' : 'en';
@@ -27,8 +37,25 @@ const htmlLang = lang === 'tc' ? 'zh-Hant' : 'en';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/jpeg" href="/hoppy-ruler.jpeg" />
+		<link rel="canonical" href={canonicalUrl} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={pageDescription} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Hoppy" />
+		<meta property="og:locale" content={ogLocale} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:image" content={socialImageUrl} />
+		<meta property="og:image:secure_url" content={socialImageUrl} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Hoppy — Hop into Learning with Hoppy" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={socialImageUrl} />
 		<title>{pageTitle}</title>
 	</head>
 	<body>

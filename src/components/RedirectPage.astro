@@ -4,15 +4,42 @@ interface Props {
 }
 
 const { to } = Astro.props as Props;
+const site = Astro.site ?? new URL('https://www.hoppy.day');
+const destinationUrl = new URL(to, site);
+const socialImageUrl = new URL('/hoppy-social-card.png', site);
+const isTraditionalChinese = to === '/tc' || to.startsWith('/tc/');
+const pageTitle = isTraditionalChinese
+  ? 'Hoppy - 跳入學習之旅'
+  : 'Hoppy - Hop into Learning';
+const pageDescription = isTraditionalChinese
+  ? '與 Hoppy 一起跳入學習之旅 - 專為孩子設計的教育應用程式'
+  : 'Hop into a personalized learning journey with Hoppy, the educational app designed for children.';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={isTraditionalChinese ? 'zh-Hant' : 'en'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex" />
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={destinationUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hoppy" />
+    <meta property="og:url" content={destinationUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hoppy — Hop into Learning with Hoppy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <meta http-equiv="refresh" content={`0; url=${to}`} />
-    <title>Redirecting…</title>
+    <title>{pageTitle}</title>
     <script is:inline define:vars={{ to }}>
       window.location.replace(`${to}${window.location.hash}`);
     </script>
