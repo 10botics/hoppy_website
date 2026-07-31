@@ -591,6 +591,35 @@ section(6, '6.1').screenshot =
       }
     : followUpEntryScreenshot;
 section(6, '6.1').additionalScreenshots = teacherFollowUp.additionalScreenshots;
+const followUpSettingsScreenshot = section(6, '6.1').additionalScreenshots?.[0];
+if (followUpSettingsScreenshot) {
+  followUpSettingsScreenshot.highlights = [
+    { label: 'Focus area', left: 6.2, top: 29.9, width: 87.6, height: 6.4 },
+    { label: 'Difficulty', left: 6.2, top: 40, width: 87.6, height: 6.9 },
+    { label: 'Time limit', left: 9.8, top: 52.2, width: 80.4, height: 6.4 },
+    { label: 'Number of questions', left: 9.8, top: 62.9, width: 80.4, height: 6.4 },
+    { label: 'Confirm', left: 2, top: 88.7, width: 96, height: 9.4 },
+  ];
+}
+
+const followUpAttemptScreenshot = section(3, '3.2').screenshot;
+const followUpResultScreenshot = section(3, '3.3').screenshot;
+if (followUpAttemptScreenshot && typeof followUpAttemptScreenshot !== 'string') {
+  section(6, '6.2').screenshot = {
+    ...followUpAttemptScreenshot,
+    caption: 'Complete the generated quiz in the same way as your other Hoppy quizzes.',
+    highlights: undefined,
+  };
+}
+if (followUpResultScreenshot && typeof followUpResultScreenshot !== 'string') {
+  section(6, '6.2').additionalScreenshots = [
+    {
+      ...followUpResultScreenshot,
+      caption: 'Review the result and explanations to see what improved.',
+      highlights: undefined,
+    },
+  ];
+}
 
 section(7, '7.3').screenshot = teacherQuizAttempt.additionalScreenshots?.[1];
 section(7, '7.3').additionalScreenshots = [

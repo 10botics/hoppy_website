@@ -1,0 +1,18 @@
+---
+import GuidePrint from '../../../../components/GuidePrint.astro';
+import type { Lang } from '../../../../i18n/ui';
+
+type Audience = 'student' | 'teacher';
+
+export function getStaticPaths() {
+  return ['en', 'tc'].flatMap((lang) =>
+    ['student', 'teacher'].map((audience) => ({
+      params: { lang, audience },
+    })),
+  );
+}
+
+const { lang, audience } = Astro.params as { lang: Lang; audience: Audience };
+---
+
+<GuidePrint lang={lang} audience={audience} />

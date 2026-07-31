@@ -1,0 +1,1076 @@
+---
+import {
+  publishedTeacherGuideChapters,
+  sectionId,
+  type GuideChapter,
+} from '../data/teacherGuide';
+import { publishedTeacherGuideChaptersTc } from '../data/teacherGuideTc';
+import { publishedStudentGuideChapters } from '../data/studentGuide';
+import { publishedStudentGuideChaptersTc } from '../data/studentGuideTc';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  audience: 'student' | 'teacher';
+}
+
+const { lang, audience } = Astro.props;
+const isTc = lang === 'tc';
+const isStudent = audience === 'student';
+const chapters: GuideChapter[] = isStudent
+  ? (isTc ? publishedStudentGuideChaptersTc : publishedStudentGuideChapters)
+  : (isTc ? publishedTeacherGuideChaptersTc : publishedTeacherGuideChapters);
+const assetSrc = (src: string) => `../../../../${src.replace(/^\//, '')}`;
+
+const copy = isTc
+  ? {
+      language: 'zh-Hant',
+      title: isStudent ? 'Hoppy 學生指南' : 'Hoppy 教師指南',
+      eyebrow: isStudent ? '玩出學習癮' : '讓教學更高效',
+      summary: isStudent
+        ? '由建立個人練習、完成課堂功課，到重溫結果及建立跟進練習，一步一步掌握 Hoppy。'
+        : '由建立及檢查練習、發佈課堂功課，到查看全班結果及建立跟進練習，一步一步使用 Hoppy 教學。',
+      contents: '內容',
+      chapter: '章',
+      sections: '個主題',
+      completion: '完成本章',
+      continued: '（續）',
+      screenshotPending: '應用程式截圖稍後加入',
+      edition: 'PDF 版本 · 2026 年 7 月',
+      website: 'hoppy.day',
+    }
+  : {
+      language: 'en',
+      title: isStudent ? 'Hoppy Student Guide' : 'Hoppy Teacher Guide',
+      eyebrow: isStudent ? 'Hop into learning' : 'Teach more efficiently',
+      summary: isStudent
+        ? 'Create personal practice, complete classroom assignments, review your results, and build follow-up practice—one clear step at a time.'
+        : 'Create and check quizzes, publish classroom assignments, review class results, and build follow-up practice—one clear step at a time.',
+      contents: 'Contents',
+      chapter: 'Chapter',
+      sections: 'topics',
+      completion: 'Chapter complete',
+      continued: '— continued',
+      screenshotPending: 'App screenshot to be added',
+      edition: 'PDF edition · July 2026',
+      website: 'hoppy.day',
+    };
+---
+
+<!doctype html>
+<html lang={copy.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{copy.title}</title>
+    <style is:inline>
+      :root {
+        --ink: #10283f;
+        --blue: #26a9df;
+        --blue-deep: #078ec8;
+        --blue-soft: #eaf8fd;
+        --blue-pale: #f6fcff;
+        --yellow: #ffd64a;
+        --coral: #ff7f74;
+        --line: #acdff2;
+        --paper: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: #dfe7eb;
+      }
+
+      body {
+        margin: 0 auto;
+        max-width: 210mm;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        font-size: 10.4pt;
+        line-height: 1.55;
+      }
+
+      .cover {
+        position: relative;
+        display: grid;
+        min-height: 297mm;
+        padding: 20mm 17mm 18mm;
+        overflow: hidden;
+        break-after: page;
+        background:
+          linear-gradient(160deg, transparent 0 62%, rgba(255,255,255,.78) 62.2% 100%),
+          linear-gradient(145deg, #fff 0 58%, #dff5fc 58.2% 72%, #8edaf2 72.2% 100%);
+      }
+
+      .cover::before {
+        content: "";
+        position: absolute;
+        inset: auto -24mm -21mm -18mm;
+        height: 86mm;
+        border-radius: 48% 58% 0 0;
+        background: var(--blue);
+        transform: rotate(-3deg);
+      }
+
+      .cover-logo {
+        width: 53mm;
+        height: auto;
+      }
+
+      .cover-copy {
+        position: relative;
+        z-index: 2;
+        align-self: center;
+        max-width: 118mm;
+        padding-bottom: 38mm;
+      }
+
+      .cover-rabbit {
+        position: absolute;
+        z-index: 1;
+        right: 16mm;
+        bottom: 38mm;
+        width: 58mm;
+        pointer-events: none;
+      }
+
+      .cover-rabbit img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .cover-eyebrow {
+        display: inline-block;
+        margin: 0 0 8mm;
+        padding: 2.3mm 5mm;
+        border-radius: 999px;
+        color: #fff;
+        background: var(--blue);
+        font-size: 10pt;
+        font-weight: 800;
+        letter-spacing: .04em;
+      }
+
+      .cover h1 {
+        margin: 0;
+        max-width: 150mm;
+        font-size: 34pt;
+        line-height: 1.08;
+        letter-spacing: -.025em;
+      }
+
+      .cover-summary {
+        max-width: 125mm;
+        margin: 8mm 0 0;
+        font-size: 14pt;
+        line-height: 1.6;
+      }
+
+      .cover-meta {
+        position: relative;
+        z-index: 2;
+        align-self: end;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-size: 9pt;
+        font-weight: 700;
+      }
+
+      .contents {
+        padding: 15mm 17mm 14mm;
+        break-after: page;
+      }
+
+      .contents-header,
+      .chapter-banner {
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background: var(--blue);
+      }
+
+      .contents-header {
+        margin: -15mm -17mm 12mm;
+        padding: 17mm;
+      }
+
+      .contents-header::after,
+      .chapter-banner::after {
+        content: "";
+        position: absolute;
+        right: -11mm;
+        bottom: -19mm;
+        width: 61mm;
+        height: 45mm;
+        border: 1.5mm solid rgba(255,255,255,.3);
+        border-radius: 50%;
+      }
+
+      .contents h1 {
+        margin: 0;
+        font-size: 28pt;
+      }
+
+      .contents-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5mm;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .contents-item {
+        display: grid;
+        grid-template-columns: 13mm 1fr;
+        gap: 4mm;
+        min-height: 30mm;
+        padding: 5mm;
+        border: .45mm dashed var(--blue);
+        border-radius: 4mm;
+        background: var(--blue-pale);
+        break-inside: avoid;
+      }
+
+      .contents-number,
+      .section-number {
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: var(--blue);
+        font-weight: 900;
+      }
+
+      .contents-number {
+        width: 12mm;
+        height: 12mm;
+        border-radius: 3mm;
+        font-size: 14pt;
+      }
+
+      .contents-item h2 {
+        margin: 0;
+        font-size: 11.5pt;
+        line-height: 1.3;
+      }
+
+      .contents-item p {
+        margin: 2mm 0 0;
+        color: #557083;
+        font-size: 8.5pt;
+      }
+
+      .chapter {
+        padding: 0 17mm 14mm;
+        break-before: page;
+      }
+
+      .chapter-banner {
+        min-height: 65mm;
+        margin: 0 -17mm 12mm;
+        padding: 15mm 17mm 12mm;
+        clear: both;
+        break-inside: avoid;
+        background:
+          linear-gradient(135deg, var(--blue) 0 76%, #68c8eb 76.2% 100%);
+      }
+
+      .chapter-kicker {
+        margin: 0 0 4mm;
+        color: var(--yellow);
+        font-size: 10pt;
+        font-weight: 900;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+
+      .chapter-banner h1 {
+        max-width: 155mm;
+        margin: 0;
+        font-size: 24pt;
+        line-height: 1.16;
+      }
+
+      .chapter-banner p {
+        max-width: 145mm;
+        margin: 5mm 0 0;
+        font-size: 11.5pt;
+      }
+
+      .chapter--chapter-6 .chapter-banner {
+        min-height: 34mm;
+        margin-bottom: 2mm;
+        padding-top: 5mm;
+        padding-bottom: 5mm;
+      }
+
+      .chapter--chapter-6 .guide-section {
+        padding-top: 3mm;
+        padding-bottom: 3mm;
+      }
+
+      .chapter--chapter-6 .section-number {
+        top: 3mm;
+      }
+
+      .chapter--chapter-6 .section-body h2 {
+        margin-bottom: 2mm;
+      }
+
+      .chapter--chapter-6 .steps {
+        margin: 2mm 0;
+      }
+
+      .chapter--chapter-6 .steps li {
+        min-height: 7mm;
+        margin-bottom: 1.7mm;
+        padding-top: 1.5mm;
+        padding-bottom: 1.5mm;
+      }
+
+      .chapter--chapter-6 .steps li::before {
+        top: 1.25mm;
+      }
+
+      .chapter--chapter-6 .guide-note {
+        margin: 3mm 0;
+        padding: 3mm 4mm;
+      }
+
+      .chapter-checklist {
+        margin: 0 0 9mm;
+        padding: 5mm 7mm;
+        border-left: 2mm solid var(--yellow);
+        border-radius: 0 3mm 3mm 0;
+        background: #fff9db;
+        break-inside: avoid;
+      }
+
+      .chapter-checklist ul {
+        margin: 0;
+        padding-left: 6mm;
+      }
+
+      .guide-section {
+        position: relative;
+        display: block;
+        padding: 8mm 0 8mm 21mm;
+        border-top: .4mm solid #d7edf6;
+      }
+
+      .guide-section:first-of-type {
+        border-top: 0;
+      }
+
+      .guide-section--compact {
+        break-inside: avoid-page;
+      }
+
+      .guide-section--chapter-2-compact {
+        padding-top: 5mm;
+        padding-bottom: 5mm;
+      }
+
+      .guide-section--chapter-2-compact .steps li {
+        min-height: 7.5mm;
+        margin-bottom: 2mm;
+        padding-top: 1.8mm;
+        padding-bottom: 1.8mm;
+      }
+
+      .guide-section--chapter-2-compact .steps li::before {
+        top: 1.55mm;
+      }
+
+      .guide-section--chapter-2-compact .app-screenshot--primary {
+        width: 45mm;
+      }
+
+      .guide-section--chapter-2-compact .app-screenshot--primary .screenshot-frame {
+        max-width: 45mm;
+      }
+
+      .guide-section--chapter-2-compact .app-screenshot--primary .screenshot-frame img {
+        max-width: 40.6mm;
+        max-height: 88mm;
+      }
+
+      .guide-section--review-generated {
+        padding: 3mm 0 3mm 16mm;
+      }
+
+      .guide-section--review-generated .section-number {
+        top: 3mm;
+        width: 11mm;
+        height: 11mm;
+        font-size: 9pt;
+      }
+
+      .guide-section--review-generated .section-body h2 {
+        margin-bottom: 1.5mm;
+        font-size: 13pt;
+      }
+
+      .guide-section--review-generated .steps {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2mm;
+        margin: 0;
+      }
+
+      .guide-section--review-generated .steps li {
+        min-height: 7mm;
+        margin: 0;
+        padding: 1.5mm 2.5mm 1.5mm 10mm;
+        font-size: 9pt;
+      }
+
+      .guide-section--review-generated .steps li::before {
+        left: 2mm;
+        top: 1.25mm;
+        width: 5mm;
+        height: 5mm;
+        font-size: 7pt;
+      }
+
+      .section-number {
+        position: absolute;
+        left: 0;
+        top: 8mm;
+        width: 15mm;
+        height: 15mm;
+        border-radius: 4mm 4mm 4mm 1mm;
+        font-size: 11pt;
+        align-self: start;
+      }
+
+      .section-body {
+        min-width: 0;
+      }
+
+      .section-layout {
+        min-width: 0;
+      }
+
+      .section-layout--with-media {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 55mm;
+        gap: 6mm;
+        align-items: start;
+        break-inside: avoid-page;
+      }
+
+      .section-layout--paired {
+        display: block;
+        break-inside: avoid-page;
+      }
+
+      .section-copy {
+        min-width: 0;
+      }
+
+      .section-body h2 {
+        margin: 0 0 4mm;
+        font-size: 17pt;
+        line-height: 1.22;
+      }
+
+      .section-body p {
+        margin: 3mm 0;
+      }
+
+      .section-introduction {
+        color: #3d6077;
+        font-size: 11pt;
+      }
+
+      .steps {
+        display: flow-root;
+        margin: 4mm 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: steps;
+      }
+
+      .steps li {
+        position: relative;
+        min-height: 9mm;
+        margin: 0 0 3mm;
+        padding: 2.5mm 4mm 2.5mm 13mm;
+        border-radius: 3mm;
+        background: var(--blue-soft);
+        counter-increment: steps;
+        break-inside: avoid;
+      }
+
+      .steps li::before {
+        content: counter(steps);
+        position: absolute;
+        left: 3mm;
+        top: 2.2mm;
+        display: grid;
+        place-items: center;
+        width: 6.5mm;
+        height: 6.5mm;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--blue-deep);
+        font-size: 8pt;
+        font-weight: 900;
+      }
+
+      .detail-list {
+        display: flow-root;
+        margin: 4mm 0;
+        padding-left: 7mm;
+      }
+
+      .detail-list li {
+        margin: 1.5mm 0;
+      }
+
+      .detail-list li::marker {
+        color: var(--blue);
+      }
+
+      .guide-note {
+        display: flow-root;
+        margin: 5mm 0;
+        padding: 4mm 5mm;
+        border: .45mm dashed var(--blue);
+        border-radius: 3mm;
+        background: var(--blue-pale);
+        break-inside: avoid;
+      }
+
+      .guide-note strong {
+        color: var(--blue-deep);
+      }
+
+      .guide-note p {
+        margin-bottom: 0;
+      }
+
+      .app-screenshot,
+      .screenshot-placeholder {
+        margin: 7mm auto;
+        text-align: center;
+        break-inside: avoid;
+      }
+
+      .app-screenshot--primary {
+        float: none;
+        width: 55mm;
+        margin: 0;
+      }
+
+      .section-media-stack {
+        display: grid;
+        gap: 4mm;
+        align-content: start;
+        break-inside: avoid-page;
+      }
+
+      .section-layout--paired .section-media-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10mm;
+        margin-top: 5mm;
+      }
+
+      .screenshot-frame {
+        position: relative;
+        display: inline-block;
+        max-width: 72mm;
+        padding: 2.2mm;
+        border-radius: 7mm;
+        background: #10283f;
+      }
+
+      .screenshot-image {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        line-height: 0;
+      }
+
+      .screenshot-frame img {
+        display: block;
+        max-width: 67.6mm;
+        max-height: 150mm;
+        width: auto;
+        height: auto;
+        border-radius: 5mm;
+      }
+
+      .app-screenshot--primary .screenshot-frame {
+        max-width: 55mm;
+      }
+
+      .app-screenshot--primary .screenshot-frame img {
+        max-width: 50.6mm;
+        max-height: 105mm;
+      }
+
+      .app-screenshot--stacked {
+        width: 55mm;
+        margin: 0 auto;
+      }
+
+      .app-screenshot--stacked .screenshot-frame {
+        max-width: 55mm;
+      }
+
+      .app-screenshot--stacked .screenshot-frame img {
+        max-width: 50.6mm;
+        max-height: 105mm;
+      }
+
+      .app-screenshot--stacked figcaption {
+        font-size: 8.5pt;
+      }
+
+      .section-layout--paired .app-screenshot--primary,
+      .section-layout--paired .app-screenshot--stacked {
+        justify-self: center;
+      }
+
+      .chapter--chapter-6 .section-layout--paired .app-screenshot--primary,
+      .chapter--chapter-6 .section-layout--paired .app-screenshot--stacked {
+        width: 42mm;
+      }
+
+      .chapter--chapter-6 .section-layout--paired .app-screenshot--primary .screenshot-frame,
+      .chapter--chapter-6 .section-layout--paired .app-screenshot--stacked .screenshot-frame {
+        max-width: 42mm;
+      }
+
+      .chapter--chapter-6 .section-layout--paired .app-screenshot--primary .screenshot-frame img,
+      .chapter--chapter-6 .section-layout--paired .app-screenshot--stacked .screenshot-frame img {
+        max-width: 37.6mm;
+        max-height: 78mm;
+      }
+
+      .section-layout--chapter-6-followup {
+        grid-template-columns: minmax(0, 1fr) 40mm;
+        gap: 4mm;
+      }
+
+      .section-layout--chapter-6-followup .app-screenshot--primary,
+      .section-layout--chapter-6-followup .app-screenshot--stacked {
+        width: 40mm;
+      }
+
+      .section-layout--chapter-6-followup .screenshot-frame {
+        max-width: 40mm;
+      }
+
+      .section-layout--chapter-6-followup .screenshot-frame img {
+        max-width: 35.6mm;
+        max-height: 78mm;
+      }
+
+      .section-layout--chapter-6-followup figcaption {
+        font-size: 7.5pt;
+      }
+
+      .additional-screenshots {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4mm;
+        margin-top: 4mm;
+      }
+
+      .additional-screenshots--teacher {
+        gap: 7mm;
+        margin-top: 5mm;
+        break-inside: avoid-page;
+      }
+
+      .additional-screenshots-title {
+        grid-column: 1 / -1;
+        margin: 0;
+        padding-bottom: 2mm;
+        border-bottom: .45mm solid var(--line);
+        color: var(--blue-deep);
+        font-size: 13pt;
+        line-height: 1.25;
+      }
+
+      .additional-screenshots .app-screenshot {
+        margin: 0;
+      }
+
+      .additional-screenshots .screenshot-frame {
+        max-width: 47mm;
+      }
+
+      .additional-screenshots .screenshot-frame img {
+        max-width: 42.6mm;
+        max-height: 85mm;
+      }
+
+      .additional-screenshots--teacher .screenshot-frame {
+        max-width: 60mm;
+      }
+
+      .additional-screenshots--teacher .screenshot-frame img {
+        max-width: 55.6mm;
+        max-height: 125mm;
+      }
+
+      .additional-screenshots--three-across {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4mm;
+      }
+
+      .additional-screenshots--three-across .screenshot-frame {
+        max-width: 48mm;
+      }
+
+      .additional-screenshots--three-across .screenshot-frame img {
+        max-width: 43.6mm;
+        max-height: 105mm;
+      }
+
+      .additional-screenshots--three-across figcaption {
+        font-size: 7.5pt;
+      }
+
+      .guide-section--export-pdf .section-layout--with-media {
+        grid-template-columns: minmax(0, 1fr) 70mm;
+      }
+
+      .guide-section--export-pdf .app-screenshot--primary {
+        width: 70mm;
+      }
+
+      .guide-section--export-pdf .app-screenshot--primary .screenshot-frame {
+        max-width: 70mm;
+      }
+
+      .guide-section--export-pdf .app-screenshot--primary .screenshot-frame img {
+        max-width: 65.6mm;
+        max-height: 155mm;
+      }
+
+  .screenshot-highlight {
+    position: absolute;
+    outline: .65mm solid var(--coral);
+    outline-offset: .35mm;
+    border-radius: 2mm;
+  }
+
+      .screenshot-highlight--circle {
+        border-radius: 50%;
+      }
+
+      figcaption {
+        display: table;
+        width: fit-content;
+        max-width: 120mm;
+        margin: 3mm auto 0;
+        padding: .4mm 1.3mm;
+        border-radius: 2mm;
+        color: #455d6d;
+        background: #eef1f3;
+        font-size: 8.5pt;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+        white-space: normal;
+      }
+
+      .screenshot-placeholder {
+        padding: 8mm;
+        border: .5mm dashed var(--line);
+        border-radius: 4mm;
+        color: #557083;
+        background: var(--blue-pale);
+      }
+
+      .completion {
+        position: relative;
+        clear: both;
+        margin-top: 10mm;
+        padding: 7mm 9mm;
+        overflow: hidden;
+        border-radius: 4mm;
+        color: #fff;
+        background: var(--blue-deep);
+        break-inside: avoid;
+      }
+
+      .completion::after {
+        content: "★";
+        position: absolute;
+        right: 8mm;
+        top: 50%;
+        color: var(--yellow);
+        font-size: 24pt;
+        transform: translateY(-50%) rotate(10deg);
+      }
+
+      .completion strong {
+        display: block;
+        margin-bottom: 1.5mm;
+        color: var(--yellow);
+        font-size: 9pt;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+
+      .completion p {
+        max-width: 145mm;
+        margin: 0;
+        padding-right: 15mm;
+        font-size: 11pt;
+        font-weight: 700;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @media print {
+        html,
+        body {
+          background: #fff;
+        }
+
+        body {
+          max-width: none;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <img class="cover-logo" src={assetSrc('/hoppy-logo-clean.png')} alt="Hoppy" />
+      <div class="cover-rabbit" aria-hidden="true">
+        <img src={assetSrc('/hoppy-rabbit-official-cover.svg')} alt="" />
+      </div>
+      <div class="cover-copy">
+        <p class="cover-eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
+        <p class="cover-summary">{copy.summary}</p>
+      </div>
+      <div class="cover-meta">
+        <span>{copy.edition}</span>
+        <span>{copy.website}</span>
+      </div>
+    </section>
+
+    <section class="contents">
+      <header class="contents-header">
+        <h1>{copy.contents}</h1>
+      </header>
+      <ol class="contents-list">
+        {chapters.map((chapter) => (
+          <li class="contents-item">
+            <span class="contents-number">{chapter.number}</span>
+            <div>
+              <h2>{chapter.title}</h2>
+              <p>{chapter.sections.length} {copy.sections}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    {chapters.map((chapter) => (
+      <article class:list={['chapter', `chapter--${chapter.slug}`]} id={chapter.slug}>
+        <header class="chapter-banner">
+          <p class="chapter-kicker">{copy.chapter} {chapter.number}</p>
+          <h1>{chapter.title}</h1>
+          <p>{chapter.summary}</p>
+        </header>
+
+        {chapter.chapterBullets && (
+          <aside class="chapter-checklist">
+            <ul>
+              {chapter.chapterBullets.map((item) => <li>{item}</li>)}
+            </ul>
+          </aside>
+        )}
+
+        {chapter.sections.map((section) => (
+          <section
+            class:list={[
+              'guide-section',
+              {
+                'guide-section--visual':
+                  section.screenshot || section.additionalScreenshots?.length,
+                'guide-section--compact':
+                  !section.screenshot && !section.additionalScreenshots?.length,
+                'guide-section--chapter-2-compact':
+                  chapter.number === 2 && (section.number === '2.4' || section.number === '2.5'),
+                'guide-section--review-generated':
+                  chapter.number === 2 && section.number === '2.6',
+                'guide-section--export-pdf':
+                  !isStudent && section.number === '3.6',
+              },
+            ]}
+            id={sectionId(section.number)}
+          >
+            <div class="section-number" aria-hidden="true">{section.number}</div>
+            <div class="section-body">
+              <div
+                class={
+                  section.screenshot && typeof section.screenshot !== 'string'
+                    ? section.additionalScreenshots?.length === 1
+                      ? audience === 'teacher' && chapter.number === 6 && section.number === '6.1'
+                        ? 'section-layout section-layout--with-media section-layout--chapter-6-followup'
+                        : 'section-layout section-layout--paired'
+                      : 'section-layout section-layout--with-media'
+                    : 'section-layout'
+                }
+              >
+                <div class="section-copy">
+                  <h2>{section.title}</h2>
+                  {section.introduction && <p class="section-introduction">{section.introduction}</p>}
+
+                  {section.steps && (
+                    <ol class="steps">
+                      {section.steps.map((step) => <li>{step}</li>)}
+                    </ol>
+                  )}
+
+                  {section.bullets && (
+                    <ul class="detail-list">
+                      {section.bullets.map((item) => <li>{item}</li>)}
+                    </ul>
+                  )}
+
+                  {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+
+                  {section.note && (
+                    <aside class="guide-note">
+                      <strong>{section.note.title}</strong>
+                      <p>{section.note.text}</p>
+                    </aside>
+                  )}
+
+                  {typeof section.screenshot === 'string' && (
+                    <figure class="screenshot-placeholder">
+                      <strong>{copy.screenshotPending}</strong>
+                      <figcaption>{section.screenshot}</figcaption>
+                    </figure>
+                  )}
+                </div>
+
+                {section.screenshot && typeof section.screenshot !== 'string' && (
+                  <div class="section-media-stack">
+                    <figure class="app-screenshot app-screenshot--primary">
+                      <div class="screenshot-frame">
+                        <div class="screenshot-image">
+                          <img src={assetSrc(section.screenshot.src)} alt={section.screenshot.alt} />
+                          {section.screenshot.highlights?.map((highlight) => (
+                            <span
+                              class:list={[
+                                'screenshot-highlight',
+                                {
+                                  'screenshot-highlight--circle':
+                                    highlight.width <= 8 && highlight.height <= 4.5,
+                                },
+                              ]}
+                              style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
+                              aria-hidden="true"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <figcaption>{section.screenshot.caption}</figcaption>
+                    </figure>
+
+                    {section.additionalScreenshots?.length === 1 && (
+                      <figure class="app-screenshot app-screenshot--stacked">
+                        <div class="screenshot-frame">
+                          <div class="screenshot-image">
+                            <img
+                              src={assetSrc(section.additionalScreenshots[0].src)}
+                              alt={section.additionalScreenshots[0].alt}
+                            />
+                            {section.additionalScreenshots[0].highlights?.map((highlight) => (
+                              <span
+                                class:list={[
+                                  'screenshot-highlight',
+                                  {
+                                    'screenshot-highlight--circle':
+                                      highlight.width <= 8 && highlight.height <= 4.5,
+                                  },
+                                ]}
+                                style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
+                                aria-hidden="true"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        <figcaption>{section.additionalScreenshots[0].caption}</figcaption>
+                      </figure>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {section.additionalScreenshots && section.additionalScreenshots.length > 1 && (
+                <div
+                  class:list={[
+                    'additional-screenshots',
+                    {
+                      'additional-screenshots--teacher': !isStudent,
+                      'additional-screenshots--three-across':
+                        !isStudent && chapter.number === 8 && section.number === '8.1',
+                    },
+                  ]}
+                >
+                  {!isStudent && (
+                    <h3 class="additional-screenshots-title">
+                      {section.number} {section.title} {copy.continued}
+                    </h3>
+                  )}
+                  {section.additionalScreenshots.map((screenshot) => (
+                    <figure class="app-screenshot">
+                      <div class="screenshot-frame">
+                        <div class="screenshot-image">
+                          <img src={assetSrc(screenshot.src)} alt={screenshot.alt} />
+                          {screenshot.highlights?.map((highlight) => (
+                            <span
+                              class:list={[
+                                'screenshot-highlight',
+                                {
+                                  'screenshot-highlight--circle':
+                                    highlight.width <= 8 && highlight.height <= 4.5,
+                                },
+                              ]}
+                              style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
+                              aria-hidden="true"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <figcaption>{screenshot.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        ))}
+
+      </article>
+    ))}
+  </body>
+</html>

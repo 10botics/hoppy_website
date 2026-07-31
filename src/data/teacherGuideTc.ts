@@ -770,6 +770,16 @@ const screenshotHighlightOverrides: Record<string, GuideScreenshot['highlights']
   '/images/teacher-guide-tc/chapter-3/report-options.png': [
     { label: '舉報原因', left: 3, top: 51.5, width: 94, height: 37.5 },
   ],
+  '/images/teacher-guide-tc/chapter-6/similar-quiz.png': [
+    { label: '出題方向', left: 6.2, top: 29.7, width: 87.6, height: 6.6 },
+    { label: '難度', left: 6.2, top: 39.9, width: 87.6, height: 6.7 },
+    { label: '時間限制', left: 12.3, top: 52.5, width: 75.4, height: 5.3 },
+    { label: '題目數量', left: 12.3, top: 63.2, width: 75.4, height: 5.3 },
+    { label: '確認', left: 3.8, top: 89.9, width: 92.4, height: 6.8 },
+  ],
+  '/images/teacher-guide-tc/chapter-8/preferred-quiz-language-effect.png': [
+    { label: '偏好練習語言已套用', left: 38.6, top: 40.3, width: 53.2, height: 4.8 },
+  ],
 };
 
 const exactScreenshotHighlightOverrides: Record<string, GuideScreenshot['highlights']> = {

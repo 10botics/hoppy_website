@@ -494,7 +494,7 @@ section(5, '5.2').screenshot = {
   caption: '閱讀教師的備註，然後選擇「開始」。紅框標示這兩個位置。',
   highlights: [
     { label: '備註', left: 4.8, top: 56.4, width: 82.1, height: 8.1 },
-    { label: '開始', left: 4.8, top: 73.9, width: 90, height: 4.8 },
+    { label: '開始', left: 3.8, top: 76.8, width: 92.4, height: 6.4 },
   ],
 };
 
@@ -521,6 +521,25 @@ section(6, '6.1').screenshot =
       }
     : followUpEntryScreenshot;
 section(6, '6.1').additionalScreenshots = teacherFollowUp.additionalScreenshots;
+
+const followUpAttemptScreenshot = section(3, '3.2').screenshot;
+const followUpResultScreenshot = section(3, '3.3').screenshot;
+if (followUpAttemptScreenshot && typeof followUpAttemptScreenshot !== 'string') {
+  section(6, '6.2').screenshot = {
+    ...followUpAttemptScreenshot,
+    caption: '跟平日的 Hoppy 練習一樣，完成已生成的跟進練習。',
+    highlights: undefined,
+  };
+}
+if (followUpResultScreenshot && typeof followUpResultScreenshot !== 'string') {
+  section(6, '6.2').additionalScreenshots = [
+    {
+      ...followUpResultScreenshot,
+      caption: '查看結果和解釋，了解自己有進步的地方。',
+      highlights: undefined,
+    },
+  ];
+}
 
 section(7, '7.3').screenshot = teacherQuizAttempt.additionalScreenshots?.[1];
 section(7, '7.3').additionalScreenshots = [
