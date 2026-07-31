@@ -38,6 +38,8 @@ const copy = isTc
       screenshotPending: '應用程式截圖稍後加入',
       edition: 'PDF 版本 · 2026 年 7 月',
       website: 'hoppy.day',
+      downloadApp: '掃描下載 Hoppy 應用程式',
+      downloadQrAlt: 'Hoppy 應用程式下載二維碼',
     }
   : {
       language: 'en',
@@ -54,6 +56,8 @@ const copy = isTc
       screenshotPending: 'App screenshot to be added',
       edition: 'PDF edition · July 2026',
       website: 'hoppy.day',
+      downloadApp: 'Scan to download the Hoppy app',
+      downloadQrAlt: 'QR code for downloading the Hoppy app',
     };
 ---
 
@@ -142,6 +146,30 @@ const copy = isTc
         display: block;
         width: 100%;
         height: auto;
+      }
+
+      .cover-download {
+        position: absolute;
+        z-index: 3;
+        left: 17mm;
+        bottom: 35mm;
+        display: flex;
+        align-items: center;
+        gap: 4mm;
+        max-width: 90mm;
+        color: #fff;
+        font-size: 9.5pt;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      .cover-download img {
+        display: block;
+        width: 27mm;
+        height: 27mm;
+        padding: 1.5mm;
+        border-radius: 2mm;
+        background: #fff;
       }
 
       .cover-eyebrow {
@@ -862,6 +890,10 @@ const copy = isTc
       <div class="cover-rabbit" aria-hidden="true">
         <img src={assetSrc('/hoppy-rabbit-official-cover.svg')} alt="" />
       </div>
+      <div class="cover-download">
+        <img src={assetSrc('/hoppy-download-qr.png')} alt={copy.downloadQrAlt} />
+        <span>{copy.downloadApp}</span>
+      </div>
       <div class="cover-copy">
         <p class="cover-eyebrow">{copy.eyebrow}</p>
         <h1>{copy.title}</h1>
@@ -893,7 +925,7 @@ const copy = isTc
     {chapters.map((chapter) => (
       <article class:list={['chapter', `chapter--${chapter.slug}`]} id={chapter.slug}>
         <header class="chapter-banner">
-          <p class="chapter-kicker">{copy.chapter} {chapter.number}</p>
+          <p class="chapter-kicker">{isTc ? `第${chapter.number}章` : `${copy.chapter} ${chapter.number}`}</p>
           <h1>{chapter.title}</h1>
           <p>{chapter.summary}</p>
         </header>

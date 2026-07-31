@@ -31,7 +31,7 @@ def contents_item_rect(chapter_number: int) -> fitz.Rect:
 
 
 def chapter_destinations(document: fitz.Document, traditional_chinese: bool) -> dict[int, int]:
-    marker = re.compile(r"(?m)^章\s*(\d+)\s*$" if traditional_chinese else r"(?m)^CHAPTER\s+(\d+)\s*$")
+    marker = re.compile(r"(?m)^第\s*(\d+)\s*章\s*$" if traditional_chinese else r"(?m)^CHAPTER\s+(\d+)\s*$")
     destinations: dict[int, int] = {}
     for page_index in range(2, document.page_count):
         match = marker.search(document[page_index].get_text("text"))
