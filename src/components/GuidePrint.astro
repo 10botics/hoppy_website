@@ -17,9 +17,28 @@ interface Props {
 const { lang, audience } = Astro.props;
 const isTc = lang === 'tc';
 const isStudent = audience === 'student';
-const chapters: GuideChapter[] = isStudent
+const allChapters: GuideChapter[] = isStudent
   ? (isTc ? publishedStudentGuideChaptersTc : publishedStudentGuideChapters)
   : (isTc ? publishedTeacherGuideChaptersTc : publishedTeacherGuideChapters);
+const chapters = allChapters.slice(0, -2);
+const largeCenteredPhoneSections = new Set(
+  ['1.2', '1.4'],
+);
+const mediumCenteredPhoneSections = new Set(
+  isStudent ? [] : ['6.2', '7.4', ...(isTc ? ['8.2'] : [])],
+);
+const verticallyCenteredSections = new Set(
+  isStudent ? ['4.4'] : ['3.6', '7.2', '7.6', ...(!isTc ? ['8.2'] : [])],
+);
+const deeplyBalancedSections = new Set(
+  isStudent ? ['3.5', '6.2'] : ['4.2', '9.2'],
+);
+const balancedSections = new Set(
+  isStudent ? ['1.4', '3.2', '5.2'] : ['1.4', '3.2', '4.3', '5.4', '7.3'],
+);
+const subtlyBalancedSections = new Set(
+  isStudent ? ['1.3'] : ['1.3', '4.4', '7.4', '7.5', '9.3', '9.4'],
+);
 const assetSrc = (src: string) => `../../../../${src.replace(/^\//, '')}`;
 
 const copy = isTc
@@ -40,6 +59,12 @@ const copy = isTc
       website: 'hoppy.day',
       downloadApp: '掃描下載 Hoppy 應用程式',
       downloadQrAlt: 'Hoppy 應用程式下載二維碼',
+      endingEyebrow: isStudent ? '繼續學習' : '繼續教學',
+      endingTitle: isStudent ? '你已準備好使用 Hoppy！' : '你已準備好使用 Hoppy 教學！',
+      endingBody: isStudent
+        ? '運用 Hoppy 建立練習、完成課堂功課，並透過跟進練習繼續進步。'
+        : '運用 Hoppy 建立練習、發佈課堂功課、查看學習成果，並為學生建立跟進練習。',
+      endingAction: '掃描二維碼下載 Hoppy 應用程式',
     }
   : {
       language: 'en',
@@ -58,6 +83,12 @@ const copy = isTc
       website: 'hoppy.day',
       downloadApp: 'Scan to download the Hoppy app',
       downloadQrAlt: 'QR code for downloading the Hoppy app',
+      endingEyebrow: isStudent ? 'Keep learning' : 'Keep teaching',
+      endingTitle: isStudent ? 'You are ready to use Hoppy!' : 'You are ready to teach with Hoppy!',
+      endingBody: isStudent
+        ? 'Use Hoppy to create practice, complete classroom assignments, and keep improving with follow-up practice.'
+        : 'Use Hoppy to create quizzes, publish classroom assignments, review learning results, and build follow-up practice for your students.',
+      endingAction: 'Scan to download the Hoppy app',
     };
 ---
 
@@ -211,6 +242,9 @@ const copy = isTc
       }
 
       .contents {
+        display: flex;
+        flex-direction: column;
+        min-height: 297mm;
         padding: 15mm 17mm 14mm;
         break-after: page;
       }
@@ -224,8 +258,11 @@ const copy = isTc
       }
 
       .contents-header {
-        margin: -15mm -17mm 12mm;
-        padding: 17mm;
+        min-height: 50mm;
+        margin: -15mm -17mm 9mm;
+        padding: 18mm 17mm;
+        display: flex;
+        align-items: center;
       }
 
       .contents-header::after,
@@ -242,28 +279,36 @@ const copy = isTc
 
       .contents h1 {
         margin: 0;
-        font-size: 28pt;
+        font-size: 32pt;
+        letter-spacing: -.02em;
       }
 
       .contents-list {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5mm;
-        margin: 0;
+        grid-template-columns: 1fr;
+        gap: 3mm;
+        width: 100%;
+        margin: auto 0;
         padding: 0;
         list-style: none;
       }
 
       .contents-item {
         display: grid;
-        grid-template-columns: 13mm 1fr;
+        grid-template-columns: 13mm minmax(0, 1fr);
         gap: 4mm;
-        min-height: 30mm;
-        padding: 5mm;
-        border: .45mm dashed var(--blue);
-        border-radius: 4mm;
-        background: var(--blue-pale);
+        align-items: center;
+        min-height: 20mm;
+        padding: 3mm 6mm 3mm 4mm;
+        border: .45mm solid var(--line);
+        border-left: 2mm solid var(--blue);
+        border-radius: 3mm;
+        background: linear-gradient(90deg, var(--blue-soft), var(--blue-pale));
         break-inside: avoid;
+      }
+
+      .contents-item > div {
+        padding-right: 22mm;
       }
 
       .contents-number,
@@ -276,20 +321,20 @@ const copy = isTc
       }
 
       .contents-number {
-        width: 12mm;
-        height: 12mm;
+        width: 11mm;
+        height: 11mm;
         border-radius: 3mm;
-        font-size: 14pt;
+        font-size: 13pt;
       }
 
       .contents-item h2 {
         margin: 0;
-        font-size: 11.5pt;
-        line-height: 1.3;
+        font-size: 12.5pt;
+        line-height: 1.25;
       }
 
       .contents-item p {
-        margin: 2mm 0 0;
+        margin: 1mm 0 0;
         color: #557083;
         font-size: 8.5pt;
       }
@@ -331,20 +376,28 @@ const copy = isTc
         font-size: 11.5pt;
       }
 
-      .chapter--chapter-6 .chapter-banner {
+      .guide--student .chapter--chapter-6 .chapter-banner {
         min-height: 34mm;
         margin-bottom: 2mm;
         padding-top: 5mm;
         padding-bottom: 5mm;
       }
 
-      .chapter--chapter-6 .guide-section {
+      .guide--student .chapter--chapter-6 .guide-section {
         padding-top: 3mm;
         padding-bottom: 3mm;
       }
 
-      .chapter--chapter-6 .section-number {
+      .guide--student .chapter--chapter-6 .section-number {
         top: 3mm;
+      }
+
+      .chapter--chapter-6 .guide-section--standard-standalone-top {
+        padding-top: 8mm;
+      }
+
+      .chapter--chapter-6 .guide-section--standard-standalone-top .section-number {
+        top: 8mm;
       }
 
       .chapter--chapter-6 .section-body h2 {
@@ -400,6 +453,74 @@ const copy = isTc
         break-inside: avoid-page;
       }
 
+      .guide-section--large-centered-phone-page {
+        break-inside: avoid-page;
+      }
+
+      .guide-section--tc-final-help-start {
+        padding-top: 60mm;
+      }
+
+      .guide-section--tc-final-help-start .section-number {
+        top: 60mm;
+      }
+
+      .guide-section--vertically-centered {
+        padding-top: 65mm;
+      }
+
+      .guide-section--vertically-centered .section-number {
+        top: 65mm;
+      }
+
+      .guide-section--student-vertically-centered {
+        padding-top: 85mm;
+      }
+
+      .guide-section--student-vertically-centered .section-number {
+        top: 85mm;
+      }
+
+      .guide-section--deeply-balanced {
+        padding-top: 50mm;
+      }
+
+      .guide-section--deeply-balanced .section-number {
+        top: 50mm;
+      }
+
+      .guide-section--balanced {
+        padding-top: 35mm;
+      }
+
+      .guide-section--balanced .section-number {
+        top: 35mm;
+      }
+
+      .guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide-section--subtly-balanced .section-number {
+        top: 20mm;
+      }
+
+      .chapter--chapter-6 .guide-section--deeply-balanced {
+        padding-top: 50mm;
+      }
+
+      .chapter--chapter-6 .guide-section--deeply-balanced .section-number {
+        top: 50mm;
+      }
+
+      .guide--student .chapter--chapter-6 .guide-section--deeply-balanced {
+        padding-top: 50mm;
+      }
+
+      .guide--student .chapter--chapter-6 .guide-section--deeply-balanced .section-number {
+        top: 50mm;
+      }
+
       .guide-section--chapter-2-compact {
         padding-top: 5mm;
         padding-bottom: 5mm;
@@ -427,6 +548,111 @@ const copy = isTc
       .guide-section--chapter-2-compact .app-screenshot--primary .screenshot-frame img {
         max-width: 40.6mm;
         max-height: 88mm;
+      }
+
+      .guide-section--chapter-3-pair {
+        padding-top: 3mm;
+        padding-bottom: 3mm;
+      }
+
+      .guide-section--chapter-4-combined {
+        padding-top: 5mm;
+        padding-bottom: 5mm;
+        break-inside: avoid-page;
+      }
+
+      .guide-section--chapter-4-combined .section-number {
+        top: 5mm;
+      }
+
+      .guide-section--chapter-4-combined.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide-section--chapter-4-combined.guide-section--subtly-balanced .section-number {
+        top: 20mm;
+      }
+
+      .guide-section--chapter-4-combined .section-body h2 {
+        margin-bottom: 2mm;
+        font-size: 15pt;
+      }
+
+      .guide-section--chapter-4-combined .section-body p,
+      .guide-section--chapter-4-combined .steps {
+        margin-top: 2mm;
+        margin-bottom: 2mm;
+      }
+
+      .guide-section--chapter-4-combined .steps li {
+        min-height: 7.5mm;
+        margin-bottom: 2mm;
+        padding-top: 1.8mm;
+        padding-bottom: 1.8mm;
+      }
+
+      .guide-section--chapter-4-combined .steps li::before {
+        top: 1.55mm;
+      }
+
+      .guide-section--chapter-3-pair .section-body h2 {
+        margin-bottom: 2mm;
+        font-size: 15pt;
+      }
+
+      .guide-section--chapter-3-pair .section-body p {
+        margin: 2mm 0;
+      }
+
+      .guide-section--student-chapter-5-pair {
+        padding-top: 3mm;
+        padding-bottom: 3mm;
+      }
+
+      .guide-section--student-chapter-5-pair .section-body h2 {
+        margin-bottom: 2mm;
+        font-size: 15pt;
+      }
+
+      .guide-section--student-chapter-5-pair .steps,
+      .guide-section--student-chapter-5-pair .detail-list {
+        margin-top: 2mm;
+        margin-bottom: 2mm;
+      }
+
+      .guide-section--student-chapter-5-pair .steps li {
+        min-height: 7.5mm;
+        margin-bottom: 2mm;
+        padding-top: 1.8mm;
+        padding-bottom: 1.8mm;
+      }
+
+      .guide-section--student-chapter-5-pair .steps li::before {
+        top: 1.55mm;
+      }
+
+      .guide-section--compact-text-chapter {
+        padding-top: 4mm;
+        padding-bottom: 4mm;
+      }
+
+      .guide-section--compact-text-chapter .section-number {
+        top: 4mm;
+      }
+
+      .guide-section--compact-text-chapter .section-body h2 {
+        margin-bottom: 2mm;
+        font-size: 15pt;
+      }
+
+      .guide-section--compact-text-chapter .section-body p,
+      .guide-section--compact-text-chapter .detail-list {
+        margin-top: 2mm;
+        margin-bottom: 2mm;
+      }
+
+      .guide-section--compact-text-chapter .detail-list li {
+        margin: .8mm 0;
       }
 
       .guide-section--review-generated {
@@ -497,6 +723,40 @@ const copy = isTc
       .section-layout--paired {
         display: block;
         break-inside: avoid-page;
+      }
+
+      .section-layout--chapter-4-final {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 82mm;
+        gap: 6mm;
+        align-items: start;
+        break-inside: avoid-page;
+      }
+
+      .section-layout--chapter-4-final .section-media-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4mm;
+      }
+
+      .section-layout--chapter-4-final .app-screenshot--primary,
+      .section-layout--chapter-4-final .app-screenshot--stacked {
+        width: 39mm;
+        margin: 0 auto;
+      }
+
+      .section-layout--chapter-4-final .app-screenshot--primary .screenshot-frame,
+      .section-layout--chapter-4-final .app-screenshot--stacked .screenshot-frame {
+        max-width: 39mm;
+      }
+
+      .section-layout--chapter-4-final .app-screenshot--primary .screenshot-frame img,
+      .section-layout--chapter-4-final .app-screenshot--stacked .screenshot-frame img {
+        max-width: 34.6mm;
+        max-height: 76mm;
+      }
+
+      .section-layout--chapter-4-final figcaption {
+        font-size: 7pt;
       }
 
       .section-copy {
@@ -645,6 +905,80 @@ const copy = isTc
         max-height: 105mm;
       }
 
+      .section-layout--large-centered-phone {
+        display: block;
+      }
+
+      .section-layout--large-centered-phone .section-copy {
+        max-width: none;
+      }
+
+      .section-layout--large-centered-phone .section-media-stack {
+        display: block;
+        width: 78mm;
+        margin: 7mm auto 0;
+      }
+
+      .section-layout--large-centered-phone .app-screenshot--primary {
+        width: 78mm;
+        margin: 0 auto;
+      }
+
+      .section-layout--large-centered-phone .app-screenshot--primary .screenshot-frame {
+        max-width: 78mm;
+      }
+
+      .section-layout--large-centered-phone .app-screenshot--primary .screenshot-frame img {
+        max-width: 73.6mm;
+        max-height: 155mm;
+      }
+
+      .section-layout--large-centered-phone figcaption {
+        width: fit-content;
+        max-width: 105mm;
+        margin-top: 3mm;
+        padding-right: 3mm;
+        padding-left: 3mm;
+        font-size: 9pt;
+      }
+
+      .section-layout--medium-centered-phone {
+        display: block;
+      }
+
+      .section-layout--medium-centered-phone .section-copy {
+        max-width: none;
+      }
+
+      .section-layout--medium-centered-phone .section-media-stack {
+        display: block;
+        width: 65mm;
+        margin: 7mm auto 0;
+      }
+
+      .section-layout--medium-centered-phone .app-screenshot--primary {
+        width: 65mm;
+        margin: 0 auto;
+      }
+
+      .section-layout--medium-centered-phone .app-screenshot--primary .screenshot-frame {
+        max-width: 65mm;
+      }
+
+      .section-layout--medium-centered-phone .app-screenshot--primary .screenshot-frame img {
+        max-width: 60.6mm;
+        max-height: 130mm;
+      }
+
+      .section-layout--medium-centered-phone figcaption {
+        width: fit-content;
+        max-width: 95mm;
+        margin-top: 3mm;
+        padding-right: 2.5mm;
+        padding-left: 2.5mm;
+        font-size: 8.8pt;
+      }
+
       .app-screenshot--stacked {
         width: 55mm;
         margin: 0 auto;
@@ -707,6 +1041,27 @@ const copy = isTc
         font-size: 7.5pt;
       }
 
+      .guide-section--student-6-2-balance .section-layout--paired .section-media-stack {
+        gap: 10mm;
+        margin-top: 8mm;
+      }
+
+      .guide-section--student-6-2-balance .section-layout--paired .app-screenshot--primary,
+      .guide-section--student-6-2-balance .section-layout--paired .app-screenshot--stacked {
+        width: 65mm;
+      }
+
+      .guide-section--student-6-2-balance .section-layout--paired .app-screenshot--primary .screenshot-frame,
+      .guide-section--student-6-2-balance .section-layout--paired .app-screenshot--stacked .screenshot-frame {
+        max-width: 65mm;
+      }
+
+      .guide-section--student-6-2-balance .section-layout--paired .app-screenshot--primary .screenshot-frame img,
+      .guide-section--student-6-2-balance .section-layout--paired .app-screenshot--stacked .screenshot-frame img {
+        max-width: 60.6mm;
+        max-height: 130mm;
+      }
+
       .additional-screenshots {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -717,7 +1072,13 @@ const copy = isTc
       .additional-screenshots--teacher {
         gap: 7mm;
         margin-top: 5mm;
+        padding-top: 22mm;
+        break-before: page;
         break-inside: avoid-page;
+      }
+
+      .additional-screenshots--centered-continuation {
+        padding-top: 22mm;
       }
 
       .additional-screenshots-title {
@@ -735,12 +1096,12 @@ const copy = isTc
       }
 
       .additional-screenshots .screenshot-frame {
-        max-width: 47mm;
+        max-width: 55mm;
       }
 
       .additional-screenshots .screenshot-frame img {
-        max-width: 42.6mm;
-        max-height: 85mm;
+        max-width: 50.6mm;
+        max-height: 105mm;
       }
 
       .additional-screenshots--teacher .screenshot-frame {
@@ -753,8 +1114,10 @@ const copy = isTc
       }
 
       .additional-screenshots--three-across {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 4mm;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 10mm;
+        row-gap: 6mm;
+        padding-top: 22mm;
       }
 
       .additional-screenshots--three-across .screenshot-frame {
@@ -767,7 +1130,30 @@ const copy = isTc
       }
 
       .additional-screenshots--three-across figcaption {
-        font-size: 7.5pt;
+        font-size: 8.5pt;
+      }
+
+      .additional-screenshots--three-across .app-screenshot:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 48mm;
+      }
+
+      .additional-screenshots--student-safety-balance {
+        padding-top: 20mm;
+      }
+
+      .additional-screenshots--student-safety-balance .screenshot-frame {
+        max-width: 65mm;
+      }
+
+      .additional-screenshots--student-safety-balance .screenshot-frame img {
+        max-width: 60.6mm;
+        max-height: 125mm;
+      }
+
+      .guide-section--student-chapter-4-spacing .additional-screenshots {
+        margin-top: 10mm;
       }
 
       .guide-section--export-pdf .section-layout--with-media {
@@ -856,7 +1242,121 @@ const copy = isTc
         max-width: 145mm;
         margin: 0;
         padding-right: 15mm;
+        font-size: 13pt;
+        font-weight: 700;
+      }
+
+      .ending {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 297mm;
+        padding: 18mm 20mm;
+        overflow: hidden;
+        break-before: page;
+        background:
+          linear-gradient(160deg, transparent 0 57%, rgba(255,255,255,.18) 57.2% 100%),
+          linear-gradient(145deg, #fff 0 52%, #dff5fc 52.2% 65%, #26a9df 65.2% 100%);
+      }
+
+      .ending::after {
+        content: "";
+        position: absolute;
+        right: -28mm;
+        bottom: 28mm;
+        width: 100mm;
+        height: 100mm;
+        border: 2mm solid rgba(255,255,255,.28);
+        border-radius: 50%;
+      }
+
+      .ending-logo {
+        position: relative;
+        z-index: 2;
+        width: 53mm;
+        height: auto;
+      }
+
+      .ending-main {
+        position: relative;
+        z-index: 2;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20mm;
+        text-align: center;
+      }
+
+      .ending-rabbit {
+        display: block;
+        width: 68mm;
+        height: auto;
+        margin-bottom: 7mm;
+      }
+
+      .ending-copy {
+        max-width: 145mm;
+        padding: 9mm 12mm;
+        border-radius: 6mm;
+        background: rgba(255,255,255,.9);
+      }
+
+      .ending-eyebrow {
+        margin: 0 0 3mm;
+        color: var(--blue-deep);
+        font-size: 10pt;
+        font-weight: 900;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+
+      .ending h1 {
+        margin: 0;
+        font-size: 28pt;
+        line-height: 1.15;
+      }
+
+      .ending-body {
+        margin: 5mm auto 0;
+        color: #3d6077;
+        font-size: 13pt;
+        line-height: 1.55;
+      }
+
+      .ending-download {
+        position: relative;
+        z-index: 2;
+        align-self: end;
+        display: flex;
+        align-items: center;
+        gap: 5mm;
+        color: #fff;
+      }
+
+      .ending-download img {
+        display: block;
+        width: 29mm;
+        height: 29mm;
+        padding: 1.5mm;
+        border-radius: 2mm;
+        background: #fff;
+      }
+
+      .ending-download strong,
+      .ending-download span {
+        display: block;
+      }
+
+      .ending-download strong {
+        max-width: 88mm;
         font-size: 11pt;
+        line-height: 1.35;
+      }
+
+      .ending-download span {
+        margin-top: 1.5mm;
+        font-size: 9pt;
         font-weight: 700;
       }
 
@@ -884,7 +1384,7 @@ const copy = isTc
       }
     </style>
   </head>
-  <body>
+  <body class={isStudent ? 'guide--student' : 'guide--teacher'}>
     <section class="cover">
       <img class="cover-logo" src={assetSrc('/hoppy-logo-clean.png')} alt="Hoppy" />
       <div class="cover-rabbit" aria-hidden="true">
@@ -901,7 +1401,6 @@ const copy = isTc
       </div>
       <div class="cover-meta">
         <span>{copy.edition}</span>
-        <span>{copy.website}</span>
       </div>
     </section>
 
@@ -947,8 +1446,48 @@ const copy = isTc
                   section.screenshot || section.additionalScreenshots?.length,
                 'guide-section--compact':
                   !section.screenshot && !section.additionalScreenshots?.length,
+                'guide-section--large-centered-phone-page':
+                  section.screenshot &&
+                  typeof section.screenshot !== 'string' &&
+                  !section.additionalScreenshots?.length &&
+                  (largeCenteredPhoneSections.has(section.number) ||
+                    mediumCenteredPhoneSections.has(section.number)),
+                'guide-section--standard-standalone-top':
+                  !isStudent && section.number === '6.2',
+                'guide-section--student-6-2-balance':
+                  isStudent && section.number === '6.2',
+                'guide-section--tc-final-help-start':
+                  !isStudent && isTc && section.number === '11.5',
+                'guide-section--vertically-centered':
+                  verticallyCenteredSections.has(section.number),
+                'guide-section--student-vertically-centered':
+                  isStudent && section.number === '4.4',
+                'guide-section--deeply-balanced':
+                  deeplyBalancedSections.has(section.number),
+                'guide-section--balanced': balancedSections.has(section.number),
+                'guide-section--subtly-balanced':
+                  subtlyBalancedSections.has(section.number),
                 'guide-section--chapter-2-compact':
                   chapter.number === 2 && (section.number === '2.4' || section.number === '2.5'),
+                'guide-section--chapter-3-pair':
+                  !isStudent &&
+                  chapter.number === 3 &&
+                  (section.number === '3.3' || section.number === '3.4'),
+                'guide-section--chapter-4-combined':
+                  !isStudent &&
+                  chapter.number === 4 &&
+                  (section.number === '4.4' || section.number === '4.5'),
+                'guide-section--student-chapter-5-pair':
+                  isStudent &&
+                  chapter.number === 5 &&
+                  (section.number === '5.4' || section.number === '5.5'),
+                'guide-section--student-chapter-4-spacing':
+                  isStudent &&
+                  chapter.number === 4 &&
+                  (section.number === '4.2' || section.number === '4.3'),
+                'guide-section--compact-text-chapter':
+                  (isStudent && chapter.number === 7) ||
+                  (!isStudent && chapter.number === 10),
                 'guide-section--review-generated':
                   chapter.number === 2 && section.number === '2.6',
                 'guide-section--export-pdf':
@@ -963,10 +1502,18 @@ const copy = isTc
                 class={
                   section.screenshot && typeof section.screenshot !== 'string'
                     ? section.additionalScreenshots?.length === 1
-                      ? audience === 'teacher' && chapter.number === 6 && section.number === '6.1'
+                      ? audience === 'teacher' && chapter.number === 4 && section.number === '4.5'
+                        ? 'section-layout section-layout--chapter-4-final'
+                        : audience === 'teacher' && chapter.number === 6 && section.number === '6.1'
                         ? 'section-layout section-layout--with-media section-layout--chapter-6-followup'
                         : 'section-layout section-layout--paired'
-                      : 'section-layout section-layout--with-media'
+                      : !section.additionalScreenshots?.length &&
+                          largeCenteredPhoneSections.has(section.number)
+                        ? 'section-layout section-layout--large-centered-phone'
+                        : !section.additionalScreenshots?.length &&
+                            mediumCenteredPhoneSections.has(section.number)
+                          ? 'section-layout section-layout--medium-centered-phone'
+                        : 'section-layout section-layout--with-media'
                     : 'section-layout'
                 }
               >
@@ -1063,8 +1610,12 @@ const copy = isTc
                     'additional-screenshots',
                     {
                       'additional-screenshots--teacher': !isStudent,
+                      'additional-screenshots--centered-continuation':
+                        !isStudent && (section.number === '3.1' || section.number === '9.1'),
                       'additional-screenshots--three-across':
                         !isStudent && chapter.number === 8 && section.number === '8.1',
+                      'additional-screenshots--student-safety-balance':
+                        isStudent && chapter.number === 7 && section.number === '7.3',
                     },
                   ]}
                 >
@@ -1104,5 +1655,29 @@ const copy = isTc
 
       </article>
     ))}
+
+    <section class="ending">
+      <img class="ending-logo" src={assetSrc('/hoppy-logo-clean.png')} alt="Hoppy" />
+      <div class="ending-main">
+        <img
+          class="ending-rabbit"
+          src={assetSrc('/hoppy-rabbit-official-cover.svg')}
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="ending-copy">
+          <p class="ending-eyebrow">{copy.endingEyebrow}</p>
+          <h1>{copy.endingTitle}</h1>
+          <p class="ending-body">{copy.endingBody}</p>
+        </div>
+      </div>
+      <div class="ending-download">
+        <img src={assetSrc('/hoppy-download-qr.png')} alt={copy.downloadQrAlt} />
+        <div>
+          <strong>{copy.endingAction}</strong>
+          <span>{copy.website}</span>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

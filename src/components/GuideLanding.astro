@@ -19,9 +19,9 @@ const copy = isTc
       teacherTitle: '教師指南',
       teacherSummary: '建立並檢查練習、發佈課室功課、查看結果，並管理教學流程。',
       teacherAction: '開啟教師指南',
-      downloadsTitle: '下載 PDF 指南',
-      studentDownload: '下載學生指南 PDF',
-      teacherDownload: '下載教師指南 PDF',
+      downloadsTitle: 'PDF 指南',
+      studentDownload: '開啟學生指南 PDF',
+      teacherDownload: '開啟教師指南 PDF',
     }
   : {
       eyebrow: 'Hoppy Guides',
@@ -33,9 +33,9 @@ const copy = isTc
       teacherTitle: 'Teacher Guide',
       teacherSummary: 'Create and check quizzes, publish classroom assignments, review results, and manage teaching workflows.',
       teacherAction: 'Open Teacher Guide',
-      downloadsTitle: 'Download PDF Guides',
-      studentDownload: 'Download Student Guide PDF',
-      teacherDownload: 'Download Teacher Guide PDF',
+      downloadsTitle: 'PDF Guides',
+      studentDownload: 'Open Student Guide PDF',
+      teacherDownload: 'Open Teacher Guide PDF',
     };
 ---
 
@@ -74,11 +74,19 @@ const copy = isTc
     <section class="pdf-downloads" aria-labelledby="pdf-downloads-title">
       <h2 id="pdf-downloads-title">{copy.downloadsTitle}</h2>
       <div>
-        <a href={`/downloads/guides/hoppy-student-guide-${lang}.pdf`} download>
+        <a
+          href={`/downloads/guides/hoppy-student-guide-${lang}.pdf`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span aria-hidden="true">↓</span>
           {copy.studentDownload}
         </a>
-        <a href={`/downloads/guides/hoppy-teacher-guide-${lang}.pdf`} download>
+        <a
+          href={`/downloads/guides/hoppy-teacher-guide-${lang}.pdf`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span aria-hidden="true">↓</span>
           {copy.teacherDownload}
         </a>

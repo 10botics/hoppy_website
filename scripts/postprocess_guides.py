@@ -21,13 +21,19 @@ INK = (0.063, 0.157, 0.247)
 MUTED = (0.333, 0.439, 0.514)
 
 
-def contents_item_rect(chapter_number: int) -> fitz.Rect:
-    index = chapter_number - 1
-    column = index % 2
-    row = index // 2
-    x0 = 48.2 + (256.5 * column)
-    y0 = 180 + (99 * row)
-    return fitz.Rect(x0, y0, x0 + 241, y0 + 85)
+def contents_item_rect(contents_page: fitz.Page, chapter_number: int) -> fitz.Rect:
+    number_hits = [
+        rect
+        for rect in contents_page.search_for(str(chapter_number))
+        if rect.x0 < 100 and rect.y0 > 130
+    ]
+    if not number_hits:
+        raise RuntimeError(f"Could not locate contents row for chapter {chapter_number}")
+
+    number_rect = number_hits[0]
+    row_height = 56.7
+    y0 = ((number_rect.y0 + number_rect.y1) / 2) - (row_height / 2)
+    return fitz.Rect(48.2, y0, 546.8, y0 + row_height)
 
 
 def chapter_destinations(document: fitz.Document, traditional_chinese: bool) -> dict[int, int]:
@@ -43,7 +49,9 @@ def chapter_destinations(document: fitz.Document, traditional_chinese: bool) -> 
 def contents_title(contents_page: fitz.Page, chapter_number: int) -> str:
     lines = [
         line.strip()
-        for line in contents_page.get_textbox(contents_item_rect(chapter_number)).splitlines()
+        for line in contents_page.get_textbox(
+            contents_item_rect(contents_page, chapter_number)
+        ).splitlines()
         if line.strip()
     ]
     if lines and lines[0] == str(chapter_number):
@@ -61,7 +69,7 @@ def add_contents_navigation(
     outline: list[list[object]] = []
 
     for chapter_number, destination_index in sorted(destinations.items()):
-        item_rect = contents_item_rect(chapter_number)
+        item_rect = contents_item_rect(contents_page, chapter_number)
         title = contents_title(contents_page, chapter_number)
         contents_page.insert_link(
             {
@@ -82,16 +90,16 @@ def add_contents_page_references(
 ) -> None:
     contents_page = document[1]
     for chapter_number, destination_index in sorted(destinations.items()):
-        item_rect = contents_item_rect(chapter_number)
+        item_rect = contents_item_rect(contents_page, chapter_number)
         page_reference_rect = fitz.Rect(
-            item_rect.x1 - 55,
-            item_rect.y1 - 29,
-            item_rect.x1 - 9,
-            item_rect.y1 - 8,
+            item_rect.x1 - 62,
+            item_rect.y0 + 18,
+            item_rect.x1 - 12,
+            item_rect.y0 + 40,
         )
         result = contents_page.insert_textbox(
             page_reference_rect,
-            f"p. {destination_index}",
+            f"p. {destination_index + 1}",
             fontname="helv",
             fontsize=8.5,
             color=INK,
@@ -108,7 +116,7 @@ def add_printed_page_numbers(document: fitz.Document) -> None:
         footer = fitz.Rect(0, page.rect.height - 27, page.rect.width, page.rect.height - 7)
         result = page.insert_textbox(
             footer,
-            str(page_index),
+            str(page_index + 1),
             fontname="helv",
             fontsize=8,
             color=MUTED,
@@ -116,14 +124,14 @@ def add_printed_page_numbers(document: fitz.Document) -> None:
             overlay=True,
         )
         if result < 0:
-            raise RuntimeError(f"Printed page number {page_index} did not fit")
+            raise RuntimeError(f"Printed page number {page_index + 1} did not fit")
 
 
 def process_pdf(pdf_path: Path) -> None:
     traditional_chinese = pdf_path.stem.endswith("-tc")
     document = fitz.open(pdf_path)
     destinations = chapter_destinations(document, traditional_chinese)
-    expected_chapters = 8 if "student" in pdf_path.name else 11
+    expected_chapters = 6 if "student" in pdf_path.name else 9
     if len(destinations) != expected_chapters:
         raise RuntimeError(
             f"{pdf_path.name}: found {len(destinations)} chapter starts; expected {expected_chapters}"

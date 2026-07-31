@@ -606,7 +606,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         steps: ['Open the classroom.', 'Open Assignments.', 'Select the assignment.'],
         screenshot: {
           src: '/images/teacher-guide/chapter-5/assignment-results-overview.png',
-          alt: 'Assignment Info showing four completed learners, one unfinished learner, and the beginning of Student Performance.',
+          alt: 'Assignment Info showing four completed students, one unfinished student, and the beginning of Student Performance.',
           caption: 'After students submit the assignment, Completion Status and Student Performance appear on Assignment Info.',
           highlights: [
             { label: 'Completion Status', left: 3.8, top: 54.8, width: 92.4, height: 30.2 },
@@ -616,7 +616,7 @@ export const teacherGuideChapters: GuideChapter[] = [
       {
         number: '5.2',
         title: 'Check Student Completion',
-        introduction: 'Open Completion Status to see:',
+        introduction: 'In Completion Status, review:',
         bullets: ['Not Finished', 'Completed', 'Completed Late', 'Overdue'],
         paragraphs: [
           'Select a status to see the students in that group, or select View Detail to see all students. Not Finished work may still be within the available time; Overdue work has passed its due time.',
@@ -624,7 +624,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         screenshot: {
           src: '/images/teacher-guide/chapter-5/completion-detail.png',
           alt: 'All Learners showing one student who has not started and four students who completed on time, with their scores and completion details.',
-          caption: 'All Learners shows each student’s status. Completed entries also show the score, percentage, time spent, and completion time.',
+          caption: 'The All Learners screen shows each student’s status. Completed entries also show the score, percentage, time spent, and completion time.',
         },
       },
       {
@@ -645,7 +645,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         number: '5.4',
         title: 'Review Student Attempts',
         steps: [
-          'Open View Detail.',
+          'Select View Detail.',
           'Check each student’s status, score, time spent, and completion time.',
           'Select a student who completed the assignment.',
           'Use the numbered controls to review the student’s answers and explanations.',
@@ -765,8 +765,8 @@ export const teacherGuideChapters: GuideChapter[] = [
         ],
         screenshot: {
           src: '/images/teacher-guide/chapter-7/members.png',
-          alt: 'Hoppy classroom Members tab showing the owner, instructor role, and five learners.',
-          caption: 'Open Members to review the classroom owner, instructors, learners, and available removal controls.',
+          alt: 'Hoppy classroom Members tab showing the owner, instructor role, and five students.',
+          caption: 'Open Members to review the classroom owner, instructors, students, and available removal controls.',
           highlights: [
             { label: 'Members', left: 75, top: 11.2, width: 22.5, height: 5.1 },
           ],
@@ -789,8 +789,8 @@ export const teacherGuideChapters: GuideChapter[] = [
         additionalScreenshots: [
           {
             src: '/images/teacher-guide/chapter-7/classroom-leaderboard.png',
-            alt: 'Full Hoppy classroom leaderboard showing five learners, points, and completed assignment counts.',
-            caption: 'The classroom leaderboard ranks learners by their total points across assignments.',
+            alt: 'Full Hoppy classroom leaderboard showing five students, points, and completed assignment counts.',
+            caption: 'The classroom leaderboard ranks students by their total points across assignments.',
           },
         ],
       },
@@ -899,7 +899,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         additionalScreenshots: [
           {
             src: '/images/teacher-guide/chapter-7/assignment-leaderboard.png',
-            alt: 'Full Hoppy assignment leaderboard showing four learners ranked by score and time.',
+            alt: 'Full Hoppy assignment leaderboard showing four students ranked by score and time.',
             caption: 'The assignment leaderboard ranks completed attempts by score and then completion time.',
           },
         ],
@@ -1166,7 +1166,7 @@ export const teacherGuideChapters: GuideChapter[] = [
         title: 'Protect Student Information',
         bullets: [
           'Do not place unnecessary personal or sensitive student information in quiz prompts, notes, or uploaded files.',
-          'Share classroom links, codes, and QR codes only with the intended learners.',
+          'Share classroom links, codes, and QR codes only with the intended students.',
           'Review classroom members and remove people who should no longer have access.',
         ],
       },
