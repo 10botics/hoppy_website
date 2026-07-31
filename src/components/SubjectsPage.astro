@@ -299,6 +299,25 @@ const ictSampleExercises = [
   },
 ];
 
+const economicsSampleExercises = [
+  {
+    title: t('subjects.economics.sampleExercise.quizzes.demandSupplySurplusIntervention.title'),
+    description: t('subjects.economics.sampleExercise.quizzes.demandSupplySurplusIntervention.description'),
+    meta: t('subjects.economics.sampleExercise.quizzes.demandSupplySurplusIntervention.meta'),
+    language: t('subjects.economics.sampleExercise.quizzes.demandSupplySurplusIntervention.language'),
+    pdfUrl: '/downloads/hkdse-economics-50-demand-supply-surplus-intervention.pdf',
+    appUrl: 'https://app.hoppy.day/q/fspech',
+  },
+  {
+    title: t('subjects.economics.sampleExercise.quizzes.growthTradeMonopolyMacro.title'),
+    description: t('subjects.economics.sampleExercise.quizzes.growthTradeMonopolyMacro.description'),
+    meta: t('subjects.economics.sampleExercise.quizzes.growthTradeMonopolyMacro.meta'),
+    language: t('subjects.economics.sampleExercise.quizzes.growthTradeMonopolyMacro.language'),
+    pdfUrl: '/downloads/hkdse-economics-35-growth-trade-monopoly-macro-equilibrium.pdf',
+    appUrl: 'https://app.hoppy.day/q/jqehdt',
+  },
+];
+
 const currentSubject = selectedSubject
   ? currentSection?.subjects.find((subject) => subject.id === selectedSubject)
     ?? subjectGroups.find((subject) => subject.id === selectedSubject)
@@ -1402,11 +1421,13 @@ const econGraphCategories = [
       </>)}
 
       {selectedSubject === 'economics' && (<>
-      <div class="subject-heading" id="economics">
-        <span class="subject-heading-kicker">{t('subjects.subjectLabel')}</span>
-        <h2>{t('subjects.economics.title')}</h2>
-        <p>{t('subjects.economics.description')}</p>
-      </div>
+      <SampleQuizSection
+        title={t('subjects.economics.sampleExercise.title')}
+        description={t('subjects.economics.sampleExercise.description')}
+        openPdfLabel={t('subjects.economics.sampleExercise.openPdf')}
+        openInAppLabel={t('subjects.economics.sampleExercise.openInApp')}
+        quizzes={economicsSampleExercises}
+      />
 
       <!-- Economics Graph -->
       <div class="widget-section">

@@ -248,7 +248,27 @@
     "economics": {
       "title": "經濟",
       "pageTitle": "經濟",
-      "description": "探索本地化的微觀及宏觀經濟學習資源，由市場均衡到福利與政策分析。"
+      "description": "探索本地化的微觀及宏觀經濟學習資源，由市場均衡到福利與政策分析。",
+      "sampleExercise": {
+        "title": "Hoppy Gold 精選練習",
+        "description": "選擇課題，開啟可列印練習或在 Hoppy 應用程式內進行互動練習。",
+        "openPdf": "開啟 PDF",
+        "openInApp": "在 Hoppy 開啟",
+        "quizzes": {
+          "growthTradeMonopolyMacro": {
+            "title": "宏觀經濟：增長、貿易與均衡",
+            "description": "涵蓋經濟增長、國際貿易、壟斷福利、貨幣市場及 AD-AS 均衡。",
+            "meta": "8 題",
+            "language": "英文"
+          },
+          "demandSupplySurplusIntervention": {
+            "title": "微觀經濟：需求、供應與市場干預",
+            "description": "涵蓋需求與供應、消費者及生產者剩餘，以及政府市場干預。",
+            "meta": "10 題",
+            "language": "英文"
+          }
+        }
+      }
     },
     "csd": {
       "title": "公民與社會發展科",

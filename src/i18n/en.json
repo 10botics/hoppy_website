@@ -248,7 +248,27 @@
     "economics": {
       "title": "Economics",
       "pageTitle": "Economics",
-      "description": "Explore localized microeconomics and macroeconomics resources, from market equilibrium to welfare and policy analysis."
+      "description": "Explore localized microeconomics and macroeconomics resources, from market equilibrium to welfare and policy analysis.",
+      "sampleExercise": {
+        "title": "Hoppy Gold Quiz Collection",
+        "description": "Choose a topic, then open the printable exercise or practise interactively in Hoppy.",
+        "openPdf": "Open PDF",
+        "openInApp": "Open in Hoppy",
+        "quizzes": {
+          "growthTradeMonopolyMacro": {
+            "title": "Macroeconomics: Growth, Trade and Equilibrium",
+            "description": "Economic growth, international trade, monopoly welfare, money market, and AD-AS equilibrium.",
+            "meta": "8 questions",
+            "language": "English"
+          },
+          "demandSupplySurplusIntervention": {
+            "title": "Microeconomics: Demand, Supply and Intervention",
+            "description": "Demand and supply, consumer and producer surplus, and government intervention in markets.",
+            "meta": "10 questions",
+            "language": "English"
+          }
+        }
+      }
     },
     "csd": {
       "title": "Citizenship and Social Development",
