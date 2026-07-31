@@ -715,8 +715,8 @@ export const teacherGuideChapters: GuideChapter[] = [
           highlights: [
             { label: 'Focus area', left: 7.8, top: 30.7, width: 84.4, height: 4.8 },
             { label: 'Difficulty', left: 7.8, top: 40.9, width: 84.4, height: 5.1 },
-            { label: 'Time limit', left: 7.8, top: 48.8, width: 84.4, height: 7.3 },
-            { label: 'Number of questions', left: 7.8, top: 59.5, width: 84.4, height: 7.3 },
+            { label: 'Time limit', left: 12.8, top: 53.5, width: 74.4, height: 3.8 },
+            { label: 'Number of questions', left: 12.8, top: 64.2, width: 74.4, height: 3.8 },
             { label: 'Confirm', left: 3.8, top: 90, width: 92.4, height: 6.8 },
           ],
           },
