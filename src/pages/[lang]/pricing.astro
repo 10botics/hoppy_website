@@ -110,7 +110,7 @@ const plans = [
 
             <dl class="plan-features">
               <div><dt>{t('pricing.dailyGems')}</dt><dd>{plan.dailyGems} Gems</dd></div>
-              <div><dt>{t('pricing.dailyQuestions')}</dt><dd>{plan.dailyQuestions} {t('pricing.questionsUnit')}</dd></div>
+              <div><dt>{t('pricing.dailyQuestions')}*</dt><dd>{plan.dailyQuestions} {t('pricing.questionsUnit')}</dd></div>
               <div><dt>{t('pricing.maximumGems')}</dt><dd>{plan.maximumGems}</dd></div>
             </dl>
 
@@ -127,7 +127,7 @@ const plans = [
       </div>
 
       <p class="pricing-note">{t('pricing.note')}</p>
-      <p class="pricing-note pricing-disclaimer">{t('pricing.generationDisclaimer')}</p>
+      <p class="pricing-note pricing-disclaimer">*{t('pricing.generationDisclaimer')}</p>
     </section>
   </main>
 </Layout>
