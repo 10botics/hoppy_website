@@ -166,9 +166,16 @@ def main() -> None:
         default=Path("public/downloads/guides"),
         help="Directory containing the four generated guide PDFs.",
     )
+    parser.add_argument(
+        "--guide",
+        action="append",
+        choices=GUIDE_NAMES,
+        dest="guides",
+        help="Process only the named guide. Repeat this option to process multiple guides.",
+    )
     args = parser.parse_args()
 
-    for name in GUIDE_NAMES:
+    for name in args.guides or GUIDE_NAMES:
         process_pdf(args.directory / name)
 
 
