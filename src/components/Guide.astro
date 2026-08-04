@@ -344,6 +344,44 @@ const pageDescription = chapter?.summary ?? audienceUi.overviewSummary;
       </div>
     )}
   </main>
+
+  <script>
+    const scrollToSettledGuideSection = async () => {
+      const sectionId = decodeURIComponent(window.location.hash.slice(1));
+      const target = sectionId ? document.getElementById(sectionId) : null;
+
+      if (!target?.classList.contains('guide-section')) return;
+
+      const precedingImages = Array.from(
+        document.querySelectorAll<HTMLImageElement>('.chapter-content img'),
+      ).filter((image) =>
+        image.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING
+      );
+
+      precedingImages.forEach((image) => {
+        image.loading = 'eager';
+      });
+
+      await Promise.all(
+        precedingImages.map((image) => {
+          if (image.complete) return image.decode().catch(() => undefined);
+
+          return new Promise<void>((resolve) => {
+            image.addEventListener('load', () => resolve(), { once: true });
+            image.addEventListener('error', () => resolve(), { once: true });
+          });
+        }),
+      );
+      await document.fonts?.ready;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+      });
+    };
+
+    void scrollToSettledGuideSection();
+    window.addEventListener('hashchange', () => void scrollToSettledGuideSection());
+  </script>
 </Layout>
 
 <style>
