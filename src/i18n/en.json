@@ -73,7 +73,14 @@
     "regularPrice": "Regular price",
     "save": "Save",
     "note": "All prices are in Hong Kong dollars. Annual plans are billed once per year.",
+    "claimDisclaimer": "Daily Gems must be claimed in the app each day. Unclaimed Daily Gems are not added to your balance automatically.",
     "generationDisclaimer": "The number of questions that can be generated is an estimate only and may change without prior notice.",
+    "standaloneDisclaimer": "Standalone Gem packs are separate, one-time purchases and do not include a recurring Daily Gem allowance.",
+    "standalone": {
+      "eyebrow": "One-time purchase",
+      "title": "Standalone Gems",
+      "description": "Top up your Gem balance without changing your plan."
+    },
     "plans": {
       "starter": {
         "name": "Starter",
