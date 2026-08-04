@@ -354,6 +354,37 @@ export const studentGuideChaptersTc: GuideChapter[] = [
   },
 ];
 
+// 與教師指南的流程一致：先完成及檢討練習，再學習以自己的材料建立練習。
+const originalCreateChapter = studentGuideChaptersTc.find((chapter) => chapter.number === 2);
+const originalQuizChapter = studentGuideChaptersTc.find((chapter) => chapter.number === 3);
+if (!originalCreateChapter || !originalQuizChapter) {
+  throw new Error('Missing student guide chapters 2 or 3');
+}
+
+const renumberChapter = (
+  chapter: GuideChapter,
+  number: number,
+  previous: string,
+  next: string,
+): GuideChapter => ({
+  ...chapter,
+  number,
+  slug: `chapter-${number}`,
+  sections: chapter.sections.map((item, index) => ({
+    ...item,
+    number: `${number}.${index + 1}`,
+  })),
+  previous,
+  next,
+});
+
+studentGuideChaptersTc.splice(
+  1,
+  2,
+  renumberChapter(originalQuizChapter, 2, 'chapter-1', 'chapter-3'),
+  renumberChapter(originalCreateChapter, 3, 'chapter-2', 'chapter-4'),
+);
+
 function section(chapterNumber: number, sectionNumber: string): GuideSection {
   const chapter = studentGuideChaptersTc.find((item) => item.number === chapterNumber);
   const result = chapter?.sections.find((item) => item.number === sectionNumber);
@@ -376,17 +407,17 @@ for (const sectionNumber of ['1.1', '1.2', '1.3', '1.4']) {
   });
 }
 
-for (const sectionNumber of ['2.1', '2.2', '2.3', '2.4', '2.5', '2.6']) {
-  const source = teacherSection(2, sectionNumber);
-  Object.assign(section(2, sectionNumber), {
+for (const sectionNumber of ['3.1', '3.2', '3.3', '3.4', '3.5', '3.6']) {
+  const source = teacherSection(3, sectionNumber);
+  Object.assign(section(3, sectionNumber), {
     screenshot: source.screenshot,
     additionalScreenshots: source.additionalScreenshots,
   });
 }
 
-const teacherQuizAttempt = teacherSection(3, '3.1');
+const teacherQuizAttempt = teacherSection(2, '2.1');
 const quizStartScreenshot = teacherQuizAttempt.screenshot;
-section(3, '3.1').screenshot =
+section(2, '2.1').screenshot =
   quizStartScreenshot && typeof quizStartScreenshot !== 'string'
     ? {
         ...quizStartScreenshot,
@@ -394,24 +425,24 @@ section(3, '3.1').screenshot =
         highlights: undefined,
       }
     : quizStartScreenshot;
-section(3, '3.2').screenshot = teacherQuizAttempt.additionalScreenshots?.[0];
-section(3, '3.2').additionalScreenshots = [
+section(2, '2.2').screenshot = teacherQuizAttempt.additionalScreenshots?.[0];
+section(2, '2.2').additionalScreenshots = [
   {
     src: '/images/student-guide-tc/chapter-3/xp-award.png',
     alt: 'Hoppy 練習完成獎勵畫面，顯示獲得 10 經驗值。',
     caption: '完成練習後，Hoppy 會按答對題目數量，每題給予 1 XP。',
   },
 ];
-section(3, '3.3').screenshot = teacherQuizAttempt.additionalScreenshots?.[1];
-section(3, '3.4').screenshot = {
+section(2, '2.3').screenshot = teacherQuizAttempt.additionalScreenshots?.[1];
+section(2, '2.4').screenshot = {
   src: '/images/student-guide-tc/chapter-3/attempt-history.png',
   alt: 'Hoppy「我的嘗試」頁面，顯示已完成練習的分數、作答時間和完成日期。',
   caption: '選擇「查看所有嘗試」，重溫較早的分數和完成時間。',
 };
 
-const teacherReport = teacherSection(3, '3.4');
-section(3, '3.5').screenshot = teacherReport.screenshot;
-section(3, '3.5').additionalScreenshots = teacherReport.additionalScreenshots?.map((screenshot) => ({
+const teacherReport = teacherSection(2, '2.3');
+section(2, '2.5').screenshot = teacherReport.screenshot;
+section(2, '2.5').additionalScreenshots = teacherReport.additionalScreenshots?.map((screenshot) => ({
   ...screenshot,
   highlights: undefined,
 }));
@@ -522,8 +553,8 @@ section(6, '6.1').screenshot =
     : followUpEntryScreenshot;
 section(6, '6.1').additionalScreenshots = teacherFollowUp.additionalScreenshots;
 
-const followUpAttemptScreenshot = section(3, '3.2').screenshot;
-const followUpResultScreenshot = section(3, '3.3').screenshot;
+const followUpAttemptScreenshot = section(2, '2.2').screenshot;
+const followUpResultScreenshot = section(2, '2.3').screenshot;
 if (followUpAttemptScreenshot && typeof followUpAttemptScreenshot !== 'string') {
   section(6, '6.2').screenshot = {
     ...followUpAttemptScreenshot,

@@ -22,22 +22,42 @@ const allChapters: GuideChapter[] = isStudent
   : (isTc ? publishedTeacherGuideChaptersTc : publishedTeacherGuideChapters);
 const chapters = allChapters.slice(0, -2);
 const largeCenteredPhoneSections = new Set(
-  ['1.2', '1.4'],
+  isStudent || isTc ? ['1.2', '1.4'] : ['1.4'],
 );
 const mediumCenteredPhoneSections = new Set(
   isStudent ? [] : ['6.2', '7.4', ...(isTc ? ['8.2'] : [])],
 );
 const verticallyCenteredSections = new Set(
-  isStudent ? ['4.4'] : ['3.6', '7.2', '7.6', ...(!isTc ? ['8.2'] : [])],
+  isStudent ? ['4.4'] : ['7.6'],
 );
 const deeplyBalancedSections = new Set(
-  isStudent ? ['3.5', '6.2'] : ['4.2', '9.2'],
+  isStudent ? ['3.5', '6.2'] : [],
 );
 const balancedSections = new Set(
-  isStudent ? ['1.4', '3.2', '5.2'] : ['1.4', '3.2', '4.3', '5.4', '7.3'],
+  isStudent ? ['1.4', '3.2', '5.2'] : [],
 );
 const subtlyBalancedSections = new Set(
-  isStudent ? ['1.3'] : ['1.3', '4.4', '7.4', '7.5', '9.3', '9.4'],
+  isStudent
+    ? ['1.3']
+    : [
+        '1.3',
+        '1.4',
+        '3.2',
+        '3.6',
+        '4.2',
+        '4.3',
+        '4.4',
+        '5.4',
+        '7.2',
+        '7.3',
+        '7.4',
+        '7.5',
+        '9.2',
+        '9.3',
+        '9.4',
+        ...(!isTc ? ['1.2', '2.2', '2.5', '2.6', '3.3', '3.5', '5.5', '6.2', '8.2', '8.3'] : []),
+        ...(isTc ? ['1.2', '2.2', '2.3', '2.5', '2.6', '3.4', '5.2', '5.5', '6.2', '8.2', '8.3'] : []),
+      ],
 );
 const assetSrc = (src: string) => `../../../../${src.replace(/^\//, '')}`;
 
@@ -48,7 +68,7 @@ const copy = isTc
       eyebrow: isStudent ? '玩出學習癮' : '讓教學更高效',
       summary: isStudent
         ? '由建立個人練習、完成課堂功課，到重溫結果及建立跟進練習，一步一步掌握 Hoppy。'
-        : '由建立及檢查練習、發佈課堂功課，到查看全班結果及建立跟進練習，一步一步使用 Hoppy 教學。',
+        : '由建立練習、發佈課堂功課，到查看全班結果及建立跟進練習，一步一步使用 Hoppy。',
       contents: '內容',
       chapter: '章',
       sections: '個主題',
@@ -72,7 +92,7 @@ const copy = isTc
       eyebrow: isStudent ? 'Hop into learning' : 'Teach more efficiently',
       summary: isStudent
         ? 'Create personal practice, complete classroom assignments, review your results, and build follow-up practice—one clear step at a time.'
-        : 'Create and check quizzes, publish classroom assignments, review class results, and build follow-up practice—one clear step at a time.',
+        : 'Create quizzes, publish classroom assignments, review class results, and build follow-up practice—one clear step at a time.',
       contents: 'Contents',
       chapter: 'Chapter',
       sections: 'topics',
@@ -342,6 +362,8 @@ const copy = isTc
       .chapter {
         padding: 0 17mm 14mm;
         break-before: page;
+        page-break-before: always;
+        clear: both;
       }
 
       .chapter-banner {
@@ -398,6 +420,14 @@ const copy = isTc
 
       .chapter--chapter-6 .guide-section--standard-standalone-top .section-number {
         top: 8mm;
+      }
+
+      .guide--teacher .chapter--chapter-6 .guide-section--standard-standalone-top.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide--teacher .chapter--chapter-6 .guide-section--standard-standalone-top.guide-section--subtly-balanced .section-number {
+        top: 20mm;
       }
 
       .chapter--chapter-6 .section-body h2 {
@@ -550,9 +580,25 @@ const copy = isTc
         max-height: 88mm;
       }
 
+      .guide--teacher .guide-section--chapter-2-compact.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide--teacher .guide-section--chapter-2-compact.guide-section--subtly-balanced .section-number {
+        top: 20mm;
+      }
+
       .guide-section--chapter-3-pair {
         padding-top: 3mm;
         padding-bottom: 3mm;
+      }
+
+      .guide--teacher .guide-section--chapter-3-pair.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide--teacher .guide-section--chapter-3-pair.guide-section--subtly-balanced .section-number {
+        top: 20mm;
       }
 
       .guide-section--chapter-4-combined {
@@ -571,6 +617,24 @@ const copy = isTc
 
       .guide-section--chapter-4-combined.guide-section--subtly-balanced .section-number {
         top: 20mm;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--chapter-4-combined.guide-section--subtly-balanced {
+        break-after: avoid-page;
+        page-break-after: avoid;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--chapter-4-combined.guide-section--subtly-balanced .app-screenshot--primary {
+        width: 45mm;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--chapter-4-combined.guide-section--subtly-balanced .screenshot-frame {
+        max-width: 45mm;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--chapter-4-combined.guide-section--subtly-balanced .screenshot-frame img {
+        max-width: 40.6mm;
+        max-height: 100mm;
       }
 
       .guide-section--chapter-4-combined .section-body h2 {
@@ -656,19 +720,19 @@ const copy = isTc
       }
 
       .guide-section--review-generated {
-        padding: 3mm 0 3mm 16mm;
+        padding: 3mm 0 3mm 21mm;
       }
 
       .guide-section--review-generated .section-number {
         top: 3mm;
-        width: 11mm;
-        height: 11mm;
-        font-size: 9pt;
+        width: 15mm;
+        height: 15mm;
+        font-size: 11pt;
       }
 
       .guide-section--review-generated .section-body h2 {
         margin-bottom: 1.5mm;
-        font-size: 13pt;
+        font-size: 17pt;
       }
 
       .guide-section--review-generated .steps {
@@ -693,6 +757,14 @@ const copy = isTc
         font-size: 7pt;
       }
 
+      .guide--teacher .guide-section--review-generated.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide--teacher .guide-section--review-generated.guide-section--subtly-balanced .section-number {
+        top: 20mm;
+      }
+
       .section-number {
         position: absolute;
         left: 0;
@@ -702,6 +774,10 @@ const copy = isTc
         border-radius: 4mm 4mm 4mm 1mm;
         font-size: 11pt;
         align-self: start;
+      }
+
+      .guide--teacher .section-number {
+        font-size: 13pt;
       }
 
       .section-body {
@@ -720,9 +796,81 @@ const copy = isTc
         break-inside: avoid-page;
       }
 
+      html[lang="en"] .chapter--chapter-8 .guide-section:first-of-type .section-layout--with-media {
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      html[lang="en"] .chapter--chapter-8 .chapter-checklist {
+        margin-bottom: 4mm;
+      }
+
+      html[lang="en"] .chapter--chapter-8 .guide-section:first-of-type {
+        padding-top: 5mm;
+        padding-bottom: 4mm;
+      }
+
+      html[lang="en"] .chapter--chapter-8 .guide-section:first-of-type .section-number {
+        top: 5mm;
+      }
+
       .section-layout--paired {
         display: block;
         break-inside: avoid-page;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--english-learning-units .section-layout--with-media {
+        display: block;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--english-learning-units .section-media-stack {
+        display: block;
+        width: 58mm;
+        margin: 7mm auto 0;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--english-learning-units .app-screenshot--primary {
+        width: 58mm;
+        margin: 0 auto;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--english-learning-units .screenshot-frame {
+        max-width: 58mm;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--english-learning-units .screenshot-frame img {
+        max-width: 53.6mm;
+        max-height: 118mm;
+      }
+
+      .chapter--chapter-1 .guide-section:first-of-type .section-layout--paired,
+      .chapter--chapter-4 .guide-section:first-of-type .section-layout--paired {
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .chapter--chapter-1 .guide-section:first-of-type .section-layout--paired .section-media-stack {
+        gap: 8mm;
+        margin-top: 3mm;
+      }
+
+      .chapter--chapter-1 .guide-section:first-of-type .section-layout--paired .app-screenshot--primary,
+      .chapter--chapter-1 .guide-section:first-of-type .section-layout--paired .app-screenshot--stacked {
+        width: 45mm;
+      }
+
+      .chapter--chapter-1 .guide-section:first-of-type .section-layout--paired .screenshot-frame {
+        max-width: 45mm;
+      }
+
+      .chapter--chapter-1 .guide-section:first-of-type .section-layout--paired .screenshot-frame img {
+        max-width: 40.6mm;
+        max-height: 90mm;
+      }
+
+      .chapter--chapter-1 .guide-section:first-of-type .section-layout--paired figcaption {
+        max-width: 45mm;
+        font-size: 8pt;
       }
 
       .section-layout--chapter-4-final {
@@ -942,6 +1090,24 @@ const copy = isTc
         font-size: 9pt;
       }
 
+      html[lang="zh-Hant"] .guide--teacher .guide-section--tc-learning-units .section-media-stack,
+      html[lang="zh-Hant"] .guide--teacher .guide-section--tc-learning-units .app-screenshot--primary {
+        width: 58mm;
+      }
+
+      html[lang="zh-Hant"] .guide--teacher .guide-section--tc-learning-units .screenshot-frame {
+        max-width: 58mm;
+      }
+
+      html[lang="zh-Hant"] .guide--teacher .guide-section--tc-learning-units .screenshot-frame img {
+        max-width: 53.6mm;
+        max-height: 118mm;
+      }
+
+      html[lang="zh-Hant"] .guide--teacher .guide-section--tc-learning-units figcaption {
+        max-width: 58mm;
+      }
+
       .section-layout--medium-centered-phone {
         display: block;
       }
@@ -1139,6 +1305,288 @@ const copy = isTc
         width: 48mm;
       }
 
+      .guide--teacher .additional-screenshots--preview-quiz {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 10mm;
+        row-gap: 5mm;
+        padding-top: 20mm;
+      }
+
+      .guide--teacher .additional-screenshots--preview-quiz .app-screenshot {
+        width: 50mm;
+        justify-self: center;
+      }
+
+      .guide--teacher .additional-screenshots--preview-quiz .app-screenshot:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .guide--teacher .additional-screenshots--preview-quiz .screenshot-frame {
+        max-width: 50mm;
+      }
+
+      .guide--teacher .additional-screenshots--preview-quiz .screenshot-frame img {
+        max-width: 45.6mm;
+        max-height: 86mm;
+      }
+
+      .guide--teacher .additional-screenshots--preview-quiz figcaption {
+        max-width: 50mm;
+        font-size: 8pt;
+      }
+
+      .additional-screenshots--google-classroom {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 8mm;
+        row-gap: 5mm;
+        padding-top: 15mm;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot,
+      .additional-screenshots--google-classroom .app-screenshot:last-child {
+        grid-column: auto;
+        justify-self: center;
+        width: 66mm;
+      }
+
+      .additional-screenshots--google-classroom .screenshot-frame {
+        max-width: 66mm;
+      }
+
+      .additional-screenshots--google-classroom .screenshot-frame img {
+        max-width: 61.6mm;
+        max-height: 120mm;
+      }
+
+      .additional-screenshots--google-classroom figcaption {
+        max-width: 64mm;
+        font-size: 9.4pt;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(4) {
+        align-self: center;
+        width: 76mm;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(4) .screenshot-frame {
+        max-width: 76mm;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(4) .screenshot-frame img {
+        max-width: 71.6mm;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(4) figcaption {
+        max-width: 74mm;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(-n+2) .screenshot-image {
+        height: 65mm;
+        overflow: hidden;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(-n+2) .screenshot-image img {
+        width: 61.6mm;
+        max-width: 61.6mm;
+        max-height: none;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(1) .screenshot-highlight {
+        top: 72% !important;
+        height: 13.3% !important;
+      }
+
+      .additional-screenshots--google-classroom .app-screenshot:nth-of-type(2) .screenshot-highlight {
+        top: 40.2% !important;
+        height: 29.1% !important;
+      }
+
+      .guide-section--google-classroom-sync {
+        break-before: page;
+        page-break-before: always;
+      }
+
+      .guide-section--google-classroom-connect .app-screenshot--primary .screenshot-image {
+        height: 55mm;
+        overflow: hidden;
+      }
+
+      .guide-section--google-classroom-connect .app-screenshot--primary .screenshot-image img {
+        width: 50.6mm;
+        max-width: 50.6mm;
+        max-height: none;
+      }
+
+      .guide-section--google-classroom-connect .app-screenshot--primary .screenshot-highlight {
+        top: 50.6% !important;
+        height: 12.4% !important;
+      }
+
+      .guide-section--student-attempts .additional-screenshots--teacher {
+        margin-top: 4mm;
+        padding-top: 3mm;
+        break-before: auto;
+        page-break-before: auto;
+      }
+
+      html[lang="en"] .guide--teacher .guide-section--student-attempts .additional-screenshots--teacher {
+        padding-top: 3mm;
+      }
+
+      .guide--teacher .guide-section--student-attempts .additional-screenshots-title {
+        display: none;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .app-screenshot--primary {
+        width: 56mm;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .section-layout--with-media {
+        grid-template-columns: minmax(0, 1fr) 56mm;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .app-screenshot--primary .screenshot-frame {
+        max-width: 56mm;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .app-screenshot--primary .screenshot-frame img {
+        max-width: 51.6mm;
+        max-height: 112mm;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher .app-screenshot {
+        width: 54mm;
+        justify-self: center;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame {
+        max-width: 54mm;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame img {
+        max-width: 49.6mm;
+        max-height: 98mm;
+      }
+
+      html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher figcaption {
+        max-width: 52mm;
+        font-size: 8pt;
+      }
+
+      html[lang="zh-Hant"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame {
+        max-width: 64mm;
+      }
+
+      html[lang="zh-Hant"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame img {
+        max-width: 59.6mm;
+        max-height: 112mm;
+      }
+
+      .guide-section--classroom-types .detail-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3mm;
+        margin: 4mm 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .guide-section--classroom-types .detail-list li {
+        display: grid;
+        grid-template-columns: 27mm minmax(0, 1fr);
+        gap: 4mm;
+        align-items: start;
+        margin: 0;
+        padding: 3.5mm;
+        border: .35mm solid #cfe4ed;
+        border-radius: 3mm;
+        background: #f2f9fc;
+        font-size: 9.8pt;
+        line-height: 1.46;
+      }
+
+      .guide-section--classroom-types .detail-list li::marker {
+        content: '';
+      }
+
+      .guide-section--classroom-types .detail-list li::before {
+        color: var(--blue-deep);
+        font-size: 11pt;
+        font-weight: 700;
+      }
+
+      html[lang="en"] .guide-section--classroom-types .detail-list li:nth-child(1)::before {
+        content: 'School';
+      }
+
+      html[lang="en"] .guide-section--classroom-types .detail-list li:nth-child(2)::before {
+        content: 'Public';
+      }
+
+      html[lang="en"] .guide-section--classroom-types .detail-list li:nth-child(3)::before {
+        content: 'Family';
+      }
+
+      html[lang="zh-Hant"] .guide-section--classroom-types .detail-list li:nth-child(1)::before {
+        content: '學校';
+      }
+
+      html[lang="zh-Hant"] .guide-section--classroom-types .detail-list li:nth-child(2)::before {
+        content: '公開';
+      }
+
+      html[lang="zh-Hant"] .guide-section--classroom-types .detail-list li:nth-child(3)::before {
+        content: '家庭';
+      }
+
+      .guide-section--classroom-types .section-layout--paired {
+        margin-top: 3mm;
+      }
+
+      .guide-section--classroom-types .section-layout--paired .section-media-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10mm;
+        margin-top: 3mm;
+        padding-top: 22mm;
+      }
+
+      .guide-section--classroom-types .section-layout--paired .section-media-stack::before {
+        grid-column: 1 / -1;
+        padding-bottom: 2mm;
+        border-bottom: .45mm solid var(--line);
+        color: var(--blue-deep);
+        font-size: 13pt;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      html[lang="en"] .guide-section--classroom-types .section-layout--paired .section-media-stack::before {
+        content: '4.1 Choose or Create a Classroom — continued';
+      }
+
+      html[lang="zh-Hant"] .guide-section--classroom-types .section-layout--paired .section-media-stack::before {
+        content: '4.1 選擇或建立課室（續）';
+      }
+
+      .guide-section--classroom-types .section-layout--paired .app-screenshot--primary,
+      .guide-section--classroom-types .section-layout--paired .app-screenshot--stacked {
+        width: 58mm;
+      }
+
+      .guide-section--classroom-types .section-layout--paired .screenshot-frame {
+        max-width: 58mm;
+      }
+
+      .guide-section--classroom-types .section-layout--paired .screenshot-frame img {
+        max-width: 53.6mm;
+        max-height: 120mm;
+      }
+
+      .guide-section--classroom-types .section-layout--paired figcaption {
+        max-width: 58mm;
+        font-size: 9pt;
+      }
+
       .additional-screenshots--student-safety-balance {
         padding-top: 20mm;
       }
@@ -1157,20 +1605,64 @@ const copy = isTc
       }
 
       .guide-section--export-pdf .section-layout--with-media {
-        grid-template-columns: minmax(0, 1fr) 70mm;
+        grid-template-columns: minmax(0, .72fr) 82mm;
       }
 
-      .guide-section--export-pdf .app-screenshot--primary {
-        width: 70mm;
+      .guide-section--export-pdf .section-layout--paired .section-media-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8mm;
+        margin-top: 7mm;
       }
 
-      .guide-section--export-pdf .app-screenshot--primary .screenshot-frame {
-        max-width: 70mm;
+      .guide-section--export-pdf .app-screenshot--primary,
+      .guide-section--export-pdf .app-screenshot--stacked {
+        width: 78mm;
       }
 
-      .guide-section--export-pdf .app-screenshot--primary .screenshot-frame img {
-        max-width: 65.6mm;
-        max-height: 155mm;
+      .guide-section--export-pdf .app-screenshot--primary .screenshot-frame,
+      .guide-section--export-pdf .app-screenshot--stacked .screenshot-frame {
+        max-width: 78mm;
+      }
+
+      .guide-section--export-pdf .app-screenshot--primary .screenshot-frame img,
+      .guide-section--export-pdf .app-screenshot--stacked .screenshot-frame img {
+        max-width: 73.6mm;
+        max-height: 154mm;
+      }
+
+      .guide-section--export-pdf .app-screenshot--primary figcaption,
+      .guide-section--export-pdf .app-screenshot--stacked figcaption {
+        max-width: 76mm;
+        font-size: 9.2pt;
+      }
+
+      .guide-section--export-pdf .additional-screenshots--teacher {
+        margin-top: 6mm;
+        padding-top: 0;
+        break-before: auto;
+        page-break-before: auto;
+      }
+
+      .guide-section--export-pdf .additional-screenshots-title {
+        display: none;
+      }
+
+      .guide-section--export-pdf .additional-screenshots--teacher {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-section--export-pdf .additional-screenshots--teacher .app-screenshot {
+        width: 82mm;
+        justify-self: center;
+      }
+
+      .guide-section--export-pdf .additional-screenshots--teacher .screenshot-frame {
+        max-width: 82mm;
+      }
+
+      .guide-section--export-pdf .additional-screenshots--teacher .screenshot-frame img {
+        max-width: 77.6mm;
+        max-height: 178mm;
       }
 
   .screenshot-highlight {
@@ -1491,7 +1983,19 @@ const copy = isTc
                 'guide-section--review-generated':
                   chapter.number === 2 && section.number === '2.6',
                 'guide-section--export-pdf':
-                  !isStudent && section.number === '3.6',
+                  !isStudent && section.number === '2.6',
+                'guide-section--classroom-types':
+                  !isStudent && section.number === '4.1',
+                'guide-section--english-learning-units':
+                  !isStudent && !isTc && section.number === '1.2',
+                'guide-section--tc-learning-units':
+                  !isStudent && isTc && section.number === '1.2',
+                'guide-section--student-attempts':
+                  !isStudent && section.number === '5.4',
+                'guide-section--google-classroom-connect':
+                  !isStudent && section.number === '8.1',
+                'guide-section--google-classroom-sync':
+                  !isStudent && section.number === '8.2',
               },
             ]}
             id={sectionId(section.number)}
@@ -1612,7 +2116,11 @@ const copy = isTc
                       'additional-screenshots--teacher': !isStudent,
                       'additional-screenshots--centered-continuation':
                         !isStudent && (section.number === '3.1' || section.number === '9.1'),
+                      'additional-screenshots--preview-quiz':
+                        !isStudent && section.number === '2.1',
                       'additional-screenshots--three-across':
+                        !isStudent && chapter.number === 8 && section.number === '8.1',
+                      'additional-screenshots--google-classroom':
                         !isStudent && chapter.number === 8 && section.number === '8.1',
                       'additional-screenshots--student-safety-balance':
                         isStudent && chapter.number === 7 && section.number === '7.3',
