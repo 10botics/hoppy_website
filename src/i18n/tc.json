@@ -73,7 +73,14 @@
     "regularPrice": "原價",
     "save": "即慳",
     "note": "所有價格均以港幣計算。年費方案將一次過收取全年費用。",
+    "claimDisclaimer": "每日 Gems 必須每天在應用程式內領取；未領取的每日 Gems 不會自動加入你的餘額。",
     "generationDisclaimer": "可生成的題目數量僅為估算，並可能在不作事先通知的情況下更改。",
+    "standaloneDisclaimer": "獨立 Gem 套裝為與訂閱方案分開的一次性購買，並不包括每日 Gem 配額。",
+    "standalone": {
+      "eyebrow": "一次性購買",
+      "title": "獨立 Gems",
+      "description": "無需更改現有方案，直接為你的 Gem 餘額增值。"
+    },
     "plans": {
       "starter": {
         "name": "入門",
