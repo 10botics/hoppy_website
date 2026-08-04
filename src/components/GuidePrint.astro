@@ -28,17 +28,29 @@ const mediumCenteredPhoneSections = new Set(
   isStudent ? [] : ['6.2', '7.4', ...(isTc ? ['8.2'] : [])],
 );
 const verticallyCenteredSections = new Set(
-  isStudent ? ['4.4'] : ['7.6'],
+  isStudent ? [] : ['7.6'],
 );
-const deeplyBalancedSections = new Set(
-  isStudent ? ['3.5', '6.2'] : [],
-);
-const balancedSections = new Set(
-  isStudent ? ['1.4', '3.2', '5.2'] : [],
-);
+const deeplyBalancedSections = new Set<string>();
+const balancedSections = new Set<string>();
 const subtlyBalancedSections = new Set(
   isStudent
-    ? ['1.3']
+    ? [
+        '1.2',
+        '1.3',
+        '1.4',
+        '2.2',
+        '2.3',
+        '2.5',
+        '3.2',
+        '3.5',
+        '3.6',
+        '4.2',
+        '4.3',
+        '4.4',
+        '5.2',
+        '5.4',
+        '6.2',
+      ]
     : [
         '1.3',
         '1.4',
@@ -503,14 +515,6 @@ const copy = isTc
         top: 65mm;
       }
 
-      .guide-section--student-vertically-centered {
-        padding-top: 85mm;
-      }
-
-      .guide-section--student-vertically-centered .section-number {
-        top: 85mm;
-      }
-
       .guide-section--deeply-balanced {
         padding-top: 50mm;
       }
@@ -551,6 +555,14 @@ const copy = isTc
         top: 50mm;
       }
 
+      .guide--student .chapter--chapter-6 .guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide--student .chapter--chapter-6 .guide-section--subtly-balanced .section-number {
+        top: 20mm;
+      }
+
       .guide-section--chapter-2-compact {
         padding-top: 5mm;
         padding-bottom: 5mm;
@@ -585,6 +597,14 @@ const copy = isTc
       }
 
       .guide--teacher .guide-section--chapter-2-compact.guide-section--subtly-balanced .section-number {
+        top: 20mm;
+      }
+
+      .guide--student .guide-section--chapter-2-compact.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide--student .guide-section--chapter-2-compact.guide-section--subtly-balanced .section-number {
         top: 20mm;
       }
 
@@ -671,6 +691,14 @@ const copy = isTc
       .guide-section--student-chapter-5-pair {
         padding-top: 3mm;
         padding-bottom: 3mm;
+      }
+
+      .guide-section--student-chapter-5-pair.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide-section--student-chapter-5-pair.guide-section--subtly-balanced .section-number {
+        top: 20mm;
       }
 
       .guide-section--student-chapter-5-pair .section-body h2 {
@@ -762,6 +790,14 @@ const copy = isTc
       }
 
       .guide--teacher .guide-section--review-generated.guide-section--subtly-balanced .section-number {
+        top: 20mm;
+      }
+
+      .guide--student .guide-section--review-generated.guide-section--subtly-balanced {
+        padding-top: 20mm;
+      }
+
+      .guide--student .guide-section--review-generated.guide-section--subtly-balanced .section-number {
         top: 20mm;
       }
 
@@ -1090,6 +1126,20 @@ const copy = isTc
         font-size: 9pt;
       }
 
+      html[lang="zh-Hant"] .guide--student .guide-section--student-1-2 .section-media-stack,
+      html[lang="zh-Hant"] .guide--student .guide-section--student-1-2 .app-screenshot--primary {
+        width: 62mm;
+      }
+
+      html[lang="zh-Hant"] .guide--student .guide-section--student-1-2 .app-screenshot--primary .screenshot-frame {
+        max-width: 62mm;
+      }
+
+      html[lang="zh-Hant"] .guide--student .guide-section--student-1-2 .app-screenshot--primary .screenshot-frame img {
+        max-width: 57.6mm;
+        max-height: 128mm;
+      }
+
       html[lang="zh-Hant"] .guide--teacher .guide-section--tc-learning-units .section-media-stack,
       html[lang="zh-Hant"] .guide--teacher .guide-section--tc-learning-units .app-screenshot--primary {
         width: 58mm;
@@ -1166,6 +1216,44 @@ const copy = isTc
       .section-layout--paired .app-screenshot--primary,
       .section-layout--paired .app-screenshot--stacked {
         justify-self: center;
+      }
+
+      .guide--student .guide-section--report-problem .app-screenshot--primary,
+      .guide--student .guide-section--report-problem .app-screenshot--stacked {
+        width: 55mm;
+      }
+
+      .guide--student .guide-section--report-problem .app-screenshot--primary .screenshot-frame,
+      .guide--student .guide-section--report-problem .app-screenshot--stacked .screenshot-frame {
+        max-width: 55mm;
+      }
+
+      .guide--student .guide-section--report-problem .app-screenshot--primary .screenshot-frame img,
+      .guide--student .guide-section--report-problem .app-screenshot--stacked .screenshot-frame img {
+        width: auto;
+        height: 105mm;
+        max-width: 50.6mm;
+        max-height: 105mm;
+        object-fit: contain;
+      }
+
+      .guide--teacher .guide-section--share-quiz .app-screenshot--primary,
+      .guide--teacher .guide-section--share-quiz .app-screenshot--stacked {
+        width: 45mm;
+      }
+
+      .guide--teacher .guide-section--share-quiz .app-screenshot--primary .screenshot-frame,
+      .guide--teacher .guide-section--share-quiz .app-screenshot--stacked .screenshot-frame {
+        max-width: 45mm;
+      }
+
+      .guide--teacher .guide-section--share-quiz .app-screenshot--primary .screenshot-frame img,
+      .guide--teacher .guide-section--share-quiz .app-screenshot--stacked .screenshot-frame img {
+        width: auto;
+        height: 88mm;
+        max-width: 40.6mm;
+        max-height: 88mm;
+        object-fit: contain;
       }
 
       .chapter--chapter-6 .section-layout--paired .app-screenshot--primary,
@@ -1608,6 +1696,10 @@ const copy = isTc
         grid-template-columns: minmax(0, .72fr) 82mm;
       }
 
+      .guide-section--export-pdf .steps {
+        grid-template-columns: 1fr;
+      }
+
       .guide-section--export-pdf .section-layout--paired .section-media-stack {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8mm;
@@ -1616,23 +1708,23 @@ const copy = isTc
 
       .guide-section--export-pdf .app-screenshot--primary,
       .guide-section--export-pdf .app-screenshot--stacked {
-        width: 78mm;
+        width: 74mm;
       }
 
       .guide-section--export-pdf .app-screenshot--primary .screenshot-frame,
       .guide-section--export-pdf .app-screenshot--stacked .screenshot-frame {
-        max-width: 78mm;
+        max-width: 74mm;
       }
 
       .guide-section--export-pdf .app-screenshot--primary .screenshot-frame img,
       .guide-section--export-pdf .app-screenshot--stacked .screenshot-frame img {
-        max-width: 73.6mm;
-        max-height: 154mm;
+        max-width: 69.6mm;
+        max-height: 146mm;
       }
 
       .guide-section--export-pdf .app-screenshot--primary figcaption,
       .guide-section--export-pdf .app-screenshot--stacked figcaption {
-        max-width: 76mm;
+        max-width: 72mm;
         font-size: 9.2pt;
       }
 
@@ -1948,12 +2040,16 @@ const copy = isTc
                   !isStudent && section.number === '6.2',
                 'guide-section--student-6-2-balance':
                   isStudent && section.number === '6.2',
+                'guide-section--student-1-2':
+                  isStudent && section.number === '1.2',
+                'guide-section--report-problem':
+                  isStudent && section.number === '2.5',
+                'guide-section--share-quiz':
+                  !isStudent && section.number === '2.5',
                 'guide-section--tc-final-help-start':
                   !isStudent && isTc && section.number === '11.5',
                 'guide-section--vertically-centered':
                   verticallyCenteredSections.has(section.number),
-                'guide-section--student-vertically-centered':
-                  isStudent && section.number === '4.4',
                 'guide-section--deeply-balanced':
                   deeplyBalancedSections.has(section.number),
                 'guide-section--balanced': balancedSections.has(section.number),
