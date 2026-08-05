@@ -176,6 +176,18 @@ const pageDescription = chapter?.summary ?? audienceUi.overviewSummary;
                 <h2 id={`${sectionId(section.number)}-title`}>{section.title}</h2>
                 {section.introduction && <p class="section-introduction">{section.introduction}</p>}
 
+                {section.noteBeforeSteps && section.note && (
+                  <aside class="guide-note">
+                    <strong>{section.note.title}</strong>
+                    {section.note.text && <p>{section.note.text}</p>}
+                    {section.note.bullets && (
+                      <ul class="detail-list">
+                        {section.note.bullets.map((item) => <li>{item}</li>)}
+                      </ul>
+                    )}
+                  </aside>
+                )}
+
                 {section.steps && (
                   <ol class="steps">
                     {section.steps.map((step) => <li>{step}</li>)}
@@ -190,10 +202,15 @@ const pageDescription = chapter?.summary ?? audienceUi.overviewSummary;
 
                 {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
 
-                {section.note && (
+                {!section.noteBeforeSteps && section.note && (
                   <aside class="guide-note">
                     <strong>{section.note.title}</strong>
-                    <p>{section.note.text}</p>
+                    {section.note.text && <p>{section.note.text}</p>}
+                    {section.note.bullets && (
+                      <ul class="detail-list">
+                        {section.note.bullets.map((item) => <li>{item}</li>)}
+                      </ul>
+                    )}
                   </aside>
                 )}
 
@@ -650,6 +667,7 @@ const pageDescription = chapter?.summary ?? audienceUi.overviewSummary;
     background: #f3f9fb;
   }
 
+
   .guide-note {
     margin: 1.5rem 0;
     padding: 1rem 1.2rem;
@@ -708,6 +726,21 @@ const pageDescription = chapter?.summary ?? audienceUi.overviewSummary;
     outline: 3px solid #ef2626;
     outline-offset: 2px;
     box-shadow: 0 0 0 5px rgba(255, 255, 255, .72);
+    pointer-events: none;
+  }
+
+  html[lang="zh-Hant"] .teacher-guide .app-screenshot:has(img[src*="google-classroom-imported-member.png"]) .screenshot-frame::after {
+    content: '←';
+    position: absolute;
+    z-index: 3;
+    top: 67%;
+    right: 4%;
+    color: #1477b8;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+    text-shadow: 0 0 4px #fff, 0 0 4px #fff;
+    transform: translateY(-50%);
     pointer-events: none;
   }
 

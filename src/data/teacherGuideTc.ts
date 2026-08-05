@@ -17,7 +17,7 @@ interface SectionTranslation {
   steps?: string[];
   paragraphs?: string[];
   bullets?: string[];
-  note?: { title: string; text: string };
+  note?: { title: string; text?: string; bullets?: string[] };
   screenshot?: ScreenshotTranslation;
   additionalScreenshots?: ScreenshotTranslation[];
 }
@@ -40,8 +40,8 @@ const translations: ChapterTranslation[] = [
         title: '選擇年級',
         steps: ['開啟「探索」。', '選擇年級。'],
         note: {
-          title: '為何沒有中一至中六？',
-          text: '「探索」會按用戶資料中已儲存的教育程度顯示年級。如果常用年級全屬小學，列表只會顯示小一至小六。請到「個人資料」>「設定」>「用戶資料」加入一個中學年級，列表便會包括中一至中六。詳細步驟請參閱第 9 章。',
+          title: '為何找不到我的年級？',
+          text: '「探索」會按用戶資料中已儲存的教育程度顯示年級。如果所需年級屬於另一個教育程度，請到「個人資料」>「設定」>「用戶資料」加入該教育程度的年級。詳細步驟請參閱第 9 章。',
         },
         screenshot: { caption: '從底部導覽列開啟「探索」。紅框標示要按的按鈕。', labels: ['探索'] },
         additionalScreenshots: [
@@ -64,12 +64,12 @@ const translations: ChapterTranslation[] = [
           '設定預計作答時間。',
           '選擇題目數量。',
           '選擇「度身訂造」。',
-          '向下捲動並選擇解釋語言。',
+          '滑至頁面下方，選擇解釋語言。',
           '按「確認」會扣除畫面所示的寶石並開始生成練習。',
         ],
         note: {
           title: '「度身訂造」還是「現有題庫」？',
-          text: '「度身訂造」使用 AI 生成新題目；「現有題庫」使用已生成的現有題目。',
+          text: '「度身訂造」使用 AI 生成新題目；「現有題庫」使用 Hoppy 題庫中已生成的題目。',
         },
         screenshot: {
           caption: '設定練習時間和題目數量，然後選擇「度身訂造」。紅框標示三項設定。',
@@ -162,7 +162,7 @@ const translations: ChapterTranslation[] = [
         ],
         note: {
           title: '「度身訂造」還是「現有題庫」？',
-          text: '「度身訂造」使用 AI 生成新題目；「現有題庫」使用已生成的現有題目。',
+          text: '「度身訂造」使用 AI 生成新題目；「現有題庫」使用 Hoppy 題庫中已生成的題目。',
         },
         screenshot: {
           caption: '設定時間和題目數量，然後選擇「度身訂造」。按「確認」會扣除畫面所示的寶石並開始生成練習。',
@@ -184,19 +184,16 @@ const translations: ChapterTranslation[] = [
     completion: '練習已完成檢查，可以使用。',
     sections: [
       {
-        title: '預覽練習',
+        title: '試做練習',
         steps: [
           '選擇「開始」。',
           '選擇答案並按「提交」。',
           '查看回饋，並選擇「查看解釋」。',
           '選擇「下一題」。',
           '在最後一題選擇「完成練習」。',
-          '最後一題後，查看結果和所得經驗值，然後選擇「完成」及「返回」。',
+          '查看分數和作答時間，然後選擇「下一步」。',
+          '查看所得經驗值，然後選擇「下一步」返回練習頁面。',
         ],
-        note: {
-          title: '試做記錄',
-          text: '這會建立你的個人試做記錄，而不是課室功課。練習仍會保留在「我的練習/練習清單」。',
-        },
         screenshot: { caption: '選擇「開始」試做練習。紅框位於按鈕外圍。', labels: ['開始'] },
         additionalScreenshots: [
           {
@@ -205,8 +202,12 @@ const translations: ChapterTranslation[] = [
           },
           { caption: '選擇「查看解釋」後，Hoppy 會在回饋下方展開完整解釋。' },
           {
+            src: '/images/teacher-guide-tc/chapter-3/quiz-result.jpeg',
+            caption: '完成練習後，查看分數和作答時間，然後選擇「下一步」。',
+          },
+          {
             src: '/images/student-guide-tc/chapter-3/xp-award.png',
-            caption: '完成練習後，先查看結果和所得經驗值，再返回練習頁面。',
+            caption: '查看所得經驗值，然後選擇「下一步」返回練習頁面。',
           },
         ],
       },
@@ -234,6 +235,10 @@ const translations: ChapterTranslation[] = [
       {
         title: '舉報問題',
         paragraphs: ['查看題目時如發現問題，請選擇「舉報」並選取原因。'],
+        note: {
+          title: '舉報後',
+          text: '題目會保留在目前練習中，但不會再用於建立新練習，並交由 Hoppy 團隊審核。',
+        },
         screenshot: { caption: '選擇旗幟，舉報目前題目的問題。', labels: ['舉報'] },
         additionalScreenshots: [
           { caption: '選擇最能描述問題的原因。', labels: ['舉報原因'] },
@@ -243,7 +248,7 @@ const translations: ChapterTranslation[] = [
         title: '分享練習',
         steps: [
           '選擇「分享練習」。',
-          '如你是練習建立者，請選擇練習的可見性。',
+          '如果這份練習是由你建立，你可以在「可見性」中選擇誰可以查看這份練習。',
           '選擇「分享連結」或「複製連結」，或顯示／分享二維碼。',
         ],
         bullets: [
@@ -253,7 +258,7 @@ const translations: ChapterTranslation[] = [
         ],
         note: {
           title: '直接分享',
-          text: '直接分享適合非正式練習，但不會建立課室完成記錄，練習建立者亦無法查看參加者的答案。如需監察學生進度，請使用功課。',
+          text: '直接分享的練習不會顯示完成狀態，你亦無法查看參加者的答案。如需查看完成狀態或參加者的答案，請使用功課。詳情請參閱第 4 章。',
         },
         screenshot: {
           caption: '選擇可見性，然後分享或複製練習連結。',
@@ -270,7 +275,11 @@ const translations: ChapterTranslation[] = [
           '如需可編輯的 DOCX 檔案，請在練習頁面選擇「匯出 Word」。Hoppy 會直接下載 Word 檔案，不會先開啟預覽。',
           '等待 Hoppy 確認所選檔案已儲存。',
         ],
-        paragraphs: ['兩種格式均包含題目，以及附有解釋的答案部分。當練習的可見性允許分享時，亦可能顯示分享連結和二維碼。PDF 會先在 App 內開啟預覽再儲存；Word 則會直接下載可編輯的 .docx 檔案。'],
+        paragraphs: ['兩種格式均包含題目、答案和解釋。如果練習可以分享，檔案亦可能包含分享連結和二維碼。PDF 會先在 App 內開啟預覽再儲存；Word 則會直接下載為可編輯的 .docx 檔案。'],
+        note: {
+          title: '誰可以匯出？',
+          text: '只有建立該練習的用戶可以將練習匯出為 PDF 或 Word。',
+        },
         screenshot: {
           caption: '選擇「匯出 PDF」建立可預覽的檔案，或選擇「匯出 Word」建立可編輯的 DOCX 檔案。紅框標示兩個按鈕。',
           labels: ['匯出 PDF', '匯出 Word'],
@@ -360,7 +369,7 @@ const translations: ChapterTranslation[] = [
         steps: ['檢查課室、練習、備註和日期。', '選擇「建立功課」。'],
         paragraphs: [
           '建立後，教師會立即在課室看到功課；到達發佈時間時，學生會在課室和動態中看到功課。',
-          '到達發佈時間時，Hoppy 會為每名仍在課室的學生排程推送通知，向有電郵地址的學生寄出功課電郵，並通知已連結家長。推送通知仍須裝置已登記並允許通知。',
+          '到達發佈時間時，Hoppy 會為每名仍在課室的學生排程推送通知，向有電郵地址的學生寄出功課電郵，並通知已連結家長。',
           '請等待至少一名學生完成功課，再繼續第 5 章。',
         ],
         screenshot: { caption: '資料準備好後，選擇「建立功課」。', labels: ['建立功課'] },
@@ -384,20 +393,6 @@ const translations: ChapterTranslation[] = [
         },
       },
       {
-        title: '查看學生完成狀態',
-        introduction: '開啟「完成狀態」查看：',
-        bullets: [
-          '未完成：學生尚未提交功課，而截止時間尚未過去。',
-          '已完成：學生在截止時間或之前提交功課。',
-          '遲交：學生在截止時間後提交功課。',
-          '逾期：截止時間已過，而學生尚未提交功課。',
-        ],
-        paragraphs: [
-          '選擇狀態以查看該組學生，或選擇「查看詳情」查看所有學生。',
-        ],
-        screenshot: { caption: '「所有學生」顯示每名學生的狀態；已完成項目亦會顯示分數、百分比、作答時間和完成時間。' },
-      },
-      {
         title: '檢視全班表現',
         bullets: [
           '「平均分數」包括準時完成的功課。',
@@ -408,18 +403,28 @@ const translations: ChapterTranslation[] = [
       },
       {
         title: '查看學生作答',
+        note: {
+          title: '完成狀態類型',
+          text: '「完成狀態」會顯示以下四種類型，以及每種類型的學生人數：',
+          bullets: [
+            '未完成：學生尚未提交功課，而截止時間尚未過去。',
+            '已完成：學生在截止時間或之前提交功課。',
+            '遲交：學生在截止時間後提交功課。',
+            '逾期：截止時間已過，而學生尚未提交功課。',
+          ],
+        },
         steps: [
-          '開啟「查看詳情」。',
+          '在「完成狀態」下選擇「查看詳情」，開啟「所有學生」。',
           '檢查每名學生的狀態、分數、作答時間和完成時間。',
           '選擇一名已完成功課的學生。',
           '使用題號查看學生的答案和解釋。',
           '關閉作答記錄，返回「所有學生」。',
         ],
-        screenshot: { caption: '在「完成狀態」下選擇「查看詳情」。', labels: ['查看詳情'] },
+        screenshot: { caption: '在「完成狀態」下選擇「查看詳情」，開啟「所有學生」並查看每名學生的資料。', labels: ['查看詳情'] },
         additionalScreenshots: [
           {
             caption: '在「所有學生」中，選擇標示為「已完成」或「遲交」的學生。',
-            labels: ['學生 4'],
+            labels: ['學生 2'],
           },
           {
             caption: '綠色題號代表答對，紅色題號代表答錯。選擇題號以查看該題。',
@@ -474,7 +479,7 @@ const translations: ChapterTranslation[] = [
       {
         title: '指派跟進練習',
         steps: [
-          '檢查跟進練習，並作出所需修改。',
+          '檢查跟進練習。',
           '選擇「指派」。',
           '選擇相同課室。',
           '設定發佈和截止時間，然後建立功課。',
@@ -496,12 +501,12 @@ const translations: ChapterTranslation[] = [
       {
         title: '管理成員和角色',
         paragraphs: [
-          '開啟「我的課室」、選擇課室，再開啟「成員」，查看學生、教師、各自角色，以及哪位教師建立了課室。',
+          '開啟「我的課室」、選擇課室，再開啟「成員」，查看課室內的學生和教師，以及哪位教師建立了課室。',
           '如要移除成員，請選擇成員、選擇「移除成員」，然後確認。',
         ],
         note: {
           title: '移除教師',
-          text: '只有課室擁有者可以從課室移除另一名教師。',
+          text: '只有建立課室的教師可以移除其他教師。',
         },
         screenshot: { caption: '開啟「成員」，查看建立課室的教師、其他教師、學生和移除控制。', labels: ['成員'] },
       },
@@ -525,7 +530,7 @@ const translations: ChapterTranslation[] = [
           '「學校」課室的「跟隨學校預設」會採用學校的排行榜設定。',
         ],
         paragraphs: [
-          '未能進入顯示名次的學生仍可看到自己的名次。這些選項只控制學生的查看權限；教師仍可查看完整排行榜。',
+          '未能進入顯示名次的學生仍可看到自己的資料，但不會顯示名次。這些選項只控制學生的查看權限；教師仍可查看完整排行榜。',
           '只有課室擁有者可以更改排行榜顯示設定。由學校控制時，設定無法更改。',
         ],
         screenshot: { caption: '開啟「課室設定」，然後選擇「排行榜顯示設定」。', labels: ['排行榜顯示設定'] },
@@ -549,7 +554,7 @@ const translations: ChapterTranslation[] = [
     title: '連結 Google Classroom',
     summary: '從 Google Classroom 匯入配對學生，並同步 Hoppy 功課和分數，減少重複的行政工作。',
     chapterBullets: [
-      '學生匯入：按電郵地址配對 Google Classroom 學生，加入現有 Hoppy 用戶，並邀請未能配對的學生。',
+      '學生匯入：按電郵地址配對 Google Classroom 學生，加入現有 Hoppy 用戶，並向未能配對的學生發送電郵邀請。',
       '功課同步：Hoppy 功課有變更時，在 Google Classroom 建立、更新或刪除對應課業。',
       '分數同步：學生完成 Hoppy 功課後，將百分比分數以 100 分制傳送至 Google Classroom。',
       '連結管理：在課室設定檢查狀態、重新授權、切換課程或取消連結。',
@@ -566,7 +571,7 @@ const translations: ChapterTranslation[] = [
           '選擇「連結」。',
         ],
         paragraphs: [
-          '系統會以學生的電郵地址配對名單。配對到的 Hoppy 帳戶會加入課室；未配對的學生會收到電郵邀請碼。',
+          '系統會以學生的電郵地址配對名單。配對到的 Hoppy 帳戶會加入課室；未配對的學生會收到電郵邀請。',
           '只有建立課室的教師可以管理連結。「學校」和「公開」課室可使用 Google Classroom 連結功能。',
         ],
         screenshot: { caption: '開啟課室設定，然後選擇「Google Classroom 連結」。', labels: ['Google Classroom 連結'] },
@@ -630,7 +635,7 @@ const translations: ChapterTranslation[] = [
           '開啟「探索」查看效果。',
         ],
         paragraphs: [
-          '儲存後，「探索」會選取其中一個常用年級，並將偏好科目移到前方；可用科目列表不會改變。',
+          '儲存後，「探索」會選取其中一個常用年級，並將偏好科目移到前方。',
         ],
         screenshot: { caption: '開啟「個人資料」、選擇設定齒輪，再開啟「用戶資料」。', labels: ['用戶資料'] },
         additionalScreenshots: [

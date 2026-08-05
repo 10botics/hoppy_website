@@ -1,6 +1,7 @@
 export interface GuideNote {
   title: string;
-  text: string;
+  text?: string;
+  bullets?: string[];
 }
 
 export interface GuideScreenshot {
@@ -23,6 +24,7 @@ export interface GuideSection {
   steps?: string[];
   paragraphs?: string[];
   bullets?: string[];
+  noteBeforeSteps?: boolean;
   note?: GuideNote;
   screenshot?: string | GuideScreenshot;
   additionalScreenshots?: GuideScreenshot[];
@@ -52,8 +54,8 @@ const teacherGuideChapterSource: GuideChapter[] = [
         title: 'Choose Grade Level',
         steps: ['Open Explore.', 'Choose the grade level.'],
         note: {
-          title: 'Why S1–S6 may not appear',
-          text: 'Explore shows grades from the education levels saved in your profile. If your usual grades are all primary grades, the list shows Primary 1–6 only. Add a secondary grade under Profile > Settings > User Profile to include Secondary 1–6.',
+          title: 'Why can’t I find my grade?',
+          text: 'Explore shows grades from the education levels saved in your profile. If the grade you need belongs to another education level, go to Profile > Settings > User Profile and add a grade from that level. See Chapter 9 for the detailed steps.',
         },
         screenshot: {
           src: '/images/teacher-guide/chapter-1/open-explore.png',
@@ -297,12 +299,9 @@ const teacherGuideChapterSource: GuideChapter[] = [
           'View the feedback and select Show explanation.',
           'Select Next.',
           'On the last question, select Finish Quiz.',
-          'After the last question, review the result and XP earned, then select Finish and Back.',
+          'Review your score and time taken, then select Next.',
+          'Review the XP earned, then select Next to return to the quiz page.',
         ],
-        note: {
-          title: 'Practice attempt',
-          text: 'This creates your personal attempt, not a classroom assignment. The quiz remains available under My Quizzes.',
-        },
         screenshot: {
           src: '/images/teacher-guide/chapter-3/quiz-info-start.png',
           alt: 'Hoppy Quiz Info screen with the Start button at the bottom.',
@@ -327,9 +326,14 @@ const teacherGuideChapterSource: GuideChapter[] = [
             caption: 'After selecting Show explanation, Hoppy expands the worked explanation below the feedback.',
           },
           {
+            src: '/images/teacher-guide/chapter-3/quiz-result.jpeg',
+            alt: 'Hoppy quiz result screen showing a score of 7 out of 10, a time of 20 seconds, and Next.',
+            caption: 'After finishing the quiz, review your score and time taken, then select Next.',
+          },
+          {
             src: '/images/student-guide/chapter-3/xp-award.png',
             alt: 'Hoppy quiz result showing the XP earned after completing the quiz.',
-            caption: 'After finishing the quiz, review your result and the XP earned before returning to the quiz page.',
+            caption: 'Review the XP earned, then select Next to return to the quiz page.',
           },
         ],
       },
@@ -412,7 +416,7 @@ const teacherGuideChapterSource: GuideChapter[] = [
         ],
         note: {
           title: 'Direct sharing',
-          text: 'Direct sharing is useful for informal practice, but it does not create classroom completion records or give the quiz owner access to participants’ answers. Use an assignment when you need to monitor student work.',
+          text: 'Directly shared quizzes do not show completion statuses or allow the creator to review participants’ answers. Use an assignment if you need either function. See Chapter 4 for details.',
         },
         screenshot: {
           src: '/images/teacher-guide/chapter-3/share-quiz-link.jpeg',
@@ -444,8 +448,12 @@ const teacherGuideChapterSource: GuideChapter[] = [
           'Wait for Hoppy to confirm that the selected file was saved.',
         ],
         paragraphs: [
-          'Both formats contain the questions and an answers section with explanations. A share link and QR code may appear when the quiz visibility allows sharing. PDF opens an in-app preview before saving; Word downloads an editable .docx file directly.',
+          'Both formats include the questions, answers, and explanations. If the quiz can be shared, the file may also include a share link and QR code. PDF opens an in-app preview before saving; Word downloads directly as an editable .docx file.',
         ],
+        note: {
+          title: 'Who can export?',
+          text: 'Only the quiz owner—the user who created it—can export it to PDF or Word.',
+        },
         screenshot: {
           src: '/images/teacher-guide/chapter-3/export-to-word.png',
           alt: 'Hoppy Quiz Info showing View Questions, Export to PDF, Export to Word, and View Leaderboard controls.',
@@ -654,25 +662,6 @@ const teacherGuideChapterSource: GuideChapter[] = [
       },
       {
         number: '5.2',
-        title: 'Check Student Completion',
-        introduction: 'In Completion Status, review:',
-        bullets: [
-          'Not Finished: The student has not submitted the assignment, and the due time has not passed.',
-          'Completed: The student submitted the assignment by the due time.',
-          'Completed Late: The student submitted the assignment after the due time.',
-          'Overdue: The due time has passed, and the student has not submitted the assignment.',
-        ],
-        paragraphs: [
-          'Select a status to see the students in that group, or select View Detail to see all students.',
-        ],
-        screenshot: {
-          src: '/images/teacher-guide/chapter-5/completion-detail.png',
-          alt: 'All Learners showing one student who has not started and four students who completed on time, with their scores and completion details.',
-          caption: 'The All Learners screen shows each student’s status. Completed entries also show the score, percentage, time spent, and completion time.',
-        },
-      },
-      {
-        number: '5.3',
         title: 'Review Class Performance',
         bullets: [
           'Average Score includes assignments completed on time.',
@@ -686,10 +675,21 @@ const teacherGuideChapterSource: GuideChapter[] = [
         },
       },
       {
-        number: '5.4',
+        number: '5.3',
         title: 'Review Student Attempts',
+        noteBeforeSteps: true,
+        note: {
+          title: 'Completion status types',
+          text: 'Completion Status shows these four types and the number of students in each:',
+          bullets: [
+            'Not Finished: The student has not submitted the assignment, and the due time has not passed.',
+            'Completed: The student submitted the assignment by the due time.',
+            'Completed Late: The student submitted the assignment after the due time.',
+            'Overdue: The due time has passed, and the student has not submitted the assignment.',
+          ],
+        },
         steps: [
-          'Open the assignment, find Completion Status, and select View Detail to open All Learners.',
+          'Under Completion Status, select View Detail to open All Learners.',
           'Check each student’s status, score, time spent, and completion time.',
           'Select a student marked Completed or Completed Late to open the attempt.',
           'Use the numbered controls to review each selected answer, correct answer, and explanation.',
@@ -698,7 +698,7 @@ const teacherGuideChapterSource: GuideChapter[] = [
         screenshot: {
           src: '/images/teacher-guide/chapter-5/assignment-results-overview.png',
           alt: 'Assignment Info showing Completion Status and the View Detail button.',
-          caption: 'Select View Detail under Completion Status.',
+          caption: 'Select View Detail under Completion Status to open All Learners and view each student’s information.',
           highlights: [
             { label: 'View Detail', left: 38, top: 77.6, width: 24, height: 4.3 },
           ],
@@ -724,7 +724,7 @@ const teacherGuideChapterSource: GuideChapter[] = [
         ],
       },
       {
-        number: '5.5',
+        number: '5.4',
         title: 'View Assignment Leaderboard',
         paragraphs: [
           'Open an assignment and select View Leaderboard. Completed attempts are ranked by score and then by earlier completion time. Each entry shows the score, time taken, completion time, and late status.',
@@ -935,7 +935,7 @@ const teacherGuideChapterSource: GuideChapter[] = [
     title: 'Connect Google Classroom',
     summary: 'Reduce repeated administration by importing matching students and synchronizing Hoppy assignments and scores with Google Classroom.',
     chapterBullets: [
-      'Student import: Match Google Classroom students by email, add existing Hoppy users, and invite unmatched students.',
+      'Student import: Match Google Classroom students by email, add existing Hoppy users, and email invitation codes to unmatched students.',
       'Assignment sync: Create, update, or delete corresponding Google Classroom classwork when Hoppy assignments change.',
       'Score sync: Send completed Hoppy assignment percentages to Google Classroom as grades out of 100.',
       'Connection management: Check the status, relink authorization, switch classes, or unlink from Classroom Settings.',

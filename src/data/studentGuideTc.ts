@@ -30,7 +30,7 @@ export const studentGuideChaptersTc: GuideChapter[] = [
           '設定預計作答時間。',
           '選擇題目數量。',
           '選擇「度身訂造」。',
-          '向下捲動並選擇解釋語言。',
+          '滑至頁面下方，選擇解釋語言。',
           '選擇「確認」。',
         ],
         note: {
@@ -529,7 +529,7 @@ section(5, '5.2').screenshot = {
   ],
 };
 
-const studentAttemptReview = teacherSection(5, '5.4').additionalScreenshots?.[0];
+const studentAttemptReview = teacherSection(5, '5.3').additionalScreenshots?.[0];
 if (studentAttemptReview) {
   section(5, '5.4').screenshot = {
     ...studentAttemptReview,

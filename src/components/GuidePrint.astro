@@ -55,12 +55,14 @@ const subtlyBalancedSections = new Set(
     : [
         '1.3',
         '1.4',
+        '2.4',
         '3.2',
         '3.6',
         '4.2',
         '4.3',
         '4.4',
-        '5.4',
+        '5.2',
+        '5.3',
         '7.2',
         '7.3',
         '7.4',
@@ -68,8 +70,8 @@ const subtlyBalancedSections = new Set(
         '9.2',
         '9.3',
         '9.4',
-        ...(!isTc ? ['1.2', '2.2', '2.5', '2.6', '3.3', '3.5', '5.5', '6.2', '8.2', '8.3'] : []),
-        ...(isTc ? ['1.2', '2.2', '2.3', '2.5', '2.6', '3.4', '5.2', '5.5', '6.2', '8.2', '8.3'] : []),
+        ...(!isTc ? ['1.2', '2.2', '2.5', '2.6', '3.3', '3.5', '5.4', '6.2', '8.2', '8.3'] : []),
+        ...(isTc ? ['1.2', '2.2', '2.3', '2.5', '2.6', '3.4', '5.4', '6.2', '8.2', '8.3'] : []),
       ],
 );
 const assetSrc = (src: string) => `../../../../${src.replace(/^\//, '')}`;
@@ -492,6 +494,14 @@ const copy = isTc
         border-top: 0;
       }
 
+      html[lang="en"] .guide--teacher .chapter--chapter-4 .guide-section--classroom-types {
+        padding-top: 3mm;
+      }
+
+      html[lang="en"] .guide--teacher .chapter--chapter-4 .guide-section--classroom-types .section-number {
+        top: 3mm;
+      }
+
       .guide-section--compact {
         break-inside: avoid-page;
       }
@@ -607,6 +617,35 @@ const copy = isTc
 
       .guide--student .guide-section--chapter-2-compact.guide-section--subtly-balanced .section-number {
         top: 20mm;
+      }
+
+      .guide--teacher .guide-section--quiz-leaderboard .section-layout--with-media {
+        display: block;
+        break-inside: avoid-page;
+      }
+
+      .guide--teacher .guide-section--quiz-leaderboard .section-media-stack {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        margin-top: 5mm;
+      }
+
+      .guide--teacher .guide-section--quiz-leaderboard .app-screenshot--primary {
+        width: 68mm;
+      }
+
+      .guide--teacher .guide-section--quiz-leaderboard .app-screenshot--primary .screenshot-frame {
+        max-width: 68mm;
+      }
+
+      .guide--teacher .guide-section--quiz-leaderboard .app-screenshot--primary .screenshot-frame img {
+        max-width: 63.6mm;
+        max-height: 150mm;
+      }
+
+      .guide--teacher .guide-section--quiz-leaderboard .app-screenshot--primary figcaption {
+        max-width: 66mm;
       }
 
       .guide-section--chapter-3-pair {
@@ -1415,6 +1454,10 @@ const copy = isTc
         grid-column: 1 / -1;
       }
 
+      .guide--teacher .additional-screenshots--preview-quiz.additional-screenshots--preview-quiz-even .app-screenshot:last-child {
+        grid-column: auto;
+      }
+
       .guide--teacher .additional-screenshots--preview-quiz .screenshot-frame {
         max-width: 50mm;
       }
@@ -1505,6 +1548,20 @@ const copy = isTc
         height: 25.8% !important;
       }
 
+      html[lang="zh-Hant"] .additional-screenshots--google-classroom .app-screenshot:has(img[src*="google-classroom-imported-member.png"]) .screenshot-frame::after {
+        content: '←';
+        position: absolute;
+        z-index: 3;
+        top: 67%;
+        right: -9mm;
+        color: #1477b8;
+        font-size: 18pt;
+        font-weight: 900;
+        line-height: 1;
+        text-shadow: 0 0 1.5mm #fff, 0 0 1.5mm #fff;
+        transform: translateY(-50%);
+      }
+
       .guide-section--google-classroom-sync {
         break-before: page;
         page-break-before: always;
@@ -1528,17 +1585,18 @@ const copy = isTc
 
       .guide-section--student-attempts .additional-screenshots--teacher {
         margin-top: 4mm;
-        padding-top: 3mm;
+        padding-top: 20mm;
         break-before: auto;
         page-break-before: auto;
       }
 
-      html[lang="en"] .guide--teacher .guide-section--student-attempts .additional-screenshots--teacher {
-        padding-top: 3mm;
+      html[lang="en"] .guide--teacher .guide-section--student-attempts {
+        break-before: page;
+        page-break-before: always;
       }
 
-      .guide--teacher .guide-section--student-attempts .additional-screenshots-title {
-        display: none;
+      html[lang="en"] .guide--teacher .guide-section--student-attempts .additional-screenshots--teacher {
+        padding-top: 20mm;
       }
 
       html[lang="en"] .guide-section--student-attempts .app-screenshot--primary {
@@ -1559,22 +1617,27 @@ const copy = isTc
       }
 
       html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher .app-screenshot {
-        width: 54mm;
+        width: 64mm;
         justify-self: center;
       }
 
       html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame {
-        max-width: 54mm;
+        max-width: 64mm;
       }
 
       html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame img {
-        max-width: 49.6mm;
-        max-height: 98mm;
+        max-width: 59.6mm;
+        max-height: 133mm;
       }
 
       html[lang="en"] .guide-section--student-attempts .additional-screenshots--teacher figcaption {
-        max-width: 52mm;
-        font-size: 8pt;
+        max-width: 62mm;
+        font-size: 8.5pt;
+      }
+
+      html[lang="zh-Hant"] .guide-section--student-attempts .additional-screenshots--teacher .app-screenshot {
+        width: 64mm;
+        justify-self: center;
       }
 
       html[lang="zh-Hant"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame {
@@ -1583,7 +1646,36 @@ const copy = isTc
 
       html[lang="zh-Hant"] .guide-section--student-attempts .additional-screenshots--teacher .screenshot-frame img {
         max-width: 59.6mm;
-        max-height: 112mm;
+        max-height: 133mm;
+      }
+
+      .guide--teacher .guide-section--class-performance .section-layout--with-media {
+        display: block;
+        break-inside: avoid-page;
+      }
+
+      .guide--teacher .guide-section--class-performance .section-media-stack {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        margin-top: 5mm;
+      }
+
+      .guide--teacher .guide-section--class-performance .app-screenshot--primary {
+        width: 68mm;
+      }
+
+      .guide--teacher .guide-section--class-performance .app-screenshot--primary .screenshot-frame {
+        max-width: 68mm;
+      }
+
+      .guide--teacher .guide-section--class-performance .app-screenshot--primary .screenshot-frame img {
+        max-width: 63.6mm;
+        max-height: 150mm;
+      }
+
+      .guide--teacher .guide-section--class-performance .app-screenshot--primary figcaption {
+        max-width: 66mm;
       }
 
       .guide-section--classroom-types .detail-list {
@@ -1742,6 +1834,33 @@ const copy = isTc
       .guide-section--export-pdf .app-screenshot--stacked figcaption {
         max-width: 72mm;
         font-size: 9.2pt;
+      }
+
+      html[lang="en"] .guide-section--export-pdf .section-layout--paired .section-media-stack {
+        gap: 7mm;
+        margin-top: 4mm;
+      }
+
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--primary,
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--stacked {
+        width: 66mm;
+      }
+
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--primary .screenshot-frame,
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--stacked .screenshot-frame {
+        max-width: 66mm;
+      }
+
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--primary .screenshot-frame img,
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--stacked .screenshot-frame img {
+        max-width: 61.6mm;
+        max-height: 130mm;
+      }
+
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--primary figcaption,
+      html[lang="en"] .guide-section--export-pdf .app-screenshot--stacked figcaption {
+        max-width: 64mm;
+        font-size: 8.5pt;
       }
 
       .guide-section--export-pdf .additional-screenshots--teacher {
@@ -2014,7 +2133,6 @@ const copy = isTc
             <span class="contents-number">{chapter.number}</span>
             <div>
               <h2>{chapter.title}</h2>
-              <p>{chapter.sections.length} {copy.sections}</p>
             </div>
           </li>
         ))}
@@ -2105,7 +2223,11 @@ const copy = isTc
                 'guide-section--tc-learning-units':
                   !isStudent && isTc && section.number === '1.2',
                 'guide-section--student-attempts':
-                  !isStudent && section.number === '5.4',
+                  !isStudent && section.number === '5.3',
+                'guide-section--class-performance':
+                  !isStudent && section.number === '5.2',
+                'guide-section--quiz-leaderboard':
+                  !isStudent && section.number === '2.4',
                 'guide-section--google-classroom-connect':
                   !isStudent && section.number === '8.1',
                 'guide-section--google-classroom-sync':
@@ -2139,6 +2261,18 @@ const copy = isTc
                   <h2>{section.title}</h2>
                   {section.introduction && <p class="section-introduction">{section.introduction}</p>}
 
+                  {section.noteBeforeSteps && section.note && (
+                    <aside class="guide-note">
+                      <strong>{section.note.title}</strong>
+                      {section.note.text && <p>{section.note.text}</p>}
+                      {section.note.bullets && (
+                        <ul class="detail-list">
+                          {section.note.bullets.map((item) => <li>{item}</li>)}
+                        </ul>
+                      )}
+                    </aside>
+                  )}
+
                   {section.steps && (
                     <ol class="steps">
                       {section.steps.map((step) => <li>{step}</li>)}
@@ -2153,10 +2287,15 @@ const copy = isTc
 
                   {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
 
-                  {section.note && (
+                  {!section.noteBeforeSteps && section.note && (
                     <aside class="guide-note">
                       <strong>{section.note.title}</strong>
-                      <p>{section.note.text}</p>
+                      {section.note.text && <p>{section.note.text}</p>}
+                      {section.note.bullets && (
+                        <ul class="detail-list">
+                          {section.note.bullets.map((item) => <li>{item}</li>)}
+                        </ul>
+                      )}
                     </aside>
                   )}
 
@@ -2192,6 +2331,10 @@ const copy = isTc
                         !isStudent && (section.number === '3.1' || section.number === '9.1'),
                       'additional-screenshots--preview-quiz':
                         !isStudent && section.number === '2.1',
+                      'additional-screenshots--preview-quiz-even':
+                        !isStudent &&
+                        section.number === '2.1' &&
+                        section.additionalScreenshots.length % 2 === 0,
                       'additional-screenshots--three-across':
                         !isStudent && chapter.number === 8 && section.number === '8.1',
                       'additional-screenshots--google-classroom':
