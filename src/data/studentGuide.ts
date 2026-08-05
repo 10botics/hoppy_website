@@ -600,7 +600,7 @@ section(5, '5.2').screenshot = {
   ],
 };
 
-const studentAttemptReview = teacherSection(5, '5.4').additionalScreenshots?.[0];
+const studentAttemptReview = teacherSection(5, '5.3').additionalScreenshots?.[0];
 if (studentAttemptReview) {
   section(5, '5.4').screenshot = {
     ...studentAttemptReview,

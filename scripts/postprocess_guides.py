@@ -101,7 +101,7 @@ def add_contents_page_references(
             page_reference_rect,
             f"p. {destination_index + 1}",
             fontname="helv",
-            fontsize=8.5,
+            fontsize=11,
             color=INK,
             align=fitz.TEXT_ALIGN_RIGHT,
             overlay=True,
