@@ -1,0 +1,38 @@
+---
+import type { GuideScreenshot } from '../../data/teacherGuide';
+
+interface Props {
+  screenshot: GuideScreenshot;
+  variant?: 'primary' | 'stacked';
+}
+
+const { screenshot, variant } = Astro.props;
+const assetSrc = (src: string) => `../../../../${src.replace(/^\//, '')}`;
+---
+
+<figure
+  class:list={[
+    'app-screenshot',
+    variant && `app-screenshot--${variant}`,
+  ]}
+>
+  <div class="screenshot-frame">
+    <div class="screenshot-image">
+      <img src={assetSrc(screenshot.src)} alt={screenshot.alt} />
+      {screenshot.highlights?.map((highlight) => (
+        <span
+          class:list={[
+            'screenshot-highlight',
+            {
+              'screenshot-highlight--circle':
+                highlight.width <= 8 && highlight.height <= 4.5,
+            },
+          ]}
+          style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
+          aria-hidden="true"
+        />
+      ))}
+    </div>
+  </div>
+  <figcaption>{screenshot.caption}</figcaption>
+</figure>

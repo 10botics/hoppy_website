@@ -8,6 +8,7 @@ import { publishedTeacherGuideChaptersTc } from '../data/teacherGuideTc';
 import { publishedStudentGuideChapters } from '../data/studentGuide';
 import { publishedStudentGuideChaptersTc } from '../data/studentGuideTc';
 import type { Lang } from '../i18n/ui';
+import GuidePrintScreenshot from './guide/GuidePrintScreenshot.astro';
 
 interface Props {
   lang: Lang;
@@ -2152,53 +2153,13 @@ const copy = isTc
 
                 {section.screenshot && typeof section.screenshot !== 'string' && (
                   <div class="section-media-stack">
-                    <figure class="app-screenshot app-screenshot--primary">
-                      <div class="screenshot-frame">
-                        <div class="screenshot-image">
-                          <img src={assetSrc(section.screenshot.src)} alt={section.screenshot.alt} />
-                          {section.screenshot.highlights?.map((highlight) => (
-                            <span
-                              class:list={[
-                                'screenshot-highlight',
-                                {
-                                  'screenshot-highlight--circle':
-                                    highlight.width <= 8 && highlight.height <= 4.5,
-                                },
-                              ]}
-                              style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
-                              aria-hidden="true"
-                            />
-                          ))}
-                        </div>
-                      </div>
-                      <figcaption>{section.screenshot.caption}</figcaption>
-                    </figure>
+                    <GuidePrintScreenshot screenshot={section.screenshot} variant="primary" />
 
                     {section.additionalScreenshots?.length === 1 && (
-                      <figure class="app-screenshot app-screenshot--stacked">
-                        <div class="screenshot-frame">
-                          <div class="screenshot-image">
-                            <img
-                              src={assetSrc(section.additionalScreenshots[0].src)}
-                              alt={section.additionalScreenshots[0].alt}
-                            />
-                            {section.additionalScreenshots[0].highlights?.map((highlight) => (
-                              <span
-                                class:list={[
-                                  'screenshot-highlight',
-                                  {
-                                    'screenshot-highlight--circle':
-                                      highlight.width <= 8 && highlight.height <= 4.5,
-                                  },
-                                ]}
-                                style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
-                                aria-hidden="true"
-                              />
-                            ))}
-                          </div>
-                        </div>
-                        <figcaption>{section.additionalScreenshots[0].caption}</figcaption>
-                      </figure>
+                      <GuidePrintScreenshot
+                        screenshot={section.additionalScreenshots[0]}
+                        variant="stacked"
+                      />
                     )}
                   </div>
                 )}
@@ -2229,27 +2190,7 @@ const copy = isTc
                     </h3>
                   )}
                   {section.additionalScreenshots.map((screenshot) => (
-                    <figure class="app-screenshot">
-                      <div class="screenshot-frame">
-                        <div class="screenshot-image">
-                          <img src={assetSrc(screenshot.src)} alt={screenshot.alt} />
-                          {screenshot.highlights?.map((highlight) => (
-                            <span
-                              class:list={[
-                                'screenshot-highlight',
-                                {
-                                  'screenshot-highlight--circle':
-                                    highlight.width <= 8 && highlight.height <= 4.5,
-                                },
-                              ]}
-                              style={`left:${highlight.left}%;top:${highlight.top}%;width:${highlight.width}%;height:${highlight.height}%;`}
-                              aria-hidden="true"
-                            />
-                          ))}
-                        </div>
-                      </div>
-                      <figcaption>{screenshot.caption}</figcaption>
-                    </figure>
+                    <GuidePrintScreenshot screenshot={screenshot} />
                   ))}
                 </div>
               )}
