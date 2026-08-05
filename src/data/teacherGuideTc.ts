@@ -831,7 +831,7 @@ const screenshotHighlightOverrides: Record<string, GuideScreenshot['highlights']
     { label: '確認', left: 3.8, top: 85.2, width: 92.4, height: 7.5 },
   ],
   '/images/teacher-guide-tc/chapter-3/quiz-actions.png': [
-    { label: '查看題目', left: 8.2, top: 58, width: 83.6, height: 6.2 },
+    { label: '查看題目', left: 8.2, top: 56.4, width: 83.6, height: 5.9 },
   ],
   '/images/teacher-guide-tc/chapter-3/report-options.png': [
     { label: '舉報原因', left: 3, top: 51.5, width: 94, height: 37.5 },
@@ -884,6 +884,9 @@ const exactScreenshotHighlightOverrides: Record<string, GuideScreenshot['highlig
   '/images/teacher-guide-tc/chapter-5/assignment-results-overview.png|38,77.6,24,4.3': [
     { label: '查看詳情', left: 39, top: 88.4, width: 22, height: 5.2 },
   ],
+  '/images/teacher-guide-tc/chapter-5/completion-detail.png|3.8,65.4,92.4,15.5': [
+    { label: '學生 4', left: 3.8, top: 55.8, width: 92.4, height: 11 },
+  ],
   '/images/teacher-guide-tc/chapter-5/student-attempt-mixed.png|3.8,12.8,92.4,5;3.8,36.7,92.4,53.2': [
     { label: '題目導覽', left: 3.8, top: 10.6, width: 92.4, height: 5.5 },
     { label: '答案和解釋', left: 3.8, top: 28.4, width: 92.4, height: 58 },
@@ -916,6 +919,9 @@ const exactScreenshotHighlightOverrides: Record<string, GuideScreenshot['highlig
   ],
   '/images/teacher-guide-tc/chapter-7/google-classroom-linked.png|3.8,18.5,92.4,13.4': [
     { label: '已連結的課程', left: 3.8, top: 16.8, width: 92.4, height: 13 },
+  ],
+  '/images/teacher-guide-tc/chapter-7/google-classroom-linked.png|3.8,18.5,92.4,23.5': [
+    { label: '連結控制', left: 3.8, top: 16.8, width: 92.4, height: 20.5 },
   ],
   '/images/teacher-guide-tc/chapter-9/others-learning-unit.png|8.2,35.6,83.6,4.6': [
     { label: '只選擇「其他」', left: 8.2, top: 33.8, width: 83.6, height: 4.6 },

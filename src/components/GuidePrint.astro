@@ -1257,6 +1257,11 @@ const copy = isTc
         object-fit: contain;
       }
 
+      html[lang="zh-Hant"] .guide--teacher .guide-section--view-questions .app-screenshot--primary .screenshot-highlight {
+        top: 56.65% !important;
+        height: 5.65% !important;
+      }
+
       .chapter--chapter-6 .section-layout--paired .app-screenshot--primary,
       .chapter--chapter-6 .section-layout--paired .app-screenshot--stacked {
         width: 42mm;
@@ -1485,9 +1490,19 @@ const copy = isTc
         height: 13.3% !important;
       }
 
+      html[lang="zh-Hant"] .additional-screenshots--google-classroom .app-screenshot:nth-of-type(1) .screenshot-highlight {
+        top: 68% !important;
+        height: 10.3% !important;
+      }
+
       .additional-screenshots--google-classroom .app-screenshot:nth-of-type(2) .screenshot-highlight {
         top: 40.2% !important;
         height: 29.1% !important;
+      }
+
+      html[lang="zh-Hant"] .additional-screenshots--google-classroom .app-screenshot:nth-of-type(2) .screenshot-highlight {
+        top: 36.8% !important;
+        height: 25.8% !important;
       }
 
       .guide-section--google-classroom-sync {
@@ -2047,6 +2062,8 @@ const copy = isTc
                   isStudent && section.number === '2.5',
                 'guide-section--share-quiz':
                   !isStudent && section.number === '2.5',
+                'guide-section--view-questions':
+                  !isStudent && section.number === '2.2',
                 'guide-section--tc-final-help-start':
                   !isStudent && isTc && section.number === '11.5',
                 'guide-section--vertically-centered':
