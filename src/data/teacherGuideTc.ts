@@ -885,7 +885,7 @@ const exactScreenshotHighlightOverrides: Record<string, GuideScreenshot['highlig
     { label: '查看詳情', left: 39, top: 88.4, width: 22, height: 5.2 },
   ],
   '/images/teacher-guide-tc/chapter-5/completion-detail.png|3.8,65.4,92.4,15.5': [
-    { label: '學生 4', left: 3.8, top: 55.8, width: 92.4, height: 11 },
+    { label: '學生 4', left: 3.8, top: 55.8, width: 92.4, height: 13.7 },
   ],
   '/images/teacher-guide-tc/chapter-5/student-attempt-mixed.png|3.8,12.8,92.4,5;3.8,36.7,92.4,53.2': [
     { label: '題目導覽', left: 3.8, top: 10.6, width: 92.4, height: 5.5 },
