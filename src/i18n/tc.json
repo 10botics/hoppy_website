@@ -59,27 +59,30 @@
   },
   "pricing": {
     "title": "選擇適合你的方案",
-    "subtitle": "由 Starter 開始，按你的學習節奏選擇每日 Gem 配額。",
-    "comparisonLabel": "Gem 方案收費比較",
+    "subtitle": "由 Starter 開始，按你的學習節奏選擇每日寶石配額。",
+    "comparisonLabel": "寶石方案收費比較",
     "popular": "最受歡迎",
     "highest": "最高配額",
     "perMonth": "/ 月",
     "perYear": "/ 年",
-    "dailyGems": "每日 Gems",
+    "dailyGems": "每日寶石",
+    "gemsUnit": "寶石",
     "dailyQuestions": "每日可生成問題",
     "questionsUnit": "題",
-    "maximumGems": "Gem 儲存上限",
+    "maximumGems": "寶石儲存上限",
     "annualOffer": "年繳優惠",
     "regularPrice": "原價",
     "save": "即慳",
     "note": "所有價格均以港幣計算。年費方案將一次過收取全年費用。",
-    "claimDisclaimer": "每日 Gems 必須每天在應用程式內領取；未領取的每日 Gems 不會自動加入你的餘額。",
+    "claimDisclaimer": "每日寶石必須每天在應用程式內領取；未領取的每日寶石不會自動加入你的餘額。",
     "generationDisclaimer": "可生成的題目數量僅為估算，並可能在不作事先通知的情況下更改。",
-    "standaloneDisclaimer": "獨立 Gem 套裝為與訂閱方案分開的一次性購買，並不包括每日 Gem 配額。",
+    "maximumGemsDisclaimer": "寶石儲存上限是每日寶石可補充至的最高餘額。當餘額達到或超過上限，將無法領取每日寶石；接近上限時，只會補充至上限。",
+    "standaloneDisclaimer": "獨立寶石套裝為與訂閱方案分開的一次性購買，並不包括每日寶石配額；購買所得的寶石可令餘額超出寶石儲存上限。",
     "standalone": {
       "eyebrow": "一次性購買",
-      "title": "獨立 Gems",
-      "description": "無需更改現有方案，直接為你的 Gem 餘額增值。"
+      "title": "獨立寶石",
+      "description": "無需更改現有方案，直接為你的寶石餘額增值。",
+      "maximumQuestions": "最多可生成"
     },
     "plans": {
       "starter": {

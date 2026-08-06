@@ -115,9 +115,9 @@ const standalonePacks = [
             </div>
 
             <dl class="plan-features">
-              <div><dt>{t('pricing.dailyGems')}<sup>1</sup></dt><dd>{plan.dailyGems} Gems</dd></div>
+              <div><dt>{t('pricing.dailyGems')}<sup>1</sup></dt><dd>{plan.dailyGems} {t('pricing.gemsUnit')}</dd></div>
               <div><dt>{t('pricing.dailyQuestions')}<sup>2</sup></dt><dd>{plan.dailyQuestions} {t('pricing.questionsUnit')}</dd></div>
-              <div><dt>{t('pricing.maximumGems')}</dt><dd>{plan.maximumGems}</dd></div>
+              <div><dt>{t('pricing.maximumGems')}<sup>3</sup></dt><dd>{plan.maximumGems}</dd></div>
             </dl>
 
             {plan.annual && (
@@ -135,26 +135,35 @@ const standalonePacks = [
       <section class="standalone-section" aria-labelledby="standalone-title">
         <div class="standalone-heading">
           <p class="pricing-eyebrow">{t('pricing.standalone.eyebrow')}</p>
-          <h2 id="standalone-title">{t('pricing.standalone.title')}<sup>3</sup></h2>
+          <h2 id="standalone-title">{t('pricing.standalone.title')}<sup>4</sup></h2>
           <p>{t('pricing.standalone.description')}</p>
         </div>
 
         <div class="standalone-grid">
           {standalonePacks.map((pack) => (
             <article class="standalone-card">
-              <strong>{pack.gems} <span>Gems</span></strong>
+              <strong>{pack.gems} <span>{t('pricing.gemsUnit')}</span></strong>
+              <small class="standalone-questions">
+                {t('pricing.standalone.maximumQuestions')} {pack.gems} {t('pricing.questionsUnit')}
+              </small>
               <p><span>HK$</span>{pack.price}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <p class="pricing-note">{t('pricing.note')}</p>
-      <ol class="pricing-disclaimers">
-        <li>{t('pricing.claimDisclaimer')}</li>
-        <li>{t('pricing.generationDisclaimer')}</li>
-        <li>{t('pricing.standaloneDisclaimer')}</li>
-      </ol>
+      <div class={`pricing-footnotes pricing-footnotes--${lang}`}>
+        <p class="pricing-note">
+          <span class="pricing-marker-spacer" aria-hidden="true">4. </span>
+          <span>{t('pricing.note')}</span>
+        </p>
+        <ol class="pricing-disclaimers">
+          <li><span>{t('pricing.claimDisclaimer')}</span></li>
+          <li><span>{t('pricing.generationDisclaimer')}</span></li>
+          <li><span>{t('pricing.maximumGemsDisclaimer')}</span></li>
+          <li><span>{t('pricing.standaloneDisclaimer')}</span></li>
+        </ol>
+      </div>
     </section>
   </main>
 </Layout>
@@ -438,11 +447,19 @@ const standalonePacks = [
   .plan-card--ultra .annual-price small { color: var(--hoppy-white); }
 
   .pricing-note {
-    margin: 1.4rem 0 0;
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr);
+    column-gap: 0;
+    margin: 0;
     color: var(--hoppy-gray-dark);
     font-size: 0.78rem;
     line-height: 1.6;
-    text-align: center;
+    text-align: left;
+  }
+
+  .pricing-marker-spacer {
+    visibility: hidden;
+    white-space: pre;
   }
 
   .standalone-section {
@@ -499,6 +516,14 @@ const standalonePacks = [
     letter-spacing: 0;
   }
 
+  .standalone-questions {
+    margin-top: 0.35rem;
+    color: var(--hoppy-gray-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
   .standalone-card p {
     margin: 0.55rem 0 0;
     color: #168bb7;
@@ -512,19 +537,35 @@ const standalonePacks = [
     font-size: 0.75rem;
   }
 
+  .pricing-footnotes {
+    width: min(650px, calc(100% - 3rem));
+    max-width: none;
+    margin: 1.4rem auto 0;
+  }
+
   .pricing-disclaimers {
     max-width: 900px;
-    margin: 0.45rem auto 0;
+    margin: 0.45rem 0 0;
     padding-left: 0;
     color: var(--hoppy-gray-dark);
     font-size: 0.78rem;
     line-height: 1.6;
-    list-style-position: inside;
-    text-align: center;
+    list-style: none;
+    counter-reset: pricing-disclaimer;
+    text-align: left;
   }
 
   .pricing-disclaimers li {
-    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr);
+    column-gap: 0;
+    counter-increment: pricing-disclaimer;
+  }
+
+  .pricing-disclaimers li::before {
+    content: counter(pricing-disclaimer) ". ";
+    justify-self: end;
+    white-space: pre;
   }
 
   @media (max-width: 980px) {
