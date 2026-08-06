@@ -23,7 +23,7 @@ const getLanguagePath = (code: Lang) =>
 <nav class="main-nav">
 	<div class="nav-container">
 		<a href={`${langPrefix}/`} class="nav-logo">
-			<span class="nav-logo-text">H<span class="bunny-o">o</span>ppy</span>
+			<img src="/hoppy-logo-clean.png" alt="Hoppy" class="nav-logo-image" />
 		</a>
 		<button class="mobile-menu-btn" aria-label={lang === 'tc' ? '開啟選單' : 'Toggle menu'}>
 			<span class="hamburger"></span>
@@ -60,7 +60,7 @@ const getLanguagePath = (code: Lang) =>
 				</div>
 			</li>
 			<li class="nav-download-item">
-				<a href={`${langPrefix}/downloadproduction`} class:list={["nav-download-cta", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a>
+				<a href={`${langPrefix}/download`} class:list={["nav-download-cta", { active: currentPath.includes('/download') }]}>{t('nav.download')}</a>
 			</li>
 		</ul>
 	</div>
@@ -73,7 +73,7 @@ const getLanguagePath = (code: Lang) =>
 		<!-- Mobile menu header -->
 		<div class="mobile-menu-header">
 			<a href={`${langPrefix}/`} class="mobile-logo">
-				<span class="nav-logo-text">H<span class="bunny-o">o</span>ppy</span>
+				<img src="/hoppy-logo-clean.png" alt="Hoppy" class="nav-logo-image" />
 			</a>
 			<button
 				type="button"
@@ -95,7 +95,7 @@ const getLanguagePath = (code: Lang) =>
 				<li><a href={`${langPrefix}/pricing`} class:list={["mobile-nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
 				<li><a href={`/${lang}/guide`} class:list={["mobile-nav-link", { active: currentPath.includes('/guide') || currentPath.includes('/teacher-guide') }]}>{t('nav.guide')}</a></li>
 				<li><a href={`${langPrefix}/qna`} class:list={["mobile-nav-link", { active: currentPath.includes('/qna') }]}>{t('nav.qna')}</a></li>
-				<li><a href={`${langPrefix}/downloadproduction`} class:list={["mobile-nav-link", "mobile-download-cta", { active: currentPath.includes('/downloadproduction') }]}>{t('nav.download')}</a></li>
+				<li><a href={`${langPrefix}/download`} class:list={["mobile-nav-link", "mobile-download-cta", { active: currentPath.includes('/download') }]}>{t('nav.download')}</a></li>
 			</ul>
 
 			<!-- Mobile Language Switcher -->
@@ -245,16 +245,10 @@ const getLanguagePath = (code: Lang) =>
 		gap: 0.5rem;
 	}
 
-	.nav-logo-text {
-		font-size: 1.75rem;
-		font-weight: 800;
-		color: var(--hoppy-navy);
-		letter-spacing: -0.5px;
-	}
-
-	.nav-logo-text .bunny-o {
-		color: var(--hoppy-blue);
-		font-style: italic;
+	.nav-logo-image {
+		display: block;
+		width: 132px;
+		height: auto;
 	}
 
 	.nav-links {
@@ -690,5 +684,3 @@ const getLanguagePath = (code: Lang) =>
 		}
 	}
 </style>
-
-
