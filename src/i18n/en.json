@@ -66,6 +66,7 @@
     "perMonth": "/ month",
     "perYear": "/ year",
     "dailyGems": "Daily Gems",
+    "gemsUnit": "Gems",
     "dailyQuestions": "Questions generated daily",
     "questionsUnit": "questions",
     "maximumGems": "Maximum Gem balance",
@@ -75,11 +76,13 @@
     "note": "All prices are in Hong Kong dollars. Annual plans are billed once per year.",
     "claimDisclaimer": "Daily Gems must be claimed in the app each day. Unclaimed Daily Gems are not added to your balance automatically.",
     "generationDisclaimer": "The number of questions that can be generated is an estimate only and may change without prior notice.",
-    "standaloneDisclaimer": "Standalone Gem packs are separate, one-time purchases and do not include a recurring Daily Gem allowance.",
+    "maximumGemsDisclaimer": "The maximum Gem balance is the highest balance that Daily Gems can refill. When your balance is at or above this limit, you cannot claim Daily Gems; near the limit, you receive only enough to reach it.",
+    "standaloneDisclaimer": "Standalone Gem packs are separate, one-time purchases and do not include a recurring Daily Gem allowance. Gems from these purchases can increase your balance beyond the maximum Gem balance.",
     "standalone": {
       "eyebrow": "One-time purchase",
       "title": "Standalone Gems",
-      "description": "Top up your Gem balance without changing your plan."
+      "description": "Top up your Gem balance without changing your plan.",
+      "maximumQuestions": "Up to"
     },
     "plans": {
       "starter": {
