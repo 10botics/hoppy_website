@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SchoolDemoForm from './SchoolDemoForm.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tc = lang === 'tc';
+const prefix = `/${lang}`;
+
+const copy = tc ? {
+  metaTitle: 'AI 出題平台｜每一科的題目都同樣出色｜Hoppy 學校方案',
+  metaDescription: 'Hoppy 為全校不同學科製作可立即使用的優質題目，可直接派發或匯出 Word 編輯。了解學校方案及預約示範。',
+  eyebrow: 'HOPPY 學校 AI 出題平台',
+  hero: '每一科的題目，\n都同樣出色',
+  heroLead: 'Hoppy 不只生成一段文字，而是把課題或教材直接製作成可用的完整題目。從題型、答案與解釋，到公式、圖表及圖像，均按學科需要處理。',
+  heroProof: '可直接派發 · 可匯出 Word · 大幅減少整理及排版時間',
+  demo: '預約學校示範', samples: '先看實際題目',
+  evidenceKicker: '直接比較實際輸出', evidenceTitle: '讓題目自己證明',
+  evidenceIntro: '以下全部由 Hoppy 製作。由語文到數理、人文與經濟，每一科都有符合學科需要的題型與呈現方式。',
+  pdf: '查看完整 PDF', live: '開啟互動題目', subject: '瀏覽科目頁', allSubjects: '查看完整科目庫',
+  workflowKicker: '由教學內容到可用題目', workflowTitle: '幾分鐘完成原本反覆整理的工作',
+  steps: [
+    ['01', '選擇課題或加入教材', '按年級、科目及學習單元出題，亦可提供一次性要求或參考材料。'],
+    ['02', '取得完整題目', '題目、選項、答案與解釋一併產生；公式、圖表及圖像按學科需要呈現。'],
+    ['03', '直接使用或再作修改', '即時派發互動練習，或匯出 PDF 及可編輯 Word，銜接學校原有流程。'],
+  ],
+  outputKicker: '立即可用的輸出', outputTitle: '少一輪複製、整理和重新排版',
+  outputBody: '一般生成式 AI 可以提供題目文字，但老師仍要逐項搬到工作紙、補上格式和整理答案。Hoppy 從一開始便以完整練習為輸出，讓老師把時間留給檢視內容和教學判斷。',
+  onlineTitle: '直接派發', onlineBody: '以連結、QR Code 或課室功課派發，學生可立即作答，老師亦可查看完成情況。',
+  wordTitle: '匯出 Word', wordBody: '下載包含題目、答案和解釋的可編輯 DOCX，配合校本格式、小測、工作紙或試卷。',
+  guide: '查看分享及匯出指南', review: '所有 AI 生成內容均建議由老師在使用前檢視。',
+  schoolKicker: '一套真正適合全校的工具', schoolTitle: '一個平台，讓每位老師都能真正用上 AI 出題。',
+  schoolBody: '學校採購的不是只適合少數科目的 AI 示範，而是一套不同學科教師都能日常使用的出題工具。介面簡單、輸出完整，毋須每位老師自行研究提示詞和排版流程。',
+  benefits: [
+    ['全校不同學科', '由語文、數學和科學，到人文、商科及其他科目，按各科特性製作題目。'],
+    ['老師容易開始', '選擇課題或加入教材便可建立題目，不必先成為生成式 AI 專家。'],
+    ['配合既有工作方式', '既可直接派發互動練習，亦可匯出檔案沿用校本格式。'],
+    ['集中學校管理', '以學校方案統一安排教師及學生使用，方便推行和持續支援。'],
+  ],
+  priceKicker: '循序推展', price: '可以由小開始，再逐步推展至全校',
+  priceBody: '學校可先安排一組教師或選定科目體驗 Hoppy，實際了解不同學科的出題質素和使用流程，再按校內需要規劃教師及學生的使用安排。',
+  rollout: [
+    ['先看實際效果', '以學校關注的科目和教材進行示範。'],
+    ['由教師團隊開始', '讓核心教師先熟悉出題、派發和匯出流程。'],
+    ['準備好再擴展', '逐步推展至更多科組、學生或全校。'],
+  ],
+  relatedKicker: '另一個學校應用方向', relatedTitle: '不只幫老師出題，也讓學生更想學習',
+  relatedBody: '了解 Hoppy 如何以即時回饋、XP、寶石和清晰進度，幫助學生投入老師派發的練習，亦主動選擇課題繼續學習。', relatedAction: '了解自主學習與學習動力',
+  formKicker: '為你的學校看看實際效果', formTitle: '帶一個課題來，我們示範 Hoppy 可以做出甚麼題目',
+  formBody: '告訴我們學校關注的科目或使用情境。我們會按實際需要安排示範，讓負責老師直接評估題目質素、操作流程和全校使用方式。',
+} : {
+  metaTitle: 'AI Question Generator for Schools | Great Questions for Every Subject | Hoppy',
+  metaDescription: 'Hoppy creates immediately usable questions across school subjects, ready to assign online or export to editable Word. Explore the school plan and request a demo.',
+  eyebrow: 'HOPPY AI QUESTION PLATFORM FOR SCHOOLS',
+  hero: 'Great questions,\nfor every subject',
+  heroLead: 'Hoppy does more than generate blocks of text. It turns a topic or teaching material into complete, usable questions, with subject-appropriate formats, answers, explanations, formulae, diagrams and images.',
+  heroProof: 'Ready to assign · Editable Word export · Far less formatting and clean-up',
+  demo: 'Request a school demo', samples: 'See real questions',
+  evidenceKicker: 'COMPARE THE REAL OUTPUT', evidenceTitle: 'We do not just claim broad subject support. See it.',
+  evidenceIntro: 'Every example below was created by Hoppy. Across languages, mathematics, humanities and economics, each subject gets the question formats and presentation it needs.',
+  pdf: 'View complete PDF', live: 'Open interactive quiz', subject: 'Explore subject page', allSubjects: 'Explore the complete subject library',
+  workflowKicker: 'FROM TEACHING CONTENT TO USABLE QUESTIONS', workflowTitle: 'Finish in minutes what normally takes repeated editing',
+  steps: [
+    ['01', 'Choose a topic or add materials', 'Create by grade, subject and learning unit, or provide one-off instructions and reference materials.'],
+    ['02', 'Receive complete questions', 'Questions, options, answers and explanations arrive together, with formulae, charts and images where the subject needs them.'],
+    ['03', 'Use immediately or edit further', 'Assign an interactive quiz, or export PDF and editable Word files that fit existing school workflows.'],
+  ],
+  outputKicker: 'OUTPUT THAT IS READY TO USE', outputTitle: 'Remove a whole round of copying, clean-up and reformatting',
+  outputBody: 'General-purpose AI can provide question text, but teachers still have to move it into worksheets, rebuild the formatting and organise the answers. Hoppy starts with a complete quiz as the output, leaving teachers to focus on review and professional judgement.',
+  onlineTitle: 'Assign directly', onlineBody: 'Share by link or QR code, or publish as classroom work. Students can answer immediately and teachers can review completion.',
+  wordTitle: 'Export to Word', wordBody: 'Download an editable DOCX with questions, answers and explanations for school templates, worksheets, quizzes or tests.',
+  guide: 'Read the sharing and export guide', review: 'Teachers should review all AI-generated content before use.',
+  schoolKicker: 'ONE TOOL THE WHOLE SCHOOL CAN USE', schoolTitle: 'One platform that makes AI question creation useful to every teacher.',
+  schoolBody: 'A school is not buying an AI showcase for a handful of subjects. It needs a practical question-creation tool that teachers across departments can use every day, without everyone learning prompt engineering and document formatting.',
+  benefits: [
+    ['Across school subjects', 'From languages, mathematics and science to humanities, business and more, questions reflect the needs of each subject.'],
+    ['Easy for teachers to start', 'Choose a topic or add materials. Teachers do not need to become generative-AI specialists first.'],
+    ['Fits existing workflows', 'Assign interactive quizzes directly or export files that follow school formats.'],
+    ['Central school management', 'Organise teacher and student access through one school plan with rollout support.'],
+  ],
+  priceKicker: 'A PRACTICAL ROLLOUT', price: 'Start small, then expand across the school',
+  priceBody: 'Begin with a teacher group or selected subjects to assess Hoppy’s question quality and workflow in practice. The school can then plan broader teacher and student use around its own needs.',
+  rollout: [
+    ['See real results first', 'Use subjects and teaching materials that matter to your school in the demonstration.'],
+    ['Begin with a teacher team', 'Let a core group learn question creation, assignment and export workflows first.'],
+    ['Expand when ready', 'Extend use to more departments, students or the whole school.'],
+  ],
+  relatedKicker: 'ANOTHER SCHOOL USE CASE', relatedTitle: 'Beyond creating questions: help students want to learn',
+  relatedBody: 'See how immediate feedback, XP, Gems and visible progress help students engage with assigned work and choose further practice for themselves.', relatedAction: 'Explore motivation and self-directed learning',
+  formKicker: 'SEE WHAT IT CAN DO FOR YOUR SCHOOL', formTitle: 'Bring a topic. We will show you the questions Hoppy can create.',
+  formBody: 'Tell us which subjects or use cases your school is considering. We will tailor the demonstration so the sourcing team can assess question quality, workflow and whole-school use directly.',
+};
+
+const samples = [
+  { key: 'chinese', label: tc ? '中文' : 'Chinese', title: tc ? '修辭手法辨識與運用' : 'Rhetorical Devices', image: '/images/schools/ai-quiz-generator/chinese.png', pdf: '/downloads/primary-chinese-rhetorical-devices.pdf', app: 'https://app.hoppy.day/q/eejzjj', subject: `${prefix}/subjects/primary/chinese`, proof: tc ? '語句理解與修辭辨識' : 'Language understanding and rhetoric' },
+  { key: 'english', label: 'English', title: tc ? 'Modals, Infinitives & Phrasal Verbs' : 'Modals, Infinitives & Phrasal Verbs', image: '/images/schools/ai-quiz-generator/english.png', pdf: '/downloads/primary-english-modals-infinitives-phrasal-verbs.pdf', app: 'https://app.hoppy.day/q/zuctk7', subject: `${prefix}/subjects/primary/english`, proof: tc ? '按語境處理文法與用法' : 'Grammar and usage in context' },
+  { key: 'mathematics', label: tc ? '數學' : 'Mathematics', title: tc ? '假分數與帶分數' : 'Improper Fractions and Mixed Numbers', image: '/images/schools/ai-quiz-generator/mathematics.png', pdf: '/downloads/primary-mathematics-improper-fractions-mixed-numbers.pdf', app: 'https://app.hoppy.day/q/vvrqkb', subject: `${prefix}/subjects/primary/mathematics`, proof: tc ? '清晰顯示分數與數學符號' : 'Accurate mathematical notation' },
+  { key: 'physics', label: tc ? '物理' : 'Physics', title: tc ? '力矩、能量與加速運動' : 'Moments, Energy and Accelerated Motion', image: '/images/schools/ai-quiz-generator/physics.png', pdf: '/downloads/hkdse-physics-moments-energy-accelerated-motion.pdf', app: 'https://app.hoppy.day/q/jrwmfp', subject: `${prefix}/subjects/secondary/physics`, proof: tc ? '公式、單位與物理情境' : 'Formulae, units and physical contexts' },
+  { key: 'economics', label: tc ? '經濟' : 'Economics', title: tc ? '需求、供應、剩餘與干預' : 'Demand, Supply, Surplus and Intervention', image: '/images/schools/ai-quiz-generator/economics.png', pdf: '/downloads/hkdse-economics-50-demand-supply-surplus-intervention.pdf', app: 'https://app.hoppy.day/q/fspech', subject: `${prefix}/subjects/secondary/economics`, proof: tc ? '自動生成可讀的經濟圖表' : 'Purpose-built economics diagrams' },
+  { key: 'csd', label: tc ? '公民科' : 'Citizenship and Social Development', title: tc ? '國家發展與香港機遇' : 'National Development and Hong Kong Opportunities', image: '/images/schools/ai-quiz-generator/csd.png', pdf: '/downloads/csd-national-development-hong-kong-opportunities.pdf', app: 'https://app.hoppy.day/q/kfsrde', subject: `${prefix}/subjects/secondary/csd`, proof: tc ? '概念理解與情境判斷' : 'Conceptual understanding and applied contexts' },
+];
+---
+
+<Layout lang={lang} title={copy.metaTitle} description={copy.metaDescription}>
+  <main class="school-page">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="kicker">{copy.eyebrow}</span>
+          <h1>{copy.hero.split('\n').map((line) => <span>{line}</span>)}</h1>
+          <p class="hero-lead">{copy.heroLead}</p>
+          <p class="hero-proof">{copy.heroProof}</p>
+          <div class="hero-actions"><a class="button primary" href="#school-demo">{copy.demo}</a><a class="button secondary" href="#real-questions">{copy.samples}</a></div>
+        </div>
+        <div class="hero-visual" aria-label={tc ? 'Hoppy 不同學科題目預覽' : 'Hoppy question previews across subjects'}>
+          <article class="hero-sheet hero-sheet-main"><span>{samples[4].label}</span><img src={samples[4].image} alt={samples[4].title} /></article>
+          <article class="hero-sheet hero-sheet-small"><span>{samples[0].label}</span><img src={samples[0].image} alt={samples[0].title} /></article>
+          <div class="hero-badge"><strong>6+</strong><span>{tc ? '學科實例' : 'subject examples'}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="real-questions" class="section evidence-section">
+      <div class="section-heading"><span class="kicker">{copy.evidenceKicker}</span><h2>{copy.evidenceTitle}</h2><p>{copy.evidenceIntro}</p></div>
+      <div class="sample-grid">
+        {samples.map((sample) => (
+          <article class={`sample-card sample-${sample.key}`}>
+            <div class="sample-image"><img src={sample.image} alt={`${sample.label} — ${sample.title}`} loading="lazy" /></div>
+            <div class="sample-copy"><div class="sample-meta"><span>{sample.label}</span><small>{sample.proof}</small></div><h3>{sample.title}</h3>
+              <div class="sample-links"><a href={sample.pdf} target="_blank" rel="noopener">{copy.pdf}</a><a href={sample.app} target="_blank" rel="noopener">{copy.live}</a><a href={sample.subject}>{copy.subject}</a></div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="center-action"><a class="text-link" href={`${prefix}/subjects/primary`}>{copy.allSubjects} →</a></div>
+    </section>
+
+    <section class="section workflow-section">
+      <div class="section-heading"><span class="kicker">{copy.workflowKicker}</span><h2>{copy.workflowTitle}</h2></div>
+      <div class="steps">{copy.steps.map(([number, title, body]) => <article><span class="step-number">{number}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+    </section>
+
+    <section class="section output-section">
+      <div class="output-copy"><span class="kicker">{copy.outputKicker}</span><h2>{copy.outputTitle}</h2><p>{copy.outputBody}</p><a class="text-link" href={`${prefix}/guide/teacher/chapter-3`}>{copy.guide} →</a><small>{copy.review}</small></div>
+      <div class="output-cards">
+        <article><div class="output-icon">↗</div><h3>{copy.onlineTitle}</h3><p>{copy.onlineBody}</p><img src="/images/teacher-guide/chapter-3/share-quiz-link.jpeg" alt={copy.onlineTitle} loading="lazy" /></article>
+        <article><div class="output-icon">W</div><h3>{copy.wordTitle}</h3><p>{copy.wordBody}</p><img src="/images/teacher-guide/chapter-3/export-to-word.png" alt={copy.wordTitle} loading="lazy" /></article>
+      </div>
+    </section>
+
+    <section class="school-section">
+      <div class="section school-inner"><div class="section-heading light"><span class="kicker">{copy.schoolKicker}</span><h2>{copy.schoolTitle}</h2><p>{copy.schoolBody}</p></div>
+        <div class="benefit-grid">{copy.benefits.map(([title, body], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+      </div>
+    </section>
+
+    <section class="section rollout-section">
+      <div class="rollout-intro"><span class="kicker">{copy.priceKicker}</span><h2>{copy.price}</h2><p>{copy.priceBody}</p></div>
+      <div class="rollout-grid">{copy.rollout.map(([title, body], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+      <div class="center-action"><a class="button primary" href="#school-demo">{copy.demo}</a></div>
+    </section>
+
+    <section class="related-section"><div><span class="kicker">{copy.relatedKicker}</span><h2>{copy.relatedTitle}</h2><p>{copy.relatedBody}</p></div><a class="button secondary" href={`${prefix}/schools/self-directed-learning`}>{copy.relatedAction} →</a></section>
+
+    <section id="school-demo" class="form-section"><div class="section form-inner"><div class="form-intro"><span class="kicker">{copy.formKicker}</span><h2>{copy.formTitle}</h2><p>{copy.formBody}</p></div><div class="form-card"><SchoolDemoForm lang={lang} /></div></div></section>
+  </main>
+</Layout>
+
+<style>
+  .school-page { background: #fff; color: #183247; }
+  .section { max-width: 1180px; margin: 0 auto; padding: 6rem 2rem; }
+  .kicker { display: inline-block; color: #178fb9; font-size: .76rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+  .hero { overflow: hidden; background: radial-gradient(circle at 80% 20%, rgba(108,211,238,.28), transparent 30%), linear-gradient(145deg, #f5fcfe 0%, #fff 52%, #fff8e8 100%); }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(420px, .98fr); align-items: center; gap: 4.5rem; max-width: 1240px; min-height: 680px; margin: 0 auto; padding: 5.5rem 2rem 6rem; }
+  .hero h1 { max-width: 720px; margin: 1rem 0 1.5rem; font-size: clamp(3rem, 5vw, 4.7rem); line-height: 1.05; letter-spacing: -.045em; }
+  .hero h1 span { display: block; white-space: nowrap; }
+  .hero-lead { max-width: 660px; color: #3b5669; font-size: clamp(1.08rem, 1.8vw, 1.3rem); line-height: 1.75; }
+  .hero-proof { margin-top: 1.1rem; color: #177b9c; font-size: .94rem; font-weight: 750; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+  .button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; padding: .8rem 1.45rem; text-decoration: none; font-weight: 800; transition: transform .2s, box-shadow .2s; }
+  .button:hover { transform: translateY(-2px); }
+  .primary { background: #183247; color: #fff; box-shadow: 0 12px 28px rgba(24,50,71,.18); }
+  .secondary { border: 1px solid #bfd4df; background: rgba(255,255,255,.8); color: #183247; }
+  .hero-visual { position: relative; min-height: 520px; }
+  .hero-sheet { position: absolute; overflow: hidden; border: 1px solid rgba(24,50,71,.09); border-radius: 20px; background: #fff; box-shadow: 0 30px 65px rgba(24,50,71,.17); }
+  .hero-sheet > span { position: absolute; z-index: 2; top: 1rem; left: 1rem; border-radius: 999px; padding: .36rem .7rem; background: #183247; color: #fff; font-size: .72rem; font-weight: 800; }
+  .hero-sheet img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .hero-sheet-main { inset: 10px 0 48px 90px; transform: rotate(2.5deg); }
+  .hero-sheet-small { width: 245px; height: 320px; bottom: 0; left: 0; transform: rotate(-5deg); }
+  .hero-badge { position: absolute; z-index: 3; right: -15px; bottom: 45px; display: flex; flex-direction: column; border-radius: 18px; padding: 1rem 1.25rem; background: #ffd966; box-shadow: 0 15px 30px rgba(98,75,8,.16); }
+  .hero-badge strong { font-size: 1.8rem; line-height: 1; }.hero-badge span { margin-top: .2rem; font-size: .75rem; font-weight: 800; }
+  .section-heading { max-width: 790px; margin-bottom: 2.5rem; }.section-heading h2 { margin: .75rem 0 1rem; font-size: clamp(2.1rem, 4vw, 3.5rem); letter-spacing: -.035em; }.section-heading p { color: #587080; font-size: 1.08rem; }
+  .evidence-section { padding-top: 7rem; }.sample-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+  .sample-card { overflow: hidden; border: 1px solid #dfe8ed; border-radius: 20px; background: #fff; box-shadow: 0 10px 30px rgba(24,50,71,.07); }
+  .sample-image { height: 300px; overflow: hidden; border-bottom: 1px solid #e7eef2; background: #f4f7f9; }.sample-image img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .35s; }.sample-card:hover .sample-image img { transform: scale(1.025); }
+  .sample-copy { padding: 1.2rem; }.sample-meta { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }.sample-meta span { border-radius: 999px; padding: .3rem .6rem; background: #e5f6fb; color: #137c9f; font-size: .72rem; font-weight: 800; }.sample-meta small { color: #728590; font-size: .68rem; text-align: right; }.sample-copy h3 { min-height: 3rem; margin: .8rem 0; font-size: 1.12rem; line-height: 1.35; }
+  .sample-links { display: flex; flex-wrap: wrap; gap: .45rem .85rem; }.sample-links a, .text-link { color: #147fa7; font-size: .78rem; font-weight: 750; text-decoration: none; }.sample-links a:hover, .text-link:hover { text-decoration: underline; }.center-action { margin-top: 2rem; text-align: center; }.center-action .text-link { font-size: .95rem; }
+  .workflow-section { background: #f8fbfc; max-width: none; padding-left: max(2rem, calc((100vw - 1180px)/2)); padding-right: max(2rem, calc((100vw - 1180px)/2)); }.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }.steps article { border-radius: 18px; padding: 1.7rem; background: #fff; box-shadow: 0 8px 24px rgba(24,50,71,.06); }.step-number { color: #35a8ce; font-size: .82rem; font-weight: 900; letter-spacing: .12em; }.steps h3 { margin: .75rem 0; font-size: 1.25rem; }.steps p { color: #5b7180; font-size: .94rem; }
+  .output-section { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 4rem; }.output-copy h2 { margin: .8rem 0 1.2rem; font-size: clamp(2rem, 3.5vw, 3.1rem); }.output-copy p { color: #587080; font-size: 1rem; }.output-copy .text-link { display: inline-block; margin-top: 1.3rem; }.output-copy small { display: block; margin-top: 1rem; color: #7a8992; }
+  .output-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }.output-cards article { overflow: hidden; border: 1px solid #dce7ec; border-radius: 18px; padding: 1.3rem; background: #fff; box-shadow: 0 12px 30px rgba(24,50,71,.08); }.output-icon { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border-radius: 10px; background: #e5f6fb; color: #147fa7; font-weight: 900; }.output-cards h3 { margin: .8rem 0 .4rem; font-size: 1.2rem; }.output-cards p { min-height: 7rem; color: #617684; font-size: .85rem; }.output-cards img { width: 100%; height: 230px; margin-top: 1rem; border-radius: 10px; object-fit: cover; object-position: top; }
+  .school-section { background: #183247; }.school-inner { color: #fff; }.section-heading.light h2 { color: #fff; }.section-heading.light p { color: #c4d3dc; }.benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }.benefit-grid article { border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 1.4rem; background: rgba(255,255,255,.05); }.benefit-grid span { color: #63cae8; font-size: .78rem; font-weight: 900; }.benefit-grid h3 { margin: .7rem 0; color: #fff; font-size: 1.15rem; }.benefit-grid p { color: #b9cad4; font-size: .85rem; }
+  .rollout-intro { max-width: 820px; margin-bottom: 2.25rem; }.rollout-intro h2 { margin: .7rem 0 1rem; font-size: clamp(2.2rem, 4vw, 3.4rem); }.rollout-intro p { color: #5b7180; font-size: 1rem; }.rollout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }.rollout-grid article { border: 1px solid #dce7ec; border-radius: 16px; padding: 1.4rem; background: #f8fbfc; }.rollout-grid span { color: #269fc6; font-size: .78rem; font-weight: 900; }.rollout-grid h3 { margin: .65rem 0; font-size: 1.15rem; }.rollout-grid p { color: #617684; font-size: .88rem; }.rollout-section > .center-action { margin-top: 2rem; text-align: left; }
+  .related-section { display: flex; align-items: center; justify-content: space-between; gap: 2rem; max-width: 1180px; margin: 0 auto 6rem; border: 1px solid #cfe3eb; border-radius: 22px; padding: 2rem; background: #effafe; }.related-section h2 { margin: .55rem 0; font-size: clamp(1.65rem, 3vw, 2.4rem); }.related-section p { max-width: 760px; color: #587080; font-size: .94rem; }.related-section .button { flex: 0 0 auto; }
+  .form-section { background: linear-gradient(140deg, #effafe, #fffaf0); }.form-inner { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: 4rem; }.form-intro { position: sticky; top: 120px; }.form-intro h2 { margin: .8rem 0 1.2rem; font-size: clamp(2rem, 3.6vw, 3.2rem); }.form-intro p { color: #587080; font-size: 1rem; }.form-card { border: 1px solid rgba(24,50,71,.08); border-radius: 22px; padding: 2rem; background: rgba(255,255,255,.92); box-shadow: 0 20px 50px rgba(24,50,71,.1); }
+  @media (max-width: 980px) { .hero-inner { grid-template-columns: 1fr; gap: 2rem; }.hero-visual { min-height: 440px; }.sample-grid { grid-template-columns: repeat(2, 1fr); }.output-section, .form-inner { grid-template-columns: 1fr; }.benefit-grid { grid-template-columns: repeat(2, 1fr); }.form-intro { position: static; }.output-copy { max-width: 760px; }.related-section { margin-right: 2rem; margin-left: 2rem; } }
+  @media (max-width: 680px) { .section { padding: 4.5rem 1.2rem; }.hero-inner { min-height: auto; padding: 4rem 1.2rem 4.5rem; }.hero h1 { font-size: clamp(2.25rem, 11.5vw, 3.2rem); }.hero-visual { min-height: 340px; }.hero-sheet-main { inset: 0 0 35px 55px; }.hero-sheet-small { width: 155px; height: 210px; }.hero-badge { right: 0; bottom: 20px; }.sample-grid, .steps, .output-cards, .benefit-grid, .rollout-grid { grid-template-columns: 1fr; }.sample-image { height: 280px; }.output-cards p { min-height: 0; }.rollout-section { padding-left: 1.2rem; padding-right: 1.2rem; }.related-section { align-items: flex-start; flex-direction: column; margin: 0 1.2rem 4.5rem; padding: 1.5rem; }.form-card { padding: 1.25rem; } }
+</style>

@@ -1,0 +1,147 @@
+---
+import type { Lang } from '../../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const tc = lang === 'tc';
+const apiBase = import.meta.env.PUBLIC_FREEDOM_API_BASE || 'https://freedom.10botics.com';
+const copy = tc ? {
+  name: '姓名', school: '學校名稱', role: '職位／負責範疇', level: '學校類別',
+  email: '電郵', phone: '電話／WhatsApp', useCase: '希望了解的用途', notes: '補充資料',
+  levels: ['請選擇', '小學', '中學', '特殊學校', '國際學校', '其他'],
+  uses: ['全校教師 AI 出題', '由教材建立題目', '學生自主學習與學習動力', '工作紙、小測或試卷', '直接派發網上練習', '了解學校方案'],
+  consentBefore: '我同意 Hoppy／10教育使用以上資料回覆此查詢，並已閱讀', consentLink: '私隱政策', consentAfter: '。',
+  submit: '預約學校示範', submitting: '提交中…', required: '請填寫姓名、學校名稱，以及電郵或電話。',
+  invalidEmail: '請輸入有效的電郵地址。', success: '查詢已收到，我們會盡快與你聯絡。參考編號：',
+  failed: '暫時未能提交，請電郵 hi@hoppy.day。', footnote: '請至少填寫電郵或電話其中一項。',
+} : {
+  name: 'Name', school: 'School name', role: 'Role / responsibility', level: 'School type',
+  email: 'Email', phone: 'Phone / WhatsApp', useCase: 'What would you like to explore?', notes: 'Additional information',
+  levels: ['Please select', 'Primary school', 'Secondary school', 'Special school', 'International school', 'Other'],
+  uses: ['AI question creation for all teachers', 'Create questions from teaching materials', 'Student motivation and self-directed learning', 'Worksheets, quizzes or tests', 'Assign online quizzes directly', 'School licence and deployment'],
+  consentBefore: 'I agree that Hoppy / 10Botics may use this information to respond to my enquiry, and I have read the ', consentLink: 'Privacy Policy', consentAfter: '.',
+  submit: 'Request a school demo', submitting: 'Submitting…', required: 'Please provide your name, school and either an email address or phone number.',
+  invalidEmail: 'Please enter a valid email address.', success: 'We have received your enquiry and will contact you shortly. Reference: ',
+  failed: 'We could not submit the form. Please email hi@hoppy.day.', footnote: 'Please provide at least an email address or phone number.',
+};
+---
+
+<form class="school-demo-form" data-api={`${apiBase}/api/marketing/enquiries/`} data-lang={lang} novalidate>
+  <div class="form-grid">
+    <label><span>{copy.name} *</span><input name="name" required maxlength="200" autocomplete="name" /></label>
+    <label><span>{copy.school} *</span><input name="organisation" required maxlength="255" autocomplete="organization" /></label>
+    <label><span>{copy.role}</span><input name="role" maxlength="120" autocomplete="organization-title" /></label>
+    <label><span>{copy.level}</span><select name="school_level">{copy.levels.map((item, index) => <option value={index === 0 ? '' : item}>{item}</option>)}</select></label>
+    <label><span>{copy.email}</span><input name="email" type="email" maxlength="254" autocomplete="email" /></label>
+    <label><span>{copy.phone}</span><input name="phone" type="tel" maxlength="40" autocomplete="tel" /></label>
+    <fieldset class="full-width">
+      <legend>{copy.useCase}</legend>
+      <div class="use-grid">{copy.uses.map((item) => <label class="check-option"><input type="checkbox" name="use_case" value={item} /><span>{item}</span></label>)}</div>
+    </fieldset>
+    <label class="full-width"><span>{copy.notes}</span><textarea name="notes" rows="4" maxlength="3000"></textarea></label>
+    <label class="consent full-width"><input name="privacy_consent" value="true" type="checkbox" required /><span>{copy.consentBefore}<a href={`/${lang}/privacy`} target="_blank">{copy.consentLink}</a>{copy.consentAfter}</span></label>
+    <label class="honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+  <p class="form-message form-error" role="alert" hidden></p>
+  <p class="form-message form-success" role="status" hidden></p>
+  <button type="submit" data-label={copy.submit} data-submitting={copy.submitting}>{copy.submit}</button>
+  <p class="form-footnote">{copy.footnote}</p>
+</form>
+
+<script define:vars={{ copy }}>
+  document.querySelectorAll('.school-demo-form').forEach((form) => {
+    if (!(form instanceof HTMLFormElement) || form.dataset.ready === 'true') return;
+    form.dataset.ready = 'true';
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const button = form.querySelector('button[type="submit"]');
+      const error = form.querySelector('.form-error');
+      const success = form.querySelector('.form-success');
+      const formData = new FormData(form);
+      const name = String(formData.get('name') || '').trim();
+      const organisation = String(formData.get('organisation') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const phone = String(formData.get('phone') || '').trim();
+      const consent = formData.get('privacy_consent') === 'true';
+      const emailField = form.querySelector('input[name="email"]');
+      if (error instanceof HTMLElement) error.hidden = true;
+      if (success instanceof HTMLElement) success.hidden = true;
+      if (!name || !organisation || (!email && !phone) || !consent) {
+        if (error instanceof HTMLElement) { error.textContent = copy.required; error.hidden = false; }
+        return;
+      }
+      if (email && emailField instanceof HTMLInputElement && !emailField.validity.valid) {
+        if (error instanceof HTMLElement) { error.textContent = copy.invalidEmail; error.hidden = false; }
+        return;
+      }
+      const params = new URLSearchParams(window.location.search);
+      const submissionId = form.dataset.submissionId || crypto.randomUUID();
+      form.dataset.submissionId = submissionId;
+      const useCases = formData.getAll('use_case').map(String);
+      const schoolLevel = String(formData.get('school_level') || '').trim();
+      const notes = String(formData.get('notes') || '').trim();
+      const message = [
+        schoolLevel ? `${form.dataset.lang === 'tc' ? '學校類別' : 'School type'}：${schoolLevel}` : '',
+        useCases.length ? `${form.dataset.lang === 'tc' ? '希望了解的用途' : 'Areas of interest'}：${useCases.join('、')}` : '',
+        notes ? `${form.dataset.lang === 'tc' ? '補充資料' : 'Additional information'}：${notes}` : '',
+      ].filter(Boolean).join('\n');
+      const payload = {
+        name, organisation, email, phone,
+        role: String(formData.get('role') || '').trim(),
+        interest: 'Hoppy 學校方案及示範', message,
+        privacy_consent: true,
+        website: String(formData.get('website') || ''),
+        landing_page: window.location.href, referrer: document.referrer,
+        utm_source: params.get('utm_source') || '', utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '', utm_term: params.get('utm_term') || '',
+        utm_content: params.get('utm_content') || '', gclid: params.get('gclid') || '',
+        gbraid: params.get('gbraid') || '', wbraid: params.get('wbraid') || '',
+        attribution_reference: params.get('ref') || '', client_submission_id: submissionId,
+      };
+      if (button instanceof HTMLButtonElement) { button.disabled = true; button.textContent = button.dataset.submitting || ''; }
+      try {
+        const response = await fetch(form.dataset.api || '', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        if (!response.ok) throw new Error('request failed');
+        const result = await response.json();
+        form.reset();
+        delete form.dataset.submissionId;
+        if (success instanceof HTMLElement) { success.textContent = `${copy.success}${result.reference || ''}`; success.hidden = false; }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'hoppy_school_demo_request_success' });
+        window.dispatchEvent(new CustomEvent('hoppy:school-demo-request-success'));
+      } catch {
+        if (error instanceof HTMLElement) { error.textContent = copy.failed; error.hidden = false; }
+      } finally {
+        if (button instanceof HTMLButtonElement) { button.disabled = false; button.textContent = button.dataset.label || ''; }
+      }
+    });
+  });
+</script>
+
+<style>
+  .school-demo-form { color: #183247; }
+  .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem; }
+  label, fieldset { min-width: 0; }
+  label > span, legend { display: block; margin-bottom: .45rem; font-size: .88rem; font-weight: 750; }
+  input, select, textarea { width: 100%; border: 1px solid #cbd7df; border-radius: 12px; background: #fff; padding: .85rem .95rem; color: #183247; font: inherit; }
+  input:focus, select:focus, textarea:focus { outline: 3px solid rgba(63,181,219,.2); border-color: #2d9dc4; }
+  textarea { resize: vertical; }
+  .full-width { grid-column: 1 / -1; }
+  fieldset { border: 0; padding: 0; }
+  .use-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  .check-option { display: flex; align-items: center; gap: .6rem; border: 1px solid #dce6ec; border-radius: 10px; padding: .7rem .8rem; background: #f8fbfc; }
+  .check-option input, .consent input { width: 1rem; height: 1rem; flex: 0 0 auto; accent-color: #299fc7; }
+  .check-option span { margin: 0; font-size: .84rem; font-weight: 600; }
+  .consent { display: flex; align-items: flex-start; gap: .65rem; }
+  .consent input { margin-top: .25rem; }
+  .consent span { margin: 0; color: #587080; font-weight: 500; line-height: 1.6; }
+  .consent a { color: #147ea6; }
+  .honeypot { position: absolute; left: -10000px; }
+  button { margin-top: 1.25rem; border-radius: 999px; padding: .9rem 1.45rem; background: #1a3144; color: white; font: inherit; font-weight: 800; }
+  button:disabled { cursor: wait; opacity: .6; }
+  .form-message { margin-top: 1rem; border-radius: 10px; padding: .8rem 1rem; font-size: .9rem; }
+  .form-error { background: #fff1f0; color: #9f2d28; }
+  .form-success { background: #ecfdf5; color: #116149; }
+  .form-footnote { margin-top: .65rem; color: #718491; font-size: .78rem; }
+  @media (max-width: 680px) { .form-grid, .use-grid { grid-template-columns: 1fr; } .full-width { grid-column: auto; } }
+</style>

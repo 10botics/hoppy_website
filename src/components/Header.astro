@@ -30,6 +30,7 @@ const getLanguagePath = (code: Lang) =>
 		</button>
 		<ul class="nav-links">
 			<li><a href={`${langPrefix}/`} class:list={["nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
+			<li><a href={`${langPrefix}/schools/`} class:list={["nav-link", "nav-school-link", { active: currentPath.includes('/schools') }]}>{lang === 'tc' ? '學校方案' : 'For Schools'}</a></li>
 			<li><a href={`${langPrefix}/subjects/primary`} class:list={["nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
 			<li><a href={`${langPrefix}/pricing`} class:list={["nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
 			<li><a href={`/${lang}/guide`} class:list={["nav-link", { active: currentPath.includes('/guide') || currentPath.includes('/teacher-guide') }]}>{t('nav.guide')}</a></li>
@@ -91,6 +92,7 @@ const getLanguagePath = (code: Lang) =>
 		<div class="mobile-menu-content">
 			<ul class="mobile-nav-links">
 				<li><a href={`${langPrefix}/`} class:list={["mobile-nav-link", { active: currentPath === `${langPrefix}/` || currentPath === `${langPrefix}` || currentPath === '/' }]}>{t('nav.home')}</a></li>
+				<li><a href={`${langPrefix}/schools/`} class:list={["mobile-nav-link", { active: currentPath.includes('/schools') }]}>{lang === 'tc' ? '學校方案' : 'For Schools'}</a></li>
 				<li><a href={`${langPrefix}/subjects/primary`} class:list={["mobile-nav-link", { active: currentPath.includes('/supported-question-images') || currentPath.includes('/subjects') }]}>{t('nav.subjects')}</a></li>
 				<li><a href={`${langPrefix}/pricing`} class:list={["mobile-nav-link", { active: currentPath.includes('/pricing') }]}>{t('nav.pricing')}</a></li>
 				<li><a href={`/${lang}/guide`} class:list={["mobile-nav-link", { active: currentPath.includes('/guide') || currentPath.includes('/teacher-guide') }]}>{t('nav.guide')}</a></li>
