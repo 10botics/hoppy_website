@@ -216,6 +216,12 @@
             "description": "練習概率法則與條件事件。",
             "meta": "10 題",
             "language": "繁體中文"
+          },
+          "tangents": {
+            "title": "圓的切線與追角",
+            "description": "練習切線性質及圓內角度推理。",
+            "meta": "5 題",
+            "language": "繁體中文"
           }
         }
       }

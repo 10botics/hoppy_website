@@ -216,6 +216,12 @@
             "description": "Practise the laws of probability and conditional events.",
             "meta": "10 questions",
             "language": "English"
+          },
+          "tangents": {
+            "title": "Tangents and Circle Angle Chasing",
+            "description": "Practise tangent properties and angle chasing in circles.",
+            "meta": "5 questions",
+            "language": "English"
           }
         }
       }
