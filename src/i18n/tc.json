@@ -222,6 +222,12 @@
             "description": "練習切線性質及圓內角度推理。",
             "meta": "5 題",
             "language": "繁體中文"
+          },
+          "threeDSolids": {
+            "title": "三維立體的角度與距離",
+            "description": "練習三維立體中直線與平面的夾角、二面角及距離問題。",
+            "meta": "5 題",
+            "language": "繁體中文"
           }
         }
       }

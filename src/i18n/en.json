@@ -222,6 +222,12 @@
             "description": "Practise tangent properties and angle chasing in circles.",
             "meta": "5 questions",
             "language": "English"
+          },
+          "threeDSolids": {
+            "title": "Angles and Distances in 3-D Solids",
+            "description": "Practise angles between lines and planes, dihedral angles, and distances in three-dimensional solids.",
+            "meta": "5 questions",
+            "language": "English"
           }
         }
       }
