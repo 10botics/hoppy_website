@@ -304,6 +304,45 @@ const mathematicsGoldQuizzes = [
   },
 ];
 
+const chemistryGoldQuizzes = [
+  {
+    title: t('subjects.chemistry.goldQuiz.quizzes.atomsIonsBonding.title'),
+    description: t('subjects.chemistry.goldQuiz.quizzes.atomsIonsBonding.description'),
+    meta: t('subjects.chemistry.goldQuiz.quizzes.atomsIonsBonding.meta'),
+    language: t('subjects.chemistry.goldQuiz.quizzes.atomsIonsBonding.language'),
+    pdfUrl: lang === 'tc'
+      ? '/downloads/hkdse-chemistry-atoms-ions-bonding-tc.pdf'
+      : '/downloads/hkdse-chemistry-atoms-ions-bonding.pdf',
+    appUrl: lang === 'tc'
+      ? 'https://app.hoppy.day/q/qjezpd'
+      : 'https://app.hoppy.day/q/uhzyza',
+  },
+  {
+    title: t('subjects.chemistry.goldQuiz.quizzes.equilibriumRatesGasCalculations.title'),
+    description: t('subjects.chemistry.goldQuiz.quizzes.equilibriumRatesGasCalculations.description'),
+    meta: t('subjects.chemistry.goldQuiz.quizzes.equilibriumRatesGasCalculations.meta'),
+    language: t('subjects.chemistry.goldQuiz.quizzes.equilibriumRatesGasCalculations.language'),
+    pdfUrl: lang === 'tc'
+      ? '/downloads/hkdse-chemistry-equilibrium-rates-gas-calculations-tc.pdf'
+      : '/downloads/hkdse-chemistry-equilibrium-rates-gas-calculations.pdf',
+    appUrl: lang === 'tc'
+      ? 'https://app.hoppy.day/q/dmeseq'
+      : 'https://app.hoppy.day/q/vpgdht',
+  },
+  {
+    title: t('subjects.chemistry.goldQuiz.quizzes.metalsCorrosionReactivityExtraction.title'),
+    description: t('subjects.chemistry.goldQuiz.quizzes.metalsCorrosionReactivityExtraction.description'),
+    meta: t('subjects.chemistry.goldQuiz.quizzes.metalsCorrosionReactivityExtraction.meta'),
+    language: t('subjects.chemistry.goldQuiz.quizzes.metalsCorrosionReactivityExtraction.language'),
+    pdfUrl: lang === 'tc'
+      ? '/downloads/hkdse-chemistry-metals-corrosion-reactivity-extraction-tc.pdf'
+      : '/downloads/hkdse-chemistry-metals-corrosion-reactivity-extraction.pdf',
+    appUrl: lang === 'tc'
+      ? 'https://app.hoppy.day/q/fecwvw'
+      : 'https://app.hoppy.day/q/pzbnhw',
+  },
+];
+
 const ictSampleExercises = [
   {
     title: t('subjects.ict.sampleExercise.quizzes.programming.title'),
@@ -1368,6 +1407,14 @@ const econGraphCategories = [
       </>)}
 
       {selectedSubject === 'chemistry' && (<>
+      <SampleQuizSection
+        title={t('subjects.chemistry.goldQuiz.title')}
+        description={t('subjects.chemistry.goldQuiz.description')}
+        openPdfLabel={t('subjects.chemistry.goldQuiz.openPdf')}
+        openInAppLabel={t('subjects.chemistry.goldQuiz.openInApp')}
+        quizzes={chemistryGoldQuizzes}
+      />
+
       {chemistryVariationCategories.map((category) => (
         <div class="widget-section chemistry-widget-section" id={`chemistry-${category.id}`}>
           <div class="widget-header">

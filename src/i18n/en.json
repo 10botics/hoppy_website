@@ -240,7 +240,33 @@
     "chemistry": {
       "title": "Chemistry",
       "pageTitle": "Chemistry",
-      "description": "Explore chemical equations, structures, particle diagrams, cells, laboratory setups, giant lattices, and Chemistry graphs."
+      "description": "Explore chemical equations, structures, particle diagrams, cells, laboratory setups, giant lattices, and Chemistry graphs.",
+      "goldQuiz": {
+        "title": "Hoppy Gold Quiz Collection",
+        "description": "Choose a topic, then open the printable quiz or practise interactively in Hoppy.",
+        "openPdf": "Open PDF",
+        "openInApp": "Open in Hoppy",
+        "quizzes": {
+          "atomsIonsBonding": {
+            "title": "Atoms, Ions and Bonding",
+            "description": "Atomic structure, formulae, ionic and covalent bonding, and metallic structures.",
+            "meta": "10 questions",
+            "language": "English"
+          },
+          "equilibriumRatesGasCalculations": {
+            "title": "Equilibrium, Rates and Gas Calculations",
+            "description": "Gas calculations, reaction rates, dynamic equilibrium, and equilibrium constants.",
+            "meta": "10 questions",
+            "language": "English"
+          },
+          "metalsCorrosionReactivityExtraction": {
+            "title": "Metals: Corrosion, Reactivity and Extraction",
+            "description": "Corrosion protection, metal reactivity, redox reactions, extraction, and recycling.",
+            "meta": "10 questions",
+            "language": "English"
+          }
+        }
+      }
     },
     "ict": {
       "title": "ICT",

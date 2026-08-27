@@ -240,7 +240,33 @@
     "chemistry": {
       "title": "化學",
       "pageTitle": "化學",
-      "description": "探索化學方程式、結構式、粒子圖、化學電池、實驗裝置、巨型晶格及化學圖表。"
+      "description": "探索化學方程式、結構式、粒子圖、化學電池、實驗裝置、巨型晶格及化學圖表。",
+      "goldQuiz": {
+        "title": "Hoppy Gold 精選練習",
+        "description": "選擇課題，開啟可列印練習或在 Hoppy 內互動作答。",
+        "openPdf": "開啟 PDF",
+        "openInApp": "在 Hoppy 開啟",
+        "quizzes": {
+          "atomsIonsBonding": {
+            "title": "原子、離子與化學鍵",
+            "description": "原子結構、化學式、離子鍵、共價鍵及金屬結構。",
+            "meta": "10 題",
+            "language": "繁體中文"
+          },
+          "equilibriumRatesGasCalculations": {
+            "title": "平衡、反應速率與氣體計算",
+            "description": "氣體計算、反應速率、動態平衡及平衡常數。",
+            "meta": "10 題",
+            "language": "繁體中文"
+          },
+          "metalsCorrosionReactivityExtraction": {
+            "title": "金屬：腐蝕、活躍性與提取",
+            "description": "腐蝕防護、金屬活躍性、氧化還原反應、金屬提取及回收。",
+            "meta": "10 題",
+            "language": "繁體中文"
+          }
+        }
+      }
     },
     "ict": {
       "title": "資訊及通訊科技",
