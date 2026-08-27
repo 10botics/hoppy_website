@@ -428,6 +428,16 @@
       "logarithmic": "Logarithmic Functions",
       "exponential": "Exponential Function"
     },
+    "geomGraph": {
+      "title": "2D Geometry Diagrams",
+      "description": "Constraint-based diagrams for secondary and HKDSE-style geometry questions, including similar triangles, circles, tangents, chords, angle marks, and construction lines.",
+      "parallelSimilarTriangles": "Parallel Lines and Similar Triangles",
+      "altitudeSimilarTriangles": "Altitude in a Right Triangle",
+      "equalChordsAngles": "Equal Chords and Circle Angles",
+      "equidistantChords": "Chords Equidistant from the Centre",
+      "tangentCentralAngles": "Tangent and Central Angles",
+      "twoTangents": "Two Tangents and Central Angles"
+    },
     "shape3d": {
       "title": "3D Shapes",
       "description": "Interactive 3D geometric shapes with perspective projection. Supports various polyhedra including tetrahedra, cubes, prisms, pyramids, and octahedra with labeled vertices and automatic hidden-edge detection.",

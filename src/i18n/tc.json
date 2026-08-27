@@ -428,6 +428,16 @@
       "logarithmic": "對數函數",
       "exponential": "指數函數"
     },
+    "geomGraph": {
+      "title": "平面幾何圖",
+      "description": "以幾何約束生成適合中學及香港中學文憑試題型的相似三角形、圓、切線、弦、角度標記及輔助線圖。",
+      "parallelSimilarTriangles": "平行線與相似三角形",
+      "altitudeSimilarTriangles": "直角三角形的高",
+      "equalChordsAngles": "等弦與圓周角",
+      "equidistantChords": "與圓心等距的弦",
+      "tangentCentralAngles": "切線與圓心角",
+      "twoTangents": "兩條切線與圓心角"
+    },
     "shape3d": {
       "title": "3D 形狀",
       "description": "具有透視投影的互動式3D幾何形狀。支援各種多面體，包括四面體、立方體、棱柱、棱錐和八面體，具有標記頂點和自動隱藏邊緣檢測。",

@@ -407,6 +407,7 @@ const mathematicsWidgetGroups = [
       { id: 'broken-line-graph', titleKey: 'widgets.brokenLineGraph.title', icon: '📉' },
       { id: 'box-whisker', titleKey: 'widgets.boxWhisker.title', icon: '📈' },
       { id: 'equation-graph', titleKey: 'widgets.equationGraph.title', icon: '📐' },
+      { id: 'geom-graph', titleKey: 'widgets.geomGraph.title', icon: '△' },
       { id: 'shape-3d', titleKey: 'widgets.shape3d.title', icon: '🔷' },
     ],
   },
@@ -1233,6 +1234,89 @@ const econGraphCategories = [
           <div class="widget-card">
             <img src="/widgets/widget_equationgraph_parabola.svg" alt="Parabola Graph" />
             <span class="widget-label">x²</span>
+          </div>
+        </div>
+      </div>
+      )}
+
+      <!-- 2D Geometry Diagrams -->
+      {selectedLevel !== 'primary' && (
+      <div class="widget-section" id="math-geom-graph">
+        <div class="widget-header">
+          <div class="widget-icon">△</div>
+          <div class="widget-info">
+            <h2>{t('widgets.geomGraph.title')}</h2>
+            <p>{t('widgets.geomGraph.description')}</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshots -->
+        <div class="subsection-label">{t('widgets.liveExamples')}</div>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <img
+              src={`/widgets/mathematics/geomgraph/questions/geomgraph-question-1-${lang === 'tc' ? 'tc' : 'en'}.png?v=20260827-2`}
+              alt={t('widgets.geomGraph.tangentCentralAngles')}
+              loading="lazy"
+            />
+          </div>
+          <div class="screenshot-card">
+            <img
+              src={`/widgets/mathematics/geomgraph/questions/geomgraph-question-2-${lang === 'tc' ? 'tc' : 'en'}.png?v=20260827-2`}
+              alt={t('widgets.geomGraph.twoTangents')}
+              loading="lazy"
+            />
+          </div>
+          <div class="screenshot-card">
+            <img
+              src={`/widgets/mathematics/geomgraph/questions/geomgraph-question-5-${lang === 'tc' ? 'tc' : 'en'}.png?v=20260827-2`}
+              alt={t('widgets.geomGraph.equalChordsAngles')}
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+        <div class="widget-examples two-column">
+          <div class="widget-card large">
+            <img
+              class="geomgraph-image"
+              src="/widgets/mathematics/geomgraph/geomgraph-similar-triangles-parallel.png"
+              alt={t('widgets.geomGraph.parallelSimilarTriangles')}
+            />
+            <span class="widget-label">{t('widgets.geomGraph.parallelSimilarTriangles')}</span>
+          </div>
+          <div class="widget-card large">
+            <img
+              class="geomgraph-image"
+              src="/widgets/mathematics/geomgraph/geomgraph-similar-triangles-altitude.png"
+              alt={t('widgets.geomGraph.altitudeSimilarTriangles')}
+            />
+            <span class="widget-label">{t('widgets.geomGraph.altitudeSimilarTriangles')}</span>
+          </div>
+          <div class="widget-card large">
+            <img
+              class="geomgraph-image"
+              src="/widgets/mathematics/geomgraph/geomgraph-circle-equal-chords-angles.png"
+              alt={t('widgets.geomGraph.equalChordsAngles')}
+            />
+            <span class="widget-label">{t('widgets.geomGraph.equalChordsAngles')}</span>
+          </div>
+          <div class="widget-card large">
+            <img
+              class="geomgraph-image"
+              src="/widgets/mathematics/geomgraph/geomgraph-circle-equidistant-chords.png"
+              alt={t('widgets.geomGraph.equidistantChords')}
+            />
+            <span class="widget-label">{t('widgets.geomGraph.equidistantChords')}</span>
+          </div>
+          <div class="widget-card large">
+            <img
+              class="geomgraph-image"
+              src="/widgets/mathematics/geomgraph/geomgraph-circle-two-tangents.png"
+              alt={t('widgets.geomGraph.twoTangents')}
+            />
+            <span class="widget-label">{t('widgets.geomGraph.twoTangents')}</span>
           </div>
         </div>
       </div>
@@ -2353,6 +2437,12 @@ const econGraphCategories = [
 
   .widget-card.large img {
     max-width: 100%;
+  }
+
+  .widget-card.large img.geomgraph-image {
+    width: auto;
+    height: auto;
+    max-height: 220px;
   }
 
   .widget-card img {
