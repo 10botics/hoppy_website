@@ -1,0 +1,27 @@
+---
+interface Props {
+  level: 'primary' | 'secondary';
+}
+
+const { level } = Astro.props as Props;
+---
+
+{level === 'primary' ? (
+  <>
+    <slot name="analog-clock" />
+    <slot name="digital-clock" />
+    <slot name="bar-chart" />
+    <slot name="broken-line-graph" />
+    <slot name="shape-3d" />
+  </>
+) : (
+  <>
+    <slot name="equation-graph" />
+    <slot name="geom-graph" />
+    <slot name="shape-3d" />
+    <slot name="box-whisker" />
+    <slot name="bar-chart" />
+    <slot name="stacked-bar-chart" />
+    <slot name="broken-line-graph" />
+  </>
+)}

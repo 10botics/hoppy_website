@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MathematicsWidgetSections from './subjects/MathematicsWidgetSections.astro';
 import SubjectNavigation from './subjects/SubjectNavigation.astro';
 import SampleQuizSection from './subjects/SampleQuizSection.astro';
 import { useTranslations, getLocalizedScreenshot, type Lang, defaultLang } from '../i18n/ui';
@@ -402,13 +403,13 @@ const mathematicsWidgetGroups = [
     id: 'secondary',
     titleKey: 'subjects.secondaryTitle',
     widgets: [
-      { id: 'bar-chart', titleKey: 'widgets.barChart.title', icon: '📊' },
-      { id: 'stacked-bar-chart', titleKey: 'widgets.stackedBarChart.title', icon: '📊' },
-      { id: 'broken-line-graph', titleKey: 'widgets.brokenLineGraph.title', icon: '📉' },
-      { id: 'box-whisker', titleKey: 'widgets.boxWhisker.title', icon: '📈' },
       { id: 'equation-graph', titleKey: 'widgets.equationGraph.title', icon: '📐' },
       { id: 'geom-graph', titleKey: 'widgets.geomGraph.title', icon: '△' },
       { id: 'shape-3d', titleKey: 'widgets.shape3d.title', icon: '🔷' },
+      { id: 'box-whisker', titleKey: 'widgets.boxWhisker.title', icon: '📈' },
+      { id: 'bar-chart', titleKey: 'widgets.barChart.title', icon: '📊' },
+      { id: 'stacked-bar-chart', titleKey: 'widgets.stackedBarChart.title', icon: '📊' },
+      { id: 'broken-line-graph', titleKey: 'widgets.brokenLineGraph.title', icon: '📉' },
     ],
   },
 ];
@@ -998,8 +999,9 @@ const econGraphCategories = [
         ))}
       </div>
 
+      <MathematicsWidgetSections level={selectedLevel ?? 'secondary'}>
       <!-- Analog Clock -->
-      {selectedLevel !== 'secondary' && (
+      <Fragment slot="analog-clock">
       <div class="widget-section" id="math-analog-clock">
         <div class="widget-header">
           <div class="widget-icon">🕐</div>
@@ -1033,10 +1035,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
-      )}
+      </Fragment>
 
       <!-- Digital Clock -->
-      {selectedLevel !== 'secondary' && (
+      <Fragment slot="digital-clock">
       <div class="widget-section" id="math-digital-clock">
         <div class="widget-header">
           <div class="widget-icon">⏰</div>
@@ -1067,9 +1069,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
-      )}
+      </Fragment>
 
       <!-- Bar Chart -->
+      <Fragment slot="bar-chart">
       <div class="widget-section" id="math-bar-chart">
         <div class="widget-header">
           <div class="widget-icon">📊</div>
@@ -1096,9 +1099,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      </Fragment>
 
       <!-- Stacked Bar Chart -->
-      {selectedLevel !== 'primary' && (
+      <Fragment slot="stacked-bar-chart">
       <div class="widget-section" id="math-stacked-bar-chart">
         <div class="widget-header">
           <div class="widget-icon">📊</div>
@@ -1128,9 +1132,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
-      )}
+      </Fragment>
 
       <!-- Broken Line Graph -->
+      <Fragment slot="broken-line-graph">
       <div class="widget-section" id="math-broken-line-graph">
         <div class="widget-header">
           <div class="widget-icon">📉</div>
@@ -1164,9 +1169,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      </Fragment>
 
       <!-- Box Whisker Plot -->
-      {selectedLevel !== 'primary' && (
+      <Fragment slot="box-whisker">
       <div class="widget-section" id="math-box-whisker">
         <div class="widget-header">
           <div class="widget-icon">📈</div>
@@ -1193,10 +1199,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
-      )}
+      </Fragment>
 
       <!-- Equation Graph -->
-      {selectedLevel !== 'primary' && (
+      <Fragment slot="equation-graph">
       <div class="widget-section" id="math-equation-graph">
         <div class="widget-header">
           <div class="widget-icon">📐</div>
@@ -1237,10 +1243,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
-      )}
+      </Fragment>
 
       <!-- 2D Geometry Diagrams -->
-      {selectedLevel !== 'primary' && (
+      <Fragment slot="geom-graph">
       <div class="widget-section" id="math-geom-graph">
         <div class="widget-header">
           <div class="widget-icon">△</div>
@@ -1320,9 +1326,10 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
-      )}
+      </Fragment>
 
       <!-- 3D Shapes -->
+      <Fragment slot="shape-3d">
       <div class="widget-section" id="math-shape-3d">
         <div class="widget-header">
           <div class="widget-icon">🔷</div>
@@ -1377,6 +1384,8 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      </Fragment>
+      </MathematicsWidgetSections>
 
       </>)}
 

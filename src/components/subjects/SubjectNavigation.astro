@@ -18,6 +18,12 @@ const subjects = subjectsByLevel[level];
 const schoolLevels = ['primary', 'secondary'] as const;
 
 const getLevelHref = (targetLevel: typeof schoolLevels[number]) => {
+  const targetSubjects: readonly string[] = subjectsByLevel[targetLevel];
+
+  if (currentSubject && targetSubjects.includes(currentSubject)) {
+    return `${langPrefix}/subjects/${targetLevel}/${currentSubject}`;
+  }
+
   return `${langPrefix}/subjects/${targetLevel}`;
 };
 ---
