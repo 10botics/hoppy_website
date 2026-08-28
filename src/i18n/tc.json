@@ -247,9 +247,9 @@
         "openPdf": "開啟 PDF",
         "openInApp": "在 Hoppy 開啟",
         "quizzes": {
-          "atomsIonsBonding": {
-            "title": "原子、離子與化學鍵",
-            "description": "原子結構、化學式、離子鍵、共價鍵及金屬結構。",
+          "structureBondingAtom": {
+            "title": "結構、鍵結與原子",
+            "description": "原子結構、離子鍵與共價鍵、分子間作用力及物料性質。",
             "meta": "10 題",
             "language": "繁體中文"
           },
@@ -831,6 +831,12 @@
           "description": "練習溫標、熱容量、理想氣體、氣體分子運動論及物態變化。",
           "meta": "10 題",
           "language": "英文"
+        },
+        "magnetismInductionCircuits": {
+          "title": "磁場、感應與電路挑戰",
+          "description": "練習磁場與磁力、電磁感應及多元件電路。",
+          "meta": "10 題",
+          "language": "繁體中文"
         }
       }
     },

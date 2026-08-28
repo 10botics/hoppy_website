@@ -247,9 +247,9 @@
         "openPdf": "Open PDF",
         "openInApp": "Open in Hoppy",
         "quizzes": {
-          "atomsIonsBonding": {
-            "title": "Atoms, Ions and Bonding",
-            "description": "Atomic structure, formulae, ionic and covalent bonding, and metallic structures.",
+          "structureBondingAtom": {
+            "title": "Structure, Bonding and the Atom",
+            "description": "Atomic structure, ionic and covalent bonding, intermolecular forces, and material properties.",
             "meta": "10 questions",
             "language": "English"
           },
@@ -829,6 +829,12 @@
         "heatKineticTheory": {
           "title": "Heat, Temperature and Kinetic Theory",
           "description": "Practise temperature scales, heat capacity, ideal gases, kinetic theory, and changes of state.",
+          "meta": "10 questions",
+          "language": "English"
+        },
+        "magnetismInductionCircuits": {
+          "title": "Magnetism, Induction and Circuits Challenge",
+          "description": "Practise magnetic fields and forces, electromagnetic induction, and multi-component circuits.",
           "meta": "10 questions",
           "language": "English"
         }

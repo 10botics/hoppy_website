@@ -38,6 +38,18 @@ const sampleQuizzes = [
     pdfUrl: '/downloads/hkdse-physics-heat-temperature-kinetic-theory.pdf',
     appUrl: 'https://app.hoppy.day/q/t4kkwr',
   },
+  {
+    title: t('physicsPage.sampleQuiz.quizzes.magnetismInductionCircuits.title'),
+    description: t('physicsPage.sampleQuiz.quizzes.magnetismInductionCircuits.description'),
+    meta: t('physicsPage.sampleQuiz.quizzes.magnetismInductionCircuits.meta'),
+    language: t('physicsPage.sampleQuiz.quizzes.magnetismInductionCircuits.language'),
+    pdfUrl: lang === 'tc'
+      ? '/downloads/hkdse-physics-magnetism-induction-circuits-challenge-tc.pdf'
+      : '/downloads/hkdse-physics-magnetism-induction-circuits-challenge.pdf',
+    appUrl: lang === 'tc'
+      ? 'https://app.hoppy.day/q/npusvp'
+      : 'https://app.hoppy.day/q/vmabzk',
+  },
 ];
 ---
 
