@@ -1,0 +1,224 @@
+---
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props as Props;
+const t = useTranslations(lang);
+const liveExampleLanguage = lang === 'tc' ? 'tc' : 'en';
+
+const examples = [
+  {
+    id: 'cube-diagonal-plane',
+    titleKey: 'widgets.shape3d.secondary.examples.cube.title',
+    altKey: 'widgets.shape3d.secondary.examples.cube.alt',
+  },
+  {
+    id: 'cuboid-edge-point',
+    titleKey: 'widgets.shape3d.secondary.examples.cuboid.title',
+    altKey: 'widgets.shape3d.secondary.examples.cuboid.alt',
+  },
+  {
+    id: 'triangular-prism-internal-line',
+    titleKey: 'widgets.shape3d.secondary.examples.prism.title',
+    altKey: 'widgets.shape3d.secondary.examples.prism.alt',
+  },
+  {
+    id: 'square-pyramid-plane-angle',
+    titleKey: 'widgets.shape3d.secondary.examples.pyramid.title',
+    altKey: 'widgets.shape3d.secondary.examples.pyramid.alt',
+  },
+];
+---
+
+<section class="widget-section secondary-shape3d" id="math-shape-3d">
+  <div class="widget-header">
+    <div class="widget-icon" aria-hidden="true">🔷</div>
+    <div class="widget-info">
+      <h2>{t('widgets.shape3d.title')}</h2>
+      <p>{t('widgets.shape3d.secondary.description')}</p>
+    </div>
+  </div>
+
+  <div class="subsection-label">{t('widgets.liveExamples')}</div>
+  <div class="screenshots-grid">
+    <div class="screenshot-card">
+      <img
+        src={`/screenshots/screenshot-shape3d-secondary-live-${liveExampleLanguage}.png`}
+        alt={t('widgets.shape3d.secondary.liveExamples.first')}
+        width="852"
+        height="1847"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <div class="subsection-label">{t('widgets.widgetVariations')}</div>
+  <div class="shape3d-example-grid">
+    {examples.map((example) => (
+      <article class="shape3d-example-card">
+        <img
+          src={`/widgets/mathematics/shape3d/secondary/shape3d-${example.id}.png?v=20260831-4`}
+          alt={t(example.altKey)}
+          width="700"
+          height="700"
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="widget-label">{t(example.titleKey)}</span>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .widget-section {
+    margin-bottom: 4rem;
+    padding: 2.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .secondary-shape3d {
+    scroll-margin-top: 100px;
+    border-color: #bae6fd;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.13), transparent 28rem),
+      #ffffff;
+  }
+
+  .widget-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .widget-icon {
+    padding: 1rem;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+    border-radius: 16px;
+    font-size: 3rem;
+  }
+
+  .widget-info h2 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .widget-info p {
+    color: #64748b;
+    font-size: var(--widget-description-font-size);
+    line-height: var(--widget-description-line-height);
+    margin: 0;
+  }
+
+  .subsection-label {
+    margin-bottom: 1rem;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .screenshot-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #fafafa 0%, #f0f4f8 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .screenshot-card:hover {
+    border-color: #3FB5DB;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .screenshot-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+  }
+
+  .shape3d-example-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .shape3d-example-card {
+    min-width: 0;
+    padding: 1rem;
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+  }
+
+  .shape3d-example-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    border-radius: 12px;
+  }
+
+  .widget-label {
+    display: block;
+    margin: 0.85rem 0 0;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .widget-section {
+      padding: 1.5rem;
+    }
+
+    .widget-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .shape3d-example-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .screenshot-card {
+      transition: none;
+    }
+  }
+</style>

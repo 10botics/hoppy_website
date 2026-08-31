@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MathematicsWidgetSections from './subjects/MathematicsWidgetSections.astro';
+import SecondaryShape3dShowcase from './subjects/SecondaryShape3dShowcase.astro';
 import SubjectNavigation from './subjects/SubjectNavigation.astro';
 import SampleQuizSection from './subjects/SampleQuizSection.astro';
 import { useTranslations, getLocalizedScreenshot, type Lang, defaultLang } from '../i18n/ui';
@@ -1330,6 +1331,9 @@ const econGraphCategories = [
 
       <!-- 3D Shapes -->
       <Fragment slot="shape-3d">
+      {selectedLevel === 'secondary' ? (
+        <SecondaryShape3dShowcase lang={lang} />
+      ) : (
       <div class="widget-section" id="math-shape-3d">
         <div class="widget-header">
           <div class="widget-icon">🔷</div>
@@ -1384,6 +1388,7 @@ const econGraphCategories = [
           </div>
         </div>
       </div>
+      )}
       </Fragment>
       </MathematicsWidgetSections>
 
@@ -2045,6 +2050,8 @@ const econGraphCategories = [
   }
 
   .widget-section {
+    --widget-description-font-size: 1rem;
+    --widget-description-line-height: 1.6;
     margin-bottom: 4rem;
     background: #ffffff;
     border-radius: 20px;
@@ -2089,8 +2096,8 @@ const econGraphCategories = [
 
   .widget-info p {
     color: #64748b;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: var(--widget-description-font-size);
+    line-height: var(--widget-description-line-height);
     margin: 0;
   }
 

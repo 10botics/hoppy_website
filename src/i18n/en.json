@@ -430,7 +430,7 @@
     },
     "geomGraph": {
       "title": "2D Geometry Diagrams",
-      "description": "Constraint-based diagrams for secondary and HKDSE-style geometry questions, including similar triangles, circles, tangents, chords, angle marks, and construction lines.",
+      "description": "Generates diagrams for secondary and HKDSE-style geometry questions, including similar triangles, circles, tangents, chords, angle marks, and construction lines.",
       "parallelSimilarTriangles": "Parallel Lines and Similar Triangles",
       "altitudeSimilarTriangles": "Altitude in a Right Triangle",
       "equalChordsAngles": "Equal Chords and Circle Angles",
@@ -450,7 +450,31 @@
       "squarePyramid": "Square Pyramid",
       "triangularPrism": "Triangular Prism",
       "octahedron": "Octahedron",
-      "withReferencePoints": "With Reference Points"
+      "withReferencePoints": "With Reference Points",
+      "secondary": {
+        "description": "Visualises vertices, hidden edges, reference points, internal lines and highlighted planes in clear solid models, helping students reason about spatial relationships and solve 3-D trigonometry problems.",
+        "liveExamples": {
+          "first": "Rectangular block midpoint angle question in the Hoppy app"
+        },
+        "examples": {
+          "cube": {
+            "title": "Cube with a Diagonal Cross-section",
+            "alt": "Orthographic Shape3D widget showing cube ABCDEFGH with the diagonal cross-section GDAF highlighted"
+          },
+          "cuboid": {
+            "title": "Cuboid with a Point on an Edge",
+            "alt": "Orthographic Shape3D widget showing a cuboid with a reference point and line"
+          },
+          "prism": {
+            "title": "Triangular Prism with a Midpoint Line",
+            "alt": "Orthographic Shape3D widget showing triangular prism ABCDEF with midpoint M and reference line MC"
+          },
+          "pyramid": {
+            "title": "Square Pyramid with Highlighted Planes",
+            "alt": "Orthographic Shape3D widget showing a square pyramid with highlighted reference planes"
+          }
+        }
+      }
     },
     "circuit": {
       "title": "Electric Circuit",

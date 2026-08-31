@@ -430,7 +430,7 @@
     },
     "geomGraph": {
       "title": "平面幾何圖",
-      "description": "以幾何約束生成適合中學及香港中學文憑試題型的相似三角形、圓、切線、弦、角度標記及輔助線圖。",
+      "description": "生成適合香港中學文憑試題型的幾何圖，包括相似三角形、圓、切線、弦、角度標記及輔助線。",
       "parallelSimilarTriangles": "平行線與相似三角形",
       "altitudeSimilarTriangles": "直角三角形的高",
       "equalChordsAngles": "等弦與圓周角",
@@ -450,7 +450,31 @@
       "squarePyramid": "正方錐",
       "triangularPrism": "三角棱柱",
       "octahedron": "八面體",
-      "withReferencePoints": "帶參考點"
+      "withReferencePoints": "帶參考點",
+      "secondary": {
+        "description": "以清晰的立體模型呈現頂點、隱藏稜線、參考點、內部連線及高亮平面，協助學生理解空間關係和解答立體三角學問題。",
+        "liveExamples": {
+          "first": "Hoppy 應用程式中的長方體中點角度題目"
+        },
+        "examples": {
+          "cube": {
+            "title": "帶對角截面的立方體",
+            "alt": "以正交投影顯示立方體 ABCDEFGH 及高亮對角截面 GDAF 的 Shape3D 小工具"
+          },
+          "cuboid": {
+            "title": "棱上帶參考點的長方體",
+            "alt": "以正交投影顯示參考點及參考線的長方體 Shape3D 小工具"
+          },
+          "prism": {
+            "title": "帶中點連線的三角柱",
+            "alt": "以正交投影顯示三角柱 ABCDEF、中點 M 及參考線 MC 的 Shape3D 小工具"
+          },
+          "pyramid": {
+            "title": "帶高亮平面的四角錐",
+            "alt": "以正交投影顯示帶高亮參考平面的四角錐 Shape3D 小工具"
+          }
+        }
+      }
     },
     "circuit": {
       "title": "電路圖",
