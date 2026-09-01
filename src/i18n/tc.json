@@ -420,13 +420,21 @@
     },
     "equationGraph": {
       "title": "方程式圖",
-      "description": "支援 LaTeX 表示法的數學函數繪圖器。顯示單個或多個方程式，可自定義顏色和坐標軸。",
+      "description": "根據題目內容生成函數圖像、直線、線段、標記點、坐標軸、交點及可行域，清晰呈現方程和不等式的條件，協助學生理解題意、讀取圖像資訊及分析當中的數學關係。",
       "linearInequality": "線性不等式",
       "feasibleRegion": "可行區域",
       "simultaneousEquations": "聯立方程",
       "lineIntersection": "直線相交",
       "logarithmic": "對數函數",
-      "exponential": "指數函數"
+      "exponential": "指數函數",
+      "linearProgramming": "線性規劃可行區域",
+      "functionTransformation": "函數變換",
+      "trigonometricCurve": "正弦函數圖像",
+      "circleLineIntersection": "圓與直線的交點",
+      "quadraticParabola": "二次函數拋物線",
+      "logarithmicComparison": "對數函數比較",
+      "linearRelationsLive": "Hoppy 測驗中顯示兩條直線方程及其圖像的題目",
+      "linearProgrammingLive": "Hoppy 線性規劃測驗，顯示限制條件、可行域及最大值"
     },
     "geomGraph": {
       "title": "平面幾何圖",

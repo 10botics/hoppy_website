@@ -420,13 +420,21 @@
     },
     "equationGraph": {
       "title": "Equation Graph",
-      "description": "Mathematical function plotter supporting LaTeX notation. Display single or multiple equations with customizable colors and axes.",
+      "description": "Generates function graphs, lines, segments, labelled points, coordinate axes, intersections and feasible regions based on the question, clearly presenting the conditions expressed by equations and inequalities to help students understand the question, interpret graphical information and analyse the mathematical relationships involved.",
       "linearInequality": "Linear Inequality",
       "feasibleRegion": "Feasible Region",
       "simultaneousEquations": "Simultaneous Equations",
       "lineIntersection": "Line Intersection",
       "logarithmic": "Logarithmic Functions",
-      "exponential": "Exponential Function"
+      "exponential": "Exponential Function",
+      "linearProgramming": "Linear Programming Feasible Region",
+      "functionTransformation": "Function Transformation",
+      "trigonometricCurve": "Sine Function",
+      "circleLineIntersection": "Circle-Line Intersection",
+      "quadraticParabola": "Quadratic Parabola",
+      "logarithmicComparison": "Logarithmic Function Comparison",
+      "linearRelationsLive": "Hoppy quiz showing two straight-line equations and their graphs",
+      "linearProgrammingLive": "Hoppy linear-programming quiz showing constraints, a feasible region, and the maximum value"
     },
     "geomGraph": {
       "title": "2D Geometry Diagrams",

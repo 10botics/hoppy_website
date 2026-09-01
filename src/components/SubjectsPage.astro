@@ -1217,13 +1217,22 @@ const econGraphCategories = [
         <div class="subsection-label">{t('widgets.liveExamples')}</div>
         <div class="screenshots-grid">
           <div class="screenshot-card">
-            <img src={screenshot("/screenshots/screenshot-equation-graph-1.jpeg")} alt="Linear inequality graph" />
+            <img
+              src={`/screenshots/screenshot-equation-graph-live-1-${lang === 'tc' ? 'tc' : 'en'}.png`}
+              alt={t('widgets.equationGraph.linearRelationsLive')}
+              width="1080"
+              height="2244"
+              loading="lazy"
+            />
           </div>
           <div class="screenshot-card">
-            <img src={screenshot("/screenshots/screenshot-equation-graph-3.jpeg")} alt="Simultaneous equations" />
-          </div>
-          <div class="screenshot-card">
-            <img src={screenshot("/screenshots/screenshot-equation-graph-5.jpeg")} alt="Logarithmic functions" />
+            <img
+              src={`/screenshots/screenshot-equation-graph-live-2-${lang === 'tc' ? 'tc' : 'en'}.png`}
+              alt={t('widgets.equationGraph.linearProgrammingLive')}
+              width="1080"
+              height="2244"
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -1231,16 +1240,52 @@ const econGraphCategories = [
         <div class="subsection-label">{t('widgets.widgetVariations')}</div>
         <div class="widget-examples three-column">
           <div class="widget-card">
-            <img src="/widgets/widget_equationgraph_sin.svg" alt="Sine Graph" />
-            <span class="widget-label">sin(x)</span>
+            <img
+              src="/widgets/mathematics/geogebra/secondary/linear-programming.png?v=20260901-2"
+              alt={t('widgets.equationGraph.linearProgramming')}
+              loading="lazy"
+            />
+            <span class="widget-label">{t('widgets.equationGraph.linearProgramming')}</span>
           </div>
           <div class="widget-card">
-            <img src="/widgets/widget_equationgraph_sincos.svg" alt="Sine and Cosine Graph" />
-            <span class="widget-label">sin(x) & cos(x)</span>
+            <img
+              src="/widgets/mathematics/geogebra/secondary/function-transformation.png?v=20260831-3"
+              alt={t('widgets.equationGraph.functionTransformation')}
+              loading="lazy"
+            />
+            <span class="widget-label">{t('widgets.equationGraph.functionTransformation')}</span>
           </div>
           <div class="widget-card">
-            <img src="/widgets/widget_equationgraph_parabola.svg" alt="Parabola Graph" />
-            <span class="widget-label">x²</span>
+            <img
+              src="/widgets/mathematics/geogebra/secondary/trigonometric-curve.png?v=20260831-4"
+              alt={t('widgets.equationGraph.trigonometricCurve')}
+              loading="lazy"
+            />
+            <span class="widget-label">{t('widgets.equationGraph.trigonometricCurve')}</span>
+          </div>
+          <div class="widget-card">
+            <img
+              src="/widgets/mathematics/geogebra/secondary/circle-line-intersection.png?v=20260831-3"
+              alt={t('widgets.equationGraph.circleLineIntersection')}
+              loading="lazy"
+            />
+            <span class="widget-label">{t('widgets.equationGraph.circleLineIntersection')}</span>
+          </div>
+          <div class="widget-card">
+            <img
+              src="/widgets/mathematics/geogebra/secondary/quadratic-parabola.png?v=20260831-2"
+              alt={t('widgets.equationGraph.quadraticParabola')}
+              loading="lazy"
+            />
+            <span class="widget-label">{t('widgets.equationGraph.quadraticParabola')}</span>
+          </div>
+          <div class="widget-card">
+            <img
+              src="/widgets/mathematics/geogebra/secondary/logarithmic-functions.png?v=20260831-2"
+              alt={t('widgets.equationGraph.logarithmicComparison')}
+              loading="lazy"
+            />
+            <span class="widget-label">{t('widgets.equationGraph.logarithmicComparison')}</span>
           </div>
         </div>
       </div>
